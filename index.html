@@ -1321,10 +1321,14 @@ function seleccionarReto(numero){
   cargarTrabajo();
   renderLista();
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+ if (window.matchMedia("(max-width: 900px)").matches) {
+  setTimeout(() => {
+    workspace.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 100);
+};
 }
 
 function conectarContadores(){
