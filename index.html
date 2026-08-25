@@ -19,12 +19,15 @@
   --gris:#64748b;
   --borde:#cbd5e1;
   --fondo:#f8fafc;
-  --blanco:#fff;
+  --blanco:#ffffff;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html,body{
+html,
+body{
   max-width:100%;
   overflow-x:hidden;
 }
@@ -37,7 +40,9 @@ body{
   line-height:1.5;
 }
 
-img,video,iframe{
+img,
+video,
+iframe{
   max-width:100%;
 }
 
@@ -111,10 +116,21 @@ button:hover{
   filter:brightness(1.08);
 }
 
-button.secondary{background:var(--gris)}
-button.warning{background:var(--naranja)}
-button.kinebio{background:var(--morado)}
-button.kinebio:hover{background:var(--morado-hover)}
+button.secondary{
+  background:var(--gris);
+}
+
+button.warning{
+  background:var(--naranja);
+}
+
+button.kinebio{
+  background:var(--morado);
+}
+
+button.kinebio:hover{
+  background:var(--morado-hover);
+}
 
 .container{
   max-width:1250px;
@@ -342,8 +358,13 @@ textarea.diagram{
   margin-top:25px;
 }
 
+.mobile-only{
+  display:none;
+}
+
 /* Tablet y teléfono */
 @media (max-width:900px){
+
   header{
     padding:1.4rem 5vw;
   }
@@ -390,8 +411,19 @@ textarea.diagram{
     padding:14px;
   }
 
+  .panel.oculto-mobile{
+    display:none;
+  }
+
   .workspace{
+    width:100%;
     padding:16px;
+  }
+
+  .mobile-only{
+    display:block;
+    width:100%;
+    margin-bottom:15px;
   }
 
   .workspace h2{
@@ -443,6 +475,7 @@ textarea.diagram{
 
 /* Teléfonos pequeños */
 @media (max-width:480px){
+
   body{
     font-size:15px;
   }
@@ -503,6 +536,7 @@ textarea.diagram{
 }
 
 @media print{
+
   body{
     background:white;
   }
@@ -517,7 +551,8 @@ textarea.diagram{
   .toolbar,
   .panel,
   .action-row,
-  .footer-note{
+  .footer-note,
+  .mobile-only{
     display:none!important;
   }
 
@@ -556,8 +591,12 @@ textarea.diagram{
 </header>
 
 <div class="toolbar">
+
   <label for="buscar">Buscar:</label>
-  <input id="buscar" type="search" placeholder="deporte, proteína o situación">
+  <input
+    id="buscar"
+    type="search"
+    placeholder="deporte, proteína o situación">
 
   <label for="nivel">Dificultad:</label>
   <select id="nivel">
@@ -567,63 +606,77 @@ textarea.diagram{
     <option value="Integración">Integración</option>
   </select>
 
-  <button class="secondary" onclick="limpiarFiltros()">Limpiar filtros</button>
-  <button onclick="guardarTrabajo()">Guardar trabajo</button>
-  <button class="warning" onclick="window.print()">Imprimir ficha</button>
-  <button class="kinebio" onclick="abrirKineBioBot()">Abrir KineBioBot</button>
+  <button class="secondary" onclick="limpiarFiltros()">
+    Limpiar filtros
+  </button>
+
+  <button onclick="guardarTrabajo()">
+    Guardar trabajo
+  </button>
+
+  <button class="warning" onclick="window.print()">
+    Imprimir ficha
+  </button>
+
+  <button class="kinebio" onclick="abrirKineBioBot()">
+    Abrir KineBioBot
+  </button>
+
 </div>
 
 <main class="container">
 
-<section class="notice">
-  <h2>Instrucciones generales</h2>
+  <section class="notice">
+    <h2>Instrucciones generales</h2>
 
-  <p>
-    Formen grupos de <strong>3 a 4 estudiantes</strong> y seleccionen un reto.
-    Un mismo reto puede ser elegido por más de un grupo.
-  </p>
+    <p>
+      Formen grupos de <strong>3 a 4 estudiantes</strong> y seleccionen un reto.
+      Un mismo reto puede ser elegido por más de un grupo.
+    </p>
 
-  <p>
-    Construyan una <strong>hipótesis bioquímica</strong> para responder la consulta del caso,
-    relacionando aminoácidos, proteínas y contracción muscular. Pueden investigar contenidos
-    nuevos utilizando sus apuntes, bibliografía y <strong>KineBioBot</strong>.
-  </p>
+    <p>
+      Construyan una <strong>hipótesis bioquímica</strong> para responder la consulta
+      del caso, relacionando aminoácidos, proteínas y contracción muscular. Pueden
+      investigar contenidos nuevos utilizando sus apuntes, bibliografía y
+      <strong>KineBioBot</strong>.
+    </p>
 
-  <p>
-    No formulen diagnósticos ni utilicen otros sistemas de inteligencia artificial,
-    como ChatGPT, Claude, Gemini o Copilot. El único chatbot autorizado es
-    <strong>KineBioBot</strong>.
-  </p>
+    <p>
+      No formulen diagnósticos ni utilicen otros sistemas de inteligencia artificial,
+      como ChatGPT, Claude, Gemini o Copilot. El único chatbot autorizado es
+      <strong>KineBioBot</strong>.
+    </p>
 
-  <p>
-    Al finalizar, <strong>todos los integrantes deben enviar el trabajo grupal
-    en la tarea correspondiente de Canvas</strong>.
-  </p>
-</section>
-
-<div class="layout">
-
-  <aside class="panel">
-    <h2>Seleccionar reto</h2>
-    <p id="contador-retos"></p>
-    <div id="lista-retos" class="reto-list"></div>
-
-    <div id="sin-resultados" class="empty" style="display:none;">
-      No se encontraron retos con esos criterios.
-    </div>
-  </aside>
-
-  <section id="workspace" class="workspace">
-    <h2>Seleccione un reto</h2>
-    <p>Utilice el panel izquierdo para comenzar.</p>
+    <p>
+      Al finalizar, <strong>todos los integrantes deben enviar el trabajo grupal
+      en la tarea correspondiente de Canvas</strong>.
+    </p>
   </section>
 
-</div>
+  <div class="layout">
 
-<p class="footer-note">
-  Esta plantilla funciona como apoyo para el trabajo grupal. No publica automáticamente
-  la entrega ni modifica Canvas.
-</p>
+    <aside id="panel-retos" class="panel">
+      <h2>Seleccionar reto</h2>
+      <p id="contador-retos"></p>
+
+      <div id="lista-retos" class="reto-list"></div>
+
+      <div id="sin-resultados" class="empty" style="display:none;">
+        No se encontraron retos con esos criterios.
+      </div>
+    </aside>
+
+    <section id="workspace" class="workspace">
+      <h2>Seleccione un reto</h2>
+      <p>Utilice el panel izquierdo para comenzar.</p>
+    </section>
+
+  </div>
+
+  <p class="footer-note">
+    Esta plantilla funciona como apoyo para el trabajo grupal. No publica automáticamente
+    la entrega ni modifica Canvas.
+  </p>
 
 </main>
 
@@ -632,254 +685,378 @@ const URL_KINEBIOBOT =
 "https://ayudantia.ia.uc.cl/agents/68791d5ae695fe053285202c/chat?k=R-FfkvLd8q_XzESDwyIgJtEXcaj3oN4iQ2P2kwkwQFA";
 
 const RETOS = [
+
 {
-numero:1,
-titulo:"El segundo intento del levantador",
-deporte:["Levantamiento de pesas"],
-nivel:"Aplicación",
-situacion:"Un levantador de pesas completa correctamente su primer intento. Cinco minutos después, no logra producir la misma fuerza, aunque utiliza la misma carga y mantiene una técnica aparentemente similar.",
-consulta:"¿Por qué podría disminuir la fuerza entre un intento y otro si los músculos y las proteínas contráctiles aparentemente siguen siendo los mismos?",
-objetivo:"Relacionar la función de actina y miosina con la producción de fuerza y formular una hipótesis temporal.",
-preguntas:["¿Qué deben hacer actina y miosina para producir una contracción?","¿Qué significa que una proteína conserve o disminuya temporalmente su función?","¿Qué diferencia existe entre una proteína presente y una proteína funcionando adecuadamente?","¿Qué información adicional necesitarían para evaluar su hipótesis?"],
-producto:"Respuesta al entrenador y esquema de la interacción actina-miosina.",
-conceptos:["Actina","Miosina","Sarcómero","Función proteica","ATP como contexto"]
+  numero:1,
+  titulo:"El segundo intento del levantador",
+  deporte:["Levantamiento de pesas"],
+  nivel:"Aplicación",
+  situacion:"Un levantador de pesas completa correctamente su primer intento. Cinco minutos después, no logra producir la misma fuerza, aunque utiliza la misma carga y mantiene una técnica aparentemente similar.",
+  consulta:"¿Por qué podría disminuir la fuerza entre un intento y otro si los músculos y las proteínas contráctiles aparentemente siguen siendo los mismos?",
+  objetivo:"Relacionar la función de actina y miosina con la producción de fuerza y formular una hipótesis temporal.",
+  preguntas:[
+    "¿Qué deben hacer actina y miosina para producir una contracción?",
+    "¿Qué significa que una proteína conserve o disminuya temporalmente su función?",
+    "¿Qué diferencia existe entre una proteína presente y una proteína funcionando adecuadamente?",
+    "¿Qué información adicional necesitarían para evaluar su hipótesis?"
+  ],
+  producto:"Respuesta al entrenador y esquema de la interacción actina-miosina.",
+  conceptos:["Actina","Miosina","Sarcómero","Función proteica","ATP como contexto"]
 },
+
 {
-numero:2,
-titulo:"La maratonista que pierde estabilidad",
-deporte:["Maratón"],
-nivel:"Aplicación",
-situacion:"Una maratonista mantiene su ritmo durante gran parte de la carrera. En los últimos kilómetros puede continuar corriendo, pero pierde progresivamente la estabilidad de su postura y la regularidad de su zancada.",
-consulta:"¿Cómo podría relacionarse esta pérdida de estabilidad con el funcionamiento de las proteínas musculares?",
-objetivo:"Relacionar estabilidad proteica, contracción sostenida y función muscular.",
-preguntas:["¿Qué significa que una proteína mantenga su conformación?","¿Qué interacciones estabilizan la estructura de una proteína?","¿Cómo podría una modificación estructural afectar su función?","¿Qué hipótesis pueden plantear sin afirmar una causa definitiva?"],
-producto:"Hipótesis escrita y modelo que conecte estructura proteica y función muscular.",
-conceptos:["Estructura terciaria","Grupos laterales","Proteínas fibrosas","Actina","Miosina"]
+  numero:2,
+  titulo:"La maratonista que pierde estabilidad",
+  deporte:["Maratón"],
+  nivel:"Aplicación",
+  situacion:"Una maratonista mantiene su ritmo durante gran parte de la carrera. En los últimos kilómetros puede continuar corriendo, pero pierde progresivamente la estabilidad de su postura y la regularidad de su zancada.",
+  consulta:"¿Cómo podría relacionarse esta pérdida de estabilidad con el funcionamiento de las proteínas musculares?",
+  objetivo:"Relacionar estabilidad proteica, contracción sostenida y función muscular.",
+  preguntas:[
+    "¿Qué significa que una proteína mantenga su conformación?",
+    "¿Qué interacciones estabilizan la estructura de una proteína?",
+    "¿Cómo podría una modificación estructural afectar su función?",
+    "¿Qué hipótesis pueden plantear sin afirmar una causa definitiva?"
+  ],
+  producto:"Hipótesis escrita y modelo que conecte estructura proteica y función muscular.",
+  conceptos:["Estructura terciaria","Grupos laterales","Proteínas fibrosas","Actina","Miosina"]
 },
+
 {
-numero:3,
-titulo:"El futbolista que pierde precisión",
-deporte:["Fútbol"],
-nivel:"Aplicación",
-situacion:"Durante los primeros minutos de un partido, un futbolista acelera, frena y cambia de dirección con precisión. Más tarde, todavía puede correr, pero sus movimientos son menos exactos.",
-consulta:"¿Por qué podría conservar la capacidad de desplazarse, pero perder precisión en sus movimientos?",
-objetivo:"Diferenciar generación de fuerza, regulación de la contracción y coordinación molecular.",
-preguntas:["¿Qué diferencia existe entre producir fuerza y controlar una contracción?","¿Qué proteínas pueden participar directamente en la fuerza?","¿Qué proteínas podrían contribuir a regular u organizar la contracción?","¿Qué información adicional sería necesaria?"],
-producto:"Mapa causal que diferencie proteínas contráctiles, estructurales y reguladoras.",
-conceptos:["Actina","Miosina","Proteínas reguladoras","Estructura-función","Fibras I y IIa"]
+  numero:3,
+  titulo:"El futbolista que pierde precisión",
+  deporte:["Fútbol"],
+  nivel:"Aplicación",
+  situacion:"Durante los primeros minutos de un partido, un futbolista acelera, frena y cambia de dirección con precisión. Más tarde, todavía puede correr, pero sus movimientos son menos exactos.",
+  consulta:"¿Por qué podría conservar la capacidad de desplazarse, pero perder precisión en sus movimientos?",
+  objetivo:"Diferenciar generación de fuerza, regulación de la contracción y coordinación molecular.",
+  preguntas:[
+    "¿Qué diferencia existe entre producir fuerza y controlar una contracción?",
+    "¿Qué proteínas pueden participar directamente en la fuerza?",
+    "¿Qué proteínas podrían contribuir a regular u organizar la contracción?",
+    "¿Qué información adicional sería necesaria?"
+  ],
+  producto:"Mapa causal que diferencie proteínas contráctiles, estructurales y reguladoras.",
+  conceptos:["Actina","Miosina","Proteínas reguladoras","Estructura-función","Fibras I y IIa"]
 },
+
 {
-numero:4,
-titulo:"La bailarina que no logra mantener una postura",
-deporte:["Danza"],
-nivel:"Aplicación",
-situacion:"Una bailarina puede ejecutar saltos con fuerza, pero tiene dificultades para mantener una postura sobre una pierna durante varios segundos.",
-consulta:"¿Por qué una persona podría generar fuerza rápidamente, pero tener dificultades para mantener una contracción controlada?",
-objetivo:"Relacionar duración e intensidad de la acción con proteínas y fibras musculares.",
-preguntas:["¿Qué diferencia existe entre una contracción breve y una sostenida?","¿Qué componentes moleculares participan en ambas?","¿Qué papel podrían cumplir las proteínas reguladoras?","¿Cómo podrían relacionarse las fibras musculares con la tarea?"],
-producto:"Comparación entre el salto y la postura sostenida.",
-conceptos:["Actina","Miosina","Proteínas reguladoras","Fibras I y IIa","Estructura-función"]
+  numero:4,
+  titulo:"La bailarina que no logra mantener una postura",
+  deporte:["Danza"],
+  nivel:"Aplicación",
+  situacion:"Una bailarina puede ejecutar saltos con fuerza, pero tiene dificultades para mantener una postura sobre una pierna durante varios segundos.",
+  consulta:"¿Por qué una persona podría generar fuerza rápidamente, pero tener dificultades para mantener una contracción controlada?",
+  objetivo:"Relacionar duración e intensidad de la acción con proteínas y fibras musculares.",
+  preguntas:[
+    "¿Qué diferencia existe entre una contracción breve y una sostenida?",
+    "¿Qué componentes moleculares participan en ambas?",
+    "¿Qué papel podrían cumplir las proteínas reguladoras?",
+    "¿Cómo podrían relacionarse las fibras musculares con la tarea?"
+  ],
+  producto:"Comparación entre el salto y la postura sostenida.",
+  conceptos:["Actina","Miosina","Proteínas reguladoras","Fibras I y IIa","Estructura-función"]
 },
+
 {
-numero:5,
-titulo:"Dos nadadores con masa muscular similar",
-deporte:["Natación"],
-nivel:"Análisis",
-situacion:"Dos nadadores tienen masa muscular similar y entrenan con volúmenes comparables. Sin embargo, uno alcanza una velocidad mayor durante los primeros 25 metros de una prueba de 50 metros.",
-consulta:"¿Por qué dos nadadores con una masa muscular similar podrían desarrollar velocidades diferentes?",
-objetivo:"Relacionar propiedades de proteínas contráctiles con velocidad de contracción.",
-preguntas:["¿Por qué la cantidad de músculo no explica por sí sola la velocidad?","¿Cómo podría influir la secuencia de aminoácidos de una proteína?","¿Cómo podría una diferencia conformacional afectar su función?","¿Qué relación puede existir entre miosina, actina y velocidad de contracción?"],
-producto:"Explicación dirigida al entrenador y esquema molecular.",
-conceptos:["Aminoácidos","Estructura primaria","Estructura terciaria","Miosina","Actina","Fibras rápidas"]
+  numero:5,
+  titulo:"Dos nadadores con masa muscular similar",
+  deporte:["Natación"],
+  nivel:"Análisis",
+  situacion:"Dos nadadores tienen masa muscular similar y entrenan con volúmenes comparables. Sin embargo, uno alcanza una velocidad mayor durante los primeros 25 metros de una prueba de 50 metros.",
+  consulta:"¿Por qué dos nadadores con una masa muscular similar podrían desarrollar velocidades diferentes?",
+  objetivo:"Relacionar propiedades de proteínas contráctiles con velocidad de contracción.",
+  preguntas:[
+    "¿Por qué la cantidad de músculo no explica por sí sola la velocidad?",
+    "¿Cómo podría influir la secuencia de aminoácidos de una proteína?",
+    "¿Cómo podría una diferencia conformacional afectar su función?",
+    "¿Qué relación puede existir entre miosina, actina y velocidad de contracción?"
+  ],
+  producto:"Explicación dirigida al entrenador y esquema molecular.",
+  conceptos:["Aminoácidos","Estructura primaria","Estructura terciaria","Miosina","Actina","Fibras rápidas"]
 },
+
 {
-numero:6,
-titulo:"La nadadora en agua fría",
-deporte:["Natación"],
-nivel:"Aplicación",
-situacion:"Una nadadora comienza a perder coordinación muscular durante una competencia en agua más fría de lo habitual.",
-consulta:"¿Cómo podría la temperatura influir en el funcionamiento de las proteínas que participan en el movimiento?",
-objetivo:"Relacionar temperatura, conformación proteica y función.",
-preguntas:["¿Qué puede cambiar en una proteína cuando cambia la temperatura?","¿Qué diferencia existe entre modificar la actividad y desnaturalizar una proteína?","¿Cómo interpretarían una tabla de actividad proteica a distintas temperaturas?","¿Qué hipótesis explica mejor la pérdida de coordinación?"],
-producto:"Interpretación de datos y explicación dirigida a la nadadora.",
-conceptos:["Conformación","Interacciones no covalentes","Estabilidad","Función proteica"]
+  numero:6,
+  titulo:"La nadadora en agua fría",
+  deporte:["Natación"],
+  nivel:"Aplicación",
+  situacion:"Una nadadora comienza a perder coordinación muscular durante una competencia en agua más fría de lo habitual.",
+  consulta:"¿Cómo podría la temperatura influir en el funcionamiento de las proteínas que participan en el movimiento?",
+  objetivo:"Relacionar temperatura, conformación proteica y función.",
+  preguntas:[
+    "¿Qué puede cambiar en una proteína cuando cambia la temperatura?",
+    "¿Qué diferencia existe entre modificar la actividad y desnaturalizar una proteína?",
+    "¿Cómo interpretarían una tabla de actividad proteica a distintas temperaturas?",
+    "¿Qué hipótesis explica mejor la pérdida de coordinación?"
+  ],
+  producto:"Interpretación de datos y explicación dirigida a la nadadora.",
+  conceptos:["Conformación","Interacciones no covalentes","Estabilidad","Función proteica"]
 },
+
 {
-numero:7,
-titulo:"La escaladora que pierde fuerza en los dedos",
-deporte:["Escalada"],
-nivel:"Aplicación",
-situacion:"Una escaladora puede sostenerse en una presa grande al inicio de una ruta, pero después de varios intentos pierde rápidamente la capacidad de mantener una presa pequeña.",
-consulta:"¿Qué podría estar ocurriendo a nivel molecular cuando mis dedos dejan de sostenerme como al comienzo?",
-objetivo:"Relacionar contracción sostenida, proteínas musculares y estabilidad funcional.",
-preguntas:["¿Qué diferencia existe entre sostener una posición y producir un movimiento?","¿Qué proteínas participan en ambas situaciones?","¿Cómo podría cambiar la capacidad funcional de la maquinaria contráctil?","¿Qué información adicional solicitarían?"],
-producto:"Hipótesis y comparación entre una contracción sostenida y una contracción dinámica.",
-conceptos:["Actina","Miosina","Fibras I y IIa","Contracción isométrica","Proteínas musculares"]
+  numero:7,
+  titulo:"La escaladora que pierde fuerza en los dedos",
+  deporte:["Escalada"],
+  nivel:"Aplicación",
+  situacion:"Una escaladora puede sostenerse en una presa grande al inicio de una ruta, pero después de varios intentos pierde rápidamente la capacidad de mantener una presa pequeña.",
+  consulta:"¿Qué podría estar ocurriendo a nivel molecular cuando mis dedos dejan de sostenerme como al comienzo?",
+  objetivo:"Relacionar contracción sostenida, proteínas musculares y estabilidad funcional.",
+  preguntas:[
+    "¿Qué diferencia existe entre sostener una posición y producir un movimiento?",
+    "¿Qué proteínas participan en ambas situaciones?",
+    "¿Cómo podría cambiar la capacidad funcional de la maquinaria contráctil?",
+    "¿Qué información adicional solicitarían?"
+  ],
+  producto:"Hipótesis y comparación entre una contracción sostenida y una contracción dinámica.",
+  conceptos:["Actina","Miosina","Fibras I y IIa","Contracción isométrica","Proteínas musculares"]
 },
+
 {
-numero:8,
-titulo:"El tenista que pierde precisión",
-deporte:["Tenis"],
-nivel:"Aplicación",
-situacion:"Un tenista comienza el partido golpeando con precisión. Después de varios juegos todavía puede desplazarse y producir fuerza, pero sus golpes son menos coordinados.",
-consulta:"¿Por qué puedo seguir generando fuerza, pero perder precisión y control en mis movimientos?",
-objetivo:"Analizar la relación entre proteínas contráctiles, reguladoras y control del movimiento.",
-preguntas:["¿Qué diferencia existe entre fuerza y precisión?","¿Qué proteínas podrían estar relacionadas con el control?","¿Cómo puede influir la conformación de una proteína?","¿Qué hipótesis podrían coexistir?"],
-producto:"Respuesta al tenista y diagrama de generación y regulación de la contracción.",
-conceptos:["Proteínas contráctiles","Proteínas reguladoras","Proteínas estructurales","Actina","Miosina"]
+  numero:8,
+  titulo:"El tenista que pierde precisión",
+  deporte:["Tenis"],
+  nivel:"Aplicación",
+  situacion:"Un tenista comienza el partido golpeando con precisión. Después de varios juegos todavía puede desplazarse y producir fuerza, pero sus golpes son menos coordinados.",
+  consulta:"¿Por qué puedo seguir generando fuerza, pero perder precisión y control en mis movimientos?",
+  objetivo:"Analizar la relación entre proteínas contráctiles, reguladoras y control del movimiento.",
+  preguntas:[
+    "¿Qué diferencia existe entre fuerza y precisión?",
+    "¿Qué proteínas podrían estar relacionadas con el control?",
+    "¿Cómo puede influir la conformación de una proteína?",
+    "¿Qué hipótesis podrían coexistir?"
+  ],
+  producto:"Respuesta al tenista y diagrama de generación y regulación de la contracción.",
+  conceptos:["Proteínas contráctiles","Proteínas reguladoras","Proteínas estructurales","Actina","Miosina"]
 },
+
 {
-numero:9,
-titulo:"La gimnasta y el cambio de un aminoácido",
-deporte:["Gimnasia"],
-nivel:"Análisis",
-situacion:"En un análisis hipotético, una proteína relacionada con la contracción muscular presenta un aminoácido diferente al habitual. El aminoácido original era apolar y el nuevo es polar.",
-consulta:"¿Por qué un cambio tan pequeño podría afectar mi movimiento si la proteína conserva casi todos sus aminoácidos?",
-objetivo:"Relacionar propiedades de los grupos laterales con plegamiento y función proteica.",
-preguntas:["¿Por qué importa la ubicación del aminoácido?","¿Qué interacciones podrían modificarse?","¿Cómo podría cambiar el plegamiento de la proteína?","¿Qué parte de la explicación es una hipótesis?"],
-producto:"Modelo del posible cambio estructural y respuesta de 150–250 palabras.",
-conceptos:["Polaridad","Grupos laterales","Estructura primaria","Estructura terciaria","Interacciones hidrofóbicas"]
+  numero:9,
+  titulo:"La gimnasta y el cambio de un aminoácido",
+  deporte:["Gimnasia"],
+  nivel:"Análisis",
+  situacion:"En un análisis hipotético, una proteína relacionada con la contracción muscular presenta un aminoácido diferente al habitual. El aminoácido original era apolar y el nuevo es polar.",
+  consulta:"¿Por qué un cambio tan pequeño podría afectar mi movimiento si la proteína conserva casi todos sus aminoácidos?",
+  objetivo:"Relacionar propiedades de los grupos laterales con plegamiento y función proteica.",
+  preguntas:[
+    "¿Por qué importa la ubicación del aminoácido?",
+    "¿Qué interacciones podrían modificarse?",
+    "¿Cómo podría cambiar el plegamiento de la proteína?",
+    "¿Qué parte de la explicación es una hipótesis?"
+  ],
+  producto:"Modelo del posible cambio estructural y respuesta de 150–250 palabras.",
+  conceptos:["Polaridad","Grupos laterales","Estructura primaria","Estructura terciaria","Interacciones hidrofóbicas"]
 },
+
 {
-numero:10,
-titulo:"El velocista que no repite su mejor salida",
-deporte:["Sprint"],
-nivel:"Análisis",
-situacion:"Un velocista realiza una excelente salida en el primer intento. Durante las repeticiones posteriores disminuye la velocidad de extensión de sus piernas.",
-consulta:"¿Cómo podrían las características de la miosina influir en la velocidad con que se desarrolla una contracción?",
-objetivo:"Relacionar estructura, actividad y función de una proteína contráctil.",
-preguntas:["¿Qué debe ocurrir para que la miosina interactúe con la actina?","¿Cómo podría una modificación estructural afectar esa interacción?","¿Qué significa que una proteína tenga una función más rápida?","¿Qué datos permitirían evaluar esta hipótesis?"],
-producto:"Hipótesis sobre miosina y diagrama de interacción con actina.",
-conceptos:["Miosina","Actina","Estructura proteica","Interacción proteína-proteína","Fibras rápidas"]
+  numero:10,
+  titulo:"El velocista que no repite su mejor salida",
+  deporte:["Sprint"],
+  nivel:"Análisis",
+  situacion:"Un velocista realiza una excelente salida en el primer intento. Durante las repeticiones posteriores disminuye la velocidad de extensión de sus piernas.",
+  consulta:"¿Cómo podrían las características de la miosina influir en la velocidad con que se desarrolla una contracción?",
+  objetivo:"Relacionar estructura, actividad y función de una proteína contráctil.",
+  preguntas:[
+    "¿Qué debe ocurrir para que la miosina interactúe con la actina?",
+    "¿Cómo podría una modificación estructural afectar esa interacción?",
+    "¿Qué significa que una proteína tenga una función más rápida?",
+    "¿Qué datos permitirían evaluar esta hipótesis?"
+  ],
+  producto:"Hipótesis sobre miosina y diagrama de interacción con actina.",
+  conceptos:["Miosina","Actina","Estructura proteica","Interacción proteína-proteína","Fibras rápidas"]
 },
+
 {
-numero:11,
-titulo:"La jugadora de vóleibol que aterriza con dificultad",
-deporte:["Vóleibol"],
-nivel:"Análisis",
-situacion:"Una jugadora puede saltar verticalmente, pero después de varias repeticiones comienza a controlar peor el aterrizaje.",
-consulta:"¿Por qué producir un salto y controlar un aterrizaje podrían requerir una participación diferente de las proteínas musculares?",
-objetivo:"Diferenciar producción y control de fuerza desde la organización molecular.",
-preguntas:["¿Qué diferencia existe entre acortar y alargar un músculo activo?","¿La actividad de las proteínas desaparece durante el aterrizaje?","¿Cómo podría regularse la fuerza?","¿Qué hipótesis explica la pérdida de control?"],
-producto:"Secuencia molecular simplificada del salto y el aterrizaje.",
-conceptos:["Actina","Miosina","Sarcómero","Contracción concéntrica","Contracción excéntrica"]
+  numero:11,
+  titulo:"La jugadora de vóleibol que aterriza con dificultad",
+  deporte:["Vóleibol"],
+  nivel:"Análisis",
+  situacion:"Una jugadora puede saltar verticalmente, pero después de varias repeticiones comienza a controlar peor el aterrizaje.",
+  consulta:"¿Por qué producir un salto y controlar un aterrizaje podrían requerir una participación diferente de las proteínas musculares?",
+  objetivo:"Diferenciar producción y control de fuerza desde la organización molecular.",
+  preguntas:[
+    "¿Qué diferencia existe entre acortar y alargar un músculo activo?",
+    "¿La actividad de las proteínas desaparece durante el aterrizaje?",
+    "¿Cómo podría regularse la fuerza?",
+    "¿Qué hipótesis explica la pérdida de control?"
+  ],
+  producto:"Secuencia molecular simplificada del salto y el aterrizaje.",
+  conceptos:["Actina","Miosina","Sarcómero","Contracción concéntrica","Contracción excéntrica"]
 },
+
 {
-numero:12,
-titulo:"El remero que pierde sincronización",
-deporte:["Remo"],
-nivel:"Aplicación",
-situacion:"Un remero puede iniciar cada palada con fuerza, pero después de varias repeticiones pierde la sincronización del movimiento.",
-consulta:"¿Cómo podría la organización de las proteínas musculares influir en la coordinación de un movimiento repetitivo?",
-objetivo:"Relacionar organización espacial de proteínas y función coordinada.",
-preguntas:["¿Por qué no basta con que las proteínas estén presentes?","¿Qué importancia tiene su organización espacial?","¿Cómo podría afectar la función una alteración en esa organización?","¿Qué evidencia sería necesaria?"],
-producto:"Modelo de un sarcómero organizado y explicación funcional.",
-conceptos:["Estructura cuaternaria","Proteínas fibrosas","Actina","Miosina","Organización molecular"]
+  numero:12,
+  titulo:"El remero que pierde sincronización",
+  deporte:["Remo"],
+  nivel:"Aplicación",
+  situacion:"Un remero puede iniciar cada palada con fuerza, pero después de varias repeticiones pierde la sincronización del movimiento.",
+  consulta:"¿Cómo podría la organización de las proteínas musculares influir en la coordinación de un movimiento repetitivo?",
+  objetivo:"Relacionar organización espacial de proteínas y función coordinada.",
+  preguntas:[
+    "¿Por qué no basta con que las proteínas estén presentes?",
+    "¿Qué importancia tiene su organización espacial?",
+    "¿Cómo podría afectar la función una alteración en esa organización?",
+    "¿Qué evidencia sería necesaria?"
+  ],
+  producto:"Modelo de un sarcómero organizado y explicación funcional.",
+  conceptos:["Estructura cuaternaria","Proteínas fibrosas","Actina","Miosina","Organización molecular"]
 },
+
 {
-numero:13,
-titulo:"La nadadora que cambia de prueba",
-deporte:["Natación"],
-nivel:"Análisis",
-situacion:"Una nadadora especialista en 1.500 metros comienza a entrenar para una prueba de 50 metros. Puede completar los movimientos, pero no alcanza la velocidad de salida de sus compañeras.",
-consulta:"¿Por qué una persona que se desempeña bien en una prueba prolongada podría no responder igual en una prueba breve y explosiva?",
-objetivo:"Relacionar tipos de fibras, proteínas contráctiles y demandas de contracción.",
-preguntas:["¿Qué demandas son diferentes entre ambas pruebas?","¿Qué características de las fibras podrían ser relevantes?","¿Cómo se relacionan esas características con las proteínas contráctiles?","¿Qué otros datos deberían investigar?"],
-producto:"Explicación comparativa dirigida a la entrenadora.",
-conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración de la contracción"]
+  numero:13,
+  titulo:"La nadadora que cambia de prueba",
+  deporte:["Natación"],
+  nivel:"Análisis",
+  situacion:"Una nadadora especialista en 1.500 metros comienza a entrenar para una prueba de 50 metros. Puede completar los movimientos, pero no alcanza la velocidad de salida de sus compañeras.",
+  consulta:"¿Por qué una persona que se desempeña bien en una prueba prolongada podría no responder igual en una prueba breve y explosiva?",
+  objetivo:"Relacionar tipos de fibras, proteínas contráctiles y demandas de contracción.",
+  preguntas:[
+    "¿Qué demandas son diferentes entre ambas pruebas?",
+    "¿Qué características de las fibras podrían ser relevantes?",
+    "¿Cómo se relacionan esas características con las proteínas contráctiles?",
+    "¿Qué otros datos deberían investigar?"
+  ],
+  producto:"Explicación comparativa dirigida a la entrenadora.",
+  conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración de la contracción"]
 },
+
 {
-numero:14,
-titulo:"El bailarín que no sostiene una posición",
-deporte:["Danza"],
-nivel:"Aplicación",
-situacion:"Un bailarín realiza movimientos rápidos y saltos, pero tiene dificultades para mantener posiciones isométricas durante una coreografía.",
-consulta:"¿Por qué una mayor capacidad para producir fuerza no garantiza poder mantener una posición durante más tiempo?",
-objetivo:"Distinguir entre producción puntual de fuerza y mantenimiento de una función contráctil.",
-preguntas:["¿Qué diferencia existe entre producir fuerza máxima y sostener fuerza moderada?","¿Qué componentes moleculares participan en ambas situaciones?","¿Cómo podrían relacionarse las fibras musculares con la tarea?","¿Qué hipótesis es compatible con los datos?"],
-producto:"Comparación entre salto y postura sostenida.",
-conceptos:["Actina","Miosina","Fibras I y IIa","Estabilidad proteica","Contracción isométrica"]
+  numero:14,
+  titulo:"El bailarín que no sostiene una posición",
+  deporte:["Danza"],
+  nivel:"Aplicación",
+  situacion:"Un bailarín realiza movimientos rápidos y saltos, pero tiene dificultades para mantener posiciones isométricas durante una coreografía.",
+  consulta:"¿Por qué una mayor capacidad para producir fuerza no garantiza poder mantener una posición durante más tiempo?",
+  objetivo:"Distinguir entre producción puntual de fuerza y mantenimiento de una función contráctil.",
+  preguntas:[
+    "¿Qué diferencia existe entre producir fuerza máxima y sostener fuerza moderada?",
+    "¿Qué componentes moleculares participan en ambas situaciones?",
+    "¿Cómo podrían relacionarse las fibras musculares con la tarea?",
+    "¿Qué hipótesis es compatible con los datos?"
+  ],
+  producto:"Comparación entre salto y postura sostenida.",
+  conceptos:["Actina","Miosina","Fibras I y IIa","Estabilidad proteica","Contracción isométrica"]
 },
+
 {
-numero:15,
-titulo:"El ciclista que mantiene el pedaleo, pero pierde potencia",
-deporte:["Ciclismo"],
-nivel:"Análisis",
-situacion:"Un ciclista puede continuar pedaleando durante una subida, pero la potencia de cada pedalada disminuye. El entrenador pregunta si esto significa que sus proteínas contráctiles dejaron de funcionar.",
-consulta:"¿Cómo puede disminuir la fuerza de una contracción sin que las proteínas musculares hayan dejado completamente de funcionar?",
-objetivo:"Analizar cambios graduales en la función proteica y evitar explicaciones absolutas.",
-preguntas:["¿Una proteína funciona solo en los estados activa o inactiva?","¿Qué significa una disminución parcial de la función?","¿Qué factores podrían afectar una interacción molecular?","¿Qué información permitiría evaluar la hipótesis?"],
-producto:"Explicación que diferencie función reducida y pérdida total de función.",
-conceptos:["Función proteica","Actina","Miosina","Actividad parcial","Estructura-función"]
+  numero:15,
+  titulo:"El ciclista que mantiene el pedaleo, pero pierde potencia",
+  deporte:["Ciclismo"],
+  nivel:"Análisis",
+  situacion:"Un ciclista puede continuar pedaleando durante una subida, pero la potencia de cada pedalada disminuye. El entrenador pregunta si esto significa que sus proteínas contráctiles dejaron de funcionar.",
+  consulta:"¿Cómo puede disminuir la fuerza de una contracción sin que las proteínas musculares hayan dejado completamente de funcionar?",
+  objetivo:"Analizar cambios graduales en la función proteica y evitar explicaciones absolutas.",
+  preguntas:[
+    "¿Una proteína funciona solo en los estados activa o inactiva?",
+    "¿Qué significa una disminución parcial de la función?",
+    "¿Qué factores podrían afectar una interacción molecular?",
+    "¿Qué información permitiría evaluar la hipótesis?"
+  ],
+  producto:"Explicación que diferencie función reducida y pérdida total de función.",
+  conceptos:["Función proteica","Actina","Miosina","Actividad parcial","Estructura-función"]
 },
+
 {
-numero:16,
-titulo:"La enzima que funciona peor",
-deporte:["Contexto muscular"],
-nivel:"Aplicación",
-situacion:"En una experiencia educativa se observa que una enzima modelo asociada al funcionamiento muscular presenta menor actividad después de modificar uno de los aminoácidos cercanos al sitio activo.",
-consulta:"¿Cómo podría un cambio en un solo aminoácido afectar la capacidad de una enzima para realizar su función?",
-objetivo:"Introducir la relación entre aminoácidos, sitio activo, estructura y función enzimática.",
-preguntas:["¿Qué permite que un sitio activo reconozca un sustrato?","¿Cómo podrían cambiar la forma o las cargas del sitio activo?","¿Por qué un cambio pequeño puede tener un efecto funcional importante?","¿Qué evidencia se necesitaría?"],
-producto:"Modelo enzima-sustrato antes y después de la modificación.",
-conceptos:["Enzima","Sustrato","Sitio activo","Aminoácidos","Especificidad"]
+  numero:16,
+  titulo:"La enzima que funciona peor",
+  deporte:["Contexto muscular"],
+  nivel:"Aplicación",
+  situacion:"En una experiencia educativa se observa que una enzima modelo asociada al funcionamiento muscular presenta menor actividad después de modificar uno de los aminoácidos cercanos al sitio activo.",
+  consulta:"¿Cómo podría un cambio en un solo aminoácido afectar la capacidad de una enzima para realizar su función?",
+  objetivo:"Introducir la relación entre aminoácidos, sitio activo, estructura y función enzimática.",
+  preguntas:[
+    "¿Qué permite que un sitio activo reconozca un sustrato?",
+    "¿Cómo podrían cambiar la forma o las cargas del sitio activo?",
+    "¿Por qué un cambio pequeño puede tener un efecto funcional importante?",
+    "¿Qué evidencia se necesitaría?"
+  ],
+  producto:"Modelo enzima-sustrato antes y después de la modificación.",
+  conceptos:["Enzima","Sustrato","Sitio activo","Aminoácidos","Especificidad"]
 },
+
 {
-numero:17,
-titulo:"El tenista que entrena con calor",
-deporte:["Tenis"],
-nivel:"Aplicación",
-situacion:"Un tenista entrena en un ambiente muy caluroso. Al comienzo se mueve con normalidad, pero luego disminuye su precisión. Se entrega información sobre la actividad de una enzima modelo a distintas temperaturas.",
-consulta:"¿Cómo podría el aumento de temperatura afectar las proteínas y enzimas relacionadas con el funcionamiento muscular?",
-objetivo:"Relacionar temperatura, conformación proteica y actividad enzimática.",
-preguntas:["¿Por qué una temperatura moderadamente mayor podría cambiar la actividad?","¿Qué podría ocurrir si la temperatura continúa aumentando?","¿Cómo se relacionan conformación y sitio activo?","¿Qué hipótesis explica la pérdida gradual de precisión?"],
-producto:"Interpretación de los datos y respuesta dirigida al tenista.",
-conceptos:["Enzimas","Proteínas","Sitio activo","Temperatura","Conformación"]
+  numero:17,
+  titulo:"El tenista que entrena con calor",
+  deporte:["Tenis"],
+  nivel:"Aplicación",
+  situacion:"Un tenista entrena en un ambiente muy caluroso. Al comienzo se mueve con normalidad, pero luego disminuye su precisión. Se entrega información sobre la actividad de una enzima modelo a distintas temperaturas.",
+  consulta:"¿Cómo podría el aumento de temperatura afectar las proteínas y enzimas relacionadas con el funcionamiento muscular?",
+  objetivo:"Relacionar temperatura, conformación proteica y actividad enzimática.",
+  preguntas:[
+    "¿Por qué una temperatura moderadamente mayor podría cambiar la actividad?",
+    "¿Qué podría ocurrir si la temperatura continúa aumentando?",
+    "¿Cómo se relacionan conformación y sitio activo?",
+    "¿Qué hipótesis explica la pérdida gradual de precisión?"
+  ],
+  producto:"Interpretación de los datos y respuesta dirigida al tenista.",
+  conceptos:["Enzimas","Proteínas","Sitio activo","Temperatura","Conformación"]
 },
+
 {
-numero:18,
-titulo:"La futbolista y una proteína reguladora",
-deporte:["Fútbol"],
-nivel:"Análisis",
-situacion:"Una futbolista presenta una variante hipotética en una proteína que regula la interacción entre actina y miosina. Aún no se sabe si la variante modifica la función de la proteína.",
-consulta:"¿Por qué una proteína que no produce directamente la fuerza podría afectar mi capacidad para moverme?",
-objetivo:"Comprender que la contracción depende de proteínas contráctiles, estructurales y reguladoras.",
-preguntas:["¿Qué diferencia existe entre producir fuerza y regular una interacción?","¿Cómo podría una proteína reguladora modificar indirectamente la contracción?","¿Qué propiedades de los aminoácidos podrían ser relevantes?","¿Qué datos se necesitan para evaluar la variante?"],
-producto:"Respuesta para la futbolista y esquema de regulación de la contracción.",
-conceptos:["Proteínas reguladoras","Actina","Miosina","Interacción proteína-proteína","Estructura-función"]
+  numero:18,
+  titulo:"La futbolista y una proteína reguladora",
+  deporte:["Fútbol"],
+  nivel:"Análisis",
+  situacion:"Una futbolista presenta una variante hipotética en una proteína que regula la interacción entre actina y miosina. Aún no se sabe si la variante modifica la función de la proteína.",
+  consulta:"¿Por qué una proteína que no produce directamente la fuerza podría afectar mi capacidad para moverme?",
+  objetivo:"Comprender que la contracción depende de proteínas contráctiles, estructurales y reguladoras.",
+  preguntas:[
+    "¿Qué diferencia existe entre producir fuerza y regular una interacción?",
+    "¿Cómo podría una proteína reguladora modificar indirectamente la contracción?",
+    "¿Qué propiedades de los aminoácidos podrían ser relevantes?",
+    "¿Qué datos se necesitan para evaluar la variante?"
+  ],
+  producto:"Respuesta para la futbolista y esquema de regulación de la contracción.",
+  conceptos:["Proteínas reguladoras","Actina","Miosina","Interacción proteína-proteína","Estructura-función"]
 },
+
 {
-numero:19,
-titulo:"El escalador que cambia de estilo",
-deporte:["Escalada"],
-nivel:"Análisis",
-situacion:"Un escalador especializado en rutas de resistencia comienza a practicar rutas cortas y explosivas. Puede completar los movimientos, pero no responde con la misma rapidez que otros escaladores.",
-consulta:"¿Por qué una persona puede ser eficiente en contracciones sostenidas, pero menos eficaz en movimientos breves y explosivos?",
-objetivo:"Relacionar diferentes demandas deportivas con características funcionales de fibras y proteínas musculares.",
-preguntas:["¿Qué diferencia existe entre una contracción resistente y una rápida?","¿Qué características de las fibras podrían influir?","¿Cómo podría relacionarse la función de la miosina con la velocidad?","¿Qué otros factores deberían considerarse?"],
-producto:"Explicación dirigida al entrenador y comparación entre ambos estilos.",
-conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración"]
+  numero:19,
+  titulo:"El escalador que cambia de estilo",
+  deporte:["Escalada"],
+  nivel:"Análisis",
+  situacion:"Un escalador especializado en rutas de resistencia comienza a practicar rutas cortas y explosivas. Puede completar los movimientos, pero no responde con la misma rapidez que otros escaladores.",
+  consulta:"¿Por qué una persona puede ser eficiente en contracciones sostenidas, pero menos eficaz en movimientos breves y explosivos?",
+  objetivo:"Relacionar diferentes demandas deportivas con características funcionales de fibras y proteínas musculares.",
+  preguntas:[
+    "¿Qué diferencia existe entre una contracción resistente y una rápida?",
+    "¿Qué características de las fibras podrían influir?",
+    "¿Cómo podría relacionarse la función de la miosina con la velocidad?",
+    "¿Qué otros factores deberían considerarse?"
+  ],
+  producto:"Explicación dirigida al entrenador y comparación entre ambos estilos.",
+  conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración"]
 },
+
 {
-numero:20,
-titulo:"La consulta general del equipo deportivo",
-deporte:["Multideportivo"],
-nivel:"Integración",
-situacion:"Un equipo deportivo observa que sus integrantes tienen desempeños diferentes en actividades aparentemente similares. Algunos producen mucha fuerza durante pocos segundos; otros pueden mantener una contracción durante más tiempo. El entrenador cree que todo podría explicarse simplemente por tener más músculo.",
-consulta:"¿Cómo nos pueden explicar, desde la bioquímica, por qué personas con músculos de tamaño similar pueden responder de manera diferente durante la contracción?",
-objetivo:"Integrar aminoácidos, proteínas, estructura-función, actina, miosina y fibras musculares.",
-preguntas:["¿Por qué el tamaño muscular no explica por sí solo el desempeño?","¿Cómo pueden influir las características de las proteínas?","¿Qué relación existe entre estructura, interacción molecular y función?","¿Qué información adicional sería necesaria?"],
-producto:"Modelo integrador: aminoácidos → estructura proteica → interacción molecular → contracción → desempeño deportivo.",
-conceptos:["Aminoácidos","Estructura proteica","Actina","Miosina","Proteínas reguladoras","Fibras musculares"]
+  numero:20,
+  titulo:"La consulta general del equipo deportivo",
+  deporte:["Multideportivo"],
+  nivel:"Integración",
+  situacion:"Un equipo deportivo observa que sus integrantes tienen desempeños diferentes en actividades aparentemente similares. Algunos producen mucha fuerza durante pocos segundos; otros pueden mantener una contracción durante más tiempo. El entrenador cree que todo podría explicarse simplemente por tener más músculo.",
+  consulta:"¿Cómo nos pueden explicar, desde la bioquímica, por qué personas con músculos de tamaño similar pueden responder de manera diferente durante la contracción?",
+  objetivo:"Integrar aminoácidos, proteínas, estructura-función, actina, miosina y fibras musculares.",
+  preguntas:[
+    "¿Por qué el tamaño muscular no explica por sí solo el desempeño?",
+    "¿Cómo pueden influir las características de las proteínas?",
+    "¿Qué relación existe entre estructura, interacción molecular y función?",
+    "¿Qué información adicional sería necesaria?"
+  ],
+  producto:"Modelo integrador: aminoácidos → estructura proteica → interacción molecular → contracción → desempeño deportivo.",
+  conceptos:["Aminoácidos","Estructura proteica","Actina","Miosina","Proteínas reguladoras","Fibras musculares"]
 }
+
 ];
 
-const state={retoSeleccionado:null};
+const state={
+  retoSeleccionado:null
+};
 
 const listaRetos=document.getElementById("lista-retos");
 const workspace=document.getElementById("workspace");
 const buscar=document.getElementById("buscar");
 const nivel=document.getElementById("nivel");
+const panelRetos=document.getElementById("panel-retos");
 
 function escapeHTML(texto){
   return String(texto ?? "")
@@ -897,6 +1074,28 @@ function abrirKineBioBot(){
   }
 
   window.open(URL_KINEBIOBOT,"_blank");
+}
+
+function ocultarListaEnMovil(){
+  if(
+    panelRetos &&
+    window.matchMedia("(max-width: 900px)").matches
+  ){
+    panelRetos.classList.add("oculto-mobile");
+  }
+}
+
+function mostrarListaRetos(){
+  if(!panelRetos){
+    return;
+  }
+
+  panelRetos.classList.remove("oculto-mobile");
+
+  panelRetos.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 }
 
 function renderLista(){
@@ -920,10 +1119,14 @@ function renderLista(){
 
   listaRetos.innerHTML=resultados.map(reto=>`
     <button
-      class="reto-option ${state.retoSeleccionado===reto.numero?"active":""}"
+      class="reto-option ${
+        state.retoSeleccionado===reto.numero ? "active" : ""
+      }"
       onclick="seleccionarReto(${reto.numero})">
 
-      <strong>Reto ${reto.numero}. ${escapeHTML(reto.titulo)}</strong>
+      <strong>
+        Reto ${reto.numero}. ${escapeHTML(reto.titulo)}
+      </strong>
 
       <small>
         ${escapeHTML(reto.deporte.join(" · "))} ·
@@ -936,10 +1139,21 @@ function renderLista(){
 function seleccionarReto(numero){
   state.retoSeleccionado=numero;
 
+  ocultarListaEnMovil();
+
   const reto=RETOS.find(item=>item.numero===numero);
 
   workspace.innerHTML=`
-    <h2>Reto ${reto.numero}. ${escapeHTML(reto.titulo)}</h2>
+
+    <button
+      class="secondary mobile-only"
+      onclick="mostrarListaRetos()">
+      ← Cambiar de reto
+    </button>
+
+    <h2>
+      Reto ${reto.numero}. ${escapeHTML(reto.titulo)}
+    </h2>
 
     <div>
       ${reto.deporte.map(item=>`
@@ -956,7 +1170,9 @@ function seleccionarReto(numero){
 
     <div class="section">
       <h3>Consulta que deben resolver</h3>
-      <div class="consulta">${escapeHTML(reto.consulta)}</div>
+      <div class="consulta">
+        ${escapeHTML(reto.consulta)}
+      </div>
     </div>
 
     <div class="section">
@@ -966,6 +1182,7 @@ function seleccionarReto(numero){
 
     <div class="section">
       <h3>Preguntas guía</h3>
+
       <ol class="questions">
         ${reto.preguntas.map(item=>`
           <li>${escapeHTML(item)}</li>
@@ -975,6 +1192,7 @@ function seleccionarReto(numero){
 
     <div class="section">
       <h3>Conceptos posibles para investigar</h3>
+
       <p>
         ${reto.conceptos.map(item=>`
           <span class="tag">${escapeHTML(item)}</span>
@@ -984,43 +1202,115 @@ function seleccionarReto(numero){
 
     <div class="section">
       <h3>Producto esperado</h3>
-      <div class="producto">${escapeHTML(reto.producto)}</div>
+
+      <div class="producto">
+        ${escapeHTML(reto.producto)}
+      </div>
     </div>
 
     <div class="section">
       <h3>Ficha de trabajo del equipo</h3>
 
-      <label for="equipo">Nombre o identificador del equipo</label>
-      <input id="equipo" type="text" placeholder="Ejemplo: Equipo 4">
+      <label for="equipo">
+        Nombre o identificador del equipo
+      </label>
 
-      <label for="integrantes">Integrantes</label>
-      <input id="integrantes" type="text" placeholder="Escriban los nombres de los integrantes">
+      <input
+        id="equipo"
+        type="text"
+        placeholder="Ejemplo: Equipo 4">
 
-      <label for="hipotesis">Hipótesis bioquímica central</label>
-      <textarea id="hipotesis" placeholder="Nuestra hipótesis es que podría estar ocurriendo..."></textarea>
-      <div class="counter" id="contador-hipotesis">0 caracteres</div>
+      <label for="integrantes">
+        Integrantes
+      </label>
 
-      <label for="respuesta">Respuesta dirigida a la persona que consulta</label>
-      <textarea id="respuesta" class="large" placeholder="Redacten una respuesta de 150 a 250 palabras."></textarea>
-      <div class="counter" id="contador-respuesta">0 palabras</div>
+      <input
+        id="integrantes"
+        type="text"
+        placeholder="Escriban los nombres de los integrantes">
 
-      <label for="diagrama">Diagrama o modelo causal</label>
-      <textarea id="diagrama" class="diagram" placeholder="situación → proteína → estructura → función → manifestación deportiva"></textarea>
+      <label for="hipotesis">
+        Hipótesis bioquímica central
+      </label>
 
-      <label for="evidencia">Evidencia o fuentes consultadas</label>
-      <textarea id="evidencia" placeholder="Indiquen las fuentes, apuntes o recursos utilizados."></textarea>
+      <textarea
+        id="hipotesis"
+        placeholder="Nuestra hipótesis es que podría estar ocurriendo..."></textarea>
 
-      <label for="faltante">Información adicional necesaria</label>
-      <textarea id="faltante" placeholder="¿Qué dato permitiría apoyar o refutar la hipótesis?"></textarea>
+      <div class="counter" id="contador-hipotesis">
+        0 caracteres
+      </div>
 
-      <label for="kinebio">Uso de KineBioBot</label>
-      <textarea id="kinebio" placeholder="Indiquen qué consultaron y cómo verificaron o modificaron la respuesta."></textarea>
+      <label for="respuesta">
+        Respuesta dirigida a la persona que consulta
+      </label>
+
+      <textarea
+        id="respuesta"
+        class="large"
+        placeholder="Redacten una respuesta de 150 a 250 palabras."></textarea>
+
+      <div class="counter" id="contador-respuesta">
+        0 palabras
+      </div>
+
+      <label for="diagrama">
+        Diagrama o modelo causal
+      </label>
+
+      <textarea
+        id="diagrama"
+        class="diagram"
+        placeholder="situación → proteína → estructura → función → manifestación deportiva"></textarea>
+
+      <label for="evidencia">
+        Evidencia o fuentes consultadas
+      </label>
+
+      <textarea
+        id="evidencia"
+        placeholder="Indiquen las fuentes, apuntes o recursos utilizados."></textarea>
+
+      <label for="faltante">
+        Información adicional necesaria
+      </label>
+
+      <textarea
+        id="faltante"
+        placeholder="¿Qué dato permitiría apoyar o refutar la hipótesis?"></textarea>
+
+      <label for="kinebio">
+        Uso de KineBioBot
+      </label>
+
+      <textarea
+        id="kinebio"
+        placeholder="Indiquen qué consultaron y cómo verificaron o modificaron la respuesta."></textarea>
 
       <div class="action-row">
-        <button onclick="guardarTrabajo()">Guardar trabajo</button>
-        <button class="secondary" onclick="limpiarFicha()">Limpiar ficha</button>
-        <button class="warning" onclick="window.print()">Imprimir ficha</button>
-        <button class="kinebio" onclick="abrirKineBioBot()">Abrir KineBioBot</button>
+
+        <button onclick="guardarTrabajo()">
+          Guardar trabajo
+        </button>
+
+        <button
+          class="secondary"
+          onclick="limpiarFicha()">
+          Limpiar ficha
+        </button>
+
+        <button
+          class="warning"
+          onclick="window.print()">
+          Imprimir ficha
+        </button>
+
+        <button
+          class="kinebio"
+          onclick="abrirKineBioBot()">
+          Abrir KineBioBot
+        </button>
+
       </div>
 
       <div id="estado" class="status"></div>
@@ -1031,17 +1321,29 @@ function seleccionarReto(numero){
   cargarTrabajo();
   renderLista();
 
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
 
 function conectarContadores(){
   const hipotesis=document.getElementById("hipotesis");
   const respuesta=document.getElementById("respuesta");
 
-  if(!hipotesis || !respuesta)return;
+  if(!hipotesis || !respuesta){
+    return;
+  }
 
-  hipotesis.addEventListener("input",actualizarContadores);
-  respuesta.addEventListener("input",actualizarContadores);
+  hipotesis.addEventListener(
+    "input",
+    actualizarContadores
+  );
+
+  respuesta.addEventListener(
+    "input",
+    actualizarContadores
+  );
 
   actualizarContadores();
 }
@@ -1050,16 +1352,22 @@ function actualizarContadores(){
   const hipotesis=document.getElementById("hipotesis");
   const respuesta=document.getElementById("respuesta");
 
-  if(!hipotesis || !respuesta)return;
+  if(!hipotesis || !respuesta){
+    return;
+  }
 
-  document.getElementById("contador-hipotesis").textContent=
+  document.getElementById(
+    "contador-hipotesis"
+  ).textContent=
     `${hipotesis.value.length} caracteres`;
 
   const palabras=respuesta.value.trim()
     ? respuesta.value.trim().split(/\s+/).length
     : 0;
 
-  const contador=document.getElementById("contador-respuesta");
+  const contador=document.getElementById(
+    "contador-respuesta"
+  );
 
   contador.textContent=`${palabras} palabras`;
   contador.className="counter";
@@ -1099,7 +1407,8 @@ function guardarTrabajo(){
     return;
   }
 
-  const clave=`qim202k_taller1_reto_${state.retoSeleccionado}`;
+  const clave=
+    `qim202k_taller1_reto_${state.retoSeleccionado}`;
 
   localStorage.setItem(
     clave,
@@ -1110,41 +1419,64 @@ function guardarTrabajo(){
 
   if(estado){
     estado.className="status ok";
-    estado.textContent="Trabajo guardado temporalmente en este navegador.";
+    estado.textContent=
+      "Trabajo guardado temporalmente en este navegador.";
   }
 }
 
 function cargarTrabajo(){
-  if(!state.retoSeleccionado)return;
+  if(!state.retoSeleccionado){
+    return;
+  }
 
-  const clave=`qim202k_taller1_reto_${state.retoSeleccionado}`;
-  const datosGuardados=localStorage.getItem(clave);
+  const clave=
+    `qim202k_taller1_reto_${state.retoSeleccionado}`;
 
-  if(!datosGuardados)return;
+  const datosGuardados=
+    localStorage.getItem(clave);
+
+  if(!datosGuardados){
+    return;
+  }
 
   try{
     const datos=JSON.parse(datosGuardados);
 
-    Object.entries(datos).forEach(([id,valor])=>{
-      const elemento=document.getElementById(id);
+    Object.entries(datos).forEach(
+      ([id,valor])=>{
+        const elemento=
+          document.getElementById(id);
 
-      if(elemento){
-        elemento.value=valor;
+        if(elemento){
+          elemento.value=valor;
+        }
       }
-    });
+    );
 
     actualizarContadores();
+
   }catch(error){
-    console.warn("No se pudo cargar el trabajo guardado.",error);
+    console.warn(
+      "No se pudo cargar el trabajo guardado.",
+      error
+    );
   }
 }
 
 function limpiarFicha(){
-  if(!state.retoSeleccionado)return;
+  if(!state.retoSeleccionado){
+    return;
+  }
 
-  if(!confirm("¿Desean borrar el trabajo de este reto?"))return;
+  if(!confirm(
+    "¿Desean borrar el trabajo de este reto?"
+  )){
+    return;
+  }
 
-  const clave=`qim202k_taller1_reto_${state.retoSeleccionado}`;
+  const clave=
+    `qim202k_taller1_reto_${state.retoSeleccionado}`;
+
   localStorage.removeItem(clave);
 
   [
@@ -1170,7 +1502,8 @@ function limpiarFicha(){
 
   if(estado){
     estado.className="status ok";
-    estado.textContent="La ficha fue limpiada.";
+    estado.textContent=
+      "La ficha fue limpiada.";
   }
 }
 
@@ -1180,8 +1513,15 @@ function limpiarFiltros(){
   renderLista();
 }
 
-buscar.addEventListener("input",renderLista);
-nivel.addEventListener("change",renderLista);
+buscar.addEventListener(
+  "input",
+  renderLista
+);
+
+nivel.addEventListener(
+  "change",
+  renderLista
+);
 
 renderLista();
 </script>
