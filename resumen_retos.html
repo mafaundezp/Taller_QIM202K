@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen de retos — Taller Colaborativo N.° 1 QIM202K</title>
+
+<style>
+@page {
+  size: A4;
+  margin: 1.6cm;
+}
+
+:root {
+  --azul: #123b5d;
+  --azul-medio: #2d6a8a;
+  --celeste: #eaf3f8;
+  --amarillo: #fff8e1;
+  --borde: #cbd5e1;
+  --texto: #1f2937;
+  --gris: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  background: #f8fafc;
+}
+
+.documento {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+}
+
+.portada {
+  border-bottom: 5px solid var(--azul);
+  padding-bottom: 22px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  color: var(--azul);
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  color: var(--azul-medio);
+  font-size: 21px;
+  margin-top: 28px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--azul-medio);
+}
+
+h3 {
+  color: var(--azul);
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 7px 0;
+}
+
+.meta {
+  color: var(--gris);
+  font-size: 14px;
+}
+
+.instrucciones {
+  background: var(--celeste);
+  border-left: 5px solid var(--azul);
+  padding: 15px 18px;
+  margin: 20px 0 28px;
+}
+
+.reto {
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  padding: 16px 18px;
+  margin: 15px 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: var(--amarillo);
+  color: #854d0e;
+  border-radius: 14px;
+  padding: 3px 9px;
+  margin: 2px 4px 8px 0;
+  font-size: 12px;
+}
+
+.consulta {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 11px 13px;
+  margin: 10px 0 13px;
+  font-weight: bold;
+}
+
+ol {
+  margin-top: 7px;
+  padding-left: 23px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+.producto {
+  background: #f0fdf4;
+  border-left: 4px solid #16803c;
+  padding: 9px 12px;
+  margin-top: 11px;
+}
+
+.pie {
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 2px solid var(--azul);
+  color: var(--gris);
+  font-size: 12px;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .documento {
+    max-width: none;
+    padding: 0;
+  }
+
+  .reto {
+    box-shadow: none;
+  }
+
+  .no-imprimir {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="documento">
+
+  <section class="portada">
+    <h1>Taller Colaborativo N.° 1 de Bioquímica QIM202K</h1>
+    <h2>Aminoácidos, proteínas y contracción muscular</h2>
+    <p class="meta">
+      Banco de 20 retos investigativos · Grupos de 3 a 4 estudiantes · Duración: 90 minutos
+    </p>
+  </section>
+
+  <section class="instrucciones">
+    <strong>Orientación general:</strong>
+    Cada equipo selecciona un reto y construye una hipótesis bioquímica para responder
+    la consulta del caso. Un mismo reto puede ser elegido por más de un grupo.
+    No se solicita formular un diagnóstico ni identificar una causa única.
+  </section>
+
+  <h2>Resumen de los retos</h2>
+
+  <article class="reto">
+    <h3>Reto 1. El segundo intento del levantador</h3>
+    <span class="etiqueta">Levantamiento de pesas</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Un levantador de pesas completa correctamente su primer intento. Cinco minutos
+      después, no logra producir la misma fuerza, aunque utiliza la misma carga y
+      mantiene una técnica aparentemente similar.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué podría disminuir la fuerza entre un intento y otro si los músculos y las
+      proteínas contráctiles aparentemente siguen siendo los mismos?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué deben hacer actina y miosina para producir una contracción?</li>
+      <li>¿Qué significa que una proteína conserve o disminuya temporalmente su función?</li>
+      <li>¿Qué diferencia existe entre una proteína presente y una proteína funcionando adecuadamente?</li>
+      <li>¿Qué información adicional necesitarían para evaluar su hipótesis?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Respuesta al entrenador y esquema de la interacción actina-miosina.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 2. La maratonista que pierde estabilidad</h3>
+    <span class="etiqueta">Maratón</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Una maratonista mantiene su ritmo durante gran parte de la carrera. En los últimos
+      kilómetros puede continuar corriendo, pero pierde progresivamente la estabilidad
+      de su postura y la regularidad de su zancada.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podría relacionarse esta pérdida de estabilidad con el funcionamiento de las proteínas musculares?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué significa que una proteína mantenga su conformación?</li>
+      <li>¿Qué interacciones estabilizan la estructura de una proteína?</li>
+      <li>¿Cómo podría una modificación estructural afectar su función?</li>
+      <li>¿Qué hipótesis pueden plantear sin afirmar una causa definitiva?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Hipótesis escrita y modelo que conecte estructura proteica y función muscular.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 3. El futbolista que pierde precisión</h3>
+    <span class="etiqueta">Fútbol</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Durante los primeros minutos de un partido, un futbolista acelera, frena y cambia
+      de dirección con precisión. Más tarde, todavía puede correr, pero sus movimientos
+      son menos exactos.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué podría conservar la capacidad de desplazarse, pero perder precisión en sus movimientos?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre producir fuerza y controlar una contracción?</li>
+      <li>¿Qué proteínas pueden participar directamente en la fuerza?</li>
+      <li>¿Qué proteínas podrían contribuir a regular u organizar la contracción?</li>
+      <li>¿Qué información adicional sería necesaria?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Mapa causal que diferencie proteínas contráctiles, estructurales y reguladoras.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 4. La bailarina que no logra mantener una postura</h3>
+    <span class="etiqueta">Danza</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Una bailarina puede ejecutar saltos con fuerza, pero tiene dificultades para mantener
+      una postura sobre una pierna durante varios segundos.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué una persona podría generar fuerza rápidamente, pero tener dificultades para mantener una contracción controlada?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre una contracción breve y una sostenida?</li>
+      <li>¿Qué componentes moleculares participan en ambas?</li>
+      <li>¿Qué papel podrían cumplir las proteínas reguladoras?</li>
+      <li>¿Cómo podrían relacionarse las fibras musculares con la tarea?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Comparación entre el salto y la postura sostenida.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 5. Dos nadadores con masa muscular similar</h3>
+    <span class="etiqueta">Natación</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Dos nadadores tienen masa muscular similar y entrenan con volúmenes comparables.
+      Sin embargo, uno alcanza una velocidad mayor durante los primeros 25 metros de una
+      prueba de 50 metros.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué dos nadadores con una masa muscular similar podrían desarrollar velocidades diferentes?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Por qué la cantidad de músculo no explica por sí sola la velocidad?</li>
+      <li>¿Cómo podría influir la secuencia de aminoácidos de una proteína?</li>
+      <li>¿Cómo podría una diferencia conformacional afectar su función?</li>
+      <li>¿Qué relación puede existir entre miosina, actina y velocidad de contracción?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Explicación dirigida al entrenador y esquema molecular.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 6. La nadadora en agua fría</h3>
+    <span class="etiqueta">Natación</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Una nadadora comienza a perder coordinación muscular durante una competencia en
+      agua más fría de lo habitual.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podría la temperatura influir en el funcionamiento de las proteínas que participan en el movimiento?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué puede cambiar en una proteína cuando cambia la temperatura?</li>
+      <li>¿Qué diferencia existe entre modificar la actividad y desnaturalizar una proteína?</li>
+      <li>¿Cómo interpretarían una tabla de actividad proteica a distintas temperaturas?</li>
+      <li>¿Qué hipótesis explica mejor la pérdida de coordinación?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Interpretación de datos y explicación dirigida a la nadadora.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 7. La escaladora que pierde fuerza en los dedos</h3>
+    <span class="etiqueta">Escalada</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Una escaladora puede sostenerse en una presa grande al inicio de una ruta, pero
+      después de varios intentos pierde rápidamente la capacidad de mantener una presa pequeña.
+    </p>
+
+    <div class="consulta">
+      ¿Qué podría estar ocurriendo a nivel molecular cuando mis dedos dejan de sostenerme como al comienzo?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre sostener una posición y producir un movimiento?</li>
+      <li>¿Qué proteínas participan en ambas situaciones?</li>
+      <li>¿Cómo podría cambiar la capacidad funcional de la maquinaria contráctil?</li>
+      <li>¿Qué información adicional solicitarían?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Hipótesis y comparación entre una contracción sostenida y una contracción dinámica.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 8. El tenista que pierde precisión</h3>
+    <span class="etiqueta">Tenis</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Un tenista comienza el partido golpeando con precisión. Después de varios juegos
+      todavía puede desplazarse y producir fuerza, pero sus golpes son menos coordinados.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué puedo seguir generando fuerza, pero perder precisión y control en mis movimientos?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre fuerza y precisión?</li>
+      <li>¿Qué proteínas podrían estar relacionadas con el control?</li>
+      <li>¿Cómo puede influir la conformación de una proteína?</li>
+      <li>¿Qué hipótesis podrían coexistir?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Respuesta al tenista y diagrama de generación y regulación de la contracción.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 9. La gimnasta y el cambio de un aminoácido</h3>
+    <span class="etiqueta">Gimnasia</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      En un análisis hipotético, una proteína relacionada con la contracción muscular
+      presenta un aminoácido diferente al habitual. El aminoácido original era apolar
+      y el nuevo es polar.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué un cambio tan pequeño podría afectar mi movimiento si la proteína conserva casi todos sus aminoácidos?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Por qué importa la ubicación del aminoácido?</li>
+      <li>¿Qué interacciones podrían modificarse?</li>
+      <li>¿Cómo podría cambiar el plegamiento de la proteína?</li>
+      <li>¿Qué parte de la explicación es una hipótesis?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Modelo del posible cambio estructural y respuesta de 150–250 palabras.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 10. El velocista que no repite su mejor salida</h3>
+    <span class="etiqueta">Sprint</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Un velocista realiza una excelente salida en el primer intento. Durante las
+      repeticiones posteriores disminuye la velocidad de extensión de sus piernas.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podrían las características de la miosina influir en la velocidad con que se desarrolla una contracción?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué debe ocurrir para que la miosina interactúe con la actina?</li>
+      <li>¿Cómo podría una modificación estructural afectar esa interacción?</li>
+      <li>¿Qué significa que una proteína tenga una función más rápida?</li>
+      <li>¿Qué datos permitirían evaluar esta hipótesis?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Hipótesis sobre miosina y diagrama de interacción con actina.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 11. La jugadora de vóleibol que aterriza con dificultad</h3>
+    <span class="etiqueta">Vóleibol</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Una jugadora puede saltar verticalmente, pero después de varias repeticiones
+      comienza a controlar peor el aterrizaje.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué producir un salto y controlar un aterrizaje podrían requerir una participación diferente de las proteínas musculares?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre acortar y alargar un músculo activo?</li>
+      <li>¿La actividad de las proteínas desaparece durante el aterrizaje?</li>
+      <li>¿Cómo podría regularse la fuerza?</li>
+      <li>¿Qué hipótesis explica la pérdida de control?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Secuencia molecular simplificada del salto y el aterrizaje.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 12. El remero que pierde sincronización</h3>
+    <span class="etiqueta">Remo</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Un remero puede iniciar cada palada con fuerza, pero después de varias repeticiones
+      pierde la sincronización del movimiento.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podría la organización de las proteínas musculares influir en la coordinación de un movimiento repetitivo?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Por qué no basta con que las proteínas estén presentes?</li>
+      <li>¿Qué importancia tiene su organización espacial?</li>
+      <li>¿Cómo podría afectar la función una alteración en esa organización?</li>
+      <li>¿Qué evidencia sería necesaria?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Modelo de un sarcómero organizado y explicación funcional.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 13. La nadadora que cambia de prueba</h3>
+    <span class="etiqueta">Natación</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Una nadadora especialista en 1.500 metros comienza a entrenar para una prueba
+      de 50 metros. Puede completar los movimientos, pero no alcanza la velocidad de
+      salida de sus compañeras.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué una persona que se desempeña bien en una prueba prolongada podría no responder igual en una prueba breve y explosiva?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué demandas son diferentes entre ambas pruebas?</li>
+      <li>¿Qué características de las fibras podrían ser relevantes?</li>
+      <li>¿Cómo se relacionan esas características con las proteínas contráctiles?</li>
+      <li>¿Qué otros datos deberían investigar?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Explicación comparativa dirigida a la entrenadora.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 14. El bailarín que no sostiene una posición</h3>
+    <span class="etiqueta">Danza</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Un bailarín realiza movimientos rápidos y saltos, pero tiene dificultades para
+      mantener posiciones isométricas durante una coreografía.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué una mayor capacidad para producir fuerza no garantiza poder mantener una posición durante más tiempo?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre producir fuerza máxima y sostener fuerza moderada?</li>
+      <li>¿Qué componentes moleculares participan en ambas situaciones?</li>
+      <li>¿Cómo podrían relacionarse las fibras musculares con la tarea?</li>
+      <li>¿Qué hipótesis es compatible con los datos?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Comparación entre salto y postura sostenida.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 15. El ciclista que mantiene el pedaleo, pero pierde potencia</h3>
+    <span class="etiqueta">Ciclismo</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Un ciclista puede continuar pedaleando durante una subida, pero la potencia de
+      cada pedalada disminuye. El entrenador pregunta si esto significa que sus proteínas
+      contráctiles dejaron de funcionar.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo puede disminuir la fuerza de una contracción sin que las proteínas musculares hayan dejado completamente de funcionar?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Una proteína funciona solo en los estados activa o inactiva?</li>
+      <li>¿Qué significa una disminución parcial de la función?</li>
+      <li>¿Qué factores podrían afectar una interacción molecular?</li>
+      <li>¿Qué información permitiría evaluar la hipótesis?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Explicación que diferencie función reducida y pérdida total de función.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 16. La enzima que funciona peor</h3>
+    <span class="etiqueta">Contexto muscular</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      En una experiencia educativa se observa que una enzima modelo asociada al
+      funcionamiento muscular presenta menor actividad después de modificar uno de
+      los aminoácidos cercanos al sitio activo.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podría un cambio en un solo aminoácido afectar la capacidad de una enzima para realizar su función?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué permite que un sitio activo reconozca un sustrato?</li>
+      <li>¿Cómo podrían cambiar la forma o las cargas del sitio activo?</li>
+      <li>¿Por qué un cambio pequeño puede tener un efecto funcional importante?</li>
+      <li>¿Qué evidencia se necesitaría?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Modelo enzima-sustrato antes y después de la modificación.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 17. El tenista que entrena con calor</h3>
+    <span class="etiqueta">Tenis</span>
+    <span class="etiqueta">Aplicación</span>
+
+    <p>
+      Un tenista entrena en un ambiente muy caluroso. Al comienzo se mueve con
+      normalidad, pero luego disminuye su precisión. Se entrega información sobre
+      la actividad de una enzima modelo a distintas temperaturas.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo podría el aumento de temperatura afectar las proteínas y enzimas relacionadas con el funcionamiento muscular?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Por qué una temperatura moderadamente mayor podría cambiar la actividad?</li>
+      <li>¿Qué podría ocurrir si la temperatura continúa aumentando?</li>
+      <li>¿Cómo se relacionan conformación y sitio activo?</li>
+      <li>¿Qué hipótesis explica la pérdida gradual de precisión?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Interpretación de los datos y respuesta dirigida al tenista.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 18. La futbolista y una proteína reguladora</h3>
+    <span class="etiqueta">Fútbol</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Una futbolista presenta una variante hipotética en una proteína que regula la
+      interacción entre actina y miosina. Aún no se sabe si la variante modifica la
+      función de la proteína.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué una proteína que no produce directamente la fuerza podría afectar mi capacidad para moverme?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre producir fuerza y regular una interacción?</li>
+      <li>¿Cómo podría una proteína reguladora modificar indirectamente la contracción?</li>
+      <li>¿Qué propiedades de los aminoácidos podrían ser relevantes?</li>
+      <li>¿Qué datos se necesitan para evaluar la variante?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Respuesta para la futbolista y esquema de regulación de la contracción.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 19. El escalador que cambia de estilo</h3>
+    <span class="etiqueta">Escalada</span>
+    <span class="etiqueta">Análisis</span>
+
+    <p>
+      Un escalador especializado en rutas de resistencia comienza a practicar rutas
+      cortas y explosivas. Puede completar los movimientos, pero no responde con la
+      misma rapidez que otros escaladores.
+    </p>
+
+    <div class="consulta">
+      ¿Por qué una persona puede ser eficiente en contracciones sostenidas, pero menos eficaz en movimientos breves y explosivos?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Qué diferencia existe entre una contracción resistente y una rápida?</li>
+      <li>¿Qué características de las fibras podrían influir?</li>
+      <li>¿Cómo podría relacionarse la función de la miosina con la velocidad?</li>
+      <li>¿Qué otros factores deberían considerarse?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Explicación dirigida al entrenador y comparación entre ambos estilos.
+    </div>
+  </article>
+
+  <article class="reto">
+    <h3>Reto 20. La consulta general del equipo deportivo</h3>
+    <span class="etiqueta">Multideportivo</span>
+    <span class="etiqueta">Integración</span>
+
+    <p>
+      Un equipo deportivo observa que sus integrantes tienen desempeños diferentes en
+      actividades aparentemente similares. Algunos producen mucha fuerza durante pocos
+      segundos; otros pueden mantener una contracción durante más tiempo. El entrenador
+      cree que todo podría explicarse simplemente por tener más músculo.
+    </p>
+
+    <div class="consulta">
+      ¿Cómo nos pueden explicar, desde la bioquímica, por qué personas con músculos de tamaño similar pueden responder de manera diferente durante la contracción?
+    </div>
+
+    <strong>Preguntas guía:</strong>
+    <ol>
+      <li>¿Por qué el tamaño muscular no explica por sí solo el desempeño?</li>
+      <li>¿Cómo pueden influir las características de las proteínas?</li>
+      <li>¿Qué relación existe entre estructura, interacción molecular y función?</li>
+      <li>¿Qué información adicional sería necesaria?</li>
+    </ol>
+
+    <div class="producto">
+      <strong>Producto:</strong> Modelo integrador: aminoácidos → estructura proteica → interacción molecular → contracción → desempeño deportivo.
+    </div>
+  </article>
+
+  <footer class="pie">
+    Taller Colaborativo N.° 1 de Bioquímica QIM202K · Aminoácidos, proteínas y contracción muscular
+  </footer>
+
+</main>
+
+</body>
+</html>
