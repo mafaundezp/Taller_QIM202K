@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Taller colaborativo de enzimas y cinética para QIM202K">
+  <title>Taller 2 — Enzimas y cinética QIM202K</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul-medio: #2d6a8a;
+      --azul-claro: #eaf3f8;
+      --verde_boton: #56a723;
+      --morado-claro: #f5f3ff;
+      --amarillo-claro: #fffbeb;
+      --verde-claro: #f0fdf4;
+      --verde: #166534;
+      --texto: #1f2937;
+      --gris: #64748b;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 34px 5vw 30px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-medio));
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 3vw, 2.45rem);
+      line-height: 1.2;
+    }
+
+    header h2 {
+      margin: 0 0 15px;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      font-weight: normal;
+    }
+
+    header p {
+      max-width: 1050px;
+      margin: 5px 0;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 5vw;
+      background: var(--blanco);
+      border-bottom: 1px solid var(--borde);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .07);
+    }
+
+    .toolbar label {
+      margin: 0;
+      color: var(--azul);
+      font-weight: bold;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      border: 1px solid var(--borde);
+      background: white;
+      color: var(--texto);
+    }
+
+    .toolbar input {
+      min-width: 220px;
+      flex: 1 1 220px;
+    }
+
+    .toolbar select {
+      flex: 0 1 210px;
+    }
+
+    .toolbar button {
+      border: none;
+      background: var(--verde_boton);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .toolbar button:hover {
+      filter: brightness(1.1);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 5vw 60px;
+    }
+
+    .notice {
+      margin-bottom: 22px;
+      padding: 17px 19px;
+      border-left: 5px solid var(--azul);
+      border-radius: 6px;
+      background: var(--azul-claro);
+    }
+
+    .notice h2 {
+      margin-top: 0;
+      color: var(--azul);
+      font-size: 1.2rem;
+    }
+
+    .notice p {
+      margin: 8px 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(270px, .75fr) minmax(500px, 1.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel,
+    .workspace {
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: var(--blanco);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, .06);
+    }
+
+    .panel {
+      position: sticky;
+      top: 76px;
+      max-height: calc(100vh - 96px);
+      overflow-y: auto;
+      padding: 17px;
+    }
+
+    .panel h2,
+    .workspace h2 {
+      margin-top: 0;
+      color: var(--azul);
+    }
+
+    .panel-summary {
+      color: var(--gris);
+      font-size: .93rem;
+    }
+
+    .reto-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .reto-option {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      background: #f8fafc;
+      color: var(--texto);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .reto-option:hover,
+    .reto-option.active {
+      border-color: var(--azul-medio);
+      background: var(--azul-claro);
+    }
+
+    .reto-option strong {
+      display: block;
+      color: var(--azul);
+      line-height: 1.3;
+    }
+
+    .reto-option small {
+      display: block;
+      margin-top: 3px;
+      color: var(--gris);
+    }
+
+    .empty {
+      padding: 20px 12px;
+      border: 1px dashed var(--borde);
+      border-radius: 7px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    .workspace {
+      min-width: 0;
+      padding: 25px;
+    }
+
+    .workspace h2 {
+      margin-bottom: 6px;
+      font-size: 1.65rem;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      color: var(--gris);
+    }
+
+    .tags {
+      margin: 12px 0 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 5px 3px 0;
+      padding: 4px 10px;
+      border-radius: 18px;
+      background: #fff3d6;
+      color: #854d0e;
+      font-size: .84rem;
+    }
+
+    .tag.blue {
+      background: var(--azul-claro);
+      color: var(--azul);
+    }
+
+    .tag.purple {
+      background: var(--morado-claro);
+      color: #6b21a8;
+    }
+
+    .section {
+      margin: 22px 0;
+    }
+
+    .section h3 {
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--azul);
+      font-size: 1.1rem;
+    }
+
+    .consulta {
+      padding: 16px 18px;
+      border: 1px solid #fcd34d;
+      border-radius: 7px;
+      background: var(--amarillo-claro);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .producto {
+      padding: 13px 16px;
+      border-left: 4px solid var(--verde);
+      background: var(--verde-claro);
+    }
+
+    .reaction {
+      display: inline-block;
+      padding: 10px 13px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: bold;
+    }
+
+    .instructions {
+      padding: 14px 16px;
+      border-radius: 7px;
+      background: #f8fafc;
+    }
+
+    .instructions li,
+    .questions li {
+      margin-bottom: 8px;
+    }
+
+    .questions {
+      padding-left: 23px;
+    }
+
+    .presentation {
+      padding: 14px 16px;
+      border-left: 4px solid var(--verde_boton);
+      border-radius: 7px;
+      background: var(--morado-claro);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 12px 0 15px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 590px;
+      border-collapse: collapse;
+      font-size: .94rem;
+    }
+
+    th,
+    td {
+      padding: 8px 9px;
+      border: 1px solid var(--borde);
+      text-align: center;
+    }
+
+    th {
+      background: var(--azul);
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .initial-message {
+      padding: 30px 15px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    .footer-note {
+      margin-top: 25px;
+      color: var(--gris);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 980px) {
+      .toolbar {
+        position: static;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+        max-height: none;
+      }
+
+      .reto-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 25px 5vw;
+      }
+
+      .container {
+        padding: 15px 3.5vw 40px;
+      }
+
+      .toolbar {
+        padding: 11px 3.5vw;
+      }
+
+      .toolbar input,
+      .toolbar select,
+      .toolbar button {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+      }
+
+      .reto-list {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
+        padding: 17px;
+      }
+
+      .workspace h2 {
+        font-size: 1.35rem;
+      }
+
+      table {
+        font-size: .86rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Taller colaborativo N.° 2: enzimas y cinética</h1>
+    <h2>QIM202K — Bioquímica General para estudiantes de Kinesiología</h2>
+    <p><strong>Modalidad:</strong> 20 retos paralelos, uno por grupo.</p>
+    <p><strong>Duración:</strong> 90 minutos.</p>
+    <p><strong>Producto:</strong> papelógrafo u hojas blancas y defensa oral ante un ayudante evaluador.</p>
+    <p><strong>Uso de inteligencia artificial:</strong> el profesor autoriza exclusivamente KineBioBot.</p>
+    <p><strong>Importante:</strong> las respuestas se desarrollan únicamente en papel.</p>
+  </header>
+
+  <div class="toolbar">
+    <label for="buscar">Buscar:</label>
+    <input id="buscar" type="search" placeholder="enzima, ATP, ejercicio o metabolismo">
+
+    <label for="filtroEnzima">Enzima:</label>
+    <select id="filtroEnzima">
+      <option value="">Todas</option>
+    </select>
+
+    <label for="filtroNivel">Dificultad:</label>
+    <select id="filtroNivel">
+      <option value="">Todas</option>
+      <option value="Análisis">Análisis</option>
+      <option value="Integración">Integración</option>
+    </select>
+
+    <button id="limpiarFiltros" type="button">Limpiar filtros</button>
+    <button id="abrirBoton" type="button">Abrir KineBioBot</button>
+  </div>
+
+  <main class="container">
+
+    <section class="notice">
+      <h2>Instrucciones generales</h2>
+
+      <p>
+        Formen los grupos indicados por el docente. Cada grupo trabajará el reto
+        asignado o seleccionado según la organización de la clase.
+      </p>
+
+      <p>
+        Utilicen el contexto, la reacción y los datos experimentales para determinar
+        qué tipo de inhibición provoca el nuevo compuesto. La página no entrega
+        previamente la clasificación del inhibidor.
+      </p>
+
+      <p>
+        Las respuestas deben desarrollarse en papelógrafos u hojas blancas.
+        Esta página funciona únicamente como guía de trabajo y consulta.
+      </p>
+
+      <p>
+        Los datos son simulados con fines didácticos. Se analizarán utilizando un
+        modelo simplificado de Michaelis–Menten y no representan por sí solos la
+        totalidad de la regulación fisiológica de una enzima.
+      </p>
+
+      <p>
+        El profesor autoriza exclusivamente el uso de
+        <strong>KineBioBot</strong> como apoyo conceptual. No está autorizado el uso
+        de otros sistemas de inteligencia artificial, como ChatGPT, Claude, Gemini,
+        Copilot u otras herramientas equivalentes.
+      </p>
+
+      <p>
+        KineBioBot puede utilizarse para aclarar conceptos o revisar procedimientos.
+        Los cálculos, gráficos, clasificación del inhibidor y conclusión deben ser
+        elaborados y verificados por el grupo.
+      </p>
+    </section>
+
+    <div class="layout">
+
+      <aside class="panel">
+        <h2>Seleccionar reto</h2>
+        <p id="contadorRetos" class="panel-summary"></p>
+
+        <div id="listaRetos" class="reto-list"></div>
+
+        <div id="sinResultados" class="empty" style="display: none;">
+          No se encontraron retos con estos criterios.
+        </div>
+      </aside>
+
+      <section id="workspace" class="workspace">
+        <div class="initial-message">
+          <h2>Seleccione un reto</h2>
+          <p>
+            Utilice el panel para consultar el caso asignado a su grupo.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <p class="footer-note">
+      Esta página no guarda, recibe, imprime ni envía respuestas.
+      El producto final se construye y se presenta en papel.
+    </p>
+
+  </main>
+
+  <script>
+    const URL_KINEBIOBOT =
+      "https://ayudantia.ia.uc.cl/agents/68791d5ae695fe053285202c/chat?k=R-FfkvLd8q_XzESDwyIgJtEXcaj3oN4iQ2P2kwkwQFA";
+
+    /*
+      Los cuatro perfiles de datos se identifican solamente como A, B, C y D.
+      No se utiliza en la interfaz ninguna etiqueta que revele la clasificación
+      del inhibidor.
+    */
+
+    const perfilA = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [17, 30, 45, 60, 80, 96]
+    };
+
+    const perfilB = {
+      sustrato: [0.5, 1, 2, 4, 8, 16],
+      control: [18, 30, 45, 60, 72, 80],
+      compuesto: [14, 22, 31, 43, 48, 50]
+    };
+
+    const perfilC = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [13, 23, 32, 48, 69, 86]
+    };
+
+    const perfilD = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [15, 24, 30, 40, 48, 54]
+    };
+
+    const RETOS = [
+      {
+        numero: 1,
+        titulo: "LDH y producción de lactato durante ejercicio intenso",
+        enzima: "Lactato deshidrogenasa",
+        abreviatura: "LDH",
+        nivel: "Análisis",
+        proceso: "Metabolismo anaeróbico",
+        sustrato: "Piruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺",
+        perfil: perfilA,
+        contexto: "Durante un esfuerzo muscular de alta intensidad, la lactato deshidrogenasa participa en la conversión de piruvato en lactato y contribuye a la regeneración de NAD⁺. Se estudia un nuevo compuesto que modifica la velocidad de esta reacción.",
+        consulta: "A partir de los datos, ¿qué tipo de inhibición produce el nuevo compuesto sobre la LDH? Justifiquen la respuesta mediante Vmax, Km, Michaelis–Menten y Lineweaver–Burk.",
+        preguntas: [
+          "¿Qué función cumple la LDH en la reacción estudiada?",
+          "¿Qué ocurre con Vmax al comparar ambas condiciones?",
+          "¿Qué ocurre con Km en presencia del nuevo compuesto?",
+          "¿Qué patrón se observa en el gráfico de Michaelis–Menten?",
+          "¿Qué patrón se observa en Lineweaver–Burk?"
+        ],
+        producto: "Elaboren una conclusión dirigida a un kinesiólogo sobre el efecto del nuevo compuesto en la reacción de LDH."
+      },
+      {
+        numero: 2,
+        titulo: "LDH y conversión de lactato durante la recuperación",
+        enzima: "Lactato deshidrogenasa",
+        abreviatura: "LDH",
+        nivel: "Análisis",
+        proceso: "Recuperación metabólica",
+        sustrato: "Lactato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺",
+        perfil: perfilB,
+        contexto: "Durante la recuperación posterior a un esfuerzo intenso, el lactato puede ser convertido nuevamente en piruvato en determinadas condiciones metabólicas. Se analiza un nuevo compuesto que altera la actividad de la LDH.",
+        consulta: "A partir de los datos experimentales, ¿qué tipo de inhibición ocasiona el nuevo compuesto y qué evidencia respalda su clasificación?",
+        preguntas: [
+          "¿Qué variable se modificó y cuáles se mantuvieron constantes?",
+          "¿Cómo estimaron Vmax en ambas condiciones?",
+          "¿Cómo estimaron Km en ambas condiciones?",
+          "¿Qué relación observan entre las rectas de Lineweaver–Burk?",
+          "¿Puede el aumento de sustrato recuperar completamente la actividad?"
+        ],
+        producto: "Construyan un argumento sobre el efecto del compuesto en la recuperación metabólica."
+      },
+      {
+        numero: 3,
+        titulo: "LDH y modificación de la actividad catalítica",
+        enzima: "Lactato deshidrogenasa",
+        abreviatura: "LDH",
+        nivel: "Integración",
+        proceso: "Fatiga y metabolismo energético",
+        sustrato: "Piruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺",
+        perfil: perfilC,
+        contexto: "En una situación experimental asociada con fatiga muscular, se evalúa la actividad de la LDH en presencia de un nuevo compuesto que puede modificar tanto la respuesta al sustrato como la capacidad catalítica.",
+        consulta: "¿Qué comportamiento del inhibidor se observa en los datos y cómo se puede justificar mediante los dos tipos de gráficos?",
+        preguntas: [
+          "¿Qué diferencia existe entre una disminución de Vmax y un cambio de Km?",
+          "¿Qué cambios observan entre la condición control y la experimental?",
+          "¿Qué información aporta el gráfico de Michaelis–Menten?",
+          "¿Qué información aporta Lineweaver–Burk?",
+          "¿Qué limitación debe incluirse en la conclusión?"
+        ],
+        producto: "Diferencien en su explicación el cambio en Vmax del cambio en Km."
+      },
+      {
+        numero: 4,
+        titulo: "LDH y reducción de la capacidad catalítica",
+        enzima: "Lactato deshidrogenasa",
+        abreviatura: "LDH",
+        nivel: "Análisis",
+        proceso: "Actividad catalítica durante el esfuerzo",
+        sustrato: "Lactato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺",
+        perfil: perfilD,
+        contexto: "Se investiga un nuevo compuesto que reduce la actividad de la LDH, pero cuya presencia no parece modificar de manera importante la concentración de sustrato necesaria para alcanzar la mitad de la velocidad máxima.",
+        consulta: "¿Qué tipo de inhibición es compatible con los datos obtenidos? Argumenten usando Vmax, Km y los interceptos de Lineweaver–Burk.",
+        preguntas: [
+          "¿Qué representa Vmax en este experimento?",
+          "¿Qué significa que Km permanezca aproximadamente constante?",
+          "¿Qué patrón presentan las curvas de Michaelis–Menten?",
+          "¿Qué patrón presentan las rectas de Lineweaver–Burk?",
+          "¿Qué diferencia existe entre el dato observado y la interpretación fisiológica?"
+        ],
+        producto: "Expliquen si el compuesto afecta principalmente la capacidad catalítica o la interacción aparente con el sustrato."
+      },
+
+      {
+        numero: 5,
+        titulo: "Creatina quinasa y resíntesis rápida de ATP",
+        enzima: "Creatina quinasa",
+        abreviatura: "CK",
+        nivel: "Análisis",
+        proceso: "Sistema fosfágeno",
+        sustrato: "ADP",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP",
+        perfil: perfilA,
+        contexto: "Durante una contracción muscular breve y explosiva, la creatina quinasa contribuye a mantener la concentración de ATP mediante la transferencia de un grupo fosfato desde la fosfocreatina. Un nuevo compuesto altera la velocidad de la reacción.",
+        consulta: "¿Qué tipo de inhibición produce el nuevo compuesto sobre la creatina quinasa?",
+        preguntas: [
+          "¿Qué función cumple la creatina quinasa durante un esfuerzo explosivo?",
+          "¿Qué variable se modificó en el experimento?",
+          "¿Cómo cambian Vmax y Km?",
+          "¿Qué patrón se espera en los dos gráficos?",
+          "¿Podría una mayor disponibilidad de sustrato compensar el efecto?"
+        ],
+        producto: "Elaboren una conclusión sobre la posibilidad de mantener la producción de ATP."
+      },
+      {
+        numero: 6,
+        titulo: "Creatina quinasa durante la recuperación",
+        enzima: "Creatina quinasa",
+        abreviatura: "CK",
+        nivel: "Análisis",
+        proceso: "Recuperación de fosfocreatina",
+        sustrato: "Creatina",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺",
+        perfil: perfilB,
+        contexto: "Después de una contracción intensa, la creatina quinasa participa en la recuperación de las reservas de fosfocreatina. Se estudia un nuevo compuesto que modifica la respuesta cinética de la enzima.",
+        consulta: "¿Qué clasificación del inhibidor se justifica a partir de los cambios en Vmax y Km?",
+        preguntas: [
+          "¿Qué ocurre con Vmax y Km?",
+          "¿Qué diferencia se observa respecto del patrón competitivo?",
+          "¿Cómo deberían verse las rectas de Lineweaver–Burk?",
+          "¿El aumento de creatina recupera completamente Vmax?",
+          "¿Qué conclusión no puede establecerse con estos datos?"
+        ],
+        producto: "Expliquen las consecuencias cinéticas del compuesto sobre la recuperación energética."
+      },
+      {
+        numero: 7,
+        titulo: "Creatina quinasa en esfuerzos repetidos",
+        enzima: "Creatina quinasa",
+        abreviatura: "CK",
+        nivel: "Integración",
+        proceso: "Esfuerzos repetidos",
+        sustrato: "Fosfocreatina",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP",
+        perfil: perfilC,
+        contexto: "En esfuerzos repetidos, la velocidad de la reacción de creatina quinasa puede verse afectada por un nuevo compuesto que altera la actividad de la enzima en más de una forma.",
+        consulta: "¿Qué comportamiento del inhibidor explica simultáneamente los cambios observados en Vmax y Km?",
+        preguntas: [
+          "¿Qué cambios se observan en Vmax y Km?",
+          "¿Qué evidencia indica que el efecto no es exclusivamente competitivo?",
+          "¿Qué información entrega la intersección de las rectas?",
+          "¿Aumentar fosfocreatina permite recuperar Vmax?",
+          "¿Qué limitación tiene extrapolar el resultado a una sesión de ejercicio?"
+        ],
+        producto: "Argumenten si aumentar la concentración de fosfocreatina permite recuperar la velocidad máxima."
+      },
+      {
+        numero: 8,
+        titulo: "Creatina quinasa y capacidad catalítica",
+        enzima: "Creatina quinasa",
+        abreviatura: "CK",
+        nivel: "Análisis",
+        proceso: "Resíntesis de fosfocreatina",
+        sustrato: "Creatina",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺",
+        perfil: perfilD,
+        contexto: "Se analiza una condición en la que un nuevo compuesto reduce la capacidad máxima de la creatina quinasa, sin modificar de manera importante la concentración de sustrato necesaria para alcanzar la mitad de Vmax.",
+        consulta: "¿Qué tipo de inhibición es compatible con una reducción de Vmax y una conservación aproximada de Km?",
+        preguntas: [
+          "¿Qué representa Vmax en esta reacción?",
+          "¿Qué significa que Km se conserve aproximadamente?",
+          "¿Qué patrón se observa en Lineweaver–Burk?",
+          "¿Por qué aumentar el sustrato no recupera Vmax?",
+          "¿Cómo se relaciona la reducción de Vmax con la recuperación energética?"
+        ],
+        producto: "Relacionen la disminución de Vmax con la capacidad de resíntesis de fosfocreatina."
+      },
+
+      {
+        numero: 9,
+        titulo: "Hexoquinasa y utilización de glucosa",
+        enzima: "Hexoquinasa",
+        abreviatura: "HK",
+        nivel: "Análisis",
+        proceso: "Entrada de glucosa a la glucólisis",
+        sustrato: "Glucosa",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP",
+        perfil: perfilA,
+        contexto: "La hexoquinasa cataliza el primer paso de la utilización intracelular de glucosa. Durante la actividad muscular, esta reacción contribuye a mantener el flujo de carbono hacia la glucólisis.",
+        consulta: "¿Qué tipo de inhibición produce el nuevo compuesto sobre la hexoquinasa?",
+        preguntas: [
+          "¿Qué función cumple la hexoquinasa?",
+          "¿Qué cambia en Km al agregar el compuesto?",
+          "¿Qué ocurre con Vmax?",
+          "¿Cómo se distingue este patrón en Lineweaver–Burk?",
+          "¿Podría una mayor disponibilidad de glucosa compensar el efecto?"
+        ],
+        producto: "Expliquen el efecto del compuesto sobre la utilización inicial de glucosa."
+      },
+      {
+        numero: 10,
+        titulo: "Hexoquinasa durante la recuperación muscular",
+        enzima: "Hexoquinasa",
+        abreviatura: "HK",
+        nivel: "Análisis",
+        proceso: "Fosforilación de glucosa",
+        sustrato: "Glucosa",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP",
+        perfil: perfilB,
+        contexto: "Durante la recuperación, la glucosa puede continuar siendo fosforilada para sostener la reposición de intermediarios metabólicos. Se analiza un nuevo compuesto que modifica la actividad de la hexoquinasa.",
+        consulta: "¿Qué evidencia permite clasificar el comportamiento del nuevo compuesto?",
+        preguntas: [
+          "¿Qué cambios se observan en Vmax y Km?",
+          "¿Por qué este patrón se diferencia de otros posibles comportamientos?",
+          "¿Qué aspecto presentan las rectas en Lineweaver–Burk?",
+          "¿Qué ocurre si se aumenta mucho la concentración de glucosa?",
+          "¿Qué limitación tiene el modelo utilizado?"
+        ],
+        producto: "Comparen las dos condiciones y justifiquen la clasificación del inhibidor."
+      },
+      {
+        numero: 11,
+        titulo: "Hexoquinasa y demanda energética",
+        enzima: "Hexoquinasa",
+        abreviatura: "HK",
+        nivel: "Integración",
+        proceso: "Utilización de glucosa durante la contracción",
+        sustrato: "Glucosa",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP",
+        perfil: perfilC,
+        contexto: "Durante la contracción muscular, la hexoquinasa responde a cambios en la disponibilidad de glucosa y ATP. Un nuevo compuesto puede alterar la actividad de la enzima en más de una forma.",
+        consulta: "¿Qué clasificación del inhibidor explica los cambios simultáneos de Vmax y Km?",
+        preguntas: [
+          "¿Qué ocurre con Vmax?",
+          "¿Qué ocurre con Km?",
+          "¿Qué significa ese cambio dentro del modelo utilizado?",
+          "¿Qué diferencia existe con un comportamiento exclusivamente competitivo?",
+          "¿Qué conclusión kinesiológica es razonable?"
+        ],
+        producto: "Determinen cómo cambia Km y expliquen el significado del resultado."
+      },
+      {
+        numero: 12,
+        titulo: "Hexoquinasa y disminución de la actividad catalítica",
+        enzima: "Hexoquinasa",
+        abreviatura: "HK",
+        nivel: "Análisis",
+        proceso: "Actividad de la hexoquinasa en músculo",
+        sustrato: "Glucosa",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP",
+        perfil: perfilD,
+        contexto: "Se analiza la actividad de la hexoquinasa en una condición en la que un nuevo compuesto reduce la cantidad de producto formado por unidad de tiempo, pero no altera de manera importante el valor de Km.",
+        consulta: "¿El compuesto afecta la interacción aparente con la glucosa o la capacidad catalítica máxima?",
+        preguntas: [
+          "¿Qué representa el intercepto en el eje y?",
+          "¿Qué representa el intercepto en el eje x?",
+          "¿Qué ocurre con Vmax?",
+          "¿Qué ocurre con Km?",
+          "¿Cómo respaldan los gráficos la clasificación?"
+        ],
+        producto: "Utilicen los interceptos del gráfico de Lineweaver–Burk para fundamentar su conclusión."
+      },
+
+      {
+        numero: 13,
+        titulo: "PFK-1 durante el ejercicio intenso",
+        enzima: "Fosfofructoquinasa-1",
+        abreviatura: "PFK-1",
+        nivel: "Integración",
+        proceso: "Regulación de la glucólisis",
+        sustrato: "Fructosa-6-fosfato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP",
+        perfil: perfilA,
+        contexto: "La PFK-1 participa en una etapa reguladora de la glucólisis. Durante un ejercicio intenso, su actividad contribuye a orientar glucosa hacia la producción rápida de energía.",
+        consulta: "¿Qué tipo de inhibición produce el nuevo compuesto sobre la PFK-1?",
+        preguntas: [
+          "¿Qué función cumple PFK-1 en la glucólisis?",
+          "¿Qué ocurre con Vmax y Km?",
+          "¿Cómo se observa el patrón en Michaelis–Menten?",
+          "¿Dónde se intersectan las rectas en Lineweaver–Burk?",
+          "¿Aumentar el sustrato permite recuperar la velocidad máxima?"
+        ],
+        producto: "Analicen el efecto del nuevo compuesto sobre el flujo glucolítico."
+      },
+      {
+        numero: 14,
+        titulo: "PFK-1 durante la recuperación",
+        enzima: "Fosfofructoquinasa-1",
+        abreviatura: "PFK-1",
+        nivel: "Integración",
+        proceso: "Disminución del flujo glucolítico",
+        sustrato: "Fructosa-6-fosfato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP",
+        perfil: perfilB,
+        contexto: "Durante la recuperación, el flujo glucolítico disminuye y la actividad de PFK-1 puede verse modificada por metabolitos reguladores. Se analiza un nuevo compuesto que altera la actividad de la enzima.",
+        consulta: "¿Qué patrón de cambios en Vmax y Km permite clasificar el efecto del nuevo compuesto?",
+        preguntas: [
+          "¿Qué cambios se observan en Vmax y Km?",
+          "¿Qué diferencia existe respecto de otro patrón posible?",
+          "¿Qué comportamiento se espera en Lineweaver–Burk?",
+          "¿Por qué aumentar el sustrato no elimina completamente el efecto?",
+          "¿Qué precaución se debe tener al interpretar PFK-1 con este modelo?"
+        ],
+        producto: "Relacionen la clasificación del inhibidor con la regulación de la glucólisis."
+      },
+      {
+        numero: 15,
+        titulo: "PFK-1 y regulación glucolítica",
+        enzima: "Fosfofructoquinasa-1",
+        abreviatura: "PFK-1",
+        nivel: "Integración",
+        proceso: "Regulación de la glucólisis",
+        sustrato: "Fructosa-6-fosfato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP",
+        perfil: perfilC,
+        contexto: "La actividad de PFK-1 puede verse afectada por un nuevo compuesto que interactúa con la enzima libre y con el complejo enzima–sustrato. Esto podría modificar el flujo glucolítico durante la actividad muscular.",
+        consulta: "¿El compuesto modifica simultáneamente la capacidad catalítica y el parámetro Km aparente?",
+        preguntas: [
+          "¿Qué ocurre con Vmax?",
+          "¿Qué ocurre con Km?",
+          "¿Qué evidencia indica que el inhibidor no actúa solo sobre la unión del sustrato?",
+          "¿Qué patrón se espera en las rectas de Lineweaver–Burk?",
+          "¿Por qué el análisis no permite predecir por sí solo el rendimiento físico?"
+        ],
+        producto: "Utilicen ambos gráficos para argumentar el comportamiento del compuesto."
+      },
+      {
+        numero: 16,
+        titulo: "PFK-1 y reducción de Vmax",
+        enzima: "Fosfofructoquinasa-1",
+        abreviatura: "PFK-1",
+        nivel: "Integración",
+        proceso: "Producción rápida de energía",
+        sustrato: "Fructosa-6-fosfato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP",
+        perfil: perfilD,
+        contexto: "Se estudia una condición en la que un nuevo compuesto reduce la actividad máxima de PFK-1, pero no modifica de manera importante la concentración de sustrato necesaria para alcanzar la mitad de Vmax.",
+        consulta: "¿Qué comportamiento del inhibidor explica mejor la reducción de Vmax sin un cambio importante en Km?",
+        preguntas: [
+          "¿Qué significa que disminuya Vmax?",
+          "¿Qué indica que Km permanezca aproximadamente constante?",
+          "¿Qué patrón se observa en Lineweaver–Burk?",
+          "¿Por qué aumentar el sustrato no recupera Vmax?",
+          "¿Cómo se relaciona el resultado con la glucólisis?"
+        ],
+        producto: "Relacionen el cambio de Vmax con la capacidad de la vía glucolítica."
+      },
+
+      {
+        numero: 17,
+        titulo: "Piruvato quinasa y producción de ATP",
+        enzima: "Piruvato quinasa",
+        abreviatura: "PK",
+        nivel: "Integración",
+        proceso: "Etapa final de la glucólisis",
+        sustrato: "Fosfoenolpiruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP",
+        perfil: perfilA,
+        contexto: "Durante el ejercicio de alta intensidad, la glucólisis contribuye a la producción rápida de ATP. La piruvato quinasa cataliza una de las etapas finales de esta vía. Un nuevo compuesto modifica la velocidad de la reacción.",
+        consulta: "¿Qué tipo de inhibición produce el nuevo compuesto sobre la piruvato quinasa?",
+        preguntas: [
+          "¿Qué función cumple la piruvato quinasa?",
+          "¿Qué ocurre con Vmax y Km?",
+          "¿Qué patrón se espera en Michaelis–Menten?",
+          "¿Dónde se intersectan las rectas de Lineweaver–Burk?",
+          "¿Puede el aumento de sustrato recuperar la velocidad máxima?"
+        ],
+        producto: "Elaboren una explicación sobre el efecto del compuesto en la producción glucolítica de ATP."
+      },
+      {
+        numero: 18,
+        titulo: "Piruvato quinasa durante la recuperación energética",
+        enzima: "Piruvato quinasa",
+        abreviatura: "PK",
+        nivel: "Integración",
+        proceso: "Producción de ATP durante la recuperación",
+        sustrato: "Fosfoenolpiruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP",
+        perfil: perfilB,
+        contexto: "Después de un esfuerzo intenso, la célula muscular debe reorganizar sus reservas energéticas. Se estudia un nuevo compuesto que modifica la actividad de la piruvato quinasa.",
+        consulta: "¿Qué evidencia cinética permite clasificar el comportamiento del nuevo compuesto?",
+        preguntas: [
+          "¿Qué cambios experimentan Vmax y Km?",
+          "¿Cómo se diferencia este patrón de una modificación de Km solamente?",
+          "¿Qué patrón se espera en Lineweaver–Burk?",
+          "¿Por qué el aumento de sustrato no recupera completamente Vmax?",
+          "¿Qué limitación tiene interpretar una sola reacción como producción total de ATP?"
+        ],
+        producto: "Construyan un argumento sobre el efecto del compuesto en la producción de ATP."
+      },
+      {
+        numero: 19,
+        titulo: "Piruvato quinasa y disminución del flujo glucolítico",
+        enzima: "Piruvato quinasa",
+        abreviatura: "PK",
+        nivel: "Integración",
+        proceso: "Flujo glucolítico durante el ejercicio",
+        sustrato: "Fosfoenolpiruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP",
+        perfil: perfilC,
+        contexto: "Durante una actividad muscular sostenida, la producción de ATP depende de la coordinación de varias etapas metabólicas. Se estudia un nuevo compuesto que altera la respuesta cinética de la piruvato quinasa.",
+        consulta: "¿Qué comportamiento del inhibidor explica los cambios observados en Vmax y Km?",
+        preguntas: [
+          "¿Qué diferencia existe entre disminuir Vmax y modificar Km?",
+          "¿Qué evidencia indica que el compuesto afecta también la capacidad catalítica?",
+          "¿Qué patrón se observa en las rectas de Lineweaver–Burk?",
+          "¿Aumentar el sustrato permite recuperar Vmax?",
+          "¿Qué limitación tiene relacionar una enzima aislada con el rendimiento muscular?"
+        ],
+        producto: "Elaboren una conclusión que distinga entre capacidad catalítica, Km aparente y flujo glucolítico."
+      },
+      {
+        numero: 20,
+        titulo: "Piruvato quinasa y reducción de la capacidad catalítica",
+        enzima: "Piruvato quinasa",
+        abreviatura: "PK",
+        nivel: "Integración",
+        proceso: "Producción rápida de ATP",
+        sustrato: "Fosfoenolpiruvato",
+        unidadSustrato: "mmol/L",
+        unidadVelocidad: "µmol/min",
+        reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP",
+        perfil: perfilD,
+        contexto: "Durante una condición experimental asociada con una menor capacidad de producción rápida de ATP, se observa que la piruvato quinasa alcanza una velocidad máxima menor. Se analiza un nuevo compuesto que modifica la actividad de la enzima.",
+        consulta: "¿Qué tipo de inhibición es compatible con los datos y cómo se justifica mediante Vmax, Km y los gráficos?",
+        preguntas: [
+          "¿Qué significa que disminuya Vmax?",
+          "¿Qué indica que Km permanezca aproximadamente constante?",
+          "¿Qué patrón se observa en Lineweaver–Burk?",
+          "¿Por qué aumentar el sustrato no recupera Vmax?",
+          "¿Cómo se relaciona este resultado con la producción rápida de ATP?"
+        ],
+        producto: "Expliquen si el compuesto afecta principalmente la interacción aparente con el sustrato o la capacidad catalítica."
+      }
+    ];
+
+    const listaRetos = document.getElementById("listaRetos");
+    const workspace = document.getElementById("workspace");
+    const contadorRetos = document.getElementById("contadorRetos");
+    const sinResultados = document.getElementById("sinResultados");
+    const buscar = document.getElementById("buscar");
+    const filtroEnzima = document.getElementById("filtroEnzima");
+    const filtroNivel = document.getElementById("filtroNivel");
+    const limpiarFiltros = document.getElementById("limpiarFiltros");
+    const abrirBoton = document.getElementById("abrirBoton");
+
+    let retoActivo = null;
+
+    function escaparHTML(texto) {
+      return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function cargarFiltroEnzimas() {
+      const enzimas = [...new Set(RETOS.map(reto => reto.enzima))];
+
+      enzimas.forEach(enzima => {
+        const opcion = document.createElement("option");
+        opcion.value = enzima;
+        opcion.textContent = enzima;
+        filtroEnzima.appendChild(opcion);
+      });
+    }
+
+    function textoBusqueda(reto) {
+      return [
+        reto.numero,
+        reto.titulo,
+        reto.enzima,
+        reto.abreviatura,
+        reto.nivel,
+        reto.proceso,
+        reto.sustrato,
+        reto.reaccion,
+        reto.contexto,
+        reto.consulta,
+        reto.producto,
+        ...reto.preguntas
+      ].join(" ").toLowerCase();
+    }
+
+    function obtenerRetosFiltrados() {
+      const termino = buscar.value.trim().toLowerCase();
+      const enzima = filtroEnzima.value;
+      const nivel = filtroNivel.value;
+
+      return RETOS.filter(reto => {
+        const coincideTexto =
+          !termino || textoBusqueda(reto).includes(termino);
+
+        const coincideEnzima =
+          !enzima || reto.enzima === enzima;
+
+        const coincideNivel =
+          !nivel || reto.nivel === nivel;
+
+        return coincideTexto && coincideEnzima && coincideNivel;
+      });
+    }
+
+    function renderizarLista() {
+      const retosFiltrados = obtenerRetosFiltrados();
+
+      listaRetos.innerHTML = "";
+      contadorRetos.textContent =
+        `${retosFiltrados.length} de ${RETOS.length} retos disponibles`;
+
+      sinResultados.style.display =
+        retosFiltrados.length === 0 ? "block" : "none";
+
+      retosFiltrados.forEach(reto => {
+        const boton = document.createElement("button");
+
+        boton.type = "button";
+        boton.className = "reto-option";
+        boton.dataset.numero = reto.numero;
+
+        if (retoActivo === reto.numero) {
+          boton.classList.add("active");
+        }
+
+        boton.innerHTML = `
+          <strong>Reto ${reto.numero}. ${escaparHTML(reto.titulo)}</strong>
+          <small>${escaparHTML(reto.enzima)} · ${escaparHTML(reto.proceso)} · ${escaparHTML(reto.nivel)}</small>
+        `;
+
+        boton.addEventListener("click", () => seleccionarReto(reto.numero));
+        listaRetos.appendChild(boton);
+      });
+    }
+
+    function construirTablaDatos(reto) {
+      const filas = reto.perfil.sustrato.map((sustrato, indice) => {
+        return `
+          <tr>
+            <td>${sustrato}</td>
+            <td>${reto.perfil.control[indice]}</td>
+            <td>${reto.perfil.compuesto[indice]}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        `;
+      }).join("");
+
+      return `
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>[${escaparHTML(reto.sustrato)}]<br>${escaparHTML(reto.unidadSustrato)}</th>
+                <th>Condición control<br>v₀ (${escaparHTML(reto.unidadVelocidad)})</th>
+                <th>Con nuevo compuesto<br>v₀ (${escaparHTML(reto.unidadVelocidad)})</th>
+                <th>1/[S]</th>
+                <th>1/v₀ control</th>
+                <th>1/v₀ compuesto</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filas}
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Completen en el papel las tres últimas columnas. Utilicen unidades
+          coherentes y mantengan un número razonable de cifras significativas.
+        </p>
+      `;
+    }
+
+    function seleccionarReto(numero) {
+      const reto = RETOS.find(item => item.numero === numero);
+
+      if (!reto) {
+        return;
+      }
+
+      retoActivo = numero;
+      renderizarLista();
+
+      workspace.innerHTML = `
+        <h2>Reto ${reto.numero}. ${escaparHTML(reto.titulo)}</h2>
+
+        <p class="subtitle">
+          Analicen los datos y determinen el comportamiento del nuevo compuesto.
+        </p>
+
+        <div class="tags">
+          <span class="tag blue">
+            ${escaparHTML(reto.enzima)} (${escaparHTML(reto.abreviatura)})
+          </span>
+          <span class="tag purple">
+            ${escaparHTML(reto.nivel)}
+          </span>
+          <span class="tag">
+            ${escaparHTML(reto.proceso)}
+          </span>
+        </div>
+
+        <section class="section">
+          <h3>1. Situación kinesiológica</h3>
+          <p>${escaparHTML(reto.contexto)}</p>
+        </section>
+
+        <section class="section">
+          <h3>2. Información de la reacción</h3>
+
+          <p>
+            La enzima estudiada es
+            <strong>${escaparHTML(reto.enzima)}</strong>.
+            El sustrato cuya concentración se modifica es
+            <strong>${escaparHTML(reto.sustrato)}</strong>.
+          </p>
+
+          <p class="reaction">${escaparHTML(reto.reaccion)}</p>
+
+          <p>
+            Consideren constantes las demás condiciones experimentales.
+            Los datos corresponden a un modelo simplificado y simulado.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>3. Pregunta desafiante</h3>
+
+          <div class="consulta">
+            ${escaparHTML(reto.consulta)}
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>4. Datos experimentales</h3>
+
+          <p>
+            Comparen la condición control con la condición en presencia del nuevo
+            compuesto. La velocidad inicial se expresa en
+            ${escaparHTML(reto.unidadVelocidad)}.
+          </p>
+
+          ${construirTablaDatos(reto)}
+        </section>
+
+        <section class="section">
+          <h3>5. Trabajo que deben realizar en el papel</h3>
+
+          <div class="instructions">
+            <ol>
+              <li>
+                Identifiquen la enzima, el sustrato, el producto y el proceso
+                metabólico involucrado.
+              </li>
+              <li>
+                Estimen Vmax para la condición control y para la condición con
+                el nuevo compuesto.
+              </li>
+              <li>
+                Estimen Km utilizando la concentración de sustrato correspondiente
+                aproximadamente a Vmax/2.
+              </li>
+              <li>
+                Construyan un gráfico de Michaelis–Menten para ambas condiciones.
+              </li>
+              <li>
+                Calculen 1/[S] y 1/v₀ para las dos condiciones.
+              </li>
+              <li>
+                Construyan el gráfico de Lineweaver–Burk.
+              </li>
+              <li>
+                Comparen Vmax y Km entre la condición control y la experimental.
+              </li>
+              <li>
+                Determinen qué tipo de inhibición produce el nuevo compuesto.
+              </li>
+              <li>
+                Justifiquen la clasificación utilizando los datos y ambos gráficos.
+              </li>
+              <li>
+                Elaboren una conclusión y señalen una limitación del análisis.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>6. Preguntas guía</h3>
+
+          <ol class="questions">
+            ${reto.preguntas.map(pregunta =>
+              `<li>${escaparHTML(pregunta)}</li>`
+            ).join("")}
+          </ol>
+        </section>
+
+        <section class="section">
+          <h3>7. Producto grupal</h3>
+
+          <div class="producto">
+            <p>${escaparHTML(reto.producto)}</p>
+
+            <p>El papelógrafo o la hoja debe incluir:</p>
+
+            <ul>
+              <li>Nombre de la enzima y proceso kinesiológico.</li>
+              <li>Reacción bioquímica simplificada.</li>
+              <li>Tabla de datos y tabla de recíprocos.</li>
+              <li>Estimaciones de Vmax y Km para ambas condiciones.</li>
+              <li>Gráfico de Michaelis–Menten.</li>
+              <li>Gráfico de Lineweaver–Burk.</li>
+              <li>Clasificación del inhibidor.</li>
+              <li>Justificación basada en los datos.</li>
+              <li>Conclusión y limitación.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>8. Preparación para la defensa oral</h3>
+
+          <div class="presentation">
+            <p>El ayudante puede preguntarles:</p>
+
+            <ol>
+              <li>¿Qué representa Vmax en su experimento?</li>
+              <li>¿Cómo estimaron Km?</li>
+              <li>¿Qué cambió en presencia del nuevo compuesto?</li>
+              <li>¿Qué evidencia de los gráficos respalda su clasificación?</li>
+              <li>
+                ¿Qué limitación tiene interpretar una enzima aislada en relación
+                con el rendimiento muscular?
+              </li>
+            </ol>
+
+            <p>
+              La respuesta del grupo debe basarse en los datos y no únicamente
+              en memorizar definiciones.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>9. Distribución sugerida del tiempo</h3>
+
+          <div class="instructions">
+            <ul>
+              <li><strong>10 minutos:</strong> lectura e identificación de variables.</li>
+              <li><strong>20 minutos:</strong> análisis de datos y estimación de parámetros.</li>
+              <li><strong>25 minutos:</strong> construcción de gráficos.</li>
+              <li><strong>15 minutos:</strong> interpretación y clasificación.</li>
+              <li><strong>10 minutos:</strong> elaboración de la conclusión.</li>
+              <li><strong>10 minutos:</strong> preparación de la defensa oral.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>10. Orientaciones para el análisis</h3>
+
+          <div class="instructions">
+            <ul>
+              <li>Comparen Vmax entre la condición control y la experimental.</li>
+              <li>Comparen Km entre ambas condiciones.</li>
+              <li>Observen si la curva experimental alcanza una meseta diferente.</li>
+              <li>Analicen la posición relativa de las rectas en Lineweaver–Burk.</li>
+              <li>
+                Evalúen si aumentar la concentración de sustrato podría compensar
+                el efecto observado.
+              </li>
+              <li>
+                Propongan una clasificación del inhibidor y respáldenla con evidencia.
+              </li>
+            </ul>
+          </div>
+        </section>
+      `;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function limpiarTodosLosFiltros() {
+      buscar.value = "";
+      filtroEnzima.value = "";
+      filtroNivel.value = "";
+      renderizarLista();
+    }
+
+    function abrirKineBioBot() {
+      window.open(
+        URL_KINEBIOBOT,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+
+    buscar.addEventListener("input", renderizarLista);
+    filtroEnzima.addEventListener("change", renderizarLista);
+    filtroNivel.addEventListener("change", renderizarLista);
+    limpiarFiltros.addEventListener("click", limpiarTodosLosFiltros);
+    abrirBoton.addEventListener("click", abrirKineBioBot);
+
+    cargarFiltroEnzimas();
+    renderizarLista();
+  </script>
+
+</body>
+</html>

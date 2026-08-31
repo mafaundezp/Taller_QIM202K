@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resolución docente del Taller 2 de enzimas y cinética QIM202K">
+  <title>Resolución docente — Taller 2 QIM202K</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul-medio: #2d6a8a;
+      --azul-claro: #eaf3f8;
+      --morado: #6d28d9;
+      --morado-claro: #f5f3ff;
+      --verde: #166534;
+      --verde-claro: #f0fdf4;
+      --amarillo: #fff7df;
+      --rojo-claro: #fef2f2;
+      --rojo: #991b1b;
+      --texto: #1f2937;
+      --gris: #64748b;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 36px 5vw 30px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-medio));
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    header h2 {
+      margin: 0 0 15px;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      font-weight: normal;
+    }
+
+    header p {
+      max-width: 1100px;
+      margin: 6px 0;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 5vw;
+      border-bottom: 1px solid var(--borde);
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,.07);
+    }
+
+    .toolbar label {
+      color: var(--azul);
+      font-weight: bold;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      border: 1px solid var(--borde);
+      background: white;
+    }
+
+    .toolbar input {
+      min-width: 230px;
+      flex: 1 1 230px;
+    }
+
+    .toolbar select {
+      flex: 0 1 220px;
+    }
+
+    .toolbar button {
+      border: none;
+      background: var(--morado);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .toolbar button:hover {
+      filter: brightness(1.1);
+    }
+
+    .container {
+      width: min(1400px, 90%);
+      margin: 0 auto;
+      padding: 25px 0 60px;
+    }
+
+    .notice,
+    .warning,
+    .method {
+      margin-bottom: 22px;
+      padding: 17px 19px;
+      border-radius: 7px;
+    }
+
+    .notice {
+      border-left: 5px solid var(--azul);
+      background: var(--azul-claro);
+    }
+
+    .warning {
+      border-left: 5px solid #d97706;
+      background: var(--amarillo);
+    }
+
+    .method {
+      border-left: 5px solid var(--verde);
+      background: var(--verde-claro);
+    }
+
+    .notice h2,
+    .warning h2,
+    .method h2 {
+      margin-top: 0;
+      color: var(--azul);
+      font-size: 1.2rem;
+    }
+
+    .warning h2 {
+      color: #92400e;
+    }
+
+    .method h2 {
+      color: var(--verde);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(270px, .75fr) minmax(500px, 1.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel,
+    .workspace {
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: white;
+      box-shadow: 0 2px 7px rgba(0,0,0,.06);
+    }
+
+    .panel {
+      position: sticky;
+      top: 76px;
+      max-height: calc(100vh - 96px);
+      overflow-y: auto;
+      padding: 17px;
+    }
+
+    .panel h2,
+    .workspace h2 {
+      margin-top: 0;
+      color: var(--azul);
+    }
+
+    .counter {
+      color: var(--gris);
+      font-size: .93rem;
+    }
+
+    .reto-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .reto-option {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      background: #f8fafc;
+      color: var(--texto);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .reto-option:hover,
+    .reto-option.active {
+      border-color: var(--azul-medio);
+      background: var(--azul-claro);
+    }
+
+    .reto-option strong {
+      display: block;
+      color: var(--azul);
+    }
+
+    .reto-option small {
+      display: block;
+      margin-top: 3px;
+      color: var(--gris);
+    }
+
+    .workspace {
+      min-width: 0;
+      padding: 25px;
+    }
+
+    .workspace h2 {
+      margin-bottom: 5px;
+      font-size: 1.65rem;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      color: var(--gris);
+    }
+
+    .tags {
+      margin: 12px 0 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 5px 3px 0;
+      padding: 4px 10px;
+      border-radius: 18px;
+      background: #fff3d6;
+      color: #854d0e;
+      font-size: .84rem;
+    }
+
+    .tag.blue {
+      background: var(--azul-claro);
+      color: var(--azul);
+    }
+
+    .tag.purple {
+      background: var(--morado-claro);
+      color: #6b21a8;
+    }
+
+    .section {
+      margin: 23px 0;
+    }
+
+    .section h3 {
+      margin-bottom: 9px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--azul);
+      font-size: 1.1rem;
+    }
+
+    .result-box {
+      padding: 16px 18px;
+      border-left: 5px solid var(--verde);
+      border-radius: 6px;
+      background: var(--verde-claro);
+    }
+
+    .result-box strong {
+      color: var(--verde);
+    }
+
+    .warning-box {
+      padding: 15px 17px;
+      border-left: 5px solid var(--rojo);
+      border-radius: 6px;
+      background: var(--rojo-claro);
+    }
+
+    .warning-box strong {
+      color: var(--rojo);
+    }
+
+    .formula {
+      display: inline-block;
+      padding: 10px 13px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #0f172a;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 12px 0 16px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 650px;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+
+    th,
+    td {
+      padding: 8px 9px;
+      border: 1px solid var(--borde);
+      text-align: center;
+    }
+
+    th {
+      background: var(--azul);
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .pattern {
+      padding: 14px 16px;
+      border-radius: 7px;
+      background: var(--morado-claro);
+      border-left: 4px solid var(--morado);
+    }
+
+    .initial {
+      padding: 35px 15px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    .empty {
+      padding: 20px;
+      border: 1px dashed var(--borde);
+      border-radius: 7px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    footer {
+      padding: 25px 5vw;
+      background: #0f2f49;
+      color: #dbeafe;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 980px) {
+      .toolbar {
+        position: static;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+        max-height: none;
+      }
+
+      .reto-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 93%;
+      }
+
+      .toolbar input,
+      .toolbar select,
+      .toolbar button {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+      }
+
+      .reto-list {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
+        padding: 17px;
+      }
+
+      table {
+        font-size: .84rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Resolución docente del Taller N.° 2</h1>
+    <h2>Enzimas, cinética e inhibición — QIM202K</h2>
+    <p>
+      Página de apoyo para verificar cálculos, coherencia biológica,
+      interpretación de Vmax y Km, y clasificación del nuevo compuesto.
+    </p>
+    <p>
+      Esta página contiene la información docente y no debe compartirse como
+      versión estudiantil antes de finalizar la actividad.
+    </p>
+  </header>
+
+  <div class="toolbar">
+    <label for="buscar">Buscar:</label>
+    <input id="buscar" type="search" placeholder="LDH, ATP, glucólisis o reto">
+
+    <label for="filtroEnzima">Enzima:</label>
+    <select id="filtroEnzima">
+      <option value="">Todas</option>
+    </select>
+
+    <button id="limpiar" type="button">Limpiar filtros</button>
+  </div>
+
+  <main class="container">
+
+    <section class="notice">
+      <h2>Alcance de esta resolución</h2>
+      <p>
+        Los resultados se obtienen mediante un modelo simplificado de Michaelis–Menten.
+        Las velocidades son datos simulados y redondeados para permitir el análisis
+        manual en una sesión de 90 minutos.
+      </p>
+      <p>
+        Los valores esperados son aproximados. Las estimaciones realizadas desde el
+        gráfico de Michaelis–Menten y desde Lineweaver–Burk pueden diferir ligeramente,
+        especialmente porque la transformación recíproca amplifica el efecto de los
+        errores de redondeo.
+      </p>
+    </section>
+
+    <section class="warning">
+      <h2>Verificación biológica importante</h2>
+      <p>
+        LDH, creatina quinasa, PFK-1 y piruvato quinasa participan en reacciones que,
+        en condiciones fisiológicas, pueden depender de más de un sustrato, ser
+        reversibles o presentar regulación alostérica.
+      </p>
+      <p>
+        Por eso, los retos deben interpretarse como análisis de una variable de sustrato
+        bajo condiciones controladas. No representan por sí solos el flujo metabólico
+        completo, la fatiga, el rendimiento físico ni una situación clínica.
+      </p>
+    </section>
+
+    <section class="method">
+      <h2>Procedimiento general de resolución</h2>
+      <ol>
+        <li>Identificar la variable de sustrato y la velocidad inicial.</li>
+        <li>Estimar Vmax como la meseta aproximada de la curva de Michaelis–Menten.</li>
+        <li>Estimar Km como la concentración de sustrato correspondiente a Vmax/2.</li>
+        <li>Calcular 1/[S] y 1/v₀.</li>
+        <li>Interpretar la ordenada al origen, la abscisa al origen y la pendiente de Lineweaver–Burk.</li>
+        <li>Comparar Vmax y Km entre el control y la condición experimental.</li>
+        <li>Clasificar el comportamiento del nuevo compuesto.</li>
+      </ol>
+
+      <p class="formula">
+        v₀ = Vmax[S] / (Km + [S])
+      </p>
+
+      <p class="formula">
+        1/v₀ = (Km/Vmax)(1/[S]) + 1/Vmax
+      </p>
+    </section>
+
+    <div class="layout">
+
+      <aside class="panel">
+        <h2>Seleccionar reto</h2>
+        <p id="contador" class="counter"></p>
+        <div id="lista" class="reto-list"></div>
+
+        <div id="sinResultados" class="empty" style="display:none;">
+          No se encontraron retos.
+        </div>
+      </aside>
+
+      <section id="workspace" class="workspace">
+        <div class="initial">
+          <h2>Seleccione un reto</h2>
+          <p>
+            Utilice el panel para revisar el desarrollo y los resultados esperados.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    Resolución docente del Taller N.° 2 — QIM202K
+  </footer>
+
+  <script>
+    const PERFIL_A = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [17.14, 30, 40, 60, 80, 96],
+      controlEsperado: { vmax: 120, km: 3 },
+      compuestoEsperado: { vmax: 120, km: 6 },
+      clasificacion: "Inhibición competitiva",
+      lineweaver: "Las rectas se intersectan aproximadamente sobre el eje y. El intercepto en y se mantiene cercano a 1/120 = 0,0083, mientras aumenta la pendiente.",
+      compensacion: "Sí, en el modelo ideal el aumento de sustrato puede superar parcialmente el efecto y permitir alcanzar la misma Vmax."
+    };
+
+    const PERFIL_B = {
+      sustrato: [0.5, 1, 2, 4, 8, 16],
+      control: [18, 30, 45, 60, 72, 80],
+      compuesto: [18, 27, 36, 43.2, 48, 50.8],
+      controlEsperado: { vmax: 90, km: 2 },
+      compuestoEsperado: { vmax: 54, km: 1 },
+      clasificacion: "Inhibición acompetitiva",
+      lineweaver: "Las rectas son aproximadamente paralelas porque disminuyen Vmax y Km en una proporción semejante.",
+      compensacion: "No, aumentar el sustrato no recupera la Vmax original en el modelo acompetitivo."
+    };
+
+    const PERFIL_C = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [8.57, 15, 20, 30, 40, 48],
+      controlEsperado: { vmax: 120, km: 3 },
+      compuestoEsperado: { vmax: 60, km: 6 },
+      clasificacion: "Inhibición mixta",
+      lineweaver: "Las rectas se intersectan fuera de los ejes. El intercepto en y aumenta y la pendiente también aumenta.",
+      compensacion: "No, el aumento de sustrato no recupera la Vmax reducida."
+    };
+
+    const PERFIL_D = {
+      sustrato: [1, 2, 3, 6, 12, 24],
+      control: [30, 48, 60, 80, 96, 107],
+      compuesto: [15, 24, 30, 40, 48, 53.3],
+      controlEsperado: { vmax: 120, km: 3 },
+      compuestoEsperado: { vmax: 60, km: 3 },
+      clasificacion: "Inhibición no competitiva pura",
+      lineweaver: "Las rectas se intersectan aproximadamente sobre el eje x. Km permanece constante y el intercepto en y aumenta.",
+      compensacion: "No, aumentar el sustrato no recupera la Vmax reducida."
+    };
+
+    const RETOS = [
+      { numero: 1, titulo: "LDH y producción de lactato durante ejercicio intenso", enzima: "Lactato deshidrogenasa", abrev: "LDH", nivel: "Análisis", proceso: "Metabolismo anaeróbico", sustrato: "Piruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺", perfil: PERFIL_A },
+      { numero: 2, titulo: "LDH y conversión de lactato durante la recuperación", enzima: "Lactato deshidrogenasa", abrev: "LDH", nivel: "Análisis", proceso: "Recuperación metabólica", sustrato: "Lactato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺", perfil: PERFIL_B },
+      { numero: 3, titulo: "LDH y modificación de la actividad catalítica", enzima: "Lactato deshidrogenasa", abrev: "LDH", nivel: "Integración", proceso: "Fatiga y metabolismo energético", sustrato: "Piruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺", perfil: PERFIL_C },
+      { numero: 4, titulo: "LDH y reducción de la capacidad catalítica", enzima: "Lactato deshidrogenasa", abrev: "LDH", nivel: "Análisis", proceso: "Actividad catalítica", sustrato: "Lactato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺", perfil: PERFIL_D },
+
+      { numero: 5, titulo: "Creatina quinasa y resíntesis rápida de ATP", enzima: "Creatina quinasa", abrev: "CK", nivel: "Análisis", proceso: "Sistema fosfágeno", sustrato: "ADP", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP", perfil: PERFIL_A },
+      { numero: 6, titulo: "Creatina quinasa durante la recuperación", enzima: "Creatina quinasa", abrev: "CK", nivel: "Análisis", proceso: "Recuperación de fosfocreatina", sustrato: "Creatina", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺", perfil: PERFIL_B },
+      { numero: 7, titulo: "Creatina quinasa en esfuerzos repetidos", enzima: "Creatina quinasa", abrev: "CK", nivel: "Integración", proceso: "Esfuerzos repetidos", sustrato: "Fosfocreatina", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP", perfil: PERFIL_C },
+      { numero: 8, titulo: "Creatina quinasa y capacidad catalítica", enzima: "Creatina quinasa", abrev: "CK", nivel: "Análisis", proceso: "Resíntesis de fosfocreatina", sustrato: "Creatina", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺", perfil: PERFIL_D },
+
+      { numero: 9, titulo: "Hexoquinasa y utilización de glucosa", enzima: "Hexoquinasa", abrev: "HK", nivel: "Análisis", proceso: "Entrada de glucosa a la glucólisis", sustrato: "Glucosa", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP", perfil: PERFIL_A },
+      { numero: 10, titulo: "Hexoquinasa durante la recuperación muscular", enzima: "Hexoquinasa", abrev: "HK", nivel: "Análisis", proceso: "Fosforilación de glucosa", sustrato: "Glucosa", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP", perfil: PERFIL_B },
+      { numero: 11, titulo: "Hexoquinasa y demanda energética", enzima: "Hexoquinasa", abrev: "HK", nivel: "Integración", proceso: "Contracción muscular", sustrato: "Glucosa", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP", perfil: PERFIL_C },
+      { numero: 12, titulo: "Hexoquinasa y disminución de la actividad catalítica", enzima: "Hexoquinasa", abrev: "HK", nivel: "Análisis", proceso: "Actividad muscular", sustrato: "Glucosa", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Glucosa + ATP → Glucosa-6-fosfato + ADP", perfil: PERFIL_D },
+
+      { numero: 13, titulo: "PFK-1 durante el ejercicio intenso", enzima: "Fosfofructoquinasa-1", abrev: "PFK-1", nivel: "Integración", proceso: "Regulación de la glucólisis", sustrato: "Fructosa-6-fosfato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP", perfil: PERFIL_A },
+      { numero: 14, titulo: "PFK-1 durante la recuperación", enzima: "Fosfofructoquinasa-1", abrev: "PFK-1", nivel: "Integración", proceso: "Flujo glucolítico", sustrato: "Fructosa-6-fosfato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP", perfil: PERFIL_B },
+      { numero: 15, titulo: "PFK-1 y regulación glucolítica", enzima: "Fosfofructoquinasa-1", abrev: "PFK-1", nivel: "Integración", proceso: "Regulación metabólica", sustrato: "Fructosa-6-fosfato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP", perfil: PERFIL_C },
+      { numero: 16, titulo: "PFK-1 y reducción de Vmax", enzima: "Fosfofructoquinasa-1", abrev: "PFK-1", nivel: "Integración", proceso: "Producción rápida de energía", sustrato: "Fructosa-6-fosfato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP", perfil: PERFIL_D },
+
+      { numero: 17, titulo: "Piruvato quinasa y producción de ATP", enzima: "Piruvato quinasa", abrev: "PK", nivel: "Integración", proceso: "Etapa final de la glucólisis", sustrato: "Fosfoenolpiruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP", perfil: PERFIL_A },
+      { numero: 18, titulo: "Piruvato quinasa durante la recuperación energética", enzima: "Piruvato quinasa", abrev: "PK", nivel: "Integración", proceso: "Producción de ATP", sustrato: "Fosfoenolpiruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP", perfil: PERFIL_B },
+      { numero: 19, titulo: "Piruvato quinasa y disminución del flujo glucolítico", enzima: "Piruvato quinasa", abrev: "PK", nivel: "Integración", proceso: "Flujo glucolítico", sustrato: "Fosfoenolpiruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP", perfil: PERFIL_C },
+      { numero: 20, titulo: "Piruvato quinasa y reducción de la capacidad catalítica", enzima: "Piruvato quinasa", abrev: "PK", nivel: "Integración", proceso: "Producción rápida de ATP", sustrato: "Fosfoenolpiruvato", unidadS: "mmol/L", unidadV: "µmol/min", reaccion: "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP", perfil: PERFIL_D }
+    ];
+
+    const lista = document.getElementById("lista");
+    const workspace = document.getElementById("workspace");
+    const contador = document.getElementById("contador");
+    const sinResultados = document.getElementById("sinResultados");
+    const buscar = document.getElementById("buscar");
+    const filtroEnzima = document.getElementById("filtroEnzima");
+    const limpiar = document.getElementById("limpiar");
+
+    let retoActivo = null;
+
+    function escaparHTML(texto) {
+      return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function cargarEnzimas() {
+      [...new Set(RETOS.map(reto => reto.enzima))].forEach(enzima => {
+        const opcion = document.createElement("option");
+        opcion.value = enzima;
+        opcion.textContent = enzima;
+        filtroEnzima.appendChild(opcion);
+      });
+    }
+
+    function textoBusqueda(reto) {
+      return [
+        reto.numero,
+        reto.titulo,
+        reto.enzima,
+        reto.abrev,
+        reto.nivel,
+        reto.proceso,
+        reto.sustrato,
+        reto.reaccion
+      ].join(" ").toLowerCase();
+    }
+
+    function obtenerFiltrados() {
+      const termino = buscar.value.trim().toLowerCase();
+      const enzima = filtroEnzima.value;
+
+      return RETOS.filter(reto => {
+        const coincideTexto =
+          !termino || textoBusqueda(reto).includes(termino);
+
+        const coincideEnzima =
+          !enzima || reto.enzima === enzima;
+
+        return coincideTexto && coincideEnzima;
+      });
+    }
+
+    function renderizarLista() {
+      const filtrados = obtenerFiltrados();
+
+      lista.innerHTML = "";
+      contador.textContent = `${filtrados.length} de ${RETOS.length} resoluciones disponibles`;
+      sinResultados.style.display = filtrados.length ? "none" : "block";
+
+      filtrados.forEach(reto => {
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "reto-option";
+
+        if (retoActivo === reto.numero) {
+          boton.classList.add("active");
+        }
+
+        boton.innerHTML = `
+          <strong>Reto ${reto.numero}. ${escaparHTML(reto.titulo)}</strong>
+          <small>${escaparHTML(reto.enzima)} · ${escaparHTML(reto.nivel)}</small>
+        `;
+
+        boton.addEventListener("click", () => mostrarReto(reto.numero));
+        lista.appendChild(boton);
+      });
+    }
+
+    function numero(valor) {
+      return Number(valor).toFixed(2).replace(".", ",");
+    }
+
+    function construirTabla(reto) {
+      const p = reto.perfil;
+
+      const filas = p.sustrato.map((s, i) => {
+        const invS = 1 / s;
+        const invControl = 1 / p.control[i];
+        const invCompuesto = 1 / p.compuesto[i];
+
+        return `
+          <tr>
+            <td>${s}</td>
+            <td>${numero(p.control[i])}</td>
+            <td>${numero(p.compuesto[i])}</td>
+            <td>${numero(invS)}</td>
+            <td>${numero(invControl)}</td>
+            <td>${numero(invCompuesto)}</td>
+          </tr>
+        `;
+      }).join("");
+
+      return `
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>[${escaparHTML(reto.sustrato)}]<br>${escaparHTML(reto.unidadS)}</th>
+                <th>Control<br>v₀</th>
+                <th>Compuesto<br>v₀</th>
+                <th>1/[S]</th>
+                <th>1/v₀ control</th>
+                <th>1/v₀ compuesto</th>
+              </tr>
+            </thead>
+            <tbody>${filas}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function construirDesarrollo(reto) {
+      const p = reto.perfil;
+      const c = p.controlEsperado;
+      const e = p.compuestoEsperado;
+
+      return `
+        <section class="section">
+          <h3>1. Identificación del sistema</h3>
+          <p>
+            <strong>Enzima:</strong> ${escaparHTML(reto.enzima)} (${escaparHTML(reto.abrev)})
+          </p>
+          <p>
+            <strong>Sustrato analizado:</strong> ${escaparHTML(reto.sustrato)}
+          </p>
+          <p>
+            <strong>Proceso relacionado:</strong> ${escaparHTML(reto.proceso)}
+          </p>
+          <p>
+            <strong>Reacción simplificada:</strong>
+            ${escaparHTML(reto.reaccion)}
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>2. Datos transformados</h3>
+          <p>
+            Los valores recíprocos se obtienen calculando 1/[S] y 1/v₀.
+            La tabla muestra valores aproximados redondeados a dos decimales.
+          </p>
+          ${construirTabla(reto)}
+        </section>
+
+        <section class="section">
+          <h3>3. Estimación de Vmax y Km</h3>
+
+          <div class="result-box">
+            <p>
+              <strong>Condición control:</strong>
+              Vmax ≈ ${c.vmax} ${escaparHTML(reto.unidadV)};
+              Km ≈ ${c.km} ${escaparHTML(reto.unidadS)}.
+            </p>
+            <p>
+              <strong>Condición con nuevo compuesto:</strong>
+              Vmax aparente ≈ ${e.vmax} ${escaparHTML(reto.unidadV)};
+              Km aparente ≈ ${e.km} ${escaparHTML(reto.unidadS)}.
+            </p>
+          </div>
+
+          <p>
+            En el gráfico de Michaelis–Menten, Vmax se estima observando la meseta
+            de cada curva. Luego se calcula aproximadamente Vmax/2 y se identifica
+            la concentración de sustrato asociada con ese valor.
+          </p>
+
+          <p>
+            Para el control, Vmax/2 ≈ ${c.vmax / 2} ${escaparHTML(reto.unidadV)}.
+            Para la condición experimental, Vmax aparente/2 ≈ ${e.vmax / 2}
+            ${escaparHTML(reto.unidadV)}.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>4. Interpretación de Lineweaver–Burk</h3>
+
+          <div class="pattern">
+            <p>${escaparHTML(p.lineweaver)}</p>
+            <p>
+              La ecuación utilizada es:
+              <span class="formula">1/v₀ = (Km/Vmax)(1/[S]) + 1/Vmax</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>5. Clasificación esperada del nuevo compuesto</h3>
+
+          <div class="result-box">
+            <p>
+              <strong>${escaparHTML(p.clasificacion)}</strong>
+            </p>
+            <p>
+              La clasificación se justifica comparando simultáneamente los cambios
+              en Vmax y Km. No basta con observar solamente una de las curvas.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>6. ¿Puede compensarse aumentando el sustrato?</h3>
+
+          <p>${escaparHTML(p.compensacion)}</p>
+        </section>
+
+        <section class="section">
+          <h3>7. Desarrollo argumental esperado</h3>
+
+          <p>
+            El grupo debería explicar que el nuevo compuesto modifica la velocidad
+            inicial de la reacción de ${escaparHTML(reto.enzima)}. La evidencia
+            principal corresponde a la comparación entre:
+          </p>
+
+          <ul>
+            <li>La meseta de las curvas de Michaelis–Menten.</li>
+            <li>La concentración de sustrato asociada con Vmax/2.</li>
+            <li>El intercepto en el eje y de Lineweaver–Burk.</li>
+            <li>El intercepto en el eje x y la pendiente de las rectas.</li>
+          </ul>
+
+          <p>
+            La conclusión debe restringirse al sistema experimental descrito.
+            No debe afirmar automáticamente que el compuesto causa fatiga,
+            disminuye el rendimiento físico o produce una alteración clínica.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>8. Limitación esperada</h3>
+
+          <div class="warning-box">
+            <p>
+              Los datos corresponden a una variable de sustrato bajo condiciones
+              simplificadas. En condiciones fisiológicas reales, la actividad de
+              ${escaparHTML(reto.enzima)} puede depender de otros sustratos,
+              productos, cofactores, regulación alostérica, pH, temperatura,
+              concentración de enzima y otras rutas metabólicas.
+            </p>
+          </div>
+        </section>
+      `;
+    }
+
+    function mostrarReto(numeroReto) {
+      const reto = RETOS.find(item => item.numero === numeroReto);
+
+      if (!reto) {
+        return;
+      }
+
+      retoActivo = reto.numero;
+      renderizarLista();
+
+      workspace.innerHTML = `
+        <h2>Reto ${reto.numero}. ${escaparHTML(reto.titulo)}</h2>
+        <p class="subtitle">
+          Resolución docente y resultados esperados.
+        </p>
+
+        <div class="tags">
+          <span class="tag blue">
+            ${escaparHTML(reto.enzima)} (${escaparHTML(reto.abrev)})
+          </span>
+          <span class="tag purple">
+            ${escaparHTML(reto.nivel)}
+          </span>
+          <span class="tag">
+            ${escaparHTML(reto.proceso)}
+          </span>
+        </div>
+
+        ${construirDesarrollo(reto)}
+      `;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function limpiarFiltros() {
+      buscar.value = "";
+      filtroEnzima.value = "";
+      renderizarLista();
+    }
+
+    buscar.addEventListener("input", renderizarLista);
+    filtroEnzima.addEventListener("change", renderizarLista);
+    limpiar.addEventListener("click", limpiarFiltros);
+
+    cargarEnzimas();
+    renderizarLista();
+  </script>
+
+</body>
+</html>

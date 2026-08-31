@@ -1,1534 +1,583 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taller Colaborativo N.° 1 — QIM202K</title>
-
-<style>
-:root{
-  --azul:#123b5d;
-  --azul-medio:#2d6a8a;
-  --azul-claro:#eaf3f8;
-  --morado:#7c3aed;
-  --morado-hover:#6d28d9;
-  --naranja:#d97706;
-  --verde:#16803c;
-  --rojo:#b42318;
-  --texto:#1f2937;
-  --gris:#64748b;
-  --borde:#cbd5e1;
-  --fondo:#f8fafc;
-  --blanco:#ffffff;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
-  max-width:100%;
-  overflow-x:hidden;
-}
-
-body{
-  margin:0;
-  background:var(--fondo);
-  color:var(--texto);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.5;
-}
-
-img,
-video,
-iframe{
-  max-width:100%;
-}
-
-header{
-  background:linear-gradient(135deg,var(--azul),var(--azul-medio));
-  color:white;
-  padding:2rem max(5vw,24px);
-}
-
-header h1{
-  margin:0 0 .4rem;
-  font-size:clamp(1.5rem,3vw,2.35rem);
-  line-height:1.2;
-}
-
-header h2{
-  margin:.3rem 0 1rem;
-  font-size:clamp(1.1rem,2vw,1.5rem);
-  font-weight:normal;
-}
-
-header p{
-  margin:.25rem 0;
-  max-width:1000px;
-}
-
-.toolbar{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:white;
-  border-bottom:1px solid var(--borde);
-  padding:12px max(5vw,24px);
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-}
-
-.toolbar label{
-  display:inline;
-  margin:0;
-  color:var(--texto);
-}
-
-.toolbar input,
-.toolbar select,
-button{
-  font:inherit;
-}
-
-.toolbar input,
-.toolbar select{
-  padding:9px 10px;
-  border:1px solid var(--borde);
-  border-radius:6px;
-  background:white;
-}
-
-button{
-  border:0;
-  border-radius:6px;
-  padding:9px 13px;
-  cursor:pointer;
-  background:var(--azul);
-  color:white;
-  font-weight:bold;
-}
-
-button:hover{
-  filter:brightness(1.08);
-}
-
-button.secondary{
-  background:var(--gris);
-}
-
-button.warning{
-  background:var(--naranja);
-}
-
-button.kinebio{
-  background:var(--morado);
-}
-
-button.kinebio:hover{
-  background:var(--morado-hover);
-}
-
-.container{
-  max-width:1250px;
-  margin:0 auto;
-  padding:24px max(5vw,24px) 60px;
-}
-
-.notice{
-  background:var(--azul-claro);
-  border-left:5px solid var(--azul);
-  border-radius:5px;
-  padding:16px 18px;
-  margin-bottom:24px;
-}
-
-.notice h2{
-  margin-top:0;
-  color:var(--azul);
-  font-size:1.2rem;
-}
-
-.notice p{
-  margin:.7rem 0;
-}
-
-.notice strong{
-  color:var(--azul);
-}
-
-.layout{
-  display:grid;
-  grid-template-columns:minmax(280px,.85fr) minmax(400px,1.4fr);
-  gap:20px;
-  align-items:start;
-}
-
-.panel,
-.workspace{
-  background:var(--blanco);
-  border:1px solid var(--borde);
-  border-radius:9px;
-  box-shadow:0 2px 6px rgba(0,0,0,.06);
-}
-
-.panel{
-  padding:18px;
-  position:sticky;
-  top:76px;
-  max-height:calc(100vh - 95px);
-  overflow-y:auto;
-}
-
-.panel h2,
-.workspace h2{
-  color:var(--azul);
-  margin-top:0;
-}
-
-.reto-list{
-  display:grid;
-  gap:9px;
-}
-
-.reto-option{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:#f8fafc;
-  color:var(--texto);
-  border:1px solid var(--borde);
-  padding:11px;
-  border-radius:7px;
-  font-weight:normal;
-}
-
-.reto-option:hover,
-.reto-option.active{
-  background:var(--azul-claro);
-  border-color:var(--azul-medio);
-}
-
-.reto-option strong{
-  display:block;
-  color:var(--azul);
-}
-
-.reto-option small{
-  color:var(--gris);
-}
-
-.workspace{
-  padding:24px;
-}
-
-.workspace h2{
-  font-size:1.55rem;
-  margin-bottom:.3rem;
-}
-
-.tag{
-  display:inline-block;
-  background:#fff3d6;
-  color:#854d0e;
-  border-radius:18px;
-  padding:3px 9px;
-  margin:2px 4px 5px 0;
-  font-size:.82rem;
-}
-
-.section{
-  margin:20px 0;
-}
-
-.section h3{
-  color:var(--azul);
-  font-size:1.05rem;
-  border-bottom:1px solid #e2e8f0;
-  padding-bottom:5px;
-}
-
-.consulta{
-  background:#fffbeb;
-  border:1px solid #fcd34d;
-  border-radius:7px;
-  padding:15px;
-  font-size:1.08rem;
-  font-weight:bold;
-}
-
-.producto{
-  background:#f0fdf4;
-  border-left:4px solid var(--verde);
-  padding:11px 14px;
-}
-
-label{
-  display:block;
-  font-weight:bold;
-  color:var(--azul);
-  margin:13px 0 5px;
-}
-
-input[type="text"],
-textarea{
-  width:100%;
-  border:1px solid var(--borde);
-  border-radius:6px;
-  padding:10px;
-  font:inherit;
-  color:var(--texto);
-  background:white;
-}
-
-textarea{
-  min-height:105px;
-  resize:vertical;
-}
-
-textarea.large{
-  min-height:190px;
-}
-
-textarea.diagram{
-  min-height:150px;
-  font-family:"Courier New",monospace;
-}
-
-.counter{
-  text-align:right;
-  color:var(--gris);
-  font-size:.85rem;
-  margin-top:3px;
-}
-
-.counter.warning{
-  color:var(--naranja);
-  font-weight:bold;
-}
-
-.counter.error{
-  color:var(--rojo);
-  font-weight:bold;
-}
-
-.questions{
-  padding-left:22px;
-}
-
-.questions li{
-  margin-bottom:8px;
-}
-
-.action-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-}
-
-.status{
-  border-radius:6px;
-  padding:10px 12px;
-  margin-top:12px;
-  display:none;
-}
-
-.status.ok{
-  display:block;
-  background:#f0fdf4;
-  color:#166534;
-  border:1px solid #86efac;
-}
-
-.empty{
-  padding:20px;
-  text-align:center;
-  color:var(--gris);
-  border:1px dashed var(--borde);
-  border-radius:7px;
-}
-
-.footer-note{
-  color:var(--gris);
-  font-size:.9rem;
-  margin-top:25px;
-}
-
-.mobile-only{
-  display:none;
-}
-
-/* Tablet y teléfono */
-@media (max-width:900px){
-
-  header{
-    padding:1.4rem 5vw;
-  }
-
-  header h1{
-    font-size:1.55rem;
-  }
-
-  header h2{
-    font-size:1.1rem;
-  }
-
-  header p{
-    font-size:.95rem;
-  }
-
-  .toolbar{
-    position:static;
-    padding:12px 5vw;
-    gap:8px;
-  }
-
-  .toolbar label{
-    width:100%;
-    margin-top:4px;
-    font-weight:bold;
-  }
-
-  .toolbar input,
-  .toolbar select,
-  .toolbar button{
-    width:100%;
-    min-height:42px;
-  }
-
-  .layout{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-
-  .panel{
-    position:static;
-    max-height:none;
-    padding:14px;
-  }
-
-  .panel.oculto-mobile{
-    display:none;
-  }
-
-  .workspace{
-    width:100%;
-    padding:16px;
-  }
-
-  .mobile-only{
-    display:block;
-    width:100%;
-    margin-bottom:15px;
-  }
-
-  .workspace h2{
-    font-size:1.3rem;
-  }
-
-  .notice{
-    padding:14px;
-    margin-bottom:16px;
-  }
-
-  .notice p{
-    font-size:.95rem;
-  }
-
-  .consulta{
-    font-size:1rem;
-    padding:12px;
-  }
-
-  .section{
-    margin:16px 0;
-  }
-
-  textarea.large{
-    min-height:230px;
-  }
-
-  textarea.diagram{
-    min-height:180px;
-    font-size:.9rem;
-  }
-
-  .action-row{
-    display:grid;
-    grid-template-columns:1fr;
-  }
-
-  .action-row button{
-    width:100%;
-    min-height:44px;
-  }
-
-  .reto-option{
-    min-height:58px;
-    padding:12px;
-  }
-}
-
-/* Teléfonos pequeños */
-@media (max-width:480px){
-
-  body{
-    font-size:15px;
-  }
-
-  header h1{
-    font-size:1.35rem;
-  }
-
-  header h2{
-    font-size:1rem;
-  }
-
-  header p{
-    font-size:.88rem;
-  }
-
-  .container{
-    padding:14px 12px 40px;
-  }
-
-  .toolbar{
-    padding:10px 12px;
-  }
-
-  .panel,
-  .workspace{
-    border-radius:6px;
-  }
-
-  .workspace{
-    padding:13px;
-  }
-
-  .tag{
-    font-size:.76rem;
-  }
-
-  .questions{
-    padding-left:20px;
-  }
-
-  .questions li{
-    margin-bottom:10px;
-  }
-
-  input[type="text"],
-  textarea{
-    font-size:16px;
-  }
-
-  textarea{
-    min-height:125px;
-  }
-
-  textarea.large{
-    min-height:260px;
-  }
-}
-
-@media print{
-
-  body{
-    background:white;
-  }
-
-  header{
-    padding:1rem;
-    color:black;
-    background:white;
-    border-bottom:2px solid black;
-  }
-
-  .toolbar,
-  .panel,
-  .action-row,
-  .footer-note,
-  .mobile-only{
-    display:none!important;
-  }
-
-  .container{
-    padding:0;
-    max-width:none;
-  }
-
-  .layout{
-    display:block;
-  }
-
-  .workspace{
-    border:0;
-    box-shadow:none;
-    padding:0;
-  }
-
-  .workspace section,
-  .workspace .section{
-    break-inside:avoid;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Página de inicio de los talleres colaborativos de Bioquímica QIM202K para estudiantes de Kinesiología."
+  >
+
+  <title>Talleres de Bioquímica QIM202K</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul-medio: #2d6a8a;
+      --azul-claro: #eaf3f8;
+      --morado: #6d28d9;
+      --morado-claro: #f5f3ff;
+      --verde: #166534;
+      --verde-claro: #f0fdf4;
+      --amarillo: #fff7df;
+      --texto: #1f2937;
+      --gris: #64748b;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 55px 6vw 48px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(18, 59, 93, 0.98),
+          rgba(45, 106, 138, 0.96)
+        );
+      color: white;
+    }
+
+    header .header-content {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+    }
+
+    .institution {
+      margin: 0 0 12px;
+      color: #dbeafe;
+      font-size: .95rem;
+      font-weight: bold;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      max-width: 900px;
+      margin: 0 0 15px;
+      font-size: clamp(2rem, 5vw, 3.35rem);
+      line-height: 1.12;
+    }
+
+    header h2 {
+      max-width: 850px;
+      margin: 0 0 21px;
+      color: #e0f2fe;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: normal;
+    }
+
+    header p {
+      max-width: 850px;
+      margin: 8px 0;
+      font-size: 1.03rem;
+    }
+
+    .header-label {
+      display: inline-block;
+      margin-top: 17px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .12);
+      color: white;
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: 0 auto;
+      padding: 34px 0 60px;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--azul);
+      border-radius: 7px;
+      background: var(--azul-claro);
+    }
+
+    .intro h2 {
+      margin-top: 0;
+      color: var(--azul);
+      font-size: 1.35rem;
+    }
+
+    .intro p {
+      margin: 8px 0;
+    }
+
+    .intro ul {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      margin: 34px 0 16px;
+      color: var(--azul);
+      font-size: 1.65rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .workshop-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background: var(--blanco);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, .08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 9px 20px rgba(15, 23, 42, .13);
+    }
+
+    .card-header {
+      padding: 24px 23px 20px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-medio));
+      color: white;
+    }
+
+    .card-header.purple {
+      background: linear-gradient(135deg, #4c1d95, var(--morado));
+    }
+
+    .card-number {
+      margin-bottom: 8px;
+      color: #dbeafe;
+      font-size: .9rem;
+      font-weight: bold;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .card-header.purple .card-number {
+      color: #ede9fe;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .card-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 23px;
+    }
+
+    .card-content p {
+      margin-top: 0;
+    }
+
+    .tag-list {
+      margin: 10px 0 17px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 5px 3px 0;
+      padding: 5px 10px;
+      border-radius: 17px;
+      background: var(--azul-claro);
+      color: var(--azul);
+      font-size: .83rem;
+      font-weight: bold;
+    }
+
+    .tag.purple {
+      background: var(--morado-claro);
+      color: #6b21a8;
+    }
+
+    .tag.green {
+      background: var(--verde-claro);
+      color: var(--verde);
+    }
+
+    .card-content h4 {
+      margin: 15px 0 7px;
+      color: var(--azul);
+      font-size: 1rem;
+    }
+
+    .card-content ul {
+      margin-top: 5px;
+      padding-left: 21px;
+    }
+
+    .card-content li {
+      margin-bottom: 5px;
+    }
+
+    .card-action {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .access-button {
+      display: block;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 7px;
+      background: var(--azul);
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      transition: filter .2s ease;
+    }
+
+    .access-button:hover {
+      filter: brightness(1.12);
+    }
+
+    .access-button.purple {
+      background: var(--morado);
+    }
+
+    .general-info {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .info-box {
+      padding: 18px;
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: white;
+      text-align: center;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--azul);
+      font-size: 1.05rem;
+    }
+
+    .info-box span {
+      color: var(--gris);
+      font-size: .94rem;
+    }
+
+    .important {
+      margin-top: 30px;
+      padding: 18px 20px;
+      border-left: 5px solid #d97706;
+      border-radius: 7px;
+      background: var(--amarillo);
+    }
+
+    .important h2 {
+      margin-top: 0;
+      color: #92400e;
+      font-size: 1.2rem;
+    }
+
+    .important p {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 25px 6vw;
+      background: #0f2f49;
+      color: #dbeafe;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: .92rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        padding: 38px 6vw 35px;
+      }
+
+      .workshop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .general-info {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 92%;
+        padding-top: 23px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .intro,
+      .card-content,
+      .card-header {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Taller Colaborativo N.° 1 de Bioquímica QIM202K</h1>
-  <h2>Aminoácidos, proteínas y contracción muscular</h2>
-  <p><strong>Modalidad:</strong> grupos de 3 a 4 estudiantes.</p>
-  <p><strong>Duración:</strong> 90 minutos.</p>
-  <p><strong>Selección:</strong> cada equipo elige un reto; los retos pueden repetirse entre equipos.</p>
-  <p><strong>Entrega:</strong> todos los integrantes deben enviar el trabajo grupal en la tarea correspondiente de Canvas.</p>
-</header>
-
-<div class="toolbar">
-
-  <label for="buscar">Buscar:</label>
-  <input
-    id="buscar"
-    type="search"
-    placeholder="deporte, proteína o situación">
-
-  <label for="nivel">Dificultad:</label>
-  <select id="nivel">
-    <option value="">Todas</option>
-    <option value="Aplicación">Aplicación</option>
-    <option value="Análisis">Análisis</option>
-    <option value="Integración">Integración</option>
-  </select>
-
-  <button class="secondary" onclick="limpiarFiltros()">
-    Limpiar filtros
-  </button>
-
-  <button onclick="guardarTrabajo()">
-    Guardar trabajo
-  </button>
-
-  <button class="warning" onclick="window.print()">
-    Imprimir ficha
-  </button>
-
-  <button class="kinebio" onclick="abrirKineBioBot()">
-    Abrir KineBioBot
-  </button>
-
-</div>
-
-<main class="container">
-
-  <section class="notice">
-    <h2>Instrucciones generales</h2>
-
-    <p>
-      Formen grupos de <strong>3 a 4 estudiantes</strong> y seleccionen un reto.
-      Un mismo reto puede ser elegido por más de un grupo.
-    </p>
-
-    <p>
-      Construyan una <strong>hipótesis bioquímica</strong> para responder la consulta
-      del caso, relacionando aminoácidos, proteínas y contracción muscular. Pueden
-      investigar contenidos nuevos utilizando sus apuntes, bibliografía y
-      <strong>KineBioBot</strong>.
-    </p>
-
-    <p>
-      No formulen diagnósticos ni utilicen otros sistemas de inteligencia artificial,
-      como ChatGPT, Claude, Gemini o Copilot. El único chatbot autorizado es
-      <strong>KineBioBot</strong>.
-    </p>
-
-    <p>
-      Al finalizar, <strong>todos los integrantes deben enviar el trabajo grupal
-      en la tarea correspondiente de Canvas</strong>.
-    </p>
-  </section>
-
-  <div class="layout">
-
-    <aside id="panel-retos" class="panel">
-      <h2>Seleccionar reto</h2>
-      <p id="contador-retos"></p>
-
-      <div id="lista-retos" class="reto-list"></div>
-
-      <div id="sin-resultados" class="empty" style="display:none;">
-        No se encontraron retos con esos criterios.
-      </div>
-    </aside>
-
-    <section id="workspace" class="workspace">
-      <h2>Seleccione un reto</h2>
-      <p>Utilice el panel izquierdo para comenzar.</p>
-    </section>
-
-  </div>
-
-  <p class="footer-note">
-    Esta plantilla funciona como apoyo para el trabajo grupal. No publica automáticamente
-    la entrega ni modifica Canvas.
-  </p>
-
-</main>
-
-<script>
-const URL_KINEBIOBOT =
-"https://ayudantia.ia.uc.cl/agents/68791d5ae695fe053285202c/chat?k=R-FfkvLd8q_XzESDwyIgJtEXcaj3oN4iQ2P2kwkwQFA";
-
-const RETOS = [
-
-{
-  numero:1,
-  titulo:"El segundo intento del levantador",
-  deporte:["Levantamiento de pesas"],
-  nivel:"Aplicación",
-  situacion:"Un levantador de pesas completa correctamente su primer intento. Cinco minutos después, no logra producir la misma fuerza, aunque utiliza la misma carga y mantiene una técnica aparentemente similar.",
-  consulta:"¿Por qué podría disminuir la fuerza entre un intento y otro si los músculos y las proteínas contráctiles aparentemente siguen siendo los mismos?",
-  objetivo:"Relacionar la función de actina y miosina con la producción de fuerza y formular una hipótesis temporal.",
-  preguntas:[
-    "¿Qué deben hacer actina y miosina para producir una contracción?",
-    "¿Qué significa que una proteína conserve o disminuya temporalmente su función?",
-    "¿Qué diferencia existe entre una proteína presente y una proteína funcionando adecuadamente?",
-    "¿Qué información adicional necesitarían para evaluar su hipótesis?"
-  ],
-  producto:"Respuesta al entrenador y esquema de la interacción actina-miosina.",
-  conceptos:["Actina","Miosina","Sarcómero","Función proteica","ATP como contexto"]
-},
-
-{
-  numero:2,
-  titulo:"La maratonista que pierde estabilidad",
-  deporte:["Maratón"],
-  nivel:"Aplicación",
-  situacion:"Una maratonista mantiene su ritmo durante gran parte de la carrera. En los últimos kilómetros puede continuar corriendo, pero pierde progresivamente la estabilidad de su postura y la regularidad de su zancada.",
-  consulta:"¿Cómo podría relacionarse esta pérdida de estabilidad con el funcionamiento de las proteínas musculares?",
-  objetivo:"Relacionar estabilidad proteica, contracción sostenida y función muscular.",
-  preguntas:[
-    "¿Qué significa que una proteína mantenga su conformación?",
-    "¿Qué interacciones estabilizan la estructura de una proteína?",
-    "¿Cómo podría una modificación estructural afectar su función?",
-    "¿Qué hipótesis pueden plantear sin afirmar una causa definitiva?"
-  ],
-  producto:"Hipótesis escrita y modelo que conecte estructura proteica y función muscular.",
-  conceptos:["Estructura terciaria","Grupos laterales","Proteínas fibrosas","Actina","Miosina"]
-},
-
-{
-  numero:3,
-  titulo:"El futbolista que pierde precisión",
-  deporte:["Fútbol"],
-  nivel:"Aplicación",
-  situacion:"Durante los primeros minutos de un partido, un futbolista acelera, frena y cambia de dirección con precisión. Más tarde, todavía puede correr, pero sus movimientos son menos exactos.",
-  consulta:"¿Por qué podría conservar la capacidad de desplazarse, pero perder precisión en sus movimientos?",
-  objetivo:"Diferenciar generación de fuerza, regulación de la contracción y coordinación molecular.",
-  preguntas:[
-    "¿Qué diferencia existe entre producir fuerza y controlar una contracción?",
-    "¿Qué proteínas pueden participar directamente en la fuerza?",
-    "¿Qué proteínas podrían contribuir a regular u organizar la contracción?",
-    "¿Qué información adicional sería necesaria?"
-  ],
-  producto:"Mapa causal que diferencie proteínas contráctiles, estructurales y reguladoras.",
-  conceptos:["Actina","Miosina","Proteínas reguladoras","Estructura-función","Fibras I y IIa"]
-},
-
-{
-  numero:4,
-  titulo:"La bailarina que no logra mantener una postura",
-  deporte:["Danza"],
-  nivel:"Aplicación",
-  situacion:"Una bailarina puede ejecutar saltos con fuerza, pero tiene dificultades para mantener una postura sobre una pierna durante varios segundos.",
-  consulta:"¿Por qué una persona podría generar fuerza rápidamente, pero tener dificultades para mantener una contracción controlada?",
-  objetivo:"Relacionar duración e intensidad de la acción con proteínas y fibras musculares.",
-  preguntas:[
-    "¿Qué diferencia existe entre una contracción breve y una sostenida?",
-    "¿Qué componentes moleculares participan en ambas?",
-    "¿Qué papel podrían cumplir las proteínas reguladoras?",
-    "¿Cómo podrían relacionarse las fibras musculares con la tarea?"
-  ],
-  producto:"Comparación entre el salto y la postura sostenida.",
-  conceptos:["Actina","Miosina","Proteínas reguladoras","Fibras I y IIa","Estructura-función"]
-},
-
-{
-  numero:5,
-  titulo:"Dos nadadores con masa muscular similar",
-  deporte:["Natación"],
-  nivel:"Análisis",
-  situacion:"Dos nadadores tienen masa muscular similar y entrenan con volúmenes comparables. Sin embargo, uno alcanza una velocidad mayor durante los primeros 25 metros de una prueba de 50 metros.",
-  consulta:"¿Por qué dos nadadores con una masa muscular similar podrían desarrollar velocidades diferentes?",
-  objetivo:"Relacionar propiedades de proteínas contráctiles con velocidad de contracción.",
-  preguntas:[
-    "¿Por qué la cantidad de músculo no explica por sí sola la velocidad?",
-    "¿Cómo podría influir la secuencia de aminoácidos de una proteína?",
-    "¿Cómo podría una diferencia conformacional afectar su función?",
-    "¿Qué relación puede existir entre miosina, actina y velocidad de contracción?"
-  ],
-  producto:"Explicación dirigida al entrenador y esquema molecular.",
-  conceptos:["Aminoácidos","Estructura primaria","Estructura terciaria","Miosina","Actina","Fibras rápidas"]
-},
-
-{
-  numero:6,
-  titulo:"La nadadora en agua fría",
-  deporte:["Natación"],
-  nivel:"Aplicación",
-  situacion:"Una nadadora comienza a perder coordinación muscular durante una competencia en agua más fría de lo habitual.",
-  consulta:"¿Cómo podría la temperatura influir en el funcionamiento de las proteínas que participan en el movimiento?",
-  objetivo:"Relacionar temperatura, conformación proteica y función.",
-  preguntas:[
-    "¿Qué puede cambiar en una proteína cuando cambia la temperatura?",
-    "¿Qué diferencia existe entre modificar la actividad y desnaturalizar una proteína?",
-    "¿Cómo interpretarían una tabla de actividad proteica a distintas temperaturas?",
-    "¿Qué hipótesis explica mejor la pérdida de coordinación?"
-  ],
-  producto:"Interpretación de datos y explicación dirigida a la nadadora.",
-  conceptos:["Conformación","Interacciones no covalentes","Estabilidad","Función proteica"]
-},
-
-{
-  numero:7,
-  titulo:"La escaladora que pierde fuerza en los dedos",
-  deporte:["Escalada"],
-  nivel:"Aplicación",
-  situacion:"Una escaladora puede sostenerse en una presa grande al inicio de una ruta, pero después de varios intentos pierde rápidamente la capacidad de mantener una presa pequeña.",
-  consulta:"¿Qué podría estar ocurriendo a nivel molecular cuando mis dedos dejan de sostenerme como al comienzo?",
-  objetivo:"Relacionar contracción sostenida, proteínas musculares y estabilidad funcional.",
-  preguntas:[
-    "¿Qué diferencia existe entre sostener una posición y producir un movimiento?",
-    "¿Qué proteínas participan en ambas situaciones?",
-    "¿Cómo podría cambiar la capacidad funcional de la maquinaria contráctil?",
-    "¿Qué información adicional solicitarían?"
-  ],
-  producto:"Hipótesis y comparación entre una contracción sostenida y una contracción dinámica.",
-  conceptos:["Actina","Miosina","Fibras I y IIa","Contracción isométrica","Proteínas musculares"]
-},
-
-{
-  numero:8,
-  titulo:"El tenista que pierde precisión",
-  deporte:["Tenis"],
-  nivel:"Aplicación",
-  situacion:"Un tenista comienza el partido golpeando con precisión. Después de varios juegos todavía puede desplazarse y producir fuerza, pero sus golpes son menos coordinados.",
-  consulta:"¿Por qué puedo seguir generando fuerza, pero perder precisión y control en mis movimientos?",
-  objetivo:"Analizar la relación entre proteínas contráctiles, reguladoras y control del movimiento.",
-  preguntas:[
-    "¿Qué diferencia existe entre fuerza y precisión?",
-    "¿Qué proteínas podrían estar relacionadas con el control?",
-    "¿Cómo puede influir la conformación de una proteína?",
-    "¿Qué hipótesis podrían coexistir?"
-  ],
-  producto:"Respuesta al tenista y diagrama de generación y regulación de la contracción.",
-  conceptos:["Proteínas contráctiles","Proteínas reguladoras","Proteínas estructurales","Actina","Miosina"]
-},
-
-{
-  numero:9,
-  titulo:"La gimnasta y el cambio de un aminoácido",
-  deporte:["Gimnasia"],
-  nivel:"Análisis",
-  situacion:"En un análisis hipotético, una proteína relacionada con la contracción muscular presenta un aminoácido diferente al habitual. El aminoácido original era apolar y el nuevo es polar.",
-  consulta:"¿Por qué un cambio tan pequeño podría afectar mi movimiento si la proteína conserva casi todos sus aminoácidos?",
-  objetivo:"Relacionar propiedades de los grupos laterales con plegamiento y función proteica.",
-  preguntas:[
-    "¿Por qué importa la ubicación del aminoácido?",
-    "¿Qué interacciones podrían modificarse?",
-    "¿Cómo podría cambiar el plegamiento de la proteína?",
-    "¿Qué parte de la explicación es una hipótesis?"
-  ],
-  producto:"Modelo del posible cambio estructural y respuesta de 150–250 palabras.",
-  conceptos:["Polaridad","Grupos laterales","Estructura primaria","Estructura terciaria","Interacciones hidrofóbicas"]
-},
-
-{
-  numero:10,
-  titulo:"El velocista que no repite su mejor salida",
-  deporte:["Sprint"],
-  nivel:"Análisis",
-  situacion:"Un velocista realiza una excelente salida en el primer intento. Durante las repeticiones posteriores disminuye la velocidad de extensión de sus piernas.",
-  consulta:"¿Cómo podrían las características de la miosina influir en la velocidad con que se desarrolla una contracción?",
-  objetivo:"Relacionar estructura, actividad y función de una proteína contráctil.",
-  preguntas:[
-    "¿Qué debe ocurrir para que la miosina interactúe con la actina?",
-    "¿Cómo podría una modificación estructural afectar esa interacción?",
-    "¿Qué significa que una proteína tenga una función más rápida?",
-    "¿Qué datos permitirían evaluar esta hipótesis?"
-  ],
-  producto:"Hipótesis sobre miosina y diagrama de interacción con actina.",
-  conceptos:["Miosina","Actina","Estructura proteica","Interacción proteína-proteína","Fibras rápidas"]
-},
-
-{
-  numero:11,
-  titulo:"La jugadora de vóleibol que aterriza con dificultad",
-  deporte:["Vóleibol"],
-  nivel:"Análisis",
-  situacion:"Una jugadora puede saltar verticalmente, pero después de varias repeticiones comienza a controlar peor el aterrizaje.",
-  consulta:"¿Por qué producir un salto y controlar un aterrizaje podrían requerir una participación diferente de las proteínas musculares?",
-  objetivo:"Diferenciar producción y control de fuerza desde la organización molecular.",
-  preguntas:[
-    "¿Qué diferencia existe entre acortar y alargar un músculo activo?",
-    "¿La actividad de las proteínas desaparece durante el aterrizaje?",
-    "¿Cómo podría regularse la fuerza?",
-    "¿Qué hipótesis explica la pérdida de control?"
-  ],
-  producto:"Secuencia molecular simplificada del salto y el aterrizaje.",
-  conceptos:["Actina","Miosina","Sarcómero","Contracción concéntrica","Contracción excéntrica"]
-},
-
-{
-  numero:12,
-  titulo:"El remero que pierde sincronización",
-  deporte:["Remo"],
-  nivel:"Aplicación",
-  situacion:"Un remero puede iniciar cada palada con fuerza, pero después de varias repeticiones pierde la sincronización del movimiento.",
-  consulta:"¿Cómo podría la organización de las proteínas musculares influir en la coordinación de un movimiento repetitivo?",
-  objetivo:"Relacionar organización espacial de proteínas y función coordinada.",
-  preguntas:[
-    "¿Por qué no basta con que las proteínas estén presentes?",
-    "¿Qué importancia tiene su organización espacial?",
-    "¿Cómo podría afectar la función una alteración en esa organización?",
-    "¿Qué evidencia sería necesaria?"
-  ],
-  producto:"Modelo de un sarcómero organizado y explicación funcional.",
-  conceptos:["Estructura cuaternaria","Proteínas fibrosas","Actina","Miosina","Organización molecular"]
-},
-
-{
-  numero:13,
-  titulo:"La nadadora que cambia de prueba",
-  deporte:["Natación"],
-  nivel:"Análisis",
-  situacion:"Una nadadora especialista en 1.500 metros comienza a entrenar para una prueba de 50 metros. Puede completar los movimientos, pero no alcanza la velocidad de salida de sus compañeras.",
-  consulta:"¿Por qué una persona que se desempeña bien en una prueba prolongada podría no responder igual en una prueba breve y explosiva?",
-  objetivo:"Relacionar tipos de fibras, proteínas contráctiles y demandas de contracción.",
-  preguntas:[
-    "¿Qué demandas son diferentes entre ambas pruebas?",
-    "¿Qué características de las fibras podrían ser relevantes?",
-    "¿Cómo se relacionan esas características con las proteínas contráctiles?",
-    "¿Qué otros datos deberían investigar?"
-  ],
-  producto:"Explicación comparativa dirigida a la entrenadora.",
-  conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración de la contracción"]
-},
-
-{
-  numero:14,
-  titulo:"El bailarín que no sostiene una posición",
-  deporte:["Danza"],
-  nivel:"Aplicación",
-  situacion:"Un bailarín realiza movimientos rápidos y saltos, pero tiene dificultades para mantener posiciones isométricas durante una coreografía.",
-  consulta:"¿Por qué una mayor capacidad para producir fuerza no garantiza poder mantener una posición durante más tiempo?",
-  objetivo:"Distinguir entre producción puntual de fuerza y mantenimiento de una función contráctil.",
-  preguntas:[
-    "¿Qué diferencia existe entre producir fuerza máxima y sostener fuerza moderada?",
-    "¿Qué componentes moleculares participan en ambas situaciones?",
-    "¿Cómo podrían relacionarse las fibras musculares con la tarea?",
-    "¿Qué hipótesis es compatible con los datos?"
-  ],
-  producto:"Comparación entre salto y postura sostenida.",
-  conceptos:["Actina","Miosina","Fibras I y IIa","Estabilidad proteica","Contracción isométrica"]
-},
-
-{
-  numero:15,
-  titulo:"El ciclista que mantiene el pedaleo, pero pierde potencia",
-  deporte:["Ciclismo"],
-  nivel:"Análisis",
-  situacion:"Un ciclista puede continuar pedaleando durante una subida, pero la potencia de cada pedalada disminuye. El entrenador pregunta si esto significa que sus proteínas contráctiles dejaron de funcionar.",
-  consulta:"¿Cómo puede disminuir la fuerza de una contracción sin que las proteínas musculares hayan dejado completamente de funcionar?",
-  objetivo:"Analizar cambios graduales en la función proteica y evitar explicaciones absolutas.",
-  preguntas:[
-    "¿Una proteína funciona solo en los estados activa o inactiva?",
-    "¿Qué significa una disminución parcial de la función?",
-    "¿Qué factores podrían afectar una interacción molecular?",
-    "¿Qué información permitiría evaluar la hipótesis?"
-  ],
-  producto:"Explicación que diferencie función reducida y pérdida total de función.",
-  conceptos:["Función proteica","Actina","Miosina","Actividad parcial","Estructura-función"]
-},
-
-{
-  numero:16,
-  titulo:"La enzima que funciona peor",
-  deporte:["Contexto muscular"],
-  nivel:"Aplicación",
-  situacion:"En una experiencia educativa se observa que una enzima modelo asociada al funcionamiento muscular presenta menor actividad después de modificar uno de los aminoácidos cercanos al sitio activo.",
-  consulta:"¿Cómo podría un cambio en un solo aminoácido afectar la capacidad de una enzima para realizar su función?",
-  objetivo:"Introducir la relación entre aminoácidos, sitio activo, estructura y función enzimática.",
-  preguntas:[
-    "¿Qué permite que un sitio activo reconozca un sustrato?",
-    "¿Cómo podrían cambiar la forma o las cargas del sitio activo?",
-    "¿Por qué un cambio pequeño puede tener un efecto funcional importante?",
-    "¿Qué evidencia se necesitaría?"
-  ],
-  producto:"Modelo enzima-sustrato antes y después de la modificación.",
-  conceptos:["Enzima","Sustrato","Sitio activo","Aminoácidos","Especificidad"]
-},
-
-{
-  numero:17,
-  titulo:"El tenista que entrena con calor",
-  deporte:["Tenis"],
-  nivel:"Aplicación",
-  situacion:"Un tenista entrena en un ambiente muy caluroso. Al comienzo se mueve con normalidad, pero luego disminuye su precisión. Se entrega información sobre la actividad de una enzima modelo a distintas temperaturas.",
-  consulta:"¿Cómo podría el aumento de temperatura afectar las proteínas y enzimas relacionadas con el funcionamiento muscular?",
-  objetivo:"Relacionar temperatura, conformación proteica y actividad enzimática.",
-  preguntas:[
-    "¿Por qué una temperatura moderadamente mayor podría cambiar la actividad?",
-    "¿Qué podría ocurrir si la temperatura continúa aumentando?",
-    "¿Cómo se relacionan conformación y sitio activo?",
-    "¿Qué hipótesis explica la pérdida gradual de precisión?"
-  ],
-  producto:"Interpretación de los datos y respuesta dirigida al tenista.",
-  conceptos:["Enzimas","Proteínas","Sitio activo","Temperatura","Conformación"]
-},
-
-{
-  numero:18,
-  titulo:"La futbolista y una proteína reguladora",
-  deporte:["Fútbol"],
-  nivel:"Análisis",
-  situacion:"Una futbolista presenta una variante hipotética en una proteína que regula la interacción entre actina y miosina. Aún no se sabe si la variante modifica la función de la proteína.",
-  consulta:"¿Por qué una proteína que no produce directamente la fuerza podría afectar mi capacidad para moverme?",
-  objetivo:"Comprender que la contracción depende de proteínas contráctiles, estructurales y reguladoras.",
-  preguntas:[
-    "¿Qué diferencia existe entre producir fuerza y regular una interacción?",
-    "¿Cómo podría una proteína reguladora modificar indirectamente la contracción?",
-    "¿Qué propiedades de los aminoácidos podrían ser relevantes?",
-    "¿Qué datos se necesitan para evaluar la variante?"
-  ],
-  producto:"Respuesta para la futbolista y esquema de regulación de la contracción.",
-  conceptos:["Proteínas reguladoras","Actina","Miosina","Interacción proteína-proteína","Estructura-función"]
-},
-
-{
-  numero:19,
-  titulo:"El escalador que cambia de estilo",
-  deporte:["Escalada"],
-  nivel:"Análisis",
-  situacion:"Un escalador especializado en rutas de resistencia comienza a practicar rutas cortas y explosivas. Puede completar los movimientos, pero no responde con la misma rapidez que otros escaladores.",
-  consulta:"¿Por qué una persona puede ser eficiente en contracciones sostenidas, pero menos eficaz en movimientos breves y explosivos?",
-  objetivo:"Relacionar diferentes demandas deportivas con características funcionales de fibras y proteínas musculares.",
-  preguntas:[
-    "¿Qué diferencia existe entre una contracción resistente y una rápida?",
-    "¿Qué características de las fibras podrían influir?",
-    "¿Cómo podría relacionarse la función de la miosina con la velocidad?",
-    "¿Qué otros factores deberían considerarse?"
-  ],
-  producto:"Explicación dirigida al entrenador y comparación entre ambos estilos.",
-  conceptos:["Fibras I, IIa y IIx","Actina","Miosina","Velocidad","Duración"]
-},
-
-{
-  numero:20,
-  titulo:"La consulta general del equipo deportivo",
-  deporte:["Multideportivo"],
-  nivel:"Integración",
-  situacion:"Un equipo deportivo observa que sus integrantes tienen desempeños diferentes en actividades aparentemente similares. Algunos producen mucha fuerza durante pocos segundos; otros pueden mantener una contracción durante más tiempo. El entrenador cree que todo podría explicarse simplemente por tener más músculo.",
-  consulta:"¿Cómo nos pueden explicar, desde la bioquímica, por qué personas con músculos de tamaño similar pueden responder de manera diferente durante la contracción?",
-  objetivo:"Integrar aminoácidos, proteínas, estructura-función, actina, miosina y fibras musculares.",
-  preguntas:[
-    "¿Por qué el tamaño muscular no explica por sí solo el desempeño?",
-    "¿Cómo pueden influir las características de las proteínas?",
-    "¿Qué relación existe entre estructura, interacción molecular y función?",
-    "¿Qué información adicional sería necesaria?"
-  ],
-  producto:"Modelo integrador: aminoácidos → estructura proteica → interacción molecular → contracción → desempeño deportivo.",
-  conceptos:["Aminoácidos","Estructura proteica","Actina","Miosina","Proteínas reguladoras","Fibras musculares"]
-}
-
-];
-
-const state={
-  retoSeleccionado:null
-};
-
-const listaRetos=document.getElementById("lista-retos");
-const workspace=document.getElementById("workspace");
-const buscar=document.getElementById("buscar");
-const nivel=document.getElementById("nivel");
-const panelRetos=document.getElementById("panel-retos");
-
-function escapeHTML(texto){
-  return String(texto ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-function abrirKineBioBot(){
-  if(!URL_KINEBIOBOT){
-    alert("No se ha configurado la URL de KineBioBot.");
-    return;
-  }
-
-  window.open(URL_KINEBIOBOT,"_blank");
-}
-
-function ocultarListaEnMovil(){
-  if(
-    panelRetos &&
-    window.matchMedia("(max-width: 900px)").matches
-  ){
-    panelRetos.classList.add("oculto-mobile");
-  }
-}
-
-function mostrarListaRetos(){
-  if(!panelRetos){
-    return;
-  }
-
-  panelRetos.classList.remove("oculto-mobile");
-
-  panelRetos.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-}
-
-function renderLista(){
-  const consulta=buscar.value.trim().toLowerCase();
-  const filtroNivel=nivel.value;
-
-  const resultados=RETOS.filter(reto=>{
-    const texto=JSON.stringify(reto).toLowerCase();
-
-    return(
-      (!consulta || texto.includes(consulta)) &&
-      (!filtroNivel || reto.nivel===filtroNivel)
-    );
-  });
-
-  document.getElementById("contador-retos").textContent=
-    `${resultados.length} de ${RETOS.length} retos visibles`;
-
-  document.getElementById("sin-resultados").style.display=
-    resultados.length ? "none" : "block";
-
-  listaRetos.innerHTML=resultados.map(reto=>`
-    <button
-      class="reto-option ${
-        state.retoSeleccionado===reto.numero ? "active" : ""
-      }"
-      onclick="seleccionarReto(${reto.numero})">
-
-      <strong>
-        Reto ${reto.numero}. ${escapeHTML(reto.titulo)}
-      </strong>
-
-      <small>
-        ${escapeHTML(reto.deporte.join(" · "))} ·
-        ${escapeHTML(reto.nivel)}
-      </small>
-    </button>
-  `).join("");
-}
-
-function seleccionarReto(numero){
-  state.retoSeleccionado=numero;
-
-  ocultarListaEnMovil();
-
-  const reto=RETOS.find(item=>item.numero===numero);
-
-  workspace.innerHTML=`
-
-    <button
-      class="secondary mobile-only"
-      onclick="mostrarListaRetos()">
-      ← Cambiar de reto
-    </button>
-
-    <h2>
-      Reto ${reto.numero}. ${escapeHTML(reto.titulo)}
-    </h2>
-
-    <div>
-      ${reto.deporte.map(item=>`
-        <span class="tag">${escapeHTML(item)}</span>
-      `).join("")}
-
-      <span class="tag">${escapeHTML(reto.nivel)}</span>
-    </div>
-
-    <div class="section">
-      <h3>Situación</h3>
-      <p>${escapeHTML(reto.situacion)}</p>
-    </div>
-
-    <div class="section">
-      <h3>Consulta que deben resolver</h3>
-      <div class="consulta">
-        ${escapeHTML(reto.consulta)}
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>Objetivo del reto</h3>
-      <p>${escapeHTML(reto.objetivo)}</p>
-    </div>
-
-    <div class="section">
-      <h3>Preguntas guía</h3>
-
-      <ol class="questions">
-        ${reto.preguntas.map(item=>`
-          <li>${escapeHTML(item)}</li>
-        `).join("")}
-      </ol>
-    </div>
-
-    <div class="section">
-      <h3>Conceptos posibles para investigar</h3>
+  <header>
+    <div class="header-content">
+      <p class="institution">Pontificia Universidad Católica de Chile</p>
+
+      <h1>Talleres colaborativos de Bioquímica</h1>
+      <h2>Prof. Manuel Faúndez Parraguez</h2>
+
+      <h2>
+        QIM202K — Bioquímica General para estudiantes de Kinesiología
+      </h2>
 
       <p>
-        ${reto.conceptos.map(item=>`
-          <span class="tag">${escapeHTML(item)}</span>
-        `).join("")}
+        Espacio de trabajo para analizar procesos bioquímicos relacionados con
+        proteínas, enzimas, metabolismo energético y movimiento humano.
       </p>
+
+      <p>
+        Selecciona el taller indicado por el docente para acceder a sus retos y
+        orientaciones de trabajo.
+      </p>
+
+      <span class="header-label">
+        Trabajo colaborativo · Kinesiología · Bioquímica
+      </span>
     </div>
+  </header>
 
-    <div class="section">
-      <h3>Producto esperado</h3>
+  <main class="container">
 
-      <div class="producto">
-        ${escapeHTML(reto.producto)}
+    <section class="intro">
+      <h2>Bienvenida</h2>
+
+      <p>
+        En estas actividades trabajarán en grupos para interpretar situaciones
+        relacionadas con la función de proteínas y enzimas en procesos vinculados
+        con el movimiento humano y el metabolismo muscular.
+      </p>
+
+      <p>
+        Cada taller presenta retos que deben resolverse mediante discusión,
+        análisis de información bioquímica y construcción de explicaciones
+        fundamentadas.
+      </p>
+
+      <ul>
+        <li>Lean cuidadosamente el contexto antes de comenzar.</li>
+        <li>Distribuyan las tareas dentro del grupo.</li>
+        <li>Justifiquen sus conclusiones utilizando conceptos y evidencias.</li>
+        <li>Desarrollen sus respuestas en papelógrafo u hojas blancas.</li>
+        <li>Prepárense para presentar oralmente el trabajo ante el ayudante evaluador.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="titulo-talleres">
+      <h2 id="titulo-talleres" class="section-title">
+        Selecciona un taller
+      </h2>
+
+      <p class="section-subtitle">
+        Accede al taller correspondiente utilizando uno de los siguientes enlaces.
+      </p>
+
+      <div class="workshop-grid">
+
+        <article class="workshop-card">
+          <div class="card-header">
+            <div class="card-number">Taller colaborativo N.° 1</div>
+            <h3>Aminoácidos, proteínas y contracción muscular</h3>
+          </div>
+
+          <div class="card-content">
+            <p>
+              Retos contextualizados en distintas actividades físicas y deportivas.
+              El grupo debe relacionar las propiedades de los aminoácidos, la
+              estructura de las proteínas y su función en la contracción muscular.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag">Aminoácidos</span>
+              <span class="tag">Proteínas</span>
+              <span class="tag">Actina y miosina</span>
+              <span class="tag">Contracción muscular</span>
+            </div>
+
+            <h4>En este taller trabajarán:</h4>
+
+            <ul>
+              <li>Propiedades de los aminoácidos.</li>
+              <li>Relación entre estructura y función proteica.</li>
+              <li>Proteínas contráctiles y reguladoras.</li>
+              <li>Situaciones relacionadas con el movimiento humano.</li>
+              <li>Construcción de hipótesis bioquímicas.</li>
+            </ul>
+
+            <div class="card-action">
+              <a
+                class="access-button"
+                href="taller1.html"
+                aria-label="Ingresar al Taller 1 de aminoácidos, proteínas y contracción muscular"
+              >
+                Ingresar al Taller 1
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="workshop-card">
+          <div class="card-header purple">
+            <div class="card-number">Taller colaborativo N.° 2</div>
+            <h3>Enzimas, cinética e inhibición</h3>
+          </div>
+
+          <div class="card-content">
+            <p>
+              Retos de análisis de datos cinéticos asociados con enzimas del
+              metabolismo muscular. Los grupos deben determinar qué tipo de
+              inhibición produce un nuevo compuesto.
+            </p>
+
+            <div class="tag-list">
+              <span class="tag purple">Enzimas</span>
+              <span class="tag purple">Vmax y Km</span>
+              <span class="tag purple">Michaelis–Menten</span>
+              <span class="tag purple">Lineweaver–Burk</span>
+              <span class="tag purple">Inhibición</span>
+            </div>
+
+            <h4>En este taller trabajarán:</h4>
+
+            <ul>
+              <li>Lactato deshidrogenasa.</li>
+              <li>Creatina quinasa.</li>
+              <li>Hexoquinasa.</li>
+              <li>PFK-1 y piruvato quinasa.</li>
+              <li>Interpretación de datos de velocidad inicial.</li>
+              <li>Clasificación argumentada de un nuevo compuesto.</li>
+            </ul>
+
+            <div class="card-action">
+              <a
+                class="access-button purple"
+                href="taller2.html"
+                aria-label="Ingresar al Taller 2 de enzimas y cinética"
+              >
+                Ingresar al Taller 2
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
-    </div>
+    </section>
 
-    <div class="section">
-      <h3>Ficha de trabajo del equipo</h3>
-
-      <label for="equipo">
-        Nombre o identificador del equipo
-      </label>
-
-      <input
-        id="equipo"
-        type="text"
-        placeholder="Ejemplo: Equipo 4">
-
-      <label for="integrantes">
-        Integrantes
-      </label>
-
-      <input
-        id="integrantes"
-        type="text"
-        placeholder="Escriban los nombres de los integrantes">
-
-      <label for="hipotesis">
-        Hipótesis bioquímica central
-      </label>
-
-      <textarea
-        id="hipotesis"
-        placeholder="Nuestra hipótesis es que podría estar ocurriendo..."></textarea>
-
-      <div class="counter" id="contador-hipotesis">
-        0 caracteres
+    <section class="general-info" aria-label="Información general de los talleres">
+      <div class="info-box">
+        <strong>Modalidad</strong>
+        <span>Trabajo colaborativo en grupos.</span>
       </div>
 
-      <label for="respuesta">
-        Respuesta dirigida a la persona que consulta
-      </label>
-
-      <textarea
-        id="respuesta"
-        class="large"
-        placeholder="Redacten una respuesta de 150 a 250 palabras."></textarea>
-
-      <div class="counter" id="contador-respuesta">
-        0 palabras
+      <div class="info-box">
+        <strong>Duración</strong>
+        <span>90 minutos por taller.</span>
       </div>
 
-      <label for="diagrama">
-        Diagrama o modelo causal
-      </label>
-
-      <textarea
-        id="diagrama"
-        class="diagram"
-        placeholder="situación → proteína → estructura → función → manifestación deportiva"></textarea>
-
-      <label for="evidencia">
-        Evidencia o fuentes consultadas
-      </label>
-
-      <textarea
-        id="evidencia"
-        placeholder="Indiquen las fuentes, apuntes o recursos utilizados."></textarea>
-
-      <label for="faltante">
-        Información adicional necesaria
-      </label>
-
-      <textarea
-        id="faltante"
-        placeholder="¿Qué dato permitiría apoyar o refutar la hipótesis?"></textarea>
-
-      <label for="kinebio">
-        Uso de KineBioBot
-      </label>
-
-      <textarea
-        id="kinebio"
-        placeholder="Indiquen qué consultaron y cómo verificaron o modificaron la respuesta."></textarea>
-
-      <div class="action-row">
-
-        <button onclick="guardarTrabajo()">
-          Guardar trabajo
-        </button>
-
-        <button
-          class="secondary"
-          onclick="limpiarFicha()">
-          Limpiar ficha
-        </button>
-
-        <button
-          class="warning"
-          onclick="window.print()">
-          Imprimir ficha
-        </button>
-
-        <button
-          class="kinebio"
-          onclick="abrirKineBioBot()">
-          Abrir KineBioBot
-        </button>
-
+      <div class="info-box">
+        <strong>Producto</strong>
+        <span>Entregables digitales, en físico, presentaciones orales.</span>
       </div>
+    </section>
 
-      <div id="estado" class="status"></div>
-    </div>
-  `;
+    <section class="important">
+      <h2>Uso de herramientas de inteligencia artificial</h2>
 
-  conectarContadores();
-  cargarTrabajo();
-  renderLista();
+      <p>
+        El profesor autoriza exclusivamente el uso de
+        <strong>KineBioBot</strong> como apoyo durante las actividades.
+      </p>
 
- if (window.matchMedia("(max-width: 900px)").matches) {
-  setTimeout(() => {
-    workspace.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 100);
-};
-}
+      <p>
+        No está autorizado el uso de otros sistemas de inteligencia artificial,
+        como ChatGPT, Claude, Gemini, Copilot u otras herramientas equivalentes.
+      </p>
 
-function conectarContadores(){
-  const hipotesis=document.getElementById("hipotesis");
-  const respuesta=document.getElementById("respuesta");
+      <p>
+        El uso de KineBioBot no reemplaza la discusión del grupo, los cálculos,
+        la construcción de gráficos ni la elaboración de la conclusión.
+      </p>
+    </section>
 
-  if(!hipotesis || !respuesta){
-    return;
-  }
+  </main>
 
-  hipotesis.addEventListener(
-    "input",
-    actualizarContadores
-  );
+  <footer>
+    <p>
+      <strong>QIM202K — Bioquímica General</strong>
+    </p>
 
-  respuesta.addEventListener(
-    "input",
-    actualizarContadores
-  );
+    <p>
+      Talleres colaborativos para estudiantes de Kinesiología
+    </p>
 
-  actualizarContadores();
-}
-
-function actualizarContadores(){
-  const hipotesis=document.getElementById("hipotesis");
-  const respuesta=document.getElementById("respuesta");
-
-  if(!hipotesis || !respuesta){
-    return;
-  }
-
-  document.getElementById(
-    "contador-hipotesis"
-  ).textContent=
-    `${hipotesis.value.length} caracteres`;
-
-  const palabras=respuesta.value.trim()
-    ? respuesta.value.trim().split(/\s+/).length
-    : 0;
-
-  const contador=document.getElementById(
-    "contador-respuesta"
-  );
-
-  contador.textContent=`${palabras} palabras`;
-  contador.className="counter";
-
-  if(palabras>250){
-    contador.classList.add("error");
-  }else if(palabras>220){
-    contador.classList.add("warning");
-  }
-}
-
-function obtenerDatosFicha(){
-  const ids=[
-    "equipo",
-    "integrantes",
-    "hipotesis",
-    "respuesta",
-    "diagrama",
-    "evidencia",
-    "faltante",
-    "kinebio"
-  ];
-
-  const datos={};
-
-  ids.forEach(id=>{
-    const elemento=document.getElementById(id);
-    datos[id]=elemento ? elemento.value : "";
-  });
-
-  return datos;
-}
-
-function guardarTrabajo(){
-  if(!state.retoSeleccionado){
-    alert("Primero seleccione un reto.");
-    return;
-  }
-
-  const clave=
-    `qim202k_taller1_reto_${state.retoSeleccionado}`;
-
-  localStorage.setItem(
-    clave,
-    JSON.stringify(obtenerDatosFicha())
-  );
-
-  const estado=document.getElementById("estado");
-
-  if(estado){
-    estado.className="status ok";
-    estado.textContent=
-      "Trabajo guardado temporalmente en este navegador.";
-  }
-}
-
-function cargarTrabajo(){
-  if(!state.retoSeleccionado){
-    return;
-  }
-
-  const clave=
-    `qim202k_taller1_reto_${state.retoSeleccionado}`;
-
-  const datosGuardados=
-    localStorage.getItem(clave);
-
-  if(!datosGuardados){
-    return;
-  }
-
-  try{
-    const datos=JSON.parse(datosGuardados);
-
-    Object.entries(datos).forEach(
-      ([id,valor])=>{
-        const elemento=
-          document.getElementById(id);
-
-        if(elemento){
-          elemento.value=valor;
-        }
-      }
-    );
-
-    actualizarContadores();
-
-  }catch(error){
-    console.warn(
-      "No se pudo cargar el trabajo guardado.",
-      error
-    );
-  }
-}
-
-function limpiarFicha(){
-  if(!state.retoSeleccionado){
-    return;
-  }
-
-  if(!confirm(
-    "¿Desean borrar el trabajo de este reto?"
-  )){
-    return;
-  }
-
-  const clave=
-    `qim202k_taller1_reto_${state.retoSeleccionado}`;
-
-  localStorage.removeItem(clave);
-
-  [
-    "equipo",
-    "integrantes",
-    "hipotesis",
-    "respuesta",
-    "diagrama",
-    "evidencia",
-    "faltante",
-    "kinebio"
-  ].forEach(id=>{
-    const elemento=document.getElementById(id);
-
-    if(elemento){
-      elemento.value="";
-    }
-  });
-
-  actualizarContadores();
-
-  const estado=document.getElementById("estado");
-
-  if(estado){
-    estado.className="status ok";
-    estado.textContent=
-      "La ficha fue limpiada.";
-  }
-}
-
-function limpiarFiltros(){
-  buscar.value="";
-  nivel.value="";
-  renderLista();
-}
-
-buscar.addEventListener(
-  "input",
-  renderLista
-);
-
-nivel.addEventListener(
-  "change",
-  renderLista
-);
-
-renderLista();
-</script>
+    <p>
+      Esta página funciona como portal de acceso a los talleres.
+    </p>
+  </footer>
 
 </body>
 </html>
