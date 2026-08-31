@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+
+<Styles>
+  <Style ss:ID="Titulo">
+    <Font ss:Bold="1" ss:Size="14"/>
+  </Style>
+  <Style ss:ID="Encabezado">
+    <Font ss:Bold="1" ss:Color="#FFFFFF"/>
+    <Interior ss:Color="#123B5D" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="Subtitulo">
+    <Font ss:Bold="1" ss:Color="#123B5D"/>
+    <Interior ss:Color="#EAF3F8" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="Numero">
+    <NumberFormat ss:Format="0.000000"/>
+  </Style>
+</Styles>
+
+<!-- PERFIL A: MICHAELIS-MENTEN -->
+<Worksheet ss:Name="MM_Perfil_A">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil A - Michaelis-Menten</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: inhibición competitiva</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">[S] (mmol/L)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Control v0 (umol/min)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Compuesto v0 (umol/min)</Data></Cell>
+</Row>
+<Row><Cell><Data ss:Type="Number">1</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell><Cell><Data ss:Type="Number">17.14</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">2</Data></Cell><Cell><Data ss:Type="Number">48</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">3</Data></Cell><Cell><Data ss:Type="Number">60</Data></Cell><Cell><Data ss:Type="Number">40</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">6</Data></Cell><Cell><Data ss:Type="Number">80</Data></Cell><Cell><Data ss:Type="Number">60</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">12</Data></Cell><Cell><Data ss:Type="Number">96</Data></Cell><Cell><Data ss:Type="Number">80</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">24</Data></Cell><Cell><Data ss:Type="Number">107</Data></Cell><Cell><Data ss:Type="Number">96</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Parámetros esperados</Data></Cell><Cell><Data ss:Type="String">Control: Vmax ≈ 120; Km ≈ 3</Data></Cell><Cell><Data ss:Type="String">Compuesto: Vmax ≈ 120; Km ≈ 6</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL A: LINEWEAVER-BURK -->
+<Worksheet ss:Name="LB_Perfil_A">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil A - Lineweaver-Burk</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: intersección aproximada en el eje Y</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/[S] (L/mmol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 control (min/umol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 compuesto (min/umol)</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">1</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.058343</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.5</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.020833</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.333333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.016667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.025</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.166667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0125</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.016667</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.083333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.010417</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0125</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.041667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.009346</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.010417</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL B: MICHAELIS-MENTEN -->
+<Worksheet ss:Name="MM_Perfil_B">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil B - Michaelis-Menten</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: inhibición acompetitiva</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">[S] (mmol/L)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Control v0 (umol/min)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Compuesto v0 (umol/min)</Data></Cell>
+</Row>
+<Row><Cell><Data ss:Type="Number">0.5</Data></Cell><Cell><Data ss:Type="Number">18</Data></Cell><Cell><Data ss:Type="Number">15.88</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">1</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell><Cell><Data ss:Type="Number">24.55</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">2</Data></Cell><Cell><Data ss:Type="Number">45</Data></Cell><Cell><Data ss:Type="Number">33.75</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">4</Data></Cell><Cell><Data ss:Type="Number">60</Data></Cell><Cell><Data ss:Type="Number">41.54</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">8</Data></Cell><Cell><Data ss:Type="Number">72</Data></Cell><Cell><Data ss:Type="Number">46.96</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">16</Data></Cell><Cell><Data ss:Type="Number">80</Data></Cell><Cell><Data ss:Type="Number">50.23</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Parámetros esperados</Data></Cell><Cell><Data ss:Type="String">Control: Vmax ≈ 90; Km ≈ 2</Data></Cell><Cell><Data ss:Type="String">Compuesto: Vmax ≈ 54; Km ≈ 1,2</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL B: LINEWEAVER-BURK -->
+<Worksheet ss:Name="LB_Perfil_B">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil B - Lineweaver-Burk</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: rectas aproximadamente paralelas</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/[S] (L/mmol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 control (min/umol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 compuesto (min/umol)</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">2</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.055556</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.062972</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">1</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.040733</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.5</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.022222</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.029630</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.25</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.016667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.024073</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.125</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.013889</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.021294</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0625</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0125</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.019909</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL C: MICHAELIS-MENTEN -->
+<Worksheet ss:Name="MM_Perfil_C">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil C - Michaelis-Menten</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: inhibición mixta</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">[S] (mmol/L)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Control v0 (umol/min)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Compuesto v0 (umol/min)</Data></Cell>
+</Row>
+<Row><Cell><Data ss:Type="Number">1</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell><Cell><Data ss:Type="Number">8.57</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">2</Data></Cell><Cell><Data ss:Type="Number">48</Data></Cell><Cell><Data ss:Type="Number">15</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">3</Data></Cell><Cell><Data ss:Type="Number">60</Data></Cell><Cell><Data ss:Type="Number">20</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">6</Data></Cell><Cell><Data ss:Type="Number">80</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">12</Data></Cell><Cell><Data ss:Type="Number">96</Data></Cell><Cell><Data ss:Type="Number">40</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">24</Data></Cell><Cell><Data ss:Type="Number">107</Data></Cell><Cell><Data ss:Type="Number">48</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Parámetros esperados</Data></Cell><Cell><Data ss:Type="String">Control: Vmax ≈ 120; Km ≈ 3</Data></Cell><Cell><Data ss:Type="String">Compuesto: Vmax ≈ 60; Km ≈ 6</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL C: LINEWEAVER-BURK -->
+<Worksheet ss:Name="LB_Perfil_C">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil C - Lineweaver-Burk</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: intersección fuera de los ejes</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/[S] (L/mmol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 control (min/umol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 compuesto (min/umol)</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">1</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.116686</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.5</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.020833</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.066667</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.333333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.016667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.05</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.166667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0125</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.083333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.010417</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.025</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.041667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.009346</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.020833</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL D: MICHAELIS-MENTEN -->
+<Worksheet ss:Name="MM_Perfil_D">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil D - Michaelis-Menten</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: inhibición no competitiva pura</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">[S] (mmol/L)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Control v0 (umol/min)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">Compuesto v0 (umol/min)</Data></Cell>
+</Row>
+<Row><Cell><Data ss:Type="Number">1</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell><Cell><Data ss:Type="Number">15</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">2</Data></Cell><Cell><Data ss:Type="Number">48</Data></Cell><Cell><Data ss:Type="Number">24</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">3</Data></Cell><Cell><Data ss:Type="Number">60</Data></Cell><Cell><Data ss:Type="Number">30</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">6</Data></Cell><Cell><Data ss:Type="Number">80</Data></Cell><Cell><Data ss:Type="Number">40</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">12</Data></Cell><Cell><Data ss:Type="Number">96</Data></Cell><Cell><Data ss:Type="Number">48</Data></Cell></Row>
+<Row><Cell><Data ss:Type="Number">24</Data></Cell><Cell><Data ss:Type="Number">107</Data></Cell><Cell><Data ss:Type="Number">53.33</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Parámetros esperados</Data></Cell><Cell><Data ss:Type="String">Control: Vmax ≈ 120; Km ≈ 3</Data></Cell><Cell><Data ss:Type="String">Compuesto: Vmax ≈ 60; Km ≈ 3</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+<!-- PERFIL D: LINEWEAVER-BURK -->
+<Worksheet ss:Name="LB_Perfil_D">
+<Table>
+<Row><Cell ss:StyleID="Titulo"><Data ss:Type="String">Perfil D - Lineweaver-Burk</Data></Cell></Row>
+<Row><Cell ss:StyleID="Subtitulo"><Data ss:Type="String">Patrón esperado: intersección aproximada en el eje X</Data></Cell></Row>
+<Row>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/[S] (L/mmol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 control (min/umol)</Data></Cell>
+<Cell ss:StyleID="Encabezado"><Data ss:Type="String">1/v0 compuesto (min/umol)</Data></Cell>
+</Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">1</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.066667</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.5</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.020833</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.041667</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.333333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.016667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.033333</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.166667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.0125</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.025</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.083333</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.010417</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.020833</Data></Cell></Row>
+<Row><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.041667</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.009346</Data></Cell><Cell ss:StyleID="Numero"><Data ss:Type="Number">0.018752</Data></Cell></Row>
+</Table>
+</Worksheet>
+
+</Workbook>
