@@ -234,11 +234,6 @@
       font-size: 1.08rem;
     }
 
-    .section h4 {
-      margin: 13px 0 6px;
-      color: var(--azul-medio);
-    }
-
     .tags {
       margin: 9px 0 14px;
     }
@@ -398,20 +393,41 @@
       color: var(--morado);
     }
 
-    .graphic-box {
-      margin-top: 12px;
-      padding: 10px;
-      overflow-x: auto;
+    .graphs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .graph-card {
+      padding: 12px;
       border: 1px solid var(--borde);
-      border-radius: 7px;
+      border-radius: 8px;
       background: white;
     }
 
-    .graphic-box svg {
+    .graph-card h4 {
+      margin: 0 0 8px;
+      color: var(--azul);
+      font-size: .98rem;
+    }
+
+    .graph-card img {
       display: block;
       width: 100%;
-      min-width: 430px;
-      height: 190px;
+      height: 250px;
+      object-fit: contain;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      background: #ffffff;
+    }
+
+    .graph-card figcaption {
+      margin-top: 8px;
+      color: var(--gris);
+      font-size: .82rem;
+      text-align: center;
     }
 
     .total-box {
@@ -479,6 +495,12 @@
 
       .reto-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .graphs-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -558,19 +580,18 @@
       </p>
 
       <p>
-        Los integrantes 1 a 4 son obligatorios. El integrante 5 es opcional y no
-        debe completarse cuando el grupo tiene cuatro estudiantes.
+        Los integrantes 1 a 4 son obligatorios. El integrante 5 es opcional.
       </p>
 
       <p>
-        Evalúe el producto escrito mediante cinco criterios. Cada criterio se marca
-        con botones de 0, 1 o 2 puntos.
+        Evalúe el producto escrito mediante cinco criterios, utilizando botones de
+        0, 1 o 2 puntos.
       </p>
 
       <p>
         Realice cuatro preguntas orales. Cada pregunta debe ser respondida por un
-        estudiante diferente. El ayudante debe controlar esta condición verbalmente;
-        la página no solicita ni registra quién responde cada pregunta.
+        estudiante diferente. Esta condición se controla verbalmente y no se
+        registra en la página.
       </p>
 
       <p>
@@ -611,10 +632,11 @@
         compuesto: { vmax: 120, km: 6 },
         clasificacion: "Inhibición competitiva",
         patron: "Vmax permanece aproximadamente constante y Km aumenta.",
-        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje y. El intercepto en y permanece cercano a 1/Vmax, mientras aumenta la pendiente.",
-        sustrato: "En el modelo ideal, aumentar la concentración de sustrato puede compensar el efecto y permitir alcanzar la misma Vmax.",
+        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje y.",
+        sustrato: "En el modelo ideal, aumentar el sustrato puede compensar el efecto.",
         error: "Confundir el aumento de Km con una disminución de Vmax.",
-        grafico: "competitiva"
+        mm: "imagenes/MM_PerfilA.png",
+        lb: "imagenes/LB_PerfilA.png"
       },
 
       B: {
@@ -622,10 +644,11 @@
         compuesto: { vmax: 54, km: 1.2 },
         clasificacion: "Inhibición acompetitiva",
         patron: "Vmax y Km disminuyen aproximadamente en la misma proporción.",
-        lineweaver: "Las rectas son aproximadamente paralelas porque la razón Km/Vmax permanece semejante.",
-        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original en el modelo acompetitivo.",
-        error: "Afirmar que un Km menor significa necesariamente que la enzima tiene una Vmax mayor.",
-        grafico: "acompetitiva"
+        lineweaver: "Las rectas son aproximadamente paralelas.",
+        sustrato: "Aumentar el sustrato no recupera la Vmax original.",
+        error: "Afirmar que un Km menor significa necesariamente una Vmax mayor.",
+        mm: "imagenes/MM_PerfilB.png",
+        lb: "imagenes/LB_PerfilB.png"
       },
 
       C: {
@@ -633,10 +656,11 @@
         compuesto: { vmax: 60, km: 6 },
         clasificacion: "Inhibición mixta",
         patron: "Vmax disminuye y Km aumenta.",
-        lineweaver: "Las rectas se intersectan fuera de los ejes. Aumentan el intercepto en y y la pendiente.",
-        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original.",
+        lineweaver: "Las rectas se intersectan fuera de los ejes.",
+        sustrato: "Aumentar el sustrato no recupera la Vmax original.",
         error: "Clasificarla como competitiva solo porque Km aumenta.",
-        grafico: "mixta"
+        mm: "imagenes/MM_PerfilC.png",
+        lb: "imagenes/LB_PerfilC.png"
       },
 
       D: {
@@ -644,14 +668,15 @@
         compuesto: { vmax: 60, km: 3 },
         clasificacion: "Inhibición no competitiva pura",
         patron: "Vmax disminuye y Km permanece aproximadamente constante.",
-        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje x. El intercepto en y aumenta y el intercepto en x permanece semejante.",
-        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original.",
-        error: "Confundir la inhibición no competitiva pura con la competitiva porque Km no cambia.",
-        grafico: "no-competitiva"
+        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje x.",
+        sustrato: "Aumentar el sustrato no recupera la Vmax original.",
+        error: "Confundir la inhibición no competitiva pura con la competitiva.",
+        mm: "imagenes/MM_PerfilD.png",
+        lb: "imagenes/LB_PerfilD.png"
       }
     };
 
-    const RETOS = [
+    const datosRetos = [
       ["LDH y producción de lactato durante ejercicio intenso", "Lactato deshidrogenasa", "A", "Metabolismo anaeróbico", "Piruvato", "Lactato", "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺"],
       ["LDH y conversión de lactato durante la recuperación", "Lactato deshidrogenasa", "B", "Recuperación metabólica", "Lactato", "Piruvato", "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺"],
       ["LDH y modificación de la actividad catalítica", "Lactato deshidrogenasa", "C", "Fatiga y metabolismo energético", "Piruvato", "Lactato", "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺"],
@@ -676,7 +701,9 @@
       ["Piruvato quinasa durante la recuperación energética", "Piruvato quinasa", "B", "Producción de ATP", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"],
       ["Piruvato quinasa y disminución del flujo glucolítico", "Piruvato quinasa", "C", "Flujo glucolítico", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"],
       ["Piruvato quinasa y reducción de la capacidad catalítica", "Piruvato quinasa", "D", "Producción rápida de ATP", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"]
-    ].map((item, index) => ({
+    ];
+
+    const RETOS = datosRetos.map((item, index) => ({
       numero: index + 1,
       titulo: item[0],
       enzima: item[1],
@@ -691,32 +718,32 @@
       {
         id: "sistema",
         titulo: "1. Enzima, sustrato, producto y reacción — 2 puntos",
-        descripcion: "El papelógrafo debe mostrar correctamente el nombre de la enzima, el sustrato analizado, el producto y la reacción bioquímica simplificada.",
-        guia: "2 puntos: todos los elementos son correctos. 1 punto: hay una omisión o error menor. 0 puntos: existen confusiones importantes."
+        descripcion: "El papelógrafo debe mostrar correctamente la enzima, el sustrato, el producto y la reacción simplificada.",
+        guia: "2: todos correctos. 1: omisión o error menor. 0: confusiones importantes."
       },
       {
         id: "datos",
         titulo: "2. Tabla de datos y valores recíprocos — 2 puntos",
-        descripcion: "Debe presentar las condiciones control y experimental, unidades, valores de 1/[S] y valores de 1/v₀.",
-        guia: "2 puntos: datos organizados, unidades y recíprocos correctos. 1 punto: información incompleta o con errores menores. 0 puntos: datos ausentes o ininterpretables."
+        descripcion: "Debe presentar condiciones, unidades, valores de 1/[S] y valores de 1/v₀.",
+        guia: "2: datos y unidades correctos. 1: incompleto. 0: ausente o ininterpretable."
       },
       {
         id: "michaelis",
         titulo: "3. Gráfico de Michaelis–Menten — 2 puntos",
-        descripcion: "Debe incluir [S] en el eje x, v₀ en el eje y, unidades, puntos o curvas para ambas condiciones y referencias aproximadas de Vmax y Km.",
-        guia: "2 puntos: gráfico interpretable y correctamente rotulado. 1 punto: gráfico presente, pero incompleto o con errores menores. 0 puntos: ausente o incorrecto."
+        descripcion: "Debe incluir [S] en x, v₀ en y, unidades, control, compuesto, Vmax y Km.",
+        guia: "2: gráfico completo y legible. 1: presente, pero incompleto. 0: ausente o incorrecto."
       },
       {
         id: "lineweaver",
         titulo: "4. Gráfico de Lineweaver–Burk — 2 puntos",
-        descripcion: "Debe incluir 1/[S] en el eje x, 1/v₀ en el eje y, unidades, ambas rectas y el patrón de intersección o paralelismo.",
-        guia: "2 puntos: gráfico y patrón correctamente representados. 1 punto: gráfico parcial o con interpretación incompleta. 0 puntos: ausente o incorrecto."
+        descripcion: "Debe incluir 1/[S] en x, 1/v₀ en y, unidades, ambas rectas y su patrón de intersección.",
+        guia: "2: gráfico completo y patrón correcto. 1: incompleto. 0: ausente o incorrecto."
       },
       {
         id: "conclusion",
         titulo: "5. Parámetros, clasificación y conclusión — 2 puntos",
-        descripcion: "Debe incluir Vmax y Km de ambas condiciones, clasificación del inhibidor, justificación, conclusión y una limitación biológica.",
-        guia: "2 puntos: interpretación completa y fundamentada. 1 punto: clasificación correcta, pero justificación incompleta. 0 puntos: clasificación incorrecta o ausencia de conclusión."
+        descripcion: "Debe incluir Vmax, Km, clasificación, justificación, conclusión y una limitación biológica.",
+        guia: "2: interpretación completa. 1: parcial. 0: incorrecta o ausente."
       }
     ];
 
@@ -725,32 +752,32 @@
         id: "parametros",
         titulo: "Pregunta 1 — Vmax y Km — máximo 2 puntos",
         pregunta: "¿Qué representan Vmax y Km en este experimento?",
-        pauta: "Respuesta esperada: Vmax es la velocidad máxima aparente que alcanza la reacción bajo las condiciones experimentales. Km es la concentración de sustrato asociada aproximadamente con Vmax/2. El grupo debe entender que son estimaciones del modelo y utilizar unidades coherentes.",
-        error: "Confundir Vmax con Km, con la concentración de enzima o con la cantidad total de sustrato.",
+        pauta: "Vmax es la velocidad máxima aparente de la reacción bajo las condiciones experimentales. Km es la concentración de sustrato asociada aproximadamente con Vmax/2. Son estimaciones del modelo y deben expresarse con unidades coherentes.",
+        error: "Confundir Vmax con Km, concentración de enzima o cantidad total de sustrato.",
         maximo: 2
       },
       {
         id: "cambios",
         titulo: "Pregunta 2 — Cambios por el compuesto — máximo 2 puntos",
         pregunta: "¿Qué cambió entre la condición control y la condición con el nuevo compuesto?",
-        pauta: "Respuesta esperada: el grupo debe comparar Vmax y Km en ambas condiciones e indicar si cada parámetro aumentó, disminuyó o permaneció aproximadamente constante. Debe utilizar los valores o las tendencias observadas en la tabla y los gráficos.",
-        error: "Decir solamente que disminuyó la velocidad, sin analizar por separado Vmax y Km.",
+        pauta: "El grupo debe comparar Vmax y Km en ambas condiciones e indicar si cada parámetro aumentó, disminuyó o permaneció aproximadamente constante. Debe apoyarse en la tabla o los gráficos.",
+        error: "Decir solamente que disminuyó la velocidad, sin analizar Vmax y Km por separado.",
         maximo: 2
       },
       {
         id: "clasificacion",
         titulo: "Pregunta 3 — Clasificación del inhibidor — máximo 3 puntos",
         pregunta: "¿Qué tipo de inhibición produce el nuevo compuesto y por qué?",
-        pauta: "Respuesta esperada: el grupo debe identificar la clasificación correspondiente al patrón del reto y justificarla utilizando conjuntamente los cambios en Vmax y Km. Si corresponde, debe distinguir la inhibición no competitiva pura como un caso particular de inhibición mixta.",
-        error: "Nombrar un tipo de inhibición sin relacionarlo con los cambios observados en Vmax y Km.",
+        pauta: "Debe identificar la clasificación correspondiente al patrón del reto y justificarla utilizando conjuntamente los cambios en Vmax y Km. La respuesta no puede basarse solo en memorizar un nombre.",
+        error: "Nombrar una inhibición sin relacionarla con los cambios observados.",
         maximo: 3
       },
       {
         id: "graficos",
         titulo: "Pregunta 4 — Gráficos, aplicación y limitación — máximo 3 puntos",
         pregunta: "¿Qué evidencia de los gráficos respalda su clasificación y cuál es una limitación biológica del análisis?",
-        pauta: "Respuesta esperada: el grupo debe mencionar una evidencia de Michaelis–Menten o Lineweaver–Burk, como cambio de meseta, desplazamiento, intersección, pendiente o interceptos. Además, debe reconocer que los datos son simulados, que el modelo es simplificado y que una enzima aislada no representa por sí sola todo el rendimiento muscular.",
-        error: "Describir el gráfico sin relacionarlo con la clasificación o afirmar que el resultado demuestra directamente fatiga, bajo rendimiento o una enfermedad.",
+        pauta: "Debe mencionar una evidencia del gráfico de Michaelis–Menten o Lineweaver–Burk y explicar cómo respalda la clasificación. También debe reconocer que los datos son simulados, el modelo es simplificado y una enzima aislada no representa por sí sola todo el rendimiento muscular.",
+        error: "Describir el gráfico sin relacionarlo con la clasificación o afirmar directamente que demuestra fatiga, bajo rendimiento o una enfermedad.",
         maximo: 3
       }
     ];
@@ -828,65 +855,8 @@
       });
     }
 
-    function graficoSVG(tipo) {
-      const base = `
-        <svg viewBox="0 0 650 190" role="img" aria-label="Esquema de patrón gráfico esperado">
-          <line x1="55" y1="155" x2="620" y2="155" stroke="#334155" stroke-width="2"/>
-          <line x1="55" y1="155" x2="55" y2="20" stroke="#334155" stroke-width="2"/>
-          <text x="285" y="184" fill="#334155" font-size="13">1/[S] o [S]</text>
-          <text x="10" y="95" fill="#334155" font-size="13" transform="rotate(-90 20 95)">1/v₀ o v₀</text>
-          <text x="70" y="30" fill="#123b5d" font-size="13" font-weight="bold">Esquema orientador</text>
-      `;
-
-      const fin = `
-          <line x1="55" y1="155" x2="620" y2="155" stroke="#334155" stroke-width="2"/>
-        </svg>
-      `;
-
-      if (tipo === "competitiva") {
-        return base + `
-          <line x1="80" y1="140" x2="565" y2="48" stroke="#123b5d" stroke-width="3"/>
-          <line x1="155" y1="140" x2="565" y2="48" stroke="#d97706" stroke-width="3"/>
-          <circle cx="565" cy="48" r="4" fill="#123b5d"/>
-          <text x="470" y="42" fill="#123b5d" font-size="12">intersección en y</text>
-          <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
-          <text x="185" y="126" fill="#d97706" font-size="12">compuesto</text>
-        ` + fin;
-      }
-
-      if (tipo === "acompetitiva") {
-        return base + `
-          <line x1="80" y1="145" x2="555" y2="52" stroke="#123b5d" stroke-width="3"/>
-          <line x1="125" y1="125" x2="600" y2="32" stroke="#d97706" stroke-width="3"/>
-          <text x="470" y="48" fill="#123b5d" font-size="12">rectas paralelas</text>
-          <text x="90" y="138" fill="#123b5d" font-size="12">control</text>
-          <text x="520" y="28" fill="#d97706" font-size="12">compuesto</text>
-        ` + fin;
-      }
-
-      if (tipo === "mixta") {
-        return base + `
-          <line x1="80" y1="140" x2="550" y2="45" stroke="#123b5d" stroke-width="3"/>
-          <line x1="155" y1="140" x2="570" y2="78" stroke="#d97706" stroke-width="3"/>
-          <circle cx="360" cy="83" r="4" fill="#991b1b"/>
-          <text x="370" y="78" fill="#991b1b" font-size="12">intersección fuera de los ejes</text>
-          <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
-          <text x="470" y="72" fill="#d97706" font-size="12">compuesto</text>
-        ` + fin;
-      }
-
-      return base + `
-        <line x1="80" y1="140" x2="550" y2="38" stroke="#123b5d" stroke-width="3"/>
-        <line x1="145" y1="140" x2="550" y2="82" stroke="#d97706" stroke-width="3"/>
-        <circle cx="250" cy="103" r="4" fill="#991b1b"/>
-        <text x="260" y="98" fill="#991b1b" font-size="12">intersección en x</text>
-        <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
-        <text x="455" y="78" fill="#d97706" font-size="12">compuesto</text>
-      ` + fin;
-    }
-
     function botonesPuntaje(id, maximo) {
-      let botones = "";
+      let html = "";
 
       for (let valor = 0; valor <= maximo; valor++) {
         let texto = String(valor);
@@ -896,7 +866,7 @@
         if (valor === 2) texto += " — Logrado";
         if (valor === 3) texto += " — Completo";
 
-        botones += `
+        html += `
           <button
             type="button"
             class="score-button"
@@ -909,7 +879,7 @@
 
       return `
         <div class="score-buttons" data-score-group="${id}">
-          ${botones}
+          ${html}
         </div>
       `;
     }
@@ -937,7 +907,7 @@
 
           <div class="expected">
             <p>
-              <strong>Pauta explícita para leer o utilizar:</strong>
+              <strong>Pauta explícita:</strong>
               ${escapar(pregunta.pauta)}
             </p>
 
@@ -949,8 +919,7 @@
 
           <p class="guide">
             Controle verbalmente que esta pregunta sea respondida por un estudiante
-            diferente de quienes respondieron las preguntas anteriores. La página
-            no registra quién responde.
+            diferente. La página no registra quién responde.
           </p>
 
           ${botonesPuntaje(`oral-${indice + 1}`, pregunta.maximo)}
@@ -970,8 +939,7 @@
         <h2>Reto ${reto.numero}. ${escapar(reto.titulo)}</h2>
 
         <p class="muted">
-          Complete la evaluación revisando el producto escrito y realizando cuatro
-          preguntas orales a estudiantes diferentes.
+          Evalúe el producto escrito y realice cuatro preguntas orales a estudiantes diferentes.
         </p>
 
         <div class="tags">
@@ -1010,9 +978,7 @@
             </div>
 
             <div class="field">
-              <label for="integrante5">
-                Integrante 5: nombre y apellido — opcional
-              </label>
+              <label for="integrante5">Integrante 5: opcional</label>
               <input id="integrante5" type="text">
             </div>
           </div>
@@ -1038,7 +1004,7 @@
             </div>
 
             <div class="info-card">
-              <strong>Reacción simplificada esperada</strong>
+              <strong>Reacción simplificada</strong>
               ${escapar(reto.reaccion)}
             </div>
 
@@ -1060,18 +1026,39 @@
             </div>
 
             <div class="info-card">
-              <strong>Patrón Lineweaver–Burk</strong>
+              <strong>Lineweaver–Burk</strong>
               ${escapar(perfil.lineweaver)}
             </div>
           </div>
 
-          <div class="graphic-box">
-            <strong>Esquema de referencia para corregir el gráfico de Lineweaver–Burk:</strong>
-            ${graficoSVG(perfil.grafico)}
+          <div class="graphs-grid">
+            <figure class="graph-card">
+              <h4>Gráfico esperado de Michaelis–Menten</h4>
+              <img
+                src="${escapar(perfil.mm)}"
+                alt="Gráfico de Michaelis-Menten del ${escapar(reto.perfil)}"
+                loading="lazy"
+              >
+              <figcaption>
+                Comparar curvas control y con nuevo compuesto.
+              </figcaption>
+            </figure>
+
+            <figure class="graph-card">
+              <h4>Gráfico esperado de Lineweaver–Burk</h4>
+              <img
+                src="${escapar(perfil.lb)}"
+                alt="Gráfico de Lineweaver-Burk del ${escapar(reto.perfil)}"
+                loading="lazy"
+              >
+              <figcaption>
+                Comparar rectas, pendientes, interceptos e intersección.
+              </figcaption>
+            </figure>
           </div>
 
           <div class="warning-box">
-            <strong>Error frecuente del reto:</strong>
+            <strong>Error frecuente:</strong>
             ${escapar(perfil.error)}
           </div>
 
@@ -1085,8 +1072,8 @@
           <h3>3. Producto escrito — 10 puntos</h3>
 
           <p class="muted">
-            El ayudante debe verificar que el papelógrafo u hojas blancas contengan
-            explícitamente los elementos descritos en cada criterio.
+            Verifique que el papelógrafo u hojas blancas contengan los elementos
+            descritos en cada criterio.
           </p>
 
           ${CRITERIOS_PRODUCTO.map(tarjetaProducto).join("")}
@@ -1097,7 +1084,7 @@
 
           <p class="muted">
             Realice cuatro preguntas. Cada una debe ser respondida por un estudiante
-            diferente. La página no solicita registrar qué estudiante respondió.
+            diferente. La página no registra quién responde.
           </p>
 
           ${PREGUNTAS_ORALES.map(tarjetaOral).join("")}
@@ -1110,7 +1097,7 @@
             <label for="observaciones">
               Fortalezas, errores o recomendaciones breves
             </label>
-            <textarea id="observaciones" placeholder="Escriba observaciones de retroalimentación"></textarea>
+            <textarea id="observaciones" placeholder="Escriba observaciones"></textarea>
           </div>
         </section>
 
@@ -1209,15 +1196,11 @@
           `Total: ${total} / 20 · Producto: ${producto} / 10 · Oral: ${oral} / 10`;
       }
 
-      return {
-        producto,
-        oral,
-        total
-      };
+      return { producto, oral, total };
     }
 
     function validarIdentificacion() {
-      const camposObligatorios = [
+      const obligatorios = [
         ["ayudante", "Ingrese el nombre o código del ayudante."],
         ["integrante1", "Ingrese el nombre del integrante 1."],
         ["integrante2", "Ingrese el nombre del integrante 2."],
@@ -1225,7 +1208,7 @@
         ["integrante4", "Ingrese el nombre del integrante 4."]
       ];
 
-      for (const [id, mensaje] of camposObligatorios) {
+      for (const [id, mensaje] of obligatorios) {
         const campo = document.getElementById(id);
 
         if (!campo || !campo.value.trim()) {
@@ -1305,7 +1288,7 @@
 
     function descargarEvaluacion() {
       if (!retoSeleccionado) {
-        alert("Seleccione un reto antes de descargar la evaluación.");
+        alert("Seleccione un reto antes de descargar.");
         return;
       }
 
@@ -1330,10 +1313,10 @@
         "Integrante 4",
         "Integrante 5 opcional",
         "Producto - sistema",
-        "Producto - datos y recíprocos",
+        "Producto - datos",
         "Producto - Michaelis-Menten",
         "Producto - Lineweaver-Burk",
-        "Producto - parámetros y conclusión",
+        "Producto - conclusión",
         "Oral 1 - Vmax y Km",
         "Oral 2 - cambios",
         "Oral 3 - clasificación",
@@ -1397,7 +1380,6 @@
       if (mensaje) {
         mensaje.textContent =
           `Evaluación descargada correctamente: ${datos.puntajeTotal} de 20 puntos.`;
-
         mensaje.classList.add("show");
       }
     }
@@ -1406,15 +1388,12 @@
       retoSeleccionado = null;
       selectorReto.value = "";
       buscarReto.value = "";
-
       renderizarLista();
 
       workspace.innerHTML = `
         <div class="initial">
           <h2>Nueva evaluación</h2>
-          <p>
-            Seleccione el reto correspondiente al siguiente grupo.
-          </p>
+          <p>Seleccione el reto del siguiente grupo.</p>
         </div>
       `;
 
