@@ -536,14 +536,14 @@
     };
 
     const PERFIL_B = {
-      sustrato: [0.5, 1, 2, 4, 8, 16],
-      control: [18, 30, 45, 60, 72, 80],
-      compuesto: [18, 27, 36, 43.2, 48, 50.8],
-      controlEsperado: { vmax: 90, km: 2 },
-      compuestoEsperado: { vmax: 54, km: 1 },
-      clasificacion: "Inhibición acompetitiva",
-      lineweaver: "Las rectas son aproximadamente paralelas porque disminuyen Vmax y Km en una proporción semejante.",
-      compensacion: "No, aumentar el sustrato no recupera la Vmax original en el modelo acompetitivo."
+    sustrato: [0.5, 1, 2, 4, 8, 16],
+    control: [18, 30, 45, 60, 72, 80],
+    compuesto: [15.88, 24.55, 33.75, 41.54, 46.96, 50.23],
+    controlEsperado: { vmax: 90, km: 2 },
+    compuestoEsperado: { vmax: 54, km: 1.2 },
+    clasificacion: "Inhibición acompetitiva",
+    lineweaver: "Las rectas son aproximadamente paralelas porque Vmax y Km disminuyen en el mismo factor. La pendiente Km/Vmax permanece aproximadamente constante.",
+    compensacion: "No, aumentar la concentración de sustrato no recupera la Vmax original en el modelo acompetitivo."
     };
 
     const PERFIL_C = {

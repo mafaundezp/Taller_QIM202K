@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pauta digital de evaluación para ayudantes del Taller 2 de QIM202K">
+  <title>Evaluación de ayudantes — Taller 2 QIM202K</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul-medio: #2d6a8a;
+      --azul-claro: #eaf3f8;
+      --morado: #6d28d9;
+      --morado-claro: #f5f3ff;
+      --verde: #166534;
+      --verde-claro: #f0fdf4;
+      --amarillo: #fff7df;
+      --rojo: #991b1b;
+      --rojo-claro: #fef2f2;
+      --texto: #1f2937;
+      --gris: #64748b;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    header {
+      padding: 28px 5vw 25px;
+      background: linear-gradient(135deg, var(--azul), var(--azul-medio));
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 7px;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      line-height: 1.2;
+    }
+
+    header h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: normal;
+    }
+
+    header p {
+      max-width: 1100px;
+      margin: 5px 0;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+      padding: 11px 5vw;
+      background: white;
+      border-bottom: 1px solid var(--borde);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .07);
+    }
+
+    .toolbar label {
+      color: var(--azul);
+      font-weight: bold;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font: inherit;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      border: 1px solid var(--borde);
+      background: white;
+      color: var(--texto);
+    }
+
+    .toolbar input {
+      min-width: 220px;
+      flex: 1 1 220px;
+    }
+
+    .toolbar select {
+      min-width: 250px;
+      flex: 0 1 250px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      filter: brightness(1.08);
+    }
+
+    .button-primary {
+      background: var(--morado);
+      color: white;
+    }
+
+    .button-light {
+      background: #e2e8f0;
+      color: var(--texto);
+    }
+
+    .container {
+      width: min(1450px, 92%);
+      margin: 0 auto;
+      padding: 22px 0 50px;
+    }
+
+    .notice {
+      margin-bottom: 18px;
+      padding: 15px 17px;
+      border-left: 5px solid var(--azul);
+      border-radius: 7px;
+      background: var(--azul-claro);
+    }
+
+    .notice h2 {
+      margin: 0 0 7px;
+      color: var(--azul);
+      font-size: 1.15rem;
+    }
+
+    .notice p {
+      margin: 5px 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(270px, .7fr) minmax(550px, 1.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel,
+    .workspace {
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: white;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, .06);
+    }
+
+    .panel {
+      position: sticky;
+      top: 70px;
+      max-height: calc(100vh - 88px);
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .panel h2,
+    .workspace h2 {
+      margin-top: 0;
+      color: var(--azul);
+    }
+
+    .panel small,
+    .muted {
+      color: var(--gris);
+    }
+
+    .reto-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 13px;
+    }
+
+    .reto-button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      background: #f8fafc;
+      color: var(--texto);
+      text-align: left;
+      font: inherit;
+    }
+
+    .reto-button:hover,
+    .reto-button.active {
+      border-color: var(--azul-medio);
+      background: var(--azul-claro);
+    }
+
+    .reto-button strong {
+      display: block;
+      color: var(--azul);
+    }
+
+    .reto-button small {
+      display: block;
+      margin-top: 3px;
+      color: var(--gris);
+    }
+
+    .workspace {
+      min-width: 0;
+      padding: 22px;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    .section h3 {
+      margin: 0 0 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--azul);
+      font-size: 1.08rem;
+    }
+
+    .section h4 {
+      margin: 13px 0 6px;
+      color: var(--azul-medio);
+    }
+
+    .tags {
+      margin: 9px 0 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 4px 3px 0;
+      padding: 4px 9px;
+      border-radius: 16px;
+      background: var(--azul-claro);
+      color: var(--azul);
+      font-size: .82rem;
+      font-weight: bold;
+    }
+
+    .tag.purple {
+      background: var(--morado-claro);
+      color: #6b21a8;
+    }
+
+    .tag.green {
+      background: var(--verde-claro);
+      color: var(--verde);
+    }
+
+    .form-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--azul);
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--borde);
+      border-radius: 6px;
+      background: white;
+      color: var(--texto);
+      font: inherit;
+    }
+
+    .field textarea {
+      min-height: 78px;
+      resize: vertical;
+    }
+
+    .info-card {
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      background: #f8fafc;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--azul);
+    }
+
+    .warning-box {
+      margin-top: 12px;
+      padding: 13px 15px;
+      border-left: 4px solid #d97706;
+      border-radius: 6px;
+      background: var(--amarillo);
+    }
+
+    .score-card {
+      margin: 10px 0;
+      padding: 13px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .score-card h4 {
+      margin: 0 0 5px;
+      color: var(--azul);
+      font-size: 1rem;
+    }
+
+    .score-card p {
+      margin: 5px 0;
+    }
+
+    .guide {
+      color: var(--gris);
+      font-size: .88rem;
+    }
+
+    .score-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .score-button {
+      min-width: 70px;
+      min-height: 42px;
+      padding: 8px 11px;
+      border: 2px solid var(--borde);
+      border-radius: 6px;
+      background: white;
+      color: var(--texto);
+      font-size: .88rem;
+    }
+
+    .score-button.selected.score-0 {
+      border-color: var(--rojo);
+      background: var(--rojo);
+      color: white;
+    }
+
+    .score-button.selected.score-1 {
+      border-color: #ca8a04;
+      background: #facc15;
+      color: #422006;
+    }
+
+    .score-button.selected.score-2 {
+      border-color: var(--verde);
+      background: var(--verde);
+      color: white;
+    }
+
+    .score-button.selected.score-3 {
+      border-color: var(--morado);
+      background: var(--morado);
+      color: white;
+    }
+
+    .oral-question {
+      border-left: 4px solid var(--morado);
+      background: var(--morado-claro);
+    }
+
+    .oral-question .expected {
+      margin-top: 9px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: white;
+      font-size: .91rem;
+    }
+
+    .oral-question .expected strong {
+      color: var(--morado);
+    }
+
+    .graphic-box {
+      margin-top: 12px;
+      padding: 10px;
+      overflow-x: auto;
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      background: white;
+    }
+
+    .graphic-box svg {
+      display: block;
+      width: 100%;
+      min-width: 430px;
+      height: 190px;
+    }
+
+    .total-box {
+      position: sticky;
+      bottom: 10px;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 22px;
+      padding: 15px 17px;
+      border: 2px solid var(--azul-medio);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+    }
+
+    .total-number {
+      color: var(--azul);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .status {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      border: 1px solid #86efac;
+    }
+
+    .status.show {
+      display: block;
+    }
+
+    .initial,
+    .empty {
+      padding: 28px 15px;
+      color: var(--gris);
+      text-align: center;
+    }
+
+    .empty {
+      border: 1px dashed var(--borde);
+      border-radius: 7px;
+    }
+
+    @media (max-width: 1000px) {
+      .toolbar {
+        position: static;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+        max-height: none;
+      }
+
+      .reto-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 94%;
+      }
+
+      .toolbar input,
+      .toolbar select,
+      .toolbar button {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .reto-list,
+      .form-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
+        padding: 16px;
+      }
+
+      .score-button {
+        flex: 1 1 30%;
+      }
+
+      .total-box {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Pauta digital de evaluación</h1>
+    <h2>Taller 2: Enzimas, cinética e inhibición — QIM202K</h2>
+    <p>
+      Evaluación rápida del trabajo escrito y de la defensa oral.
+    </p>
+    <p>
+      Puntaje total: <strong>20 puntos</strong>.
+      Producto escrito: 10 puntos. Defensa oral: 10 puntos.
+    </p>
+  </header>
+
+  <div class="toolbar">
+    <label for="buscarReto">Buscar:</label>
+    <input id="buscarReto" type="search" placeholder="número, enzima o proceso">
+
+    <label for="selectorReto">Reto:</label>
+    <select id="selectorReto">
+      <option value="">Seleccione un reto</option>
+    </select>
+
+    <button id="nuevoButton" class="button-light" type="button">
+      Nueva evaluación
+    </button>
+
+    <button id="descargarButton" class="button-primary" type="button">
+      Descargar CSV
+    </button>
+  </div>
+
+  <main class="container">
+
+    <section class="notice">
+      <h2>Instrucciones para el ayudante</h2>
+
+      <p>
+        Seleccione el reto, registre el nombre del ayudante y los nombres de los
+        integrantes. El grupo puede tener cuatro o cinco integrantes.
+      </p>
+
+      <p>
+        Los integrantes 1 a 4 son obligatorios. El integrante 5 es opcional y no
+        debe completarse cuando el grupo tiene cuatro estudiantes.
+      </p>
+
+      <p>
+        Evalúe el producto escrito mediante cinco criterios. Cada criterio se marca
+        con botones de 0, 1 o 2 puntos.
+      </p>
+
+      <p>
+        Realice cuatro preguntas orales. Cada pregunta debe ser respondida por un
+        estudiante diferente. El ayudante debe controlar esta condición verbalmente;
+        la página no solicita ni registra quién responde cada pregunta.
+      </p>
+
+      <p>
+        Al finalizar, descargue el archivo CSV. La página no guarda los datos ni los
+        envía automáticamente a Internet.
+      </p>
+    </section>
+
+    <div class="layout">
+
+      <aside class="panel">
+        <h2>Retos disponibles</h2>
+        <small id="contadorRetos">20 retos</small>
+
+        <div id="listaRetos" class="reto-list"></div>
+
+        <div id="sinResultados" class="empty" style="display:none;">
+          No se encontraron retos.
+        </div>
+      </aside>
+
+      <section id="workspace" class="workspace">
+        <div class="initial">
+          <h2>Seleccione un reto</h2>
+          <p>
+            La pauta específica aparecerá después de seleccionar el reto.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const PERFILES = {
+      A: {
+        control: { vmax: 120, km: 3 },
+        compuesto: { vmax: 120, km: 6 },
+        clasificacion: "Inhibición competitiva",
+        patron: "Vmax permanece aproximadamente constante y Km aumenta.",
+        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje y. El intercepto en y permanece cercano a 1/Vmax, mientras aumenta la pendiente.",
+        sustrato: "En el modelo ideal, aumentar la concentración de sustrato puede compensar el efecto y permitir alcanzar la misma Vmax.",
+        error: "Confundir el aumento de Km con una disminución de Vmax.",
+        grafico: "competitiva"
+      },
+
+      B: {
+        control: { vmax: 90, km: 2 },
+        compuesto: { vmax: 54, km: 1.2 },
+        clasificacion: "Inhibición acompetitiva",
+        patron: "Vmax y Km disminuyen aproximadamente en la misma proporción.",
+        lineweaver: "Las rectas son aproximadamente paralelas porque la razón Km/Vmax permanece semejante.",
+        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original en el modelo acompetitivo.",
+        error: "Afirmar que un Km menor significa necesariamente que la enzima tiene una Vmax mayor.",
+        grafico: "acompetitiva"
+      },
+
+      C: {
+        control: { vmax: 120, km: 3 },
+        compuesto: { vmax: 60, km: 6 },
+        clasificacion: "Inhibición mixta",
+        patron: "Vmax disminuye y Km aumenta.",
+        lineweaver: "Las rectas se intersectan fuera de los ejes. Aumentan el intercepto en y y la pendiente.",
+        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original.",
+        error: "Clasificarla como competitiva solo porque Km aumenta.",
+        grafico: "mixta"
+      },
+
+      D: {
+        control: { vmax: 120, km: 3 },
+        compuesto: { vmax: 60, km: 3 },
+        clasificacion: "Inhibición no competitiva pura",
+        patron: "Vmax disminuye y Km permanece aproximadamente constante.",
+        lineweaver: "Las rectas se intersectan aproximadamente sobre el eje x. El intercepto en y aumenta y el intercepto en x permanece semejante.",
+        sustrato: "Aumentar la concentración de sustrato no recupera la Vmax original.",
+        error: "Confundir la inhibición no competitiva pura con la competitiva porque Km no cambia.",
+        grafico: "no-competitiva"
+      }
+    };
+
+    const RETOS = [
+      ["LDH y producción de lactato durante ejercicio intenso", "Lactato deshidrogenasa", "A", "Metabolismo anaeróbico", "Piruvato", "Lactato", "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺"],
+      ["LDH y conversión de lactato durante la recuperación", "Lactato deshidrogenasa", "B", "Recuperación metabólica", "Lactato", "Piruvato", "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺"],
+      ["LDH y modificación de la actividad catalítica", "Lactato deshidrogenasa", "C", "Fatiga y metabolismo energético", "Piruvato", "Lactato", "Piruvato + NADH + H⁺ ⇌ Lactato + NAD⁺"],
+      ["LDH y reducción de la capacidad catalítica", "Lactato deshidrogenasa", "D", "Actividad catalítica", "Lactato", "Piruvato", "Lactato + NAD⁺ ⇌ Piruvato + NADH + H⁺"],
+
+      ["Creatina quinasa y resíntesis rápida de ATP", "Creatina quinasa", "A", "Sistema fosfágeno", "ADP", "ATP", "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP"],
+      ["Creatina quinasa durante la recuperación", "Creatina quinasa", "B", "Recuperación de fosfocreatina", "Creatina", "Fosfocreatina", "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺"],
+      ["Creatina quinasa en esfuerzos repetidos", "Creatina quinasa", "C", "Esfuerzos repetidos", "Fosfocreatina", "ATP", "Fosfocreatina + ADP + H⁺ ⇌ Creatina + ATP"],
+      ["Creatina quinasa y capacidad catalítica", "Creatina quinasa", "D", "Resíntesis de fosfocreatina", "Creatina", "Fosfocreatina", "Creatina + ATP ⇌ Fosfocreatina + ADP + H⁺"],
+
+      ["Hexoquinasa y utilización de glucosa", "Hexoquinasa", "A", "Entrada de glucosa a la glucólisis", "Glucosa", "Glucosa-6-fosfato", "Glucosa + ATP → Glucosa-6-fosfato + ADP"],
+      ["Hexoquinasa durante la recuperación muscular", "Hexoquinasa", "B", "Fosforilación de glucosa", "Glucosa", "Glucosa-6-fosfato", "Glucosa + ATP → Glucosa-6-fosfato + ADP"],
+      ["Hexoquinasa y demanda energética", "Hexoquinasa", "C", "Contracción muscular", "Glucosa", "Glucosa-6-fosfato", "Glucosa + ATP → Glucosa-6-fosfato + ADP"],
+      ["Hexoquinasa y disminución de la actividad catalítica", "Hexoquinasa", "D", "Actividad muscular", "Glucosa", "Glucosa-6-fosfato", "Glucosa + ATP → Glucosa-6-fosfato + ADP"],
+
+      ["PFK-1 durante el ejercicio intenso", "Fosfofructoquinasa-1", "A", "Regulación de la glucólisis", "Fructosa-6-fosfato", "Fructosa-1,6-bisfosfato", "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP"],
+      ["PFK-1 durante la recuperación", "Fosfofructoquinasa-1", "B", "Flujo glucolítico", "Fructosa-6-fosfato", "Fructosa-1,6-bisfosfato", "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP"],
+      ["PFK-1 y regulación glucolítica", "Fosfofructoquinasa-1", "C", "Regulación metabólica", "Fructosa-6-fosfato", "Fructosa-1,6-bisfosfato", "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP"],
+      ["PFK-1 y reducción de Vmax", "Fosfofructoquinasa-1", "D", "Producción rápida de energía", "Fructosa-6-fosfato", "Fructosa-1,6-bisfosfato", "Fructosa-6-fosfato + ATP → Fructosa-1,6-bisfosfato + ADP"],
+
+      ["Piruvato quinasa y producción de ATP", "Piruvato quinasa", "A", "Etapa final de la glucólisis", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"],
+      ["Piruvato quinasa durante la recuperación energética", "Piruvato quinasa", "B", "Producción de ATP", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"],
+      ["Piruvato quinasa y disminución del flujo glucolítico", "Piruvato quinasa", "C", "Flujo glucolítico", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"],
+      ["Piruvato quinasa y reducción de la capacidad catalítica", "Piruvato quinasa", "D", "Producción rápida de ATP", "Fosfoenolpiruvato", "Piruvato", "Fosfoenolpiruvato + ADP + H⁺ → Piruvato + ATP"]
+    ].map((item, index) => ({
+      numero: index + 1,
+      titulo: item[0],
+      enzima: item[1],
+      perfil: item[2],
+      proceso: item[3],
+      sustrato: item[4],
+      producto: item[5],
+      reaccion: item[6]
+    }));
+
+    const CRITERIOS_PRODUCTO = [
+      {
+        id: "sistema",
+        titulo: "1. Enzima, sustrato, producto y reacción — 2 puntos",
+        descripcion: "El papelógrafo debe mostrar correctamente el nombre de la enzima, el sustrato analizado, el producto y la reacción bioquímica simplificada.",
+        guia: "2 puntos: todos los elementos son correctos. 1 punto: hay una omisión o error menor. 0 puntos: existen confusiones importantes."
+      },
+      {
+        id: "datos",
+        titulo: "2. Tabla de datos y valores recíprocos — 2 puntos",
+        descripcion: "Debe presentar las condiciones control y experimental, unidades, valores de 1/[S] y valores de 1/v₀.",
+        guia: "2 puntos: datos organizados, unidades y recíprocos correctos. 1 punto: información incompleta o con errores menores. 0 puntos: datos ausentes o ininterpretables."
+      },
+      {
+        id: "michaelis",
+        titulo: "3. Gráfico de Michaelis–Menten — 2 puntos",
+        descripcion: "Debe incluir [S] en el eje x, v₀ en el eje y, unidades, puntos o curvas para ambas condiciones y referencias aproximadas de Vmax y Km.",
+        guia: "2 puntos: gráfico interpretable y correctamente rotulado. 1 punto: gráfico presente, pero incompleto o con errores menores. 0 puntos: ausente o incorrecto."
+      },
+      {
+        id: "lineweaver",
+        titulo: "4. Gráfico de Lineweaver–Burk — 2 puntos",
+        descripcion: "Debe incluir 1/[S] en el eje x, 1/v₀ en el eje y, unidades, ambas rectas y el patrón de intersección o paralelismo.",
+        guia: "2 puntos: gráfico y patrón correctamente representados. 1 punto: gráfico parcial o con interpretación incompleta. 0 puntos: ausente o incorrecto."
+      },
+      {
+        id: "conclusion",
+        titulo: "5. Parámetros, clasificación y conclusión — 2 puntos",
+        descripcion: "Debe incluir Vmax y Km de ambas condiciones, clasificación del inhibidor, justificación, conclusión y una limitación biológica.",
+        guia: "2 puntos: interpretación completa y fundamentada. 1 punto: clasificación correcta, pero justificación incompleta. 0 puntos: clasificación incorrecta o ausencia de conclusión."
+      }
+    ];
+
+    const PREGUNTAS_ORALES = [
+      {
+        id: "parametros",
+        titulo: "Pregunta 1 — Vmax y Km — máximo 2 puntos",
+        pregunta: "¿Qué representan Vmax y Km en este experimento?",
+        pauta: "Respuesta esperada: Vmax es la velocidad máxima aparente que alcanza la reacción bajo las condiciones experimentales. Km es la concentración de sustrato asociada aproximadamente con Vmax/2. El grupo debe entender que son estimaciones del modelo y utilizar unidades coherentes.",
+        error: "Confundir Vmax con Km, con la concentración de enzima o con la cantidad total de sustrato.",
+        maximo: 2
+      },
+      {
+        id: "cambios",
+        titulo: "Pregunta 2 — Cambios por el compuesto — máximo 2 puntos",
+        pregunta: "¿Qué cambió entre la condición control y la condición con el nuevo compuesto?",
+        pauta: "Respuesta esperada: el grupo debe comparar Vmax y Km en ambas condiciones e indicar si cada parámetro aumentó, disminuyó o permaneció aproximadamente constante. Debe utilizar los valores o las tendencias observadas en la tabla y los gráficos.",
+        error: "Decir solamente que disminuyó la velocidad, sin analizar por separado Vmax y Km.",
+        maximo: 2
+      },
+      {
+        id: "clasificacion",
+        titulo: "Pregunta 3 — Clasificación del inhibidor — máximo 3 puntos",
+        pregunta: "¿Qué tipo de inhibición produce el nuevo compuesto y por qué?",
+        pauta: "Respuesta esperada: el grupo debe identificar la clasificación correspondiente al patrón del reto y justificarla utilizando conjuntamente los cambios en Vmax y Km. Si corresponde, debe distinguir la inhibición no competitiva pura como un caso particular de inhibición mixta.",
+        error: "Nombrar un tipo de inhibición sin relacionarlo con los cambios observados en Vmax y Km.",
+        maximo: 3
+      },
+      {
+        id: "graficos",
+        titulo: "Pregunta 4 — Gráficos, aplicación y limitación — máximo 3 puntos",
+        pregunta: "¿Qué evidencia de los gráficos respalda su clasificación y cuál es una limitación biológica del análisis?",
+        pauta: "Respuesta esperada: el grupo debe mencionar una evidencia de Michaelis–Menten o Lineweaver–Burk, como cambio de meseta, desplazamiento, intersección, pendiente o interceptos. Además, debe reconocer que los datos son simulados, que el modelo es simplificado y que una enzima aislada no representa por sí sola todo el rendimiento muscular.",
+        error: "Describir el gráfico sin relacionarlo con la clasificación o afirmar que el resultado demuestra directamente fatiga, bajo rendimiento o una enfermedad.",
+        maximo: 3
+      }
+    ];
+
+    let retoSeleccionado = null;
+
+    const buscarReto = document.getElementById("buscarReto");
+    const selectorReto = document.getElementById("selectorReto");
+    const listaRetos = document.getElementById("listaRetos");
+    const contadorRetos = document.getElementById("contadorRetos");
+    const sinResultados = document.getElementById("sinResultados");
+    const workspace = document.getElementById("workspace");
+
+    function escapar(texto) {
+      return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function obtenerReto(numero) {
+      return RETOS.find(reto => reto.numero === Number(numero));
+    }
+
+    function cargarSelector() {
+      RETOS.forEach(reto => {
+        const opcion = document.createElement("option");
+        opcion.value = reto.numero;
+        opcion.textContent = `Reto ${reto.numero} — ${reto.enzima}`;
+        selectorReto.appendChild(opcion);
+      });
+    }
+
+    function renderizarLista() {
+      const termino = buscarReto.value.trim().toLowerCase();
+
+      const filtrados = RETOS.filter(reto => {
+        const texto = [
+          reto.numero,
+          reto.titulo,
+          reto.enzima,
+          reto.proceso,
+          reto.sustrato,
+          reto.producto
+        ].join(" ").toLowerCase();
+
+        return !termino || texto.includes(termino);
+      });
+
+      listaRetos.innerHTML = "";
+      contadorRetos.textContent =
+        `${filtrados.length} de ${RETOS.length} retos disponibles`;
+
+      sinResultados.style.display =
+        filtrados.length === 0 ? "block" : "none";
+
+      filtrados.forEach(reto => {
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "reto-button";
+
+        if (retoSeleccionado === reto.numero) {
+          boton.classList.add("active");
+        }
+
+        boton.innerHTML = `
+          <strong>Reto ${reto.numero}. ${escapar(reto.titulo)}</strong>
+          <small>${escapar(reto.enzima)} · ${escapar(reto.proceso)}</small>
+        `;
+
+        boton.addEventListener("click", () => seleccionarReto(reto.numero));
+        listaRetos.appendChild(boton);
+      });
+    }
+
+    function graficoSVG(tipo) {
+      const base = `
+        <svg viewBox="0 0 650 190" role="img" aria-label="Esquema de patrón gráfico esperado">
+          <line x1="55" y1="155" x2="620" y2="155" stroke="#334155" stroke-width="2"/>
+          <line x1="55" y1="155" x2="55" y2="20" stroke="#334155" stroke-width="2"/>
+          <text x="285" y="184" fill="#334155" font-size="13">1/[S] o [S]</text>
+          <text x="10" y="95" fill="#334155" font-size="13" transform="rotate(-90 20 95)">1/v₀ o v₀</text>
+          <text x="70" y="30" fill="#123b5d" font-size="13" font-weight="bold">Esquema orientador</text>
+      `;
+
+      const fin = `
+          <line x1="55" y1="155" x2="620" y2="155" stroke="#334155" stroke-width="2"/>
+        </svg>
+      `;
+
+      if (tipo === "competitiva") {
+        return base + `
+          <line x1="80" y1="140" x2="565" y2="48" stroke="#123b5d" stroke-width="3"/>
+          <line x1="155" y1="140" x2="565" y2="48" stroke="#d97706" stroke-width="3"/>
+          <circle cx="565" cy="48" r="4" fill="#123b5d"/>
+          <text x="470" y="42" fill="#123b5d" font-size="12">intersección en y</text>
+          <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
+          <text x="185" y="126" fill="#d97706" font-size="12">compuesto</text>
+        ` + fin;
+      }
+
+      if (tipo === "acompetitiva") {
+        return base + `
+          <line x1="80" y1="145" x2="555" y2="52" stroke="#123b5d" stroke-width="3"/>
+          <line x1="125" y1="125" x2="600" y2="32" stroke="#d97706" stroke-width="3"/>
+          <text x="470" y="48" fill="#123b5d" font-size="12">rectas paralelas</text>
+          <text x="90" y="138" fill="#123b5d" font-size="12">control</text>
+          <text x="520" y="28" fill="#d97706" font-size="12">compuesto</text>
+        ` + fin;
+      }
+
+      if (tipo === "mixta") {
+        return base + `
+          <line x1="80" y1="140" x2="550" y2="45" stroke="#123b5d" stroke-width="3"/>
+          <line x1="155" y1="140" x2="570" y2="78" stroke="#d97706" stroke-width="3"/>
+          <circle cx="360" cy="83" r="4" fill="#991b1b"/>
+          <text x="370" y="78" fill="#991b1b" font-size="12">intersección fuera de los ejes</text>
+          <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
+          <text x="470" y="72" fill="#d97706" font-size="12">compuesto</text>
+        ` + fin;
+      }
+
+      return base + `
+        <line x1="80" y1="140" x2="550" y2="38" stroke="#123b5d" stroke-width="3"/>
+        <line x1="145" y1="140" x2="550" y2="82" stroke="#d97706" stroke-width="3"/>
+        <circle cx="250" cy="103" r="4" fill="#991b1b"/>
+        <text x="260" y="98" fill="#991b1b" font-size="12">intersección en x</text>
+        <text x="90" y="132" fill="#123b5d" font-size="12">control</text>
+        <text x="455" y="78" fill="#d97706" font-size="12">compuesto</text>
+      ` + fin;
+    }
+
+    function botonesPuntaje(id, maximo) {
+      let botones = "";
+
+      for (let valor = 0; valor <= maximo; valor++) {
+        let texto = String(valor);
+
+        if (valor === 0) texto += " — No logrado";
+        if (valor === 1) texto += " — Parcial";
+        if (valor === 2) texto += " — Logrado";
+        if (valor === 3) texto += " — Completo";
+
+        botones += `
+          <button
+            type="button"
+            class="score-button"
+            data-score-id="${id}"
+            data-value="${valor}">
+            ${texto}
+          </button>
+        `;
+      }
+
+      return `
+        <div class="score-buttons" data-score-group="${id}">
+          ${botones}
+        </div>
+      `;
+    }
+
+    function tarjetaProducto(criterio) {
+      return `
+        <div class="score-card">
+          <h4>${escapar(criterio.titulo)}</h4>
+          <p>${escapar(criterio.descripcion)}</p>
+          <p class="guide">${escapar(criterio.guia)}</p>
+          ${botonesPuntaje(`producto-${criterio.id}`, 2)}
+        </div>
+      `;
+    }
+
+    function tarjetaOral(pregunta, indice) {
+      return `
+        <div class="score-card oral-question">
+          <h4>${escapar(pregunta.titulo)}</h4>
+
+          <p>
+            <strong>Pregunta para el grupo:</strong>
+            ${escapar(pregunta.pregunta)}
+          </p>
+
+          <div class="expected">
+            <p>
+              <strong>Pauta explícita para leer o utilizar:</strong>
+              ${escapar(pregunta.pauta)}
+            </p>
+
+            <p>
+              <strong>Error frecuente:</strong>
+              ${escapar(pregunta.error)}
+            </p>
+          </div>
+
+          <p class="guide">
+            Controle verbalmente que esta pregunta sea respondida por un estudiante
+            diferente de quienes respondieron las preguntas anteriores. La página
+            no registra quién responde.
+          </p>
+
+          ${botonesPuntaje(`oral-${indice + 1}`, pregunta.maximo)}
+        </div>
+      `;
+    }
+
+    function seleccionarReto(numero) {
+      retoSeleccionado = Number(numero);
+      selectorReto.value = retoSeleccionado;
+      renderizarLista();
+
+      const reto = obtenerReto(retoSeleccionado);
+      const perfil = PERFILES[reto.perfil];
+
+      workspace.innerHTML = `
+        <h2>Reto ${reto.numero}. ${escapar(reto.titulo)}</h2>
+
+        <p class="muted">
+          Complete la evaluación revisando el producto escrito y realizando cuatro
+          preguntas orales a estudiantes diferentes.
+        </p>
+
+        <div class="tags">
+          <span class="tag">${escapar(reto.enzima)}</span>
+          <span class="tag purple">${escapar(perfil.clasificacion)}</span>
+          <span class="tag green">${escapar(reto.proceso)}</span>
+        </div>
+
+        <section class="section">
+          <h3>1. Identificación de la evaluación</h3>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="ayudante">Nombre o código del ayudante *</label>
+              <input id="ayudante" type="text" placeholder="Ej.: AY-01">
+            </div>
+
+            <div class="field">
+              <label for="integrante1">Integrante 1: nombre y apellido *</label>
+              <input id="integrante1" type="text">
+            </div>
+
+            <div class="field">
+              <label for="integrante2">Integrante 2: nombre y apellido *</label>
+              <input id="integrante2" type="text">
+            </div>
+
+            <div class="field">
+              <label for="integrante3">Integrante 3: nombre y apellido *</label>
+              <input id="integrante3" type="text">
+            </div>
+
+            <div class="field">
+              <label for="integrante4">Integrante 4: nombre y apellido *</label>
+              <input id="integrante4" type="text">
+            </div>
+
+            <div class="field">
+              <label for="integrante5">
+                Integrante 5: nombre y apellido — opcional
+              </label>
+              <input id="integrante5" type="text">
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>2. Pauta específica del reto</h3>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <strong>Enzima esperada</strong>
+              ${escapar(reto.enzima)}
+            </div>
+
+            <div class="info-card">
+              <strong>Sustrato esperado</strong>
+              ${escapar(reto.sustrato)}
+            </div>
+
+            <div class="info-card">
+              <strong>Producto esperado</strong>
+              ${escapar(reto.producto)}
+            </div>
+
+            <div class="info-card">
+              <strong>Reacción simplificada esperada</strong>
+              ${escapar(reto.reaccion)}
+            </div>
+
+            <div class="info-card">
+              <strong>Parámetros control</strong>
+              Vmax ≈ ${perfil.control.vmax} µmol/min<br>
+              Km ≈ ${perfil.control.km} mmol/L
+            </div>
+
+            <div class="info-card">
+              <strong>Parámetros con compuesto</strong>
+              Vmax aparente ≈ ${perfil.compuesto.vmax} µmol/min<br>
+              Km aparente ≈ ${perfil.compuesto.km} mmol/L
+            </div>
+
+            <div class="info-card">
+              <strong>Patrón esperado</strong>
+              ${escapar(perfil.patron)}
+            </div>
+
+            <div class="info-card">
+              <strong>Patrón Lineweaver–Burk</strong>
+              ${escapar(perfil.lineweaver)}
+            </div>
+          </div>
+
+          <div class="graphic-box">
+            <strong>Esquema de referencia para corregir el gráfico de Lineweaver–Burk:</strong>
+            ${graficoSVG(perfil.grafico)}
+          </div>
+
+          <div class="warning-box">
+            <strong>Error frecuente del reto:</strong>
+            ${escapar(perfil.error)}
+          </div>
+
+          <p class="muted">
+            <strong>Compensación por sustrato:</strong>
+            ${escapar(perfil.sustrato)}
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>3. Producto escrito — 10 puntos</h3>
+
+          <p class="muted">
+            El ayudante debe verificar que el papelógrafo u hojas blancas contengan
+            explícitamente los elementos descritos en cada criterio.
+          </p>
+
+          ${CRITERIOS_PRODUCTO.map(tarjetaProducto).join("")}
+        </section>
+
+        <section class="section">
+          <h3>4. Defensa oral — 10 puntos</h3>
+
+          <p class="muted">
+            Realice cuatro preguntas. Cada una debe ser respondida por un estudiante
+            diferente. La página no solicita registrar qué estudiante respondió.
+          </p>
+
+          ${PREGUNTAS_ORALES.map(tarjetaOral).join("")}
+        </section>
+
+        <section class="section">
+          <h3>5. Observaciones</h3>
+
+          <div class="field">
+            <label for="observaciones">
+              Fortalezas, errores o recomendaciones breves
+            </label>
+            <textarea id="observaciones" placeholder="Escriba observaciones de retroalimentación"></textarea>
+          </div>
+        </section>
+
+        <div class="total-box">
+          <div>
+            <div class="muted">Puntaje máximo: 20 puntos</div>
+            <div id="totalPuntaje" class="total-number">
+              Total: 0 / 20 · Producto: 0 / 10 · Oral: 0 / 10
+            </div>
+          </div>
+
+          <button id="descargarInterno" class="button-primary" type="button">
+            Descargar evaluación
+          </button>
+        </div>
+
+        <div id="mensajeEstado" class="status"></div>
+      `;
+
+      activarBotonesPuntaje();
+
+      document.getElementById("descargarInterno")
+        .addEventListener("click", descargarEvaluacion);
+
+      actualizarPuntaje();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function activarBotonesPuntaje() {
+      document.querySelectorAll(".score-button").forEach(button => {
+        button.addEventListener("click", () => {
+          const grupo = button.parentElement;
+
+          grupo.querySelectorAll(".score-button").forEach(item => {
+            item.classList.remove(
+              "selected",
+              "score-0",
+              "score-1",
+              "score-2",
+              "score-3"
+            );
+          });
+
+          button.classList.add(
+            "selected",
+            `score-${button.dataset.value}`
+          );
+
+          grupo.dataset.selectedValue = button.dataset.value;
+          actualizarPuntaje();
+        });
+      });
+    }
+
+    function obtenerValorPuntaje(id) {
+      const grupo = document.querySelector(
+        `[data-score-group="${id}"]`
+      );
+
+      if (!grupo || grupo.dataset.selectedValue === undefined) {
+        return "";
+      }
+
+      return grupo.dataset.selectedValue;
+    }
+
+    function actualizarPuntaje() {
+      let producto = 0;
+      let oral = 0;
+
+      CRITERIOS_PRODUCTO.forEach(criterio => {
+        const valor = obtenerValorPuntaje(`producto-${criterio.id}`);
+
+        if (valor !== "") {
+          producto += Number(valor);
+        }
+      });
+
+      PREGUNTAS_ORALES.forEach((pregunta, indice) => {
+        const valor = obtenerValorPuntaje(`oral-${indice + 1}`);
+
+        if (valor !== "") {
+          oral += Number(valor);
+        }
+      });
+
+      const total = producto + oral;
+      const elemento = document.getElementById("totalPuntaje");
+
+      if (elemento) {
+        elemento.textContent =
+          `Total: ${total} / 20 · Producto: ${producto} / 10 · Oral: ${oral} / 10`;
+      }
+
+      return {
+        producto,
+        oral,
+        total
+      };
+    }
+
+    function validarIdentificacion() {
+      const camposObligatorios = [
+        ["ayudante", "Ingrese el nombre o código del ayudante."],
+        ["integrante1", "Ingrese el nombre del integrante 1."],
+        ["integrante2", "Ingrese el nombre del integrante 2."],
+        ["integrante3", "Ingrese el nombre del integrante 3."],
+        ["integrante4", "Ingrese el nombre del integrante 4."]
+      ];
+
+      for (const [id, mensaje] of camposObligatorios) {
+        const campo = document.getElementById(id);
+
+        if (!campo || !campo.value.trim()) {
+          alert(mensaje);
+
+          if (campo) {
+            campo.focus();
+          }
+
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function validarPuntajes() {
+      const faltantes = [];
+
+      CRITERIOS_PRODUCTO.forEach(criterio => {
+        if (obtenerValorPuntaje(`producto-${criterio.id}`) === "") {
+          faltantes.push(criterio.titulo);
+        }
+      });
+
+      PREGUNTAS_ORALES.forEach((pregunta, indice) => {
+        if (obtenerValorPuntaje(`oral-${indice + 1}`) === "") {
+          faltantes.push(`Pregunta oral ${indice + 1}`);
+        }
+      });
+
+      if (faltantes.length > 0) {
+        alert(
+          "Debe asignar puntaje a todos los criterios:\n\n" +
+          faltantes.join("\n")
+        );
+
+        return false;
+      }
+
+      return true;
+    }
+
+    function obtenerDatosEvaluacion() {
+      const reto = obtenerReto(retoSeleccionado);
+      const resumen = actualizarPuntaje();
+
+      return {
+        fecha: new Date().toLocaleString("es-CL"),
+        ayudante: document.getElementById("ayudante").value.trim(),
+        reto: reto.numero,
+        titulo: reto.titulo,
+        integrante1: document.getElementById("integrante1").value.trim(),
+        integrante2: document.getElementById("integrante2").value.trim(),
+        integrante3: document.getElementById("integrante3").value.trim(),
+        integrante4: document.getElementById("integrante4").value.trim(),
+        integrante5: document.getElementById("integrante5").value.trim(),
+        productoSistema: obtenerValorPuntaje("producto-sistema"),
+        productoDatos: obtenerValorPuntaje("producto-datos"),
+        productoMichaelis: obtenerValorPuntaje("producto-michaelis"),
+        productoLineweaver: obtenerValorPuntaje("producto-lineweaver"),
+        productoConclusion: obtenerValorPuntaje("producto-conclusion"),
+        oralParametros: obtenerValorPuntaje("oral-1"),
+        oralCambios: obtenerValorPuntaje("oral-2"),
+        oralClasificacion: obtenerValorPuntaje("oral-3"),
+        oralGraficos: obtenerValorPuntaje("oral-4"),
+        puntajeProducto: resumen.producto,
+        puntajeOral: resumen.oral,
+        puntajeTotal: resumen.total,
+        observaciones: document.getElementById("observaciones").value.trim()
+      };
+    }
+
+    function csvSeguro(valor) {
+      return `"${String(valor ?? "").replace(/"/g, '""')}"`;
+    }
+
+    function descargarEvaluacion() {
+      if (!retoSeleccionado) {
+        alert("Seleccione un reto antes de descargar la evaluación.");
+        return;
+      }
+
+      if (!validarIdentificacion()) {
+        return;
+      }
+
+      if (!validarPuntajes()) {
+        return;
+      }
+
+      const datos = obtenerDatosEvaluacion();
+
+      const encabezados = [
+        "Fecha y hora",
+        "Ayudante",
+        "Reto",
+        "Título del reto",
+        "Integrante 1",
+        "Integrante 2",
+        "Integrante 3",
+        "Integrante 4",
+        "Integrante 5 opcional",
+        "Producto - sistema",
+        "Producto - datos y recíprocos",
+        "Producto - Michaelis-Menten",
+        "Producto - Lineweaver-Burk",
+        "Producto - parámetros y conclusión",
+        "Oral 1 - Vmax y Km",
+        "Oral 2 - cambios",
+        "Oral 3 - clasificación",
+        "Oral 4 - gráficos y limitación",
+        "Puntaje producto / 10",
+        "Puntaje oral / 10",
+        "Puntaje total / 20",
+        "Observaciones"
+      ];
+
+      const valores = [
+        datos.fecha,
+        datos.ayudante,
+        datos.reto,
+        datos.titulo,
+        datos.integrante1,
+        datos.integrante2,
+        datos.integrante3,
+        datos.integrante4,
+        datos.integrante5,
+        datos.productoSistema,
+        datos.productoDatos,
+        datos.productoMichaelis,
+        datos.productoLineweaver,
+        datos.productoConclusion,
+        datos.oralParametros,
+        datos.oralCambios,
+        datos.oralClasificacion,
+        datos.oralGraficos,
+        datos.puntajeProducto,
+        datos.puntajeOral,
+        datos.puntajeTotal,
+        datos.observaciones
+      ];
+
+      const contenido =
+        "\uFEFF" +
+        encabezados.map(csvSeguro).join(";") +
+        "\n" +
+        valores.map(csvSeguro).join(";");
+
+      const archivo = new Blob([contenido], {
+        type: "text/csv;charset=utf-8;"
+      });
+
+      const enlace = document.createElement("a");
+      const url = URL.createObjectURL(archivo);
+      const fecha = new Date().toISOString().slice(0, 10);
+
+      enlace.href = url;
+      enlace.download =
+        `evaluacion_reto${String(datos.reto).padStart(2, "0")}_${fecha}.csv`;
+
+      document.body.appendChild(enlace);
+      enlace.click();
+      document.body.removeChild(enlace);
+      URL.revokeObjectURL(url);
+
+      const mensaje = document.getElementById("mensajeEstado");
+
+      if (mensaje) {
+        mensaje.textContent =
+          `Evaluación descargada correctamente: ${datos.puntajeTotal} de 20 puntos.`;
+
+        mensaje.classList.add("show");
+      }
+    }
+
+    function nuevaEvaluacion() {
+      retoSeleccionado = null;
+      selectorReto.value = "";
+      buscarReto.value = "";
+
+      renderizarLista();
+
+      workspace.innerHTML = `
+        <div class="initial">
+          <h2>Nueva evaluación</h2>
+          <p>
+            Seleccione el reto correspondiente al siguiente grupo.
+          </p>
+        </div>
+      `;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    buscarReto.addEventListener("input", renderizarLista);
+
+    selectorReto.addEventListener("change", () => {
+      if (selectorReto.value) {
+        seleccionarReto(selectorReto.value);
+      }
+    });
+
+    document.getElementById("descargarButton")
+      .addEventListener("click", descargarEvaluacion);
+
+    document.getElementById("nuevoButton")
+      .addEventListener("click", nuevaEvaluacion);
+
+    cargarSelector();
+    renderizarLista();
+  </script>
+
+</body>
+</html>
