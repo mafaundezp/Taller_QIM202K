@@ -28,13 +28,8 @@
       --blanco: #ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -46,437 +41,114 @@
 
     header {
       padding: 55px 6vw 48px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(18, 59, 93, 0.98),
-          rgba(45, 106, 138, 0.96)
-        );
+      background: linear-gradient(135deg, rgba(18, 59, 93, .98), rgba(45, 106, 138, .96));
       color: white;
     }
 
-    header .header-content {
-      width: min(1100px, 100%);
-      margin: 0 auto;
-    }
-
-    .institution {
-      margin: 0 0 12px;
-      color: #dbeafe;
-      font-size: .95rem;
-      font-weight: bold;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    header h1 {
-      max-width: 900px;
-      margin: 0 0 15px;
-      font-size: clamp(2rem, 5vw, 3.35rem);
-      line-height: 1.12;
-    }
-
-    header h2 {
-      max-width: 850px;
-      margin: 0 0 21px;
-      color: #e0f2fe;
-      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
-      font-weight: normal;
-    }
-
-    header p {
-      max-width: 850px;
-      margin: 8px 0;
-      font-size: 1.03rem;
-    }
-
-    .header-label {
-      display: inline-block;
-      margin-top: 17px;
-      padding: 7px 13px;
-      border: 1px solid rgba(255, 255, 255, .45);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, .12);
-      color: white;
-      font-size: .9rem;
-      font-weight: bold;
-    }
-
-    .container {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-      padding: 34px 0 60px;
-    }
-
-    .intro {
-      margin-bottom: 28px;
-      padding: 20px 22px;
-      border-left: 5px solid var(--azul);
-      border-radius: 7px;
-      background: var(--azul-claro);
-    }
-
-    .intro h2 {
-      margin-top: 0;
-      color: var(--azul);
-      font-size: 1.35rem;
-    }
-
-    .intro p {
-      margin: 8px 0;
-    }
-
-    .intro ul {
-      margin-bottom: 0;
-    }
-
-    .section-title {
-      margin: 34px 0 16px;
-      color: var(--azul);
-      font-size: 1.65rem;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      max-width: 800px;
-      margin: 0 auto 25px;
-      color: var(--gris);
-      text-align: center;
-    }
-
-    .workshop-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .workshop-card {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid var(--borde);
-      border-radius: 12px;
-      background: var(--blanco);
-      box-shadow: 0 4px 12px rgba(15, 23, 42, .08);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .workshop-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 9px 20px rgba(15, 23, 42, .13);
-    }
-
-    .card-header {
-      padding: 24px 23px 20px;
-      background: linear-gradient(135deg, var(--azul), var(--azul-medio));
-      color: white;
-    }
-
-    .card-header.purple {
-      background: linear-gradient(135deg, #4c1d95, var(--morado));
-    }
-
-    .card-number {
-      margin-bottom: 8px;
-      color: #dbeafe;
-      font-size: .9rem;
-      font-weight: bold;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .card-header.purple .card-number {
-      color: #ede9fe;
-    }
-
-    .card-header h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      line-height: 1.25;
-    }
-
-    .card-content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 23px;
-    }
-
-    .card-content p {
-      margin-top: 0;
-    }
-
-    .tag-list {
-      margin: 10px 0 17px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 3px 5px 3px 0;
-      padding: 5px 10px;
-      border-radius: 17px;
-      background: var(--azul-claro);
-      color: var(--azul);
-      font-size: .83rem;
-      font-weight: bold;
-    }
-
-    .tag.purple {
-      background: var(--morado-claro);
-      color: #6b21a8;
-    }
-
-    .tag.green {
-      background: var(--verde-claro);
-      color: var(--verde);
-    }
-
-    .card-content h4 {
-      margin: 15px 0 7px;
-      color: var(--azul);
-      font-size: 1rem;
-    }
-
-    .card-content ul {
-      margin-top: 5px;
-      padding-left: 21px;
-    }
-
-    .card-content li {
-      margin-bottom: 5px;
-    }
-
-    .card-action {
-      margin-top: auto;
-      padding-top: 20px;
-    }
-
-    .access-button {
-      display: block;
-      width: 100%;
-      padding: 13px 16px;
-      border-radius: 7px;
-      background: var(--azul);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      transition: filter .2s ease;
-    }
-
-    .access-button:hover {
-      filter: brightness(1.12);
-    }
-
-    .access-button.purple {
-      background: var(--morado);
-    }
-
-    .general-info {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .info-box {
-      padding: 18px;
-      border: 1px solid var(--borde);
-      border-radius: 9px;
-      background: white;
-      text-align: center;
-    }
-
-    .info-box strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--azul);
-      font-size: 1.05rem;
-    }
-
-    .info-box span {
-      color: var(--gris);
-      font-size: .94rem;
-    }
-
-    .important {
-      margin-top: 30px;
-      padding: 18px 20px;
-      border-left: 5px solid #d97706;
-      border-radius: 7px;
-      background: var(--amarillo);
-    }
-
-    .important h2 {
-      margin-top: 0;
-      color: #92400e;
-      font-size: 1.2rem;
-    }
-
-    .important p {
-      margin-bottom: 8px;
-    }
-
-    footer {
-      padding: 25px 6vw;
-      background: #0f2f49;
-      color: #dbeafe;
-      text-align: center;
-    }
-
-    footer p {
-      margin: 5px 0;
-      font-size: .92rem;
-    }
-
-    footer strong {
-      color: white;
-    }
+    header .header-content { width: min(1100px, 100%); margin: 0 auto; }
+    .institution { margin: 0 0 12px; color: #dbeafe; font-size: .95rem; font-weight: bold; letter-spacing: .04em; text-transform: uppercase; }
+    header h1 { max-width: 900px; margin: 0 0 15px; font-size: clamp(2rem, 5vw, 3.35rem); line-height: 1.12; }
+    header h2 { max-width: 850px; margin: 0 0 21px; color: #e0f2fe; font-size: clamp(1.1rem, 2.5vw, 1.55rem); font-weight: normal; }
+    header p { max-width: 850px; margin: 8px 0; font-size: 1.03rem; }
+    .header-label { display: inline-block; margin-top: 17px; padding: 7px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 20px; background: rgba(255,255,255,.12); color: white; font-size: .9rem; font-weight: bold; }
+    .container { width: min(1180px, 90%); margin: 0 auto; padding: 34px 0 60px; }
+    .intro { margin-bottom: 28px; padding: 20px 22px; border-left: 5px solid var(--azul); border-radius: 7px; background: var(--azul-claro); }
+    .intro h2 { margin-top: 0; color: var(--azul); font-size: 1.35rem; }
+    .intro p { margin: 8px 0; }
+    .intro ul { margin-bottom: 0; }
+    .section-title { margin: 34px 0 16px; color: var(--azul); font-size: 1.65rem; text-align: center; }
+    .section-subtitle { max-width: 800px; margin: 0 auto 25px; color: var(--gris); text-align: center; }
+    .workshop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+    .workshop-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--borde); border-radius: 12px; background: var(--blanco); box-shadow: 0 4px 12px rgba(15,23,42,.08); transition: transform .2s ease, box-shadow .2s ease; }
+    .workshop-card:hover { transform: translateY(-4px); box-shadow: 0 9px 20px rgba(15,23,42,.13); }
+    .card-header { padding: 24px 23px 20px; background: linear-gradient(135deg, var(--azul), var(--azul-medio)); color: white; }
+    .card-header.purple { background: linear-gradient(135deg, #4c1d95, var(--morado)); }
+    .card-header.green { background: linear-gradient(135deg, #14532d, #15803d); }
+    .card-number { margin-bottom: 8px; color: #dbeafe; font-size: .9rem; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; }
+    .card-header.purple .card-number { color: #ede9fe; }
+    .card-header.green .card-number { color: #dcfce7; }
+    .card-header h3 { margin: 0; font-size: 1.5rem; line-height: 1.25; }
+    .card-content { display: flex; flex: 1; flex-direction: column; padding: 23px; }
+    .card-content p { margin-top: 0; }
+    .tag-list { margin: 10px 0 17px; }
+    .tag { display: inline-block; margin: 3px 5px 3px 0; padding: 5px 10px; border-radius: 17px; background: var(--azul-claro); color: var(--azul); font-size: .83rem; font-weight: bold; }
+    .tag.purple { background: var(--morado-claro); color: #6b21a8; }
+    .tag.green { background: var(--verde-claro); color: var(--verde); }
+    .card-content h4 { margin: 15px 0 7px; color: var(--azul); font-size: 1rem; }
+    .card-content ul { margin-top: 5px; padding-left: 21px; }
+    .card-content li { margin-bottom: 5px; }
+    .card-action { margin-top: auto; padding-top: 20px; }
+    .access-button { display: block; width: 100%; padding: 13px 16px; border-radius: 7px; background: var(--azul); color: white; text-align: center; text-decoration: none; font-weight: bold; transition: filter .2s ease; }
+    .access-button:hover { filter: brightness(1.12); }
+    .access-button.purple { background: var(--morado); }
+    .access-button.green { background: var(--verde); }
+    .general-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+    .info-box { padding: 18px; border: 1px solid var(--borde); border-radius: 9px; background: white; text-align: center; }
+    .info-box strong { display: block; margin-bottom: 6px; color: var(--azul); font-size: 1.05rem; }
+    .info-box span { color: var(--gris); font-size: .94rem; }
+    .important { margin-top: 30px; padding: 18px 20px; border-left: 5px solid #d97706; border-radius: 7px; background: var(--amarillo); }
+    .important h2 { margin-top: 0; color: #92400e; font-size: 1.2rem; }
+    .important p { margin-bottom: 8px; }
+    footer { padding: 25px 6vw; background: #0f2f49; color: #dbeafe; text-align: center; }
+    footer p { margin: 5px 0; font-size: .92rem; }
+    footer strong { color: white; }
 
     @media (max-width: 800px) {
-      header {
-        padding: 38px 6vw 35px;
-      }
-
-      .workshop-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .general-info {
-        grid-template-columns: 1fr;
-      }
+      header { padding: 38px 6vw 35px; }
+      .workshop-grid, .general-info { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 500px) {
-      .container {
-        width: 92%;
-        padding-top: 23px;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .intro,
-      .card-content,
-      .card-header {
-        padding-left: 17px;
-        padding-right: 17px;
-      }
-
-      .section-title {
-        font-size: 1.4rem;
-      }
+      .container { width: 92%; padding-top: 23px; }
+      header h1 { font-size: 2rem; }
+      .intro, .card-content, .card-header { padding-left: 17px; padding-right: 17px; }
+      .section-title { font-size: 1.4rem; }
     }
   </style>
 </head>
-
 <body>
-
   <header>
     <div class="header-content">
       <p class="institution">Pontificia Universidad Católica de Chile</p>
-
       <h1>Talleres colaborativos de Bioquímica</h1>
       <h2>Prof. Manuel Faúndez Parraguez</h2>
-
-      <h2>
-        QIM202K — Bioquímica General para estudiantes de Kinesiología
-      </h2>
-
-      <p>
-        Espacio de trabajo para analizar procesos bioquímicos relacionados con
-        proteínas, enzimas, metabolismo energético y movimiento humano.
-      </p>
-
-      <p>
-        Selecciona el taller indicado por el docente para acceder a sus retos y
-        orientaciones de trabajo.
-      </p>
-
-      <span class="header-label">
-        Trabajo colaborativo · Kinesiología · Bioquímica
-      </span>
+      <h2>QIM202K — Bioquímica General para estudiantes de Kinesiología</h2>
+      <p>Espacio de trabajo para analizar procesos bioquímicos relacionados con proteínas, enzimas, metabolismo energético y movimiento humano.</p>
+      <p>Selecciona el taller indicado por el docente para acceder a sus actividades y orientaciones de trabajo.</p>
+      <span class="header-label">Trabajo colaborativo · Kinesiología · Bioquímica</span>
     </div>
   </header>
 
   <main class="container">
-
     <section class="intro">
       <h2>Bienvenida</h2>
-
-      <p>
-        En estas actividades trabajarán en grupos para interpretar situaciones
-        relacionadas con la función de proteínas y enzimas en procesos vinculados
-        con el movimiento humano y el metabolismo muscular.
-      </p>
-
-      <p>
-        Cada taller presenta retos que deben resolverse mediante discusión,
-        análisis de información bioquímica y construcción de explicaciones
-        fundamentadas.
-      </p>
-
+      <p>En estas actividades trabajarán en grupos para interpretar situaciones relacionadas con la función de proteínas y enzimas, el metabolismo energético y el movimiento humano.</p>
+      <p>Cada taller presenta desafíos que deben abordarse mediante discusión, análisis de información bioquímica y construcción de explicaciones fundamentadas. Revisen las instrucciones específicas de cada taller, ya que el producto y la modalidad de entrega pueden variar.</p>
       <ul>
         <li>Lean cuidadosamente el contexto antes de comenzar.</li>
-        <li>Distribuyan las tareas dentro del grupo.</li>
+        <li>Distribuyan y compartan las tareas dentro del grupo.</li>
         <li>Justifiquen sus conclusiones utilizando conceptos y evidencias.</li>
-        <li>Desarrollen sus respuestas en papelógrafo u hojas blancas.</li>
-        <li>Prepárense para presentar oralmente el trabajo ante el ayudante evaluador.</li>
+        <li>Sigan las indicaciones de entrega y participación propias de cada taller.</li>
       </ul>
     </section>
 
     <section aria-labelledby="titulo-talleres">
-      <h2 id="titulo-talleres" class="section-title">
-        Selecciona un taller
-      </h2>
-
-      <p class="section-subtitle">
-        Accede al taller correspondiente utilizando uno de los siguientes enlaces.
-      </p>
+      <h2 id="titulo-talleres" class="section-title">Selecciona un taller</h2>
+      <p class="section-subtitle">Accede al taller correspondiente utilizando uno de los siguientes enlaces.</p>
 
       <div class="workshop-grid">
-
         <article class="workshop-card">
           <div class="card-header">
             <div class="card-number">Taller colaborativo N.° 1</div>
             <h3>Aminoácidos, proteínas y contracción muscular</h3>
           </div>
-
           <div class="card-content">
-            <p>
-              Retos contextualizados en distintas actividades físicas y deportivas.
-              El grupo debe relacionar las propiedades de los aminoácidos, la
-              estructura de las proteínas y su función en la contracción muscular.
-            </p>
-
+            <p>Retos contextualizados en distintas actividades físicas y deportivas. El grupo debe relacionar las propiedades de los aminoácidos, la estructura de las proteínas y su función en la contracción muscular.</p>
             <div class="tag-list">
-              <span class="tag">Aminoácidos</span>
-              <span class="tag">Proteínas</span>
-              <span class="tag">Actina y miosina</span>
-              <span class="tag">Contracción muscular</span>
+              <span class="tag">Aminoácidos</span><span class="tag">Proteínas</span><span class="tag">Actina y miosina</span><span class="tag">Contracción muscular</span>
             </div>
-
             <h4>En este taller trabajarán:</h4>
-
-            <ul>
-              <li>Propiedades de los aminoácidos.</li>
-              <li>Relación entre estructura y función proteica.</li>
-              <li>Proteínas contráctiles y reguladoras.</li>
-              <li>Situaciones relacionadas con el movimiento humano.</li>
-              <li>Construcción de hipótesis bioquímicas.</li>
-            </ul>
-
-            <div class="card-action">
-              <a
-                class="access-button"
-                href="Taller1.html"
-                aria-label="Ingresar al Taller 1 de aminoácidos, proteínas y contracción muscular"
-              >
-                Ingresar al Taller 1
-              </a>
-            </div>
+            <ul><li>Propiedades de los aminoácidos.</li><li>Relación entre estructura y función proteica.</li><li>Proteínas contráctiles y reguladoras.</li><li>Situaciones relacionadas con el movimiento humano.</li><li>Construcción de hipótesis bioquímicas.</li></ul>
+            <div class="card-action"><a class="access-button" href="Taller1.html" aria-label="Ingresar al Taller 1 de aminoácidos, proteínas y contracción muscular">Ingresar al Taller 1</a></div>
           </div>
         </article>
 
@@ -485,99 +157,52 @@
             <div class="card-number">Taller colaborativo N.° 2</div>
             <h3>Enzimas, cinética e inhibición</h3>
           </div>
-
           <div class="card-content">
-            <p>
-              Retos de análisis de datos cinéticos asociados con enzimas del
-              metabolismo muscular. Los grupos deben determinar qué tipo de
-              inhibición produce un nuevo compuesto.
-            </p>
-
+            <p>Retos de análisis de datos cinéticos asociados con enzimas del metabolismo muscular. Los grupos deben determinar qué tipo de inhibición produce un nuevo compuesto.</p>
             <div class="tag-list">
-              <span class="tag purple">Enzimas</span>
-              <span class="tag purple">Vmax y Km</span>
-              <span class="tag purple">Michaelis–Menten</span>
-              <span class="tag purple">Lineweaver–Burk</span>
-              <span class="tag purple">Inhibición</span>
+              <span class="tag purple">Enzimas</span><span class="tag purple">Vmax y Km</span><span class="tag purple">Michaelis–Menten</span><span class="tag purple">Lineweaver–Burk</span><span class="tag purple">Inhibición</span>
             </div>
-
             <h4>En este taller trabajarán:</h4>
-
-            <ul>
-              <li>Lactato deshidrogenasa.</li>
-              <li>Creatina quinasa.</li>
-              <li>Hexoquinasa.</li>
-              <li>PFK-1 y piruvato quinasa.</li>
-              <li>Interpretación de datos de velocidad inicial.</li>
-              <li>Clasificación argumentada de un nuevo compuesto.</li>
-            </ul>
-
-            <div class="card-action">
-              <a
-                class="access-button purple"
-                href="Taller2.html"
-                aria-label="Ingresar al Taller 2 de enzimas y cinética"
-              >
-                Ingresar al Taller 2
-              </a>
-            </div>
+            <ul><li>Lactato deshidrogenasa.</li><li>Creatina quinasa.</li><li>Hexoquinasa.</li><li>PFK-1 y piruvato quinasa.</li><li>Interpretación de datos de velocidad inicial.</li><li>Clasificación argumentada de un nuevo compuesto.</li></ul>
+            <div class="card-action"><a class="access-button purple" href="Taller2.html" aria-label="Ingresar al Taller 2 de enzimas y cinética">Ingresar al Taller 2</a></div>
           </div>
         </article>
 
+        <article class="workshop-card">
+          <div class="card-header green">
+            <div class="card-number">Taller colaborativo N.° 3</div>
+            <h3>Bioenergética en el movimiento</h3>
+          </div>
+          <div class="card-content">
+            <p>Analicen situaciones de ejercicio y función muscular aplicando conceptos de redox, producción de ATP, acoplamiento energético y termodinámica.</p>
+            <div class="tag-list">
+              <span class="tag green">NAD⁺ y lactato</span><span class="tag green">ATP</span><span class="tag green">Acoplamiento energético</span><span class="tag green">ΔG y ejercicio</span>
+            </div>
+            <h4>En este taller trabajarán:</h4>
+            <ul><li>Regeneración de NAD⁺ y continuidad de la glucólisis.</li><li>Acoplamiento energético en el metabolismo muscular.</li><li>Influencia de las condiciones fisiológicas en ΔG.</li><li>Aplicación de la bioenergética a situaciones de Kinesiología.</li></ul>
+            <div class="card-action"><a class="access-button green" href="Taller3.html" aria-label="Ingresar al Taller 3 de bioenergética en el movimiento">Ingresar al Taller 3</a></div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="general-info" aria-label="Información general de los talleres">
-      <div class="info-box">
-        <strong>Modalidad</strong>
-        <span>Trabajo colaborativo en grupos.</span>
-      </div>
-
-      <div class="info-box">
-        <strong>Duración</strong>
-        <span>90 minutos por taller.</span>
-      </div>
-
-      <div class="info-box">
-        <strong>Producto</strong>
-        <span>Entregables digitales, en físico, presentaciones orales.</span>
-      </div>
+      <div class="info-box"><strong>Modalidad</strong><span>Trabajo colaborativo en grupos.</span></div>
+      <div class="info-box"><strong>Duración</strong><span>La duración se especifica en cada taller.</span></div>
+      <div class="info-box"><strong>Producto</strong><span>Revisa cada taller para conocer su producto y modalidad de entrega.</span></div>
     </section>
 
     <section class="important">
       <h2>Uso de herramientas de inteligencia artificial</h2>
-
-      <p>
-        El profesor autoriza exclusivamente el uso de
-        <strong>KineBioBot</strong> como apoyo durante las actividades.
-      </p>
-
-      <p>
-        No está autorizado el uso de otros sistemas de inteligencia artificial,
-        como ChatGPT, Claude, Gemini, Copilot u otras herramientas equivalentes.
-      </p>
-
-      <p>
-        El uso de KineBioBot no reemplaza la discusión del grupo, los cálculos,
-        la construcción de gráficos ni la elaboración de la conclusión.
-      </p>
+      <p>Las herramientas de inteligencia artificial autorizadas pueden variar según el taller. Revisa las instrucciones específicas de la actividad. Para el Taller 3, se autoriza exclusivamente el uso de <strong>KineBioBot</strong> como apoyo.</p>
+      <p>El uso de una herramienta autorizada no reemplaza la discusión del grupo, la revisión de fuentes ni la elaboración de las respuestas y conclusiones propias.</p>
     </section>
-
   </main>
 
   <footer>
-    <p>
-      <strong>QIM202K — Bioquímica General</strong>
-    </p>
-
-    <p>
-      Talleres colaborativos para estudiantes de Kinesiología
-    </p>
-
-    <p>
-      Esta página funciona como portal de acceso a los talleres.
-    </p>
+    <p><strong>QIM202K — Bioquímica General</strong></p>
+    <p>Talleres colaborativos para estudiantes de Kinesiología</p>
+    <p>Esta página funciona como portal de acceso a los talleres.</p>
   </footer>
-
 </body>
 </html>
