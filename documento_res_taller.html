@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolución del Taller 4 — QIM202K</title>
+<style>
+  :root {
+    --navy: #19364f;
+    --blue: #526d80;
+    --pale: #f1f5f7;
+    --line: #d5dfe6;
+    --text: #263746;
+    --amber: #e7a947;
+  }
+  body {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    font: 16px/1.55 Arial, Helvetica, sans-serif;
+    color: var(--text);
+  }
+  header {
+    border-top: 12px solid var(--navy);
+    border-bottom: 3px solid var(--line);
+    padding: 20px 0;
+    margin-bottom: 24px;
+  }
+  h1, h2, h3 { color: var(--navy); }
+  h1 { margin: 0 0 8px; }
+  h2 {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 7px;
+    margin-top: 36px;
+  }
+  .notice, .solution, .key {
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-radius: 9px;
+  }
+  .notice { background: #fff6e6; border-left: 5px solid var(--amber); }
+  .solution { background: var(--pale); border-left: 5px solid var(--blue); }
+  .key { background: #f6f8fa; border-left: 4px solid var(--navy); }
+  .question { margin: 16px 0; }
+  .label { font-weight: 700; color: var(--navy); }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 2px solid var(--line);
+    color: var(--blue);
+  }
+  @media print {
+    body { max-width: none; padding: 12mm; }
+    h2 { break-after: avoid; }
+    .solution, .key { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p><strong>Bioquímica General QIM202K · Taller 4</strong></p>
+  <h1>Resoluciones y preguntas de profundización</h1>
+  <p>Material docente · Metabolismo de carbohidratos, movimiento y recuperación</p>
+</header>
+
+<div class="notice">
+  <strong>Uso de las respuestas:</strong> las resoluciones son orientativas.
+  Acepte respuestas equivalentes si las conexiones bioquímicas son correctas
+  y están justificadas. No se debe exigir que el estudiantado use literalmente
+  una frase del modelo.
+</div>
+
+<div class="notice">
+  <strong>Exención del control:</strong> si las preguntas se usarán para decidir
+  una exención, comunique previamente el criterio de aprobación y aplique preguntas
+  equivalentes en dificultad. Considere el razonamiento bioquímico, no solo la
+  presencia de palabras clave.
+</div>
+
+<div id="contenedor"></div>
+
+<footer>
+  <p><strong>Criterio general:</strong> distinguir observaciones, hipótesis y conclusiones.
+  La detección de lactato, una disminución del rendimiento o una concentración estable
+  de glucosa no demuestran por sí solas una causa metabólica única.</p>
+  <p>LEAC‑UC · Material de apoyo docente</p>
+</footer>
+
+<script>
+const desafios = [
+{
+  titulo: "1. Básquetbol: energía durante el partido y recuperación posterior",
+  resolucion: "El glucógeno muscular puede aportar sustrato a la glucólisis, que produce ATP y piruvato. Parte del piruvato puede convertirse en lactato, regenerando NAD⁺; otra parte puede convertirse en acetil-CoA y seguir el ciclo de Krebs y la fosforilación oxidativa. El lactato puede transportarse al hígado y utilizarse en gluconeogénesis, como parte del ciclo de Cori. Los carbohidratos de la comida pueden oxidarse o contribuir a reponer glucógeno. La detección de lactato no demuestra ausencia total de oxígeno ni agotamiento completo del glucógeno.",
+  preguntas: [
+    {
+      pregunta: "¿Qué diferencia hay entre el destino del glucógeno muscular y el hepático?",
+      pauta: "El músculo utiliza principalmente su glucógeno para sus propias necesidades. El hígado puede liberar glucosa a la sangre y contribuir a mantener la glucemia."
+    },
+    {
+      pregunta: "¿Por qué detectar lactato no permite concluir que la jugadora estuvo sin oxígeno durante todo el partido?",
+      pauta: "El lactato puede formarse aunque haya oxígeno disponible. Su concentración depende de producción, transporte y utilización; una muestra sanguínea no describe la oxigenación de todo el músculo."
+    },
+    {
+      pregunta: "La jugadora debe entrenar al día siguiente. Analiza cómo la comida posterior puede apoyar esa sesión y explica por qué no basta con saber que comió carbohidratos para concluir que está completamente recuperada.",
+      pauta: "Los carbohidratos aportan glucosa que puede oxidarse para producir ATP o contribuir a reponer glucógeno. La recuperación depende también de cantidad y momento de la ingesta, carga previa, descanso y otros procesos; comer no demuestra cuánto glucógeno se repuso."
+    }
+  ]
+},
+{
+  titulo: "2. Ciclismo de pista: aceleraciones repetidas",
+  resolucion: "En las aceleraciones aumenta la demanda de resíntesis de ATP. El glucógeno muscular puede movilizarse e incorporarse a la glucólisis, que produce ATP y piruvato. El piruvato puede convertirse en lactato, regenerando NAD⁺, o seguir el metabolismo oxidativo. Durante el pedaleo suave disminuye la demanda, pero continúan la actividad muscular y el metabolismo. La menor potencia es una observación, no una medida directa del glucógeno ni prueba de su agotamiento.",
+  preguntas: [
+    {
+      pregunta: "Nombra dos datos que ayudarían a evaluar si la disponibilidad de carbohidratos contribuyó a la caída de potencia.",
+      pauta: "Se aceptan mediciones de glucógeno, registro de ingesta, carga y recuperación u otras medidas fisiológicas pertinentes, explicando cómo ayudan a evaluar la hipótesis."
+    },
+    {
+      pregunta: "¿Qué ocurre con el metabolismo muscular durante el pedaleo suave?",
+      pauta: "La demanda disminuye respecto de la aceleración, pero los músculos siguen activos, consumen ATP y mantienen procesos de resíntesis y metabolismo."
+    },
+    {
+      pregunta: "Si dos ciclistas presentan la misma reducción de potencia, ¿se puede concluir que tuvieron la misma limitación metabólica? Justifica usando el caso.",
+      pauta: "No. La potencia no mide directamente los sustratos ni identifica por sí sola la causa. La ingesta, recuperación, carga, entrenamiento y respuesta individual pueden diferir; se requieren datos adicionales."
+    }
+  ]
+},
+{
+  titulo: "3. Fútbol: menos carreras rápidas al final del partido",
+  resolucion: "Las carreras rápidas y los desplazamientos requieren ATP. El glucógeno muscular puede aportar sustrato local y el hepático contribuir a mantener glucosa sanguínea. La glucólisis forma piruvato y ATP. El piruvato puede convertirse en lactato, con regeneración de NAD⁺, o seguir la vía oxidativa mediante acetil-CoA, ciclo de Krebs y fosforilación oxidativa. La reducción de carreras puede tener varias explicaciones; los registros de actividad no miden directamente glucógeno ni liberación hepática de glucosa.",
+  preguntas: [
+    {
+      pregunta: "¿Qué dos datos solicitarías para evaluar la hipótesis de menor disponibilidad de carbohidratos?",
+      pauta: "Se aceptan información de ingesta, mediciones de reservas, carga y recuperación o medidas fisiológicas pertinentes, con explicación de su utilidad."
+    },
+    {
+      pregunta: "¿Qué permite afirmar el registro de menos carreras rápidas y qué no permite?",
+      pauta: "Permite afirmar que disminuyó esa conducta registrada. No identifica por sí solo la causa metabólica ni demuestra agotamiento de glucógeno o una alteración hepática."
+    },
+    {
+      pregunta: "Un entrenador atribuye la reducción de carreras exclusivamente al lactato. ¿Qué limitaciones tiene esa explicación y qué otras evidencias buscarías?",
+      pauta: "La presencia o concentración de lactato no demuestra por sí sola que sea la causa de la reducción del rendimiento. Se deben considerar producción, transporte y utilización, además de carga, descanso, alimentación y mediciones fisiológicas pertinentes."
+    }
+  ]
+},
+{
+  titulo: "4. Natación: series rápidas y pausas breves",
+  resolucion: "Las series rápidas requieren resíntesis de ATP. La glucólisis puede producir piruvato y ATP desde glucosa o derivados del glucógeno. El piruvato puede convertirse en lactato y regenerar NAD⁺, o formar acetil-CoA y seguir la oxidación mitocondrial. El lactato sanguíneo refleja el balance entre aparición y utilización; no informa por sí solo la oxigenación de todas las fibras ni la causa de la fatiga. Durante las pausas baja la demanda, pero el metabolismo no se detiene.",
+  preguntas: [
+    {
+      pregunta: "¿Por qué una medición de lactato en sangre no identifica cuánto produjo cada fibra muscular?",
+      pauta: "La muestra refleja lactato circulante y resulta de producción, transporte y utilización en diversos tejidos. No mide individualmente cada fibra."
+    },
+    {
+      pregunta: "¿Qué diferencia hay entre una pausa con menor demanda y una detención del metabolismo?",
+      pauta: "En la pausa disminuye el trabajo y la demanda de ATP, pero continúan actividad celular, resíntesis de ATP y metabolismo de sustratos."
+    },
+    {
+      pregunta: "¿Por qué sería impreciso representar las series rápidas como una situación en que solo actúa la glucólisis y las pausas como una situación en que solo actúa el metabolismo oxidativo?",
+      pauta: "Las vías pueden contribuir simultáneamente en proporciones cambiantes. La intensidad modifica su contribución relativa; no implica que una ruta se apague totalmente y otra funcione de manera exclusiva."
+    }
+  ]
+},
+{
+  titulo: "5. Carrera de fondo: dos competencias en días consecutivos",
+  resolucion: "Durante la carrera, la glucólisis transforma glucosa o derivados en piruvato y ATP. El piruvato puede convertirse en acetil-CoA, entrar al ciclo de Krebs y generar NADH y FADH₂, que contribuyen a la cadena transportadora y a la fosforilación oxidativa. La comida aporta carbohidratos que pueden oxidarse o almacenarse como glucógeno. El glucógeno muscular es principalmente local; el hepático ayuda a sostener glucosa sanguínea. Haber comido no demuestra cuánto glucógeno se repuso ni que la recuperación completa haya concluido.",
+  preguntas: [
+    {
+      pregunta: "¿Qué medición o información permitiría estimar si las reservas de glucógeno aumentaron después de la comida?",
+      pauta: "Una medición directa o método validado para estimar las reservas antes y después. La ingesta por sí sola no demuestra cuánto glucógeno se almacenó."
+    },
+    {
+      pregunta: "¿Por qué reponer glucógeno no demuestra que la corredora esté completamente recuperada?",
+      pauta: "La recuperación incluye otros procesos además de restaurar combustible; la reposición de glucógeno no demuestra por sí sola la recuperación de todas las funciones y tejidos."
+    },
+    {
+      pregunta: "Si la corredora mejoró su rendimiento el domingo, ¿eso demostraría que repuso por completo el glucógeno? Explica.",
+      pauta: "No. El rendimiento observado no mide directamente las reservas ni demuestra reposición completa. Puede estar influido por carga, estrategia, descanso y otros factores."
+    }
+  ]
+},
+{
+  titulo: "6. Danza: coreografía con cambios de intensidad",
+  resolucion: "Los segmentos de saltos y desplazamientos rápidos elevan la demanda de ATP respecto de las secuencias suaves. El glucógeno muscular puede aportar sustrato a la glucólisis, que produce piruvato y ATP. El piruvato puede formar lactato y regenerar NAD⁺ o convertirse en acetil-CoA para su oxidación mitocondrial. La comida posterior puede aportar glucosa que se oxide o contribuya a reponer glucógeno. La pérdida de precisión es una observación y no establece por sí sola una causa metabólica.",
+  preguntas: [
+    {
+      pregunta: "¿Qué información ayudaría a valorar si la disponibilidad de carbohidratos influyó en la precisión?",
+      pauta: "Se aceptan datos de ingesta, carga, descanso, entrenamiento, reservas o mediciones fisiológicas pertinentes, justificando su utilidad."
+    },
+    {
+      pregunta: "¿Cómo puede la comida posterior contribuir a la sesión del día siguiente?",
+      pauta: "Puede aportar glucosa para oxidación y producción de ATP, y contribuir a restaurar glucógeno; cuánto se repone depende de la ingesta y otras condiciones."
+    },
+    {
+      pregunta: "La bailarina mantiene la fuerza, pero pierde precisión. ¿Por qué el mapa metabólico no debería tratar automáticamente ambos cambios como un mismo fenómeno?",
+      pauta: "La precisión y la fuerza son resultados funcionales distintos y pueden tener determinantes diferentes. Las cartas permiten relacionar metabolismo con energía, pero no prueban que un cambio motor específico tenga una causa metabólica única."
+    }
+  ]
+},
+{
+  titulo: "7. Rehabilitación: levantarse y sentarse en series",
+  resolucion: "Cada repetición requiere ATP. El glucógeno muscular puede movilizarse y aportar intermediarios a la glucólisis, que produce ATP y piruvato. Este puede convertirse en lactato, regenerando NAD⁺, o convertirse en acetil-CoA y contribuir a la producción oxidativa de ATP. Durante el descanso disminuye el trabajo mecánico, aunque continúa el metabolismo. Tardar más y referir mayor esfuerzo no demuestra agotamiento de glucógeno ni identifica una causa única.",
+  preguntas: [
+    {
+      pregunta: "Menciona dos datos funcionales o fisiológicos que ayudarían a evaluar la hipótesis de participación de carbohidratos.",
+      pauta: "Se aceptan carga y repeticiones, velocidad, tiempo de descanso, ingesta, medidas de metabolitos o estimación de reservas; debe vincularse cada dato con la hipótesis."
+    },
+    {
+      pregunta: "Explica cómo se relaciona la demanda de ATP con levantarse y sentarse repetidamente.",
+      pauta: "Las contracciones usan ATP para producir fuerza y movimiento; las rutas metabólicas contribuyen a resintetizar el ATP utilizado."
+    },
+    {
+      pregunta: "¿Cómo podría el kinesiólogo diferenciar una explicación bioquímica plausible de una conclusión causal demostrada en este caso?",
+      pauta: "Debe reconocer que el mayor esfuerzo y el tiempo son observaciones. Para demostrar causalidad se necesitarían medidas pertinentes y control de variables; un mecanismo plausible no prueba que sea la causa del cambio."
+    }
+  ]
+},
+{
+  titulo: "8. Caminata por sendero: cambios de terreno y ritmo",
+  resolucion: "La caminata prolongada requiere ATP y la demanda cambia con el terreno. El glucógeno muscular abastece principalmente al músculo; el hepático puede contribuir a mantener glucosa en sangre. La glucosa y sus derivados pueden entrar a glucólisis, produciendo piruvato y ATP. El piruvato puede seguir destinos oxidativos o convertirse en lactato, que puede transportarse y tener otros destinos. La reducción del paso no demuestra por sí sola que se agotara una reserva.",
+  preguntas: [
+    {
+      pregunta: "¿Qué antecedentes ayudarían a valorar la hipótesis de limitación de carbohidratos?",
+      pauta: "Ingesta, duración, carga y pendiente, reservas o mediciones fisiológicas; deben relacionarse con la hipótesis evaluada."
+    },
+    {
+      pregunta: "¿Cómo se diferencian las funciones del glucógeno muscular y hepático?",
+      pauta: "El muscular se utiliza principalmente en el propio músculo; el hepático puede contribuir a la glucosa sanguínea."
+    },
+    {
+      pregunta: "La persona redujo el paso después de dos horas. ¿Por qué ese dato, junto con la ausencia de ingesta durante la caminata, no demuestra que se agotó el glucógeno hepático?",
+      pauta: "No ingerir durante la actividad y reducir el paso no son mediciones directas de glucógeno hepático. Se requieren datos de reservas o indicadores pertinentes; además, existen otras explicaciones posibles."
+    }
+  ]
+},
+{
+  titulo: "9. Recuperación: preparar el músculo para la sesión siguiente",
+  resolucion: "La glucosa disponible después de comer puede entrar en glucólisis y oxidarse, pasando por piruvato, acetil-CoA, ciclo de Krebs y fosforilación oxidativa para contribuir a producir ATP. También puede dirigirse a la síntesis de glucógeno. El glucógeno muscular es principalmente local; el hepático contribuye a sostener la glucosa sanguínea. La presencia de una comida no revela por sí sola la cantidad ingerida ni la reposición efectiva.",
+  preguntas: [
+    {
+      pregunta: "¿Qué permitiría diferenciar haber ingerido carbohidratos de haber repuesto glucógeno muscular?",
+      pauta: "Información cuantificada de ingesta junto con una medición o estimación validada de reservas antes y después; comer no mide por sí solo el glucógeno almacenado."
+    },
+    {
+      pregunta: "¿Por qué el glucógeno disponible no es el único determinante del rendimiento al día siguiente?",
+      pauta: "También intervienen carga, descanso, estado funcional, alimentación total, recuperación y variabilidad individual."
+    },
+    {
+      pregunta: "Compara las dos rutas posibles de la glucosa tras la comida y explica cómo se relacionan con la recuperación.",
+      pauta: "La glucosa puede oxidarse para contribuir a producir ATP o incorporarse a glucógeno como reserva. Ambas posibilidades se relacionan con disponibilidad energética, pero la cantidad efectivamente destinada a cada ruta no se conoce solo por saber que hubo una comida."
+    }
+  ]
+},
+{
+  titulo: "10. Atletismo: recuperación entre carreras de relevo",
+  resolucion: "El lactato formado a partir de piruvato regenera NAD⁺ y puede transportarse por sangre. Algunos tejidos pueden oxidarlo; el hígado puede captarlo y utilizarlo en gluconeogénesis, dentro del ciclo de Cori. La bebida aporta carbohidratos que pueden utilizarse para energía o contribuir a reponer glucógeno. Resintetizar ATP durante la espera no equivale a recuperar completamente las reservas.",
+  preguntas: [
+    {
+      pregunta: "Indica dos destinos posibles del lactato después de salir del músculo.",
+      pauta: "Oxidación por otros tejidos y captación hepática para gluconeogénesis/ciclo de Cori."
+    },
+    {
+      pregunta: "¿En qué se diferencia resintetizar ATP de reponer glucógeno?",
+      pauta: "Resintetizar ATP restablece la molécula usada para el trabajo celular; reponer glucógeno reconstruye una reserva de carbohidratos."
+    },
+    {
+      pregunta: "¿Por qué una concentración de lactato en sangre no informa por sí sola cuánto lactato oxidó otro tejido o convirtió el hígado en glucosa?",
+      pauta: "La concentración es el resultado neto de aparición, transporte y utilización. Sin medir flujo o seguir el destino del metabolito no se cuantifica cuánto siguió cada ruta."
+    }
+  ]
+},
+{
+  titulo: "11. Ciclismo de montaña: ascenso, descenso y nuevo ascenso",
+  resolucion: "El ascenso y el descenso activo presentan demandas distintas de ATP. Las reservas de carbohidratos pueden abastecer la glucólisis, que produce piruvato y ATP. El piruvato puede convertirse en lactato o seguir la vía oxidativa por acetil-CoA, ciclo de Krebs y fosforilación oxidativa. La menor potencia en el segundo ascenso puede tener distintas explicaciones; el registro de potencia no identifica qué sustrato contribuyó más ni demuestra agotamiento de glucógeno.",
+  preguntas: [
+    {
+      pregunta: "Propón dos explicaciones para la menor potencia que no impliquen automáticamente agotamiento de glucógeno.",
+      pauta: "Se aceptan cambios de pendiente o estrategia, carga acumulada, descanso, entrenamiento u otros factores compatibles con el caso."
+    },
+    {
+      pregunta: "¿Qué dato ayudaría a probar una hipótesis de menor disponibilidad de carbohidratos?",
+      pauta: "Una medida pertinente de reservas o información cuantificada de ingesta, junto con datos de carga y recuperación."
+    },
+    {
+      pregunta: "¿Por qué conviene comparar potencia y contexto del recorrido antes de atribuir la diferencia a una ruta metabólica?",
+      pauta: "La potencia también depende de pendiente, estrategia, duración y condiciones del ejercicio. Sin controlar esos factores ni medir sustratos no se puede atribuir la diferencia a una ruta específica."
+    }
+  ]
+},
+{
+  titulo: "12. Ejercicio por la mañana después de varias horas sin comer",
+  resolucion: "El glucógeno muscular se moviliza principalmente para el metabolismo local. El hígado puede movilizar su glucógeno y contribuir a liberar glucosa sanguínea. El músculo puede utilizar glucosa o derivados en glucólisis; el piruvato puede convertirse en lactato o seguir rutas oxidativas. El hígado puede usar lactato en gluconeogénesis. Sin mediciones de reservas o señales no se puede cuantificar qué ruta contribuyó más.",
+  preguntas: [
+    {
+      pregunta: "¿Por qué hígado y músculo no son intercambiables al explicar la glucosa sanguínea?",
+      pauta: "El músculo utiliza sobre todo su glucógeno local; el hígado puede liberar glucosa libre a la sangre."
+    },
+    {
+      pregunta: "Nombra un dato que ayudaría a estimar qué rutas contribuyeron a mantener la glucosa.",
+      pauta: "Se aceptan mediciones de glucosa, glucógeno, señales hormonales, lactato u otros indicadores pertinentes, indicando qué tejido o proceso informan."
+    },
+    {
+      pregunta: "¿Qué distinción bioquímica es importante al relacionar la glucogenólisis muscular con la glucemia?",
+      pauta: "La movilización del glucógeno muscular aporta intermediarios para uso local; no equivale a liberar glucosa libre a la sangre como puede hacerlo el hígado."
+    }
+  ]
+},
+{
+  titulo: "13. Entrenamiento de fuerza: cambios de velocidad entre series",
+  resolucion: "Las series requieren ATP para el trabajo muscular. Los carbohidratos pueden movilizarse desde glucógeno e incorporarse a glucólisis, que forma piruvato y ATP. El piruvato puede convertirse en lactato y regenerar NAD⁺ o seguir la vía oxidativa. En los descansos baja la demanda mecánica, pero siguen procesos de resíntesis de ATP. La menor velocidad no identifica por sí sola una limitación de carbohidratos.",
+  preguntas: [
+    {
+      pregunta: "¿Qué datos ayudarían a evaluar si los carbohidratos contribuyeron a la disminución de velocidad?",
+      pauta: "Mediciones de reservas, ingesta, carga, descanso y variables fisiológicas pertinentes, justificando su relación con la hipótesis."
+    },
+    {
+      pregunta: "¿Por qué un descanso puede ayudar a resintetizar ATP sin demostrar recuperación completa?",
+      pauta: "El ATP puede volver a formarse mientras otras reservas o funciones no necesariamente están restablecidas."
+    },
+    {
+      pregunta: "¿Qué aporta distinguir entre el ATP utilizado en una repetición y el glucógeno almacenado en el músculo?",
+      pauta: "El ATP es la molécula de uso inmediato en el trabajo contráctil; el glucógeno es una reserva que puede aportar sustrato para resintetizar ATP."
+    }
+  ]
+},
+{
+  titulo: "14. Vuelta a la calma: cambio de lactato sanguíneo",
+  resolucion: "La glucólisis produce piruvato; su conversión en lactato regenera NAD⁺. El lactato puede transportarse por sangre y ser utilizado por otros tejidos o captado por el hígado para gluconeogénesis y el ciclo de Cori. Otros destinos metabólicos también son posibles. Una disminución en sangre puede reflejar cambios en aparición, transporte y utilización; no demuestra por sí sola que una única ruta causó el descenso.",
+  preguntas: [
+    {
+      pregunta: "¿Por qué la disminución de lactato sanguíneo no demuestra que todo se oxidó en el músculo?",
+      pauta: "El lactato puede distribuirse y utilizarse en distintos tejidos; la muestra sanguínea no sigue el destino de cada molécula ni mide directamente el lactato intramuscular."
+    },
+    {
+      pregunta: "Nombra dos destinos del lactato durante la recuperación y un tejido que participe.",
+      pauta: "Oxidación por tejidos que lo captan y utilización hepática para gluconeogénesis/ciclo de Cori."
+    },
+    {
+      pregunta: "Si el lactato sanguíneo disminuye durante la caminata, ¿qué procesos podrían explicar ese cambio además de la oxidación muscular?",
+      pauta: "Captación y oxidación por otros tejidos, transporte entre compartimentos o captación hepática y uso en gluconeogénesis; la concentración sola no determina las contribuciones."
+    }
+  ]
+},
+{
+  titulo: "15. Vóleibol: entrenamientos en días consecutivos",
+  resolucion: "Saltos y desplazamientos consumen ATP. El glucógeno muscular puede aportar sustrato a la glucólisis; el piruvato puede formar lactato o convertirse en acetil-CoA y oxidarse en mitocondria. La comida aporta glucosa que puede utilizarse o almacenarse como glucógeno. Las diferencias al día siguiente no se explican necesariamente por una comida compartida: pueden influir ingesta individual, carga, descanso y variabilidad personal.",
+  preguntas: [
+    {
+      pregunta: "¿Qué información individual pedirías para interpretar diferencias de esfuerzo al día siguiente?",
+      pauta: "Ingesta individual, carga de entrenamiento, descanso, recuperación y, si corresponde, mediciones de reservas o indicadores fisiológicos."
+    },
+    {
+      pregunta: "¿Por qué la reposición de glucógeno puede ayudar a la siguiente sesión, pero no garantizar el rendimiento?",
+      pauta: "Aporta sustrato potencial para el trabajo posterior, pero el rendimiento depende también de carga, recuperación y otros factores individuales."
+    },
+    {
+      pregunta: "¿Cómo explicarías que dos integrantes que comieron juntos presenten experiencias distintas en la práctica siguiente?",
+      pauta: "La comida compartida no garantiza igual cantidad ingerida, absorción o reposición; también varían carga, descanso, condición física y respuesta individual."
+    }
+  ]
+},
+{
+  titulo: "16. Carrera de trail: mantener la glucosa durante el esfuerzo",
+  resolucion: "El músculo puede utilizar glucógeno local y glucosa para la glucólisis y la producción de ATP. El hígado puede movilizar glucógeno o sintetizar glucosa por gluconeogénesis, por ejemplo a partir de lactato. Una concentración sanguínea estable puede resultar de producción y utilización simultáneas. No indica que las rutas estén inactivas ni permite calcular cuánto aportó cada una.",
+  preguntas: [
+    {
+      pregunta: "¿Por qué una glucosa sanguínea estable no permite saber cuánto glucógeno hepático queda?",
+      pauta: "La concentración sanguínea no mide directamente el tamaño de las reservas hepáticas; refleja un balance dinámico entre aparición y utilización."
+    },
+    {
+      pregunta: "¿Qué medición ayudaría a estimar la contribución de la gluconeogénesis?",
+      pauta: "Un trazador metabólico o una medición validada de producción o flujo hepático, explicando que permite estimar la formación de glucosa."
+    },
+    {
+      pregunta: "Interpreta el resultado de glucosa estable desde el balance entre producción y utilización, sin inferir que ninguna ruta opera.",
+      pauta: "La concentración puede mantenerse estable si la aparición de glucosa y su utilización se equilibran; ambas pueden seguir activas. El valor aislado no indica la contribución de cada proceso."
+    }
+  ]
+},
+{
+  titulo: "17. Recuperación después de un torneo: cambios de lactato y glucosa",
+  resolucion: "El lactato puede transportarse desde el músculo, oxidarse en otros tejidos o llegar al hígado y servir como precursor de gluconeogénesis dentro del ciclo de Cori. El piruvato también puede convertirse en acetil-CoA y contribuir a la producción oxidativa de ATP. Que disminuya el lactato mientras aumenta ligeramente la glucosa no demuestra que una molécula se haya convertido en la otra; harían falta trazadores o medidas de flujo.",
+  preguntas: [
+    {
+      pregunta: "¿Qué permiten afirmar las mediciones sucesivas y qué no demuestran?",
+      pauta: "Permiten afirmar que el lactato sanguíneo disminuyó y la glucosa aumentó ligeramente; no demuestran que el lactato se haya convertido en glucosa ni cuánto contribuyó el ciclo de Cori."
+    },
+    {
+      pregunta: "¿Qué método ayudaría a seguir el destino del lactato?",
+      pauta: "Un trazador metabólico de lactato y la medición de su incorporación a glucosa permitirían seguir el destino de sus átomos de carbono."
+    },
+    {
+      pregunta: "¿Por qué la disminución del lactato y el aumento de glucosa no prueban por sí solos el ciclo de Cori en esta deportista?",
+      pauta: "Son cambios simultáneos de concentraciones, no seguimiento del mismo carbono. Pueden influir otros procesos; se requiere un trazador o medida de flujo que demuestre la conversión."
+    }
+  ]
+}
+];
+
+function escapar(texto) {
+  const div = document.createElement("div");
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
+function crearDesafio(d, index) {
+  const seccion = document.createElement("section");
+  const titulo = document.createElement("h2");
+  titulo.textContent = d.titulo;
+  seccion.appendChild(titulo);
+
+  const resolucion = document.createElement("div");
+  resolucion.className = "solution";
+  resolucion.innerHTML = "<strong>Resolución orientativa.</strong> " + escapar(d.resolucion);
+  seccion.appendChild(resolucion);
+
+  d.preguntas.forEach((item, i) => {
+    const bloque = document.createElement("div");
+    bloque.className = "question";
+
+    const pregunta = document.createElement("p");
+    pregunta.innerHTML =
+      `<span class="label">Pregunta adicional ${i + 1}.</span> ` +
+      escapar(item.pregunta);
+    bloque.appendChild(pregunta);
+
+    const pauta = document.createElement("div");
+    pauta.className = "key";
+    pauta.innerHTML =
+      "<strong>Pauta de respuesta:</strong> " + escapar(item.pauta);
+    bloque.appendChild(pauta);
+
+    seccion.appendChild(bloque);
+  });
+
+  return seccion;
+}
+
+const contenedor = document.getElementById("contenedor");
+desafios.forEach((desafio, index) => {
+  contenedor.appendChild(crearDesafio(desafio, index));
+});
+</script>
+
+</body>
+</html>
