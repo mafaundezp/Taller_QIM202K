@@ -1,0 +1,3218 @@
+{
+  "version_esquema": "1.3",
+  "curso": "QIM202K",
+  "proposito": "Cartas estudiantiles para construir mapas metabólicos de energía y recuperación.",
+  "reglas_impresion": {
+    "mostrar": [
+      "texto_estudiante",
+      "codigos_laterales"
+    ],
+    "no_imprimir": [
+      "id_interno",
+      "tipo_interno"
+    ],
+    "orientacion_codigos": "Imprimir pequeños y en vertical en los bordes izquierdo y derecho.",
+    "barajar_cartas": true,
+    "orden_json": "No representa el orden correcto del mapa.",
+    "preguntas_adicionales": "Son cartas del mazo, pero se responden por escrito aparte y no se pegan como nodos.",
+    "distractores": "No identificarlos visualmente."
+  },
+  "desafios": [
+    {
+      "id": "D01",
+      "titulo": "Básquetbol: energía durante el partido y recuperación posterior",
+      "contexto": "Durante un torneo de básquetbol, una jugadora participa en secuencias de desplazamientos, saltos y cambios rápidos de dirección. Entre jugadas intensas, camina o trota suavemente. Al terminar, realiza una vuelta a la calma, consume una comida con carbohidratos y al día siguiente vuelve a entrenar. Hacia el final del partido le cuesta sostener la misma intensidad y se detecta lactato en sangre. No se midieron directamente el glucógeno ni la oxigenación muscular. Durante la recuperación hay oxígeno disponible.",
+      "mision": "Usen las cartas para construir un mapa metabólico que explique cómo la jugadora obtiene energía durante el partido y cómo puede recuperarla después. Relacionen el trabajo muscular, las reservas de carbohidratos, el piruvato y el lactato con la producción de ATP. Expliquen qué permite inferir la detección de lactato y qué no permite concluir por sí sola, y relacionen la comida posterior con la disponibilidad de carbohidratos para la siguiente sesión.",
+      "cartas": [
+        {
+          "id_interno": "D01-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular es una reserva de carbohidratos utilizada principalmente por el propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "K7M",
+            "derecho": "P4V"
+          }
+        },
+        {
+          "id_interno": "D01-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa disponible en la sangre.",
+          "codigos_laterales": {
+            "izquierdo": "R2C",
+            "derecho": "N8Q"
+          }
+        },
+        {
+          "id_interno": "D01-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y produce principalmente glucosa-1-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "W5A",
+            "derecho": "B3L"
+          }
+        },
+        {
+          "id_interno": "D01-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-1-fosfato puede convertirse en glucosa-6-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "F9D",
+            "derecho": "T6H"
+          }
+        },
+        {
+          "id_interno": "D01-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "En el hígado, la glucosa-6-fosfatasa permite formar glucosa libre a partir de glucosa-6-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "J4X",
+            "derecho": "C8P"
+          }
+        },
+        {
+          "id_interno": "D01-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa o sus derivados pueden entrar a la glucólisis.",
+          "codigos_laterales": {
+            "izquierdo": "M2G",
+            "derecho": "Q7B"
+          }
+        },
+        {
+          "id_interno": "D01-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce ATP y piruvato a partir de glucosa o sus derivados.",
+          "codigos_laterales": {
+            "izquierdo": "A5W",
+            "derecho": "H9N"
+          }
+        },
+        {
+          "id_interno": "D01-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede seguir más de un destino metabólico.",
+          "codigos_laterales": {
+            "izquierdo": "V3K",
+            "derecho": "D6R"
+          }
+        },
+        {
+          "id_interno": "D01-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La conversión de piruvato en lactato regenera NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "P8C",
+            "derecho": "Y4T"
+          }
+        },
+        {
+          "id_interno": "D01-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La sangre transporta lactato y glucosa entre tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "G2V",
+            "derecho": "L7A"
+          }
+        },
+        {
+          "id_interno": "D01-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede utilizar lactato como precursor para sintetizar glucosa mediante gluconeogénesis.",
+          "codigos_laterales": {
+            "izquierdo": "X5M",
+            "derecho": "B9F"
+          }
+        },
+        {
+          "id_interno": "D01-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Cori conecta lactato periférico con formación hepática de glucosa y requiere energía.",
+          "codigos_laterales": {
+            "izquierdo": "C4Q",
+            "derecho": "N6J"
+          }
+        },
+        {
+          "id_interno": "D01-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA antes de ingresar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "T3W",
+            "derecho": "F8K"
+          }
+        },
+        {
+          "id_interno": "D01-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce CO₂ y coenzimas reducidas, como NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "H2D",
+            "derecho": "R5P"
+          }
+        },
+        {
+          "id_interno": "D01-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los electrones pasan por la cadena transportadora y contribuyen a establecer un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "Q9L",
+            "derecho": "M4B"
+          }
+        },
+        {
+          "id_interno": "D01-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El gradiente de protones impulsa la ATP sintasa durante la fosforilación oxidativa; el oxígeno recibe finalmente electrones.",
+          "codigos_laterales": {
+            "izquierdo": "A7Y",
+            "derecho": "D3C"
+          }
+        },
+        {
+          "id_interno": "D01-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "Detectar lactato demuestra que los músculos estuvieron completamente sin oxígeno durante todo el partido.",
+          "codigos_laterales": {
+            "izquierdo": "U6N",
+            "derecho": "K3F"
+          }
+        },
+        {
+          "id_interno": "D01-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La lactosa es un disacárido formado por glucosa y galactosa y puede digerirse mediante lactasa.",
+          "codigos_laterales": {
+            "izquierdo": "B5X",
+            "derecho": "P2J"
+          }
+        },
+        {
+          "id_interno": "D01-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "La jugadora pierde intensidad y se detecta lactato. ¿Qué se puede inferir y qué no se puede concluir con esos datos por sí solos? Nombra un dato adicional útil.",
+          "codigos_laterales": {
+            "izquierdo": "F7M",
+            "derecho": "W2Q"
+          }
+        },
+        {
+          "id_interno": "D01-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Explica una diferencia entre utilizar glucosa para producir ATP después del partido y almacenarla como glucógeno para una sesión posterior.",
+          "codigos_laterales": {
+            "izquierdo": "L9D",
+            "derecho": "C6V"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "titulo": "Ciclismo de pista: aceleraciones repetidas",
+      "contexto": "Una ciclista de pista realiza seis aceleraciones máximas intercaladas con pedaleo suave. Su potencia disminuye en las últimas repeticiones. Se registraron potencia y duración, pero no se midieron glucógeno, lactato muscular ni metabolismo oxidativo.",
+      "mision": "Usen las cartas para construir un mapa metabólico que explique cómo se resintetiza ATP durante las aceleraciones y qué procesos pueden continuar durante el pedaleo suave. Relacionen el metabolismo de carbohidratos con la disminución de potencia. Expliquen qué hipótesis son posibles y qué datos permitirían diferenciarlas.",
+      "cartas": [
+        {
+          "id_interno": "D02-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Una aceleración máxima aumenta rápidamente la demanda de ATP en los músculos activos.",
+          "codigos_laterales": {
+            "izquierdo": "H3Q",
+            "derecho": "V9B"
+          }
+        },
+        {
+          "id_interno": "D02-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Durante el pedaleo suave la demanda disminuye, pero la actividad muscular y el consumo de ATP continúan.",
+          "codigos_laterales": {
+            "izquierdo": "R7C",
+            "derecho": "M2X"
+          }
+        },
+        {
+          "id_interno": "D02-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular puede aportar carbohidratos para el metabolismo local.",
+          "codigos_laterales": {
+            "izquierdo": "A5N",
+            "derecho": "D8K"
+          }
+        },
+        {
+          "id_interno": "D02-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y genera intermediarios utilizables por la célula.",
+          "codigos_laterales": {
+            "izquierdo": "Q4F",
+            "derecho": "B6T"
+          }
+        },
+        {
+          "id_interno": "D02-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce ATP y piruvato a partir de glucosa o derivados.",
+          "codigos_laterales": {
+            "izquierdo": "L3W",
+            "derecho": "P8A"
+          }
+        },
+        {
+          "id_interno": "D02-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato; en esa reacción se regenera NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "F2J",
+            "derecho": "X7M"
+          }
+        },
+        {
+          "id_interno": "D02-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede salir del músculo y circular por la sangre.",
+          "codigos_laterales": {
+            "izquierdo": "C9R",
+            "derecho": "W4D"
+          }
+        },
+        {
+          "id_interno": "D02-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Otros tejidos pueden utilizar lactato como sustrato oxidativo.",
+          "codigos_laterales": {
+            "izquierdo": "N6B",
+            "derecho": "T5Q"
+          }
+        },
+        {
+          "id_interno": "D02-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede captar lactato y usarlo como precursor de gluconeogénesis.",
+          "codigos_laterales": {
+            "izquierdo": "J8V",
+            "derecho": "D3P"
+          }
+        },
+        {
+          "id_interno": "D02-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato también puede convertirse en acetil-CoA y entrar al metabolismo mitocondrial.",
+          "codigos_laterales": {
+            "izquierdo": "K2A",
+            "derecho": "R9F"
+          }
+        },
+        {
+          "id_interno": "D02-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs genera NADH y FADH₂ durante la oxidación de acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "V5L",
+            "derecho": "C4H"
+          }
+        },
+        {
+          "id_interno": "D02-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "NADH y FADH₂ pueden entregar electrones a la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "P7D",
+            "derecho": "M8Q"
+          }
+        },
+        {
+          "id_interno": "D02-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "B2Y",
+            "derecho": "H6N"
+          }
+        },
+        {
+          "id_interno": "D02-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La ATP sintasa utiliza el gradiente de protones para contribuir a formar ATP.",
+          "codigos_laterales": {
+            "izquierdo": "T9C",
+            "derecho": "A3W"
+          }
+        },
+        {
+          "id_interno": "D02-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno es el aceptor final de electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "G5P",
+            "derecho": "Y2K"
+          }
+        },
+        {
+          "id_interno": "D02-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La potencia registrada no mide directamente el glucógeno muscular ni identifica por sí sola la causa de su disminución.",
+          "codigos_laterales": {
+            "izquierdo": "D7M",
+            "derecho": "Q3V"
+          }
+        },
+        {
+          "id_interno": "D02-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "El lactato bloquea permanentemente la glucólisis, por lo que no puede ocurrir otra aceleración.",
+          "codigos_laterales": {
+            "izquierdo": "X5B",
+            "derecho": "F8R"
+          }
+        },
+        {
+          "id_interno": "D02-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La celulosa es un polímero de glucosa con enlaces β(1→4).",
+          "codigos_laterales": {
+            "izquierdo": "M4J",
+            "derecho": "K6W"
+          }
+        },
+        {
+          "id_interno": "D02-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Propón dos datos que ayudarían a evaluar si la disponibilidad de carbohidratos contribuyó a la disminución de potencia.",
+          "codigos_laterales": {
+            "izquierdo": "A9D",
+            "derecho": "R3K"
+          }
+        },
+        {
+          "id_interno": "D02-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Explica por qué el pedaleo suave no representa una detención completa del metabolismo muscular.",
+          "codigos_laterales": {
+            "izquierdo": "V6C",
+            "derecho": "N2H"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "titulo": "Fútbol: menos carreras rápidas al final del partido",
+      "contexto": "Durante un partido, un futbolista alterna carreras intensas con desplazamientos moderados. En los últimos minutos realiza menos carreras rápidas. Se dispone de registros de actividad, distancia y duración, pero no de mediciones metabólicas ni de información detallada sobre su ingesta.",
+      "mision": "Usen las cartas para elaborar un mapa metabólico que relacione la demanda de ATP, la utilización de carbohidratos y las rutas que pueden contribuir a producir energía durante el partido. Expliquen qué podría asociarse con la menor frecuencia de carreras rápidas y qué información adicional ayudaría a evaluar esas explicaciones.",
+      "cartas": [
+        {
+          "id_interno": "D03-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Las carreras rápidas requieren ATP para el trabajo de los músculos activos.",
+          "codigos_laterales": {
+            "izquierdo": "Q8B",
+            "derecho": "M4K"
+          }
+        },
+        {
+          "id_interno": "D03-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los desplazamientos moderados también requieren ATP, aunque cambie la demanda mecánica.",
+          "codigos_laterales": {
+            "izquierdo": "R5N",
+            "derecho": "C2F"
+          }
+        },
+        {
+          "id_interno": "D03-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular puede aportar sustrato al metabolismo del propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "A7J",
+            "derecho": "V3D"
+          }
+        },
+        {
+          "id_interno": "D03-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa en la sangre.",
+          "codigos_laterales": {
+            "izquierdo": "K6M",
+            "derecho": "P9A"
+          }
+        },
+        {
+          "id_interno": "D03-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y aporta intermediarios metabólicos.",
+          "codigos_laterales": {
+            "izquierdo": "D4W",
+            "derecho": "H8Q"
+          }
+        },
+        {
+          "id_interno": "D03-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis transforma glucosa o derivados en piruvato y produce ATP.",
+          "codigos_laterales": {
+            "izquierdo": "T5C",
+            "derecho": "B2L"
+          }
+        },
+        {
+          "id_interno": "D03-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "N7P",
+            "derecho": "X4H"
+          }
+        },
+        {
+          "id_interno": "D03-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede circular por sangre y ser utilizado por otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "F3V",
+            "derecho": "J9D"
+          }
+        },
+        {
+          "id_interno": "D03-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede utilizar lactato en gluconeogénesis y aportar glucosa a la circulación.",
+          "codigos_laterales": {
+            "izquierdo": "W6K",
+            "derecho": "R2A"
+          }
+        },
+        {
+          "id_interno": "D03-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA antes de la oxidación mitocondrial.",
+          "codigos_laterales": {
+            "izquierdo": "C8Y",
+            "derecho": "M5Q"
+          }
+        },
+        {
+          "id_interno": "D03-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂ al oxidar acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "P4N",
+            "derecho": "B7X"
+          }
+        },
+        {
+          "id_interno": "D03-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "NADH y FADH₂ pueden aportar electrones a la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "H3C",
+            "derecho": "V9L"
+          }
+        },
+        {
+          "id_interno": "D03-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "D2M",
+            "derecho": "K8F"
+          }
+        },
+        {
+          "id_interno": "D03-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La ATP sintasa utiliza el gradiente para contribuir a formar ATP.",
+          "codigos_laterales": {
+            "izquierdo": "Q6T",
+            "derecho": "A3W"
+          }
+        },
+        {
+          "id_interno": "D03-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno es el aceptor final de electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "J5R",
+            "derecho": "N4B"
+          }
+        },
+        {
+          "id_interno": "D03-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Cori relaciona lactato periférico con formación hepática de glucosa y requiere energía.",
+          "codigos_laterales": {
+            "izquierdo": "X7D",
+            "derecho": "F2P"
+          }
+        },
+        {
+          "id_interno": "D03-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "La menor frecuencia de carreras rápidas demuestra que el hígado dejó de liberar glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "M9V",
+            "derecho": "C4A"
+          }
+        },
+        {
+          "id_interno": "D03-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La amilosa es un componente del almidón formado principalmente por cadenas de glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "T8K",
+            "derecho": "W3Q"
+          }
+        },
+        {
+          "id_interno": "D03-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Indica dos datos adicionales que ayudarían a evaluar si la disponibilidad de carbohidratos contribuyó a la reducción de carreras rápidas.",
+          "codigos_laterales": {
+            "izquierdo": "B6F",
+            "derecho": "P2Y"
+          }
+        },
+        {
+          "id_interno": "D03-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Por qué la presencia de lactato no permite concluir que todo el músculo estuvo sin oxígeno?",
+          "codigos_laterales": {
+            "izquierdo": "V5C",
+            "derecho": "H7N"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "titulo": "Natación: series rápidas y pausas breves",
+      "contexto": "Una nadadora completa ocho series rápidas de 50 metros con pausas breves. Durante las pausas camina junto a la piscina. Después del entrenamiento se detecta lactato en sangre, pero no se midieron directamente metabolitos musculares.",
+      "mision": "Usen las cartas para construir un mapa que explique cómo se relacionan las series rápidas y las pausas con la producción y resíntesis de ATP. Incluyan los destinos posibles del piruvato y expliquen qué información aporta el lactato detectado y qué no permite concluir por sí solo.",
+      "cartas": [
+        {
+          "id_interno": "D04-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Músculo esquelético: tejido que realiza las contracciones durante las series y las pausas.",
+          "codigos_laterales": {
+            "izquierdo": "F3M",
+            "derecho": "K8Q"
+          }
+        },
+        {
+          "id_interno": "D04-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La contracción muscular requiere ATP, que debe resintetizarse durante el ejercicio.",
+          "codigos_laterales": {
+            "izquierdo": "P6R",
+            "derecho": "V2H"
+          }
+        },
+        {
+          "id_interno": "D04-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular es una reserva de carbohidratos disponible para el propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "J4C",
+            "derecho": "M9W"
+          }
+        },
+        {
+          "id_interno": "D04-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y produce principalmente glucosa-1-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "B7N",
+            "derecho": "Q3D"
+          }
+        },
+        {
+          "id_interno": "D04-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-1-fosfato puede convertirse en glucosa-6-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "Y5A",
+            "derecho": "C8L"
+          }
+        },
+        {
+          "id_interno": "D04-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-6-fosfato puede incorporarse a la glucólisis.",
+          "codigos_laterales": {
+            "izquierdo": "T2P",
+            "derecho": "H6V"
+          }
+        },
+        {
+          "id_interno": "D04-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce ATP, NADH y piruvato.",
+          "codigos_laterales": {
+            "izquierdo": "N4F",
+            "derecho": "W8B"
+          }
+        },
+        {
+          "id_interno": "D04-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato; esta reacción regenera NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "G5Q",
+            "derecho": "X2M"
+          }
+        },
+        {
+          "id_interno": "D04-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede pasar desde el músculo a la sangre y transportarse entre tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "D9J",
+            "derecho": "R3V"
+          }
+        },
+        {
+          "id_interno": "D04-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La concentración de lactato en sangre refleja el balance entre su aparición y su utilización o eliminación.",
+          "codigos_laterales": {
+            "izquierdo": "A6K",
+            "derecho": "F2W"
+          }
+        },
+        {
+          "id_interno": "D04-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Otros tejidos pueden captar y oxidar lactato como sustrato energético.",
+          "codigos_laterales": {
+            "izquierdo": "M7C",
+            "derecho": "P4Y"
+          }
+        },
+        {
+          "id_interno": "D04-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede captar lactato y utilizarlo como precursor para gluconeogénesis.",
+          "codigos_laterales": {
+            "izquierdo": "V8D",
+            "derecho": "B3H"
+          }
+        },
+        {
+          "id_interno": "D04-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA e ingresar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "Q5N",
+            "derecho": "J2F"
+          }
+        },
+        {
+          "id_interno": "D04-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs genera NADH y FADH₂ durante la oxidación de acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "C7M",
+            "derecho": "Y9R"
+          }
+        },
+        {
+          "id_interno": "D04-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los electrones de NADH y FADH₂ pueden pasar por la cadena transportadora y contribuir a generar un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "L4A",
+            "derecho": "N8P"
+          }
+        },
+        {
+          "id_interno": "D04-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El gradiente de protones impulsa la ATP sintasa; el oxígeno es el aceptor final de electrones.",
+          "codigos_laterales": {
+            "izquierdo": "W3D",
+            "derecho": "G6T"
+          }
+        },
+        {
+          "id_interno": "D04-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "El lactato sanguíneo demuestra que todas las fibras musculares estuvieron completamente sin oxígeno durante las series.",
+          "codigos_laterales": {
+            "izquierdo": "H2V",
+            "derecho": "C5Q"
+          }
+        },
+        {
+          "id_interno": "D04-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La sacarosa está formada por glucosa y fructosa.",
+          "codigos_laterales": {
+            "izquierdo": "P9L",
+            "derecho": "A4X"
+          }
+        },
+        {
+          "id_interno": "D04-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Por qué una muestra de lactato sanguíneo no permite saber cuánto lactato produjo cada grupo de fibras musculares?",
+          "codigos_laterales": {
+            "izquierdo": "R7B",
+            "derecho": "M3K"
+          }
+        },
+        {
+          "id_interno": "D04-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Durante la pausa, ¿qué diferencia hay entre que disminuya la demanda de ATP y que se detenga el metabolismo muscular?",
+          "codigos_laterales": {
+            "izquierdo": "D6W",
+            "derecho": "V5N"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "titulo": "Carrera de fondo: dos competencias en días consecutivos",
+      "contexto": "Una corredora compite en una carrera de fondo el sábado y en otra el domingo. Después de la primera carrera consume una comida con carbohidratos y descansa. No se midió su glucógeno antes ni después de comer.",
+      "mision": "Usen las cartas para construir un mapa que diferencie la producción de ATP durante la carrera de la recuperación posterior de carbohidratos. Relacionen la comida con la glucosa y el glucógeno hepático y muscular. Expliquen qué puede afirmarse sobre la recuperación y qué información faltaría para valorarla.",
+      "cartas": [
+        {
+          "id_interno": "D05-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La carrera prolongada requiere producción sostenida de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "Q5M",
+            "derecho": "V8C"
+          }
+        },
+        {
+          "id_interno": "D05-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular puede aportar carbohidratos al músculo activo.",
+          "codigos_laterales": {
+            "izquierdo": "A3R",
+            "derecho": "N7K"
+          }
+        },
+        {
+          "id_interno": "D05-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a la disponibilidad de glucosa sanguínea.",
+          "codigos_laterales": {
+            "izquierdo": "D6W",
+            "derecho": "P2H"
+          }
+        },
+        {
+          "id_interno": "D05-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y genera intermediarios metabólicos.",
+          "codigos_laterales": {
+            "izquierdo": "M9B",
+            "derecho": "T4Q"
+          }
+        },
+        {
+          "id_interno": "D05-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato y ATP a partir de glucosa o derivados.",
+          "codigos_laterales": {
+            "izquierdo": "F7J",
+            "derecho": "C5V"
+          }
+        },
+        {
+          "id_interno": "D05-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "W2N",
+            "derecho": "B8D"
+          }
+        },
+        {
+          "id_interno": "D05-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede oxidarse en el ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "K3P",
+            "derecho": "Y6A"
+          }
+        },
+        {
+          "id_interno": "D05-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce CO₂, NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "R4H",
+            "derecho": "J9C"
+          }
+        },
+        {
+          "id_interno": "D05-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "NADH y FADH₂ pueden aportar electrones a la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "L2F",
+            "derecho": "X7M"
+          }
+        },
+        {
+          "id_interno": "D05-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "G5T",
+            "derecho": "C8W"
+          }
+        },
+        {
+          "id_interno": "D05-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La ATP sintasa utiliza el gradiente de protones para contribuir a formar ATP.",
+          "codigos_laterales": {
+            "izquierdo": "N3Y",
+            "derecho": "F6K"
+          }
+        },
+        {
+          "id_interno": "D05-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno es el aceptor final de electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "B4Q",
+            "derecho": "M8J"
+          }
+        },
+        {
+          "id_interno": "D05-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La comida aporta carbohidratos que pueden digerirse y contribuir a la glucosa disponible.",
+          "codigos_laterales": {
+            "izquierdo": "T7D",
+            "derecho": "H2V"
+          }
+        },
+        {
+          "id_interno": "D05-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa disponible puede incorporarse a la síntesis de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "P9A",
+            "derecho": "D3X"
+          }
+        },
+        {
+          "id_interno": "D05-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular funciona principalmente como reserva para uso local.",
+          "codigos_laterales": {
+            "izquierdo": "W5C",
+            "derecho": "K6N"
+          }
+        },
+        {
+          "id_interno": "D05-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede ayudar a mantener glucosa sanguínea entre comidas.",
+          "codigos_laterales": {
+            "izquierdo": "F4M",
+            "derecho": "Q8B"
+          }
+        },
+        {
+          "id_interno": "D05-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "Consumir una comida con carbohidratos garantiza por sí solo que la corredora estará completamente recuperada para competir al día siguiente.",
+          "codigos_laterales": {
+            "izquierdo": "J5W",
+            "derecho": "R2C"
+          }
+        },
+        {
+          "id_interno": "D05-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La lactasa es una enzima intestinal que participa en la digestión de la lactosa.",
+          "codigos_laterales": {
+            "izquierdo": "X9H",
+            "derecho": "A6P"
+          }
+        },
+        {
+          "id_interno": "D05-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué medición o información permitiría estimar si las reservas de glucógeno aumentaron después de la comida?",
+          "codigos_laterales": {
+            "izquierdo": "C7N",
+            "derecho": "V3F"
+          }
+        },
+        {
+          "id_interno": "D05-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Por qué una reposición de glucógeno no demuestra por sí sola que todos los componentes de la recuperación hayan concluido?",
+          "codigos_laterales": {
+            "izquierdo": "H8T",
+            "derecho": "M4Y"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "titulo": "Danza: coreografía con cambios de intensidad",
+      "contexto": "Una bailarina ensaya una coreografía que alterna saltos y desplazamientos rápidos con secuencias de menor intensidad. Hacia el final le cuesta mantener la precisión de algunos movimientos y repetirá el ensayo al día siguiente. No hay mediciones metabólicas.",
+      "mision": "Usen las cartas para construir un mapa que relacione los cambios de intensidad de la coreografía con la demanda de ATP y el metabolismo de carbohidratos. Expliquen cómo se vinculan el trabajo muscular durante el ensayo y la recuperación para la siguiente sesión, sin atribuir la pérdida de precisión a una sola causa.",
+      "cartas": [
+        {
+          "id_interno": "D06-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los saltos y desplazamientos rápidos requieren ATP para la contracción muscular.",
+          "codigos_laterales": {
+            "izquierdo": "K4W",
+            "derecho": "A8N"
+          }
+        },
+        {
+          "id_interno": "D06-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Las secuencias de menor intensidad mantienen actividad muscular, aunque cambie la demanda energética.",
+          "codigos_laterales": {
+            "izquierdo": "T3B",
+            "derecho": "J7M"
+          }
+        },
+        {
+          "id_interno": "D06-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular es una reserva de carbohidratos disponible para el propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "P6D",
+            "derecho": "W2H"
+          }
+        },
+        {
+          "id_interno": "D06-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y aporta intermediarios al metabolismo celular.",
+          "codigos_laterales": {
+            "izquierdo": "C9V",
+            "derecho": "F4R"
+          }
+        },
+        {
+          "id_interno": "D06-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa o sus derivados pueden incorporarse a la glucólisis.",
+          "codigos_laterales": {
+            "izquierdo": "N5A",
+            "derecho": "B3Q"
+          }
+        },
+        {
+          "id_interno": "D06-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce ATP, NADH y piruvato.",
+          "codigos_laterales": {
+            "izquierdo": "H8C",
+            "derecho": "V6T"
+          }
+        },
+        {
+          "id_interno": "D06-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "M2J",
+            "derecho": "Q7D"
+          }
+        },
+        {
+          "id_interno": "D06-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato también puede convertirse en acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "A5P",
+            "derecho": "X3K"
+          }
+        },
+        {
+          "id_interno": "D06-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede ingresar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "D9W",
+            "derecho": "L4B"
+          }
+        },
+        {
+          "id_interno": "D06-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "R8M",
+            "derecho": "C2Y"
+          }
+        },
+        {
+          "id_interno": "D06-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los electrones de coenzimas reducidas pueden pasar por la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "F7N",
+            "derecho": "T5C"
+          }
+        },
+        {
+          "id_interno": "D06-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a establecer un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "J3V",
+            "derecho": "N8A"
+          }
+        },
+        {
+          "id_interno": "D06-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El gradiente de protones impulsa la ATP sintasa durante la fosforilación oxidativa.",
+          "codigos_laterales": {
+            "izquierdo": "B6Q",
+            "derecho": "Y4H"
+          }
+        },
+        {
+          "id_interno": "D06-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno recibe finalmente electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "W9D",
+            "derecho": "P2X"
+          }
+        },
+        {
+          "id_interno": "D06-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa disponible después del ensayo puede oxidarse o contribuir a reponer glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "G5L",
+            "derecho": "M8F"
+          }
+        },
+        {
+          "id_interno": "D06-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucógeno sintasa participa en la síntesis de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "Q3B",
+            "derecho": "D7K"
+          }
+        },
+        {
+          "id_interno": "D06-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "La pérdida de precisión demuestra por sí sola que se agotó todo el glucógeno muscular.",
+          "codigos_laterales": {
+            "izquierdo": "V4N",
+            "derecho": "A9C"
+          }
+        },
+        {
+          "id_interno": "D06-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La ribosa es un monosacárido de cinco carbonos que forma parte de nucleótidos.",
+          "codigos_laterales": {
+            "izquierdo": "K2F",
+            "derecho": "H6W"
+          }
+        },
+        {
+          "id_interno": "D06-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué información ayudaría a distinguir una limitación de carbohidratos de otras causas posibles de pérdida de precisión?",
+          "codigos_laterales": {
+            "izquierdo": "C8M",
+            "derecho": "X5R"
+          }
+        },
+        {
+          "id_interno": "D06-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Cómo podría contribuir una comida posterior a la disponibilidad de carbohidratos para el ensayo del día siguiente?",
+          "codigos_laterales": {
+            "izquierdo": "N3J",
+            "derecho": "F9V"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "titulo": "Rehabilitación: levantarse y sentarse en series",
+      "contexto": "Durante una sesión de rehabilitación, una persona realiza varias series de levantarse y sentarse desde una silla. En las últimas series tarda más y refiere mayor esfuerzo. Se conocen la carga y los descansos, pero no hay mediciones metabólicas.",
+      "mision": "Usen las cartas para construir un mapa que explique cómo se relacionan las contracciones repetidas, la resíntesis de ATP y el metabolismo de carbohidratos durante las series y los descansos. Expliquen qué hipótesis podrían dar cuenta del cambio observado y qué información ayudaría al kinesiólogo a evaluarlas.",
+      "cartas": [
+        {
+          "id_interno": "D07-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular es una reserva que puede aportar sustrato al músculo activo.",
+          "codigos_laterales": {
+            "izquierdo": "A4K",
+            "derecho": "T8M"
+          }
+        },
+        {
+          "id_interno": "D07-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y genera intermediarios metabólicos.",
+          "codigos_laterales": {
+            "izquierdo": "V2Q",
+            "derecho": "C7H"
+          }
+        },
+        {
+          "id_interno": "D07-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-6-fosfato puede incorporarse a la glucólisis.",
+          "codigos_laterales": {
+            "izquierdo": "M5D",
+            "derecho": "R9B"
+          }
+        },
+        {
+          "id_interno": "D07-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce ATP y piruvato.",
+          "codigos_laterales": {
+            "izquierdo": "F3N",
+            "derecho": "Y6W"
+          }
+        },
+        {
+          "id_interno": "D07-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ATP se utiliza para realizar trabajo contráctil y movimiento.",
+          "codigos_laterales": {
+            "izquierdo": "H8P",
+            "derecho": "D2V"
+          }
+        },
+        {
+          "id_interno": "D07-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato, regenerando NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "Q4C",
+            "derecho": "N7A"
+          }
+        },
+        {
+          "id_interno": "D07-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA y seguir una ruta oxidativa.",
+          "codigos_laterales": {
+            "izquierdo": "B6M",
+            "derecho": "K9T"
+          }
+        },
+        {
+          "id_interno": "D07-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede ingresar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "W3F",
+            "derecho": "J5Q"
+          }
+        },
+        {
+          "id_interno": "D07-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs forma NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "P8Y",
+            "derecho": "A2L"
+          }
+        },
+        {
+          "id_interno": "D07-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora y la fosforilación oxidativa contribuyen a la síntesis de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "X4D",
+            "derecho": "M7C"
+          }
+        },
+        {
+          "id_interno": "D07-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Durante los descansos disminuye el trabajo mecánico, aunque el metabolismo continúa.",
+          "codigos_laterales": {
+            "izquierdo": "C5R",
+            "derecho": "V9H"
+          }
+        },
+        {
+          "id_interno": "D07-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede circular y ser utilizado por otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "N3W",
+            "derecho": "F6B"
+          }
+        },
+        {
+          "id_interno": "D07-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede aportar glucosa a la sangre a partir de sus reservas.",
+          "codigos_laterales": {
+            "izquierdo": "J8K",
+            "derecho": "T4P"
+          }
+        },
+        {
+          "id_interno": "D07-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los carbohidratos de la alimentación pueden contribuir a la disponibilidad de glucosa y a reponer glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "D7M",
+            "derecho": "Q2A"
+          }
+        },
+        {
+          "id_interno": "D07-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La velocidad y el esfuerzo percibido son medidas de desempeño, no mediciones directas de una reserva metabólica.",
+          "codigos_laterales": {
+            "izquierdo": "Y5C",
+            "derecho": "B8N"
+          }
+        },
+        {
+          "id_interno": "D07-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La carga, el descanso y la técnica son variables relevantes al interpretar una tarea funcional.",
+          "codigos_laterales": {
+            "izquierdo": "R3J",
+            "derecho": "H6V"
+          }
+        },
+        {
+          "id_interno": "D07-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "Tardar más en levantarse demuestra que la persona agotó por completo su glucógeno muscular.",
+          "codigos_laterales": {
+            "izquierdo": "K5B",
+            "derecho": "W8Q"
+          }
+        },
+        {
+          "id_interno": "D07-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La maltosa está formada por dos unidades de glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "P4X",
+            "derecho": "C9D"
+          }
+        },
+        {
+          "id_interno": "D07-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué dos datos funcionales o fisiológicos ayudarían a evaluar si los carbohidratos contribuyeron al cambio entre series?",
+          "codigos_laterales": {
+            "izquierdo": "M2F",
+            "derecho": "A7Y"
+          }
+        },
+        {
+          "id_interno": "D07-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Explica cómo la demanda de ATP se relaciona con levantarse y sentarse repetidamente.",
+          "codigos_laterales": {
+            "izquierdo": "V6N",
+            "derecho": "J3T"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "titulo": "Caminata por sendero: cambios de terreno y ritmo",
+      "contexto": "Una persona camina durante dos horas por un sendero con subidas y tramos planos. Antes consumió una comida ligera; durante el recorrido bebe agua, pero no ingiere carbohidratos. En el último tramo reduce el paso. No se midió glucosa ni glucógeno.",
+      "mision": "Usen las cartas para construir un mapa que explique cómo pueden contribuir los carbohidratos a sostener la caminata. Distingan las funciones del glucógeno muscular y hepático y relacionen esas reservas con la producción de ATP. Expliquen qué podría contribuir a la reducción del paso sin concluir que una reserva específica se agotó.",
+      "cartas": [
+        {
+          "id_interno": "D08-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La caminata prolongada requiere producción continua de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "B5Q",
+            "derecho": "N8D"
+          }
+        },
+        {
+          "id_interno": "D08-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los ascensos y tramos planos modifican la demanda mecánica de la actividad.",
+          "codigos_laterales": {
+            "izquierdo": "R3F",
+            "derecho": "K7W"
+          }
+        },
+        {
+          "id_interno": "D08-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular puede utilizarse principalmente en el propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "C2M",
+            "derecho": "V9A"
+          }
+        },
+        {
+          "id_interno": "D08-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa en sangre.",
+          "codigos_laterales": {
+            "izquierdo": "H4P",
+            "derecho": "D6Y"
+          }
+        },
+        {
+          "id_interno": "D08-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza reservas de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "T8C",
+            "derecho": "A5N"
+          }
+        },
+        {
+          "id_interno": "D08-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa circulante puede ser captada por tejidos que la utilizan como sustrato.",
+          "codigos_laterales": {
+            "izquierdo": "F2V",
+            "derecho": "M7J"
+          }
+        },
+        {
+          "id_interno": "D08-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato y ATP a partir de glucosa o derivados.",
+          "codigos_laterales": {
+            "izquierdo": "Q9B",
+            "derecho": "W3H"
+          }
+        },
+        {
+          "id_interno": "D08-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA para el metabolismo oxidativo.",
+          "codigos_laterales": {
+            "izquierdo": "J6R",
+            "derecho": "P4D"
+          }
+        },
+        {
+          "id_interno": "D08-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede oxidarse en el ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "N5K",
+            "derecho": "X8C"
+          }
+        },
+        {
+          "id_interno": "D08-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "A3T",
+            "derecho": "L7M"
+          }
+        },
+        {
+          "id_interno": "D08-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los electrones de coenzimas reducidas pueden pasar por la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "V2P",
+            "derecho": "C6J"
+          }
+        },
+        {
+          "id_interno": "D08-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El gradiente de protones permite la síntesis de ATP mediante ATP sintasa.",
+          "codigos_laterales": {
+            "izquierdo": "D9F",
+            "derecho": "H5W"
+          }
+        },
+        {
+          "id_interno": "D08-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato también puede convertirse en lactato, regenerando NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "K4Y",
+            "derecho": "R8A"
+          }
+        },
+        {
+          "id_interno": "D08-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede transportarse por sangre y ser utilizado por otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "M3D",
+            "derecho": "F6Q"
+          }
+        },
+        {
+          "id_interno": "D08-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede usar lactato como precursor de gluconeogénesis.",
+          "codigos_laterales": {
+            "izquierdo": "P7V",
+            "derecho": "B2K"
+          }
+        },
+        {
+          "id_interno": "D08-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno es el aceptor final de electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "W4N",
+            "derecho": "J9C"
+          }
+        },
+        {
+          "id_interno": "D08-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "No ingerir carbohidratos durante la caminata demuestra que el glucógeno hepático se agotó antes del último tramo.",
+          "codigos_laterales": {
+            "izquierdo": "C5X",
+            "derecho": "T2R"
+          }
+        },
+        {
+          "id_interno": "D08-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La lactasa participa en la digestión intestinal de la lactosa.",
+          "codigos_laterales": {
+            "izquierdo": "N6B",
+            "derecho": "A8F"
+          }
+        },
+        {
+          "id_interno": "D08-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué información adicional ayudaría a evaluar si la disponibilidad de carbohidratos contribuyó a reducir el paso?",
+          "codigos_laterales": {
+            "izquierdo": "H3M",
+            "derecho": "Q7D"
+          }
+        },
+        {
+          "id_interno": "D08-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Explica una diferencia entre el uso del glucógeno muscular y la contribución del glucógeno hepático durante esta caminata.",
+          "codigos_laterales": {
+            "izquierdo": "V5K",
+            "derecho": "D4P"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "titulo": "Recuperación: preparar el músculo para la sesión siguiente",
+      "contexto": "Después de una sesión exigente, una deportista tiene otra práctica al día siguiente. Consume una comida con carbohidratos, pero no se conoce su composición exacta ni se midieron sus reservas musculares.",
+      "mision": "Usen las cartas para construir un mapa que explique los posibles destinos de la glucosa después de la comida: su uso en la producción de ATP o su almacenamiento como glucógeno. Relacionen estos destinos con las funciones del músculo y del hígado, y expliquen qué información permitiría valorar la recuperación de las reservas.",
+      "cartas": [
+        {
+          "id_interno": "D09-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Una comida con carbohidratos puede aportar glucosa a la circulación.",
+          "codigos_laterales": {
+            "izquierdo": "K4M",
+            "derecho": "R8Q"
+          }
+        },
+        {
+          "id_interno": "D09-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa circulante puede ser captada por distintos tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "T6B",
+            "derecho": "C2V"
+          }
+        },
+        {
+          "id_interno": "D09-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa captada por una célula puede incorporarse a la glucólisis.",
+          "codigos_laterales": {
+            "izquierdo": "M9F",
+            "derecho": "P3D"
+          }
+        },
+        {
+          "id_interno": "D09-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato, ATP y NADH.",
+          "codigos_laterales": {
+            "izquierdo": "W5K",
+            "derecho": "A7R"
+          }
+        },
+        {
+          "id_interno": "D09-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "D8Y",
+            "derecho": "N4C"
+          }
+        },
+        {
+          "id_interno": "D09-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede oxidarse en el ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "Q6H",
+            "derecho": "V2M"
+          }
+        },
+        {
+          "id_interno": "D09-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "B9T",
+            "derecho": "J5P"
+          }
+        },
+        {
+          "id_interno": "D09-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "NADH y FADH₂ pueden aportar electrones a la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "F3W",
+            "derecho": "L8A"
+          }
+        },
+        {
+          "id_interno": "D09-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones.",
+          "codigos_laterales": {
+            "izquierdo": "X7D",
+            "derecho": "H2Q"
+          }
+        },
+        {
+          "id_interno": "D09-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La ATP sintasa utiliza el gradiente de protones para contribuir a la síntesis de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "C5N",
+            "derecho": "Y9B"
+          }
+        },
+        {
+          "id_interno": "D09-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-6-fosfato puede dirigirse a la síntesis de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "P4J",
+            "derecho": "M6V"
+          }
+        },
+        {
+          "id_interno": "D09-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucógeno sintasa participa en la síntesis de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "A3K",
+            "derecho": "R7X"
+          }
+        },
+        {
+          "id_interno": "D09-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular funciona principalmente como reserva para uso local.",
+          "codigos_laterales": {
+            "izquierdo": "V8D",
+            "derecho": "Q2L"
+          }
+        },
+        {
+          "id_interno": "D09-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a mantener la glucosa sanguínea entre comidas.",
+          "codigos_laterales": {
+            "izquierdo": "N5W",
+            "derecho": "B4F"
+          }
+        },
+        {
+          "id_interno": "D09-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La insulina favorece procesos de utilización y almacenamiento de glucosa en estado posprandial.",
+          "codigos_laterales": {
+            "izquierdo": "J6C",
+            "derecho": "T3Y"
+          }
+        },
+        {
+          "id_interno": "D09-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El tiempo entre sesiones influye en la oportunidad de utilizar o reponer reservas de carbohidratos.",
+          "codigos_laterales": {
+            "izquierdo": "H7M",
+            "derecho": "D2P"
+          }
+        },
+        {
+          "id_interno": "D09-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "Toda la glucosa de una comida se convierte inmediatamente en glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "W4A",
+            "derecho": "K9F"
+          }
+        },
+        {
+          "id_interno": "D09-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La celulosa es un polisacárido estructural con enlaces β(1→4).",
+          "codigos_laterales": {
+            "izquierdo": "Q5C",
+            "derecho": "M8Y"
+          }
+        },
+        {
+          "id_interno": "D09-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué información permitiría diferenciar entre ingerir carbohidratos y reponer efectivamente glucógeno muscular?",
+          "codigos_laterales": {
+            "izquierdo": "B7N",
+            "derecho": "F2R"
+          }
+        },
+        {
+          "id_interno": "D09-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Por qué la disponibilidad de glucógeno no es el único factor que determina el rendimiento del día siguiente?",
+          "codigos_laterales": {
+            "izquierdo": "L3T",
+            "derecho": "V6H"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "titulo": "Atletismo: recuperación entre carreras de relevo",
+      "contexto": "Una atleta corre una posta de 400 metros y volverá a competir más tarde. Después de la primera carrera se detecta lactato en sangre. Mientras espera, camina suavemente y consume una bebida con carbohidratos.",
+      "mision": "Usen las cartas para construir un mapa que explique los destinos posibles del lactato después de la carrera y su relación con la producción de ATP y la recuperación de carbohidratos. Incluyan, cuando corresponda, las conexiones entre músculo e hígado, y expliquen cómo se distinguen la utilización del lactato y la reposición de glucógeno.",
+      "cartas": [
+        {
+          "id_interno": "D10-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La carrera de relevo requiere resíntesis de ATP en los músculos activos.",
+          "codigos_laterales": {
+            "izquierdo": "R4M",
+            "derecho": "C8V"
+          }
+        },
+        {
+          "id_interno": "D10-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Caminar durante la espera reduce la demanda mecánica respecto de la carrera, pero mantiene actividad.",
+          "codigos_laterales": {
+            "izquierdo": "N7B",
+            "derecho": "T3Q"
+          }
+        },
+        {
+          "id_interno": "D10-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular puede aportar carbohidratos para el trabajo local.",
+          "codigos_laterales": {
+            "izquierdo": "W2D",
+            "derecho": "F9K"
+          }
+        },
+        {
+          "id_interno": "D10-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza glucógeno y genera intermediarios.",
+          "codigos_laterales": {
+            "izquierdo": "A5Y",
+            "derecho": "M6C"
+          }
+        },
+        {
+          "id_interno": "D10-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato y ATP.",
+          "codigos_laterales": {
+            "izquierdo": "P3H",
+            "derecho": "X8N"
+          }
+        },
+        {
+          "id_interno": "D10-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "D7Q",
+            "derecho": "K2V"
+          }
+        },
+        {
+          "id_interno": "D10-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede circular por la sangre desde el músculo hacia otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "B4J",
+            "derecho": "R9F"
+          }
+        },
+        {
+          "id_interno": "D10-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Algunos tejidos pueden captar y oxidar lactato como combustible.",
+          "codigos_laterales": {
+            "izquierdo": "Y6M",
+            "derecho": "C3W"
+          }
+        },
+        {
+          "id_interno": "D10-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede captar lactato y utilizarlo como precursor de glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "H5P",
+            "derecho": "N8A"
+          }
+        },
+        {
+          "id_interno": "D10-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La gluconeogénesis hepática produce glucosa a partir de precursores y requiere energía.",
+          "codigos_laterales": {
+            "izquierdo": "V2D",
+            "derecho": "F7K"
+          }
+        },
+        {
+          "id_interno": "D10-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Cori relaciona lactato periférico con la formación hepática de glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "M4Q",
+            "derecho": "A9T"
+          }
+        },
+        {
+          "id_interno": "D10-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en acetil-CoA y entrar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "J3B",
+            "derecho": "W6R"
+          }
+        },
+        {
+          "id_interno": "D10-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs forma NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "P8C",
+            "derecho": "D2Y"
+          }
+        },
+        {
+          "id_interno": "D10-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora y la fosforilación oxidativa contribuyen a la síntesis mitocondrial de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "K5N",
+            "derecho": "X4M"
+          }
+        },
+        {
+          "id_interno": "D10-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Los carbohidratos de una bebida pueden aportar glucosa disponible para el metabolismo.",
+          "codigos_laterales": {
+            "izquierdo": "G7V",
+            "derecho": "B3L"
+          }
+        },
+        {
+          "id_interno": "D10-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa disponible puede utilizarse para producir ATP o contribuir a reponer glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "T9C",
+            "derecho": "Q6A"
+          }
+        },
+        {
+          "id_interno": "D10-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "El lactato detectado después de correr solo puede eliminarse como desecho y no puede utilizarse como sustrato.",
+          "codigos_laterales": {
+            "izquierdo": "F4H",
+            "derecho": "N2W"
+          }
+        },
+        {
+          "id_interno": "D10-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La lactasa participa en la digestión intestinal de la lactosa.",
+          "codigos_laterales": {
+            "izquierdo": "C7P",
+            "derecho": "M5X"
+          }
+        },
+        {
+          "id_interno": "D10-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Nombra dos destinos metabólicos posibles del lactato después de salir del músculo e indica qué tejido participa.",
+          "codigos_laterales": {
+            "izquierdo": "A8D",
+            "derecho": "V5K"
+          }
+        },
+        {
+          "id_interno": "D10-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿En qué se diferencia resintetizar ATP durante la espera de recuperar las reservas de glucógeno?",
+          "codigos_laterales": {
+            "izquierdo": "R3Y",
+            "derecho": "H6B"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "titulo": "Ciclismo de montaña: ascenso, descenso y nuevo ascenso",
+      "contexto": "Una ciclista realiza un ascenso prolongado, desciende pedaleando suavemente y luego enfrenta una segunda subida. Su potencia media es menor en el segundo ascenso. Se registró la potencia, pero no la ingesta ni el glucógeno o lactato.",
+      "mision": "Usen las cartas para construir un mapa que explique cómo los cambios de esfuerzo entre el ascenso, el descenso y la segunda subida se relacionan con el uso de carbohidratos y la producción de ATP. Propongan más de una explicación para la menor potencia y señalen qué información ayudaría a evaluarlas.",
+      "cartas": [
+        {
+          "id_interno": "D11-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Un ascenso prolongado requiere producción sostenida de ATP.",
+          "codigos_laterales": {
+            "izquierdo": "P7A",
+            "derecho": "C4M"
+          }
+        },
+        {
+          "id_interno": "D11-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Durante el descenso, pedalear suavemente mantiene actividad muscular con una demanda distinta.",
+          "codigos_laterales": {
+            "izquierdo": "K8D",
+            "derecho": "W2F"
+          }
+        },
+        {
+          "id_interno": "D11-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular es una reserva disponible para el metabolismo local.",
+          "codigos_laterales": {
+            "izquierdo": "H5V",
+            "derecho": "R9C"
+          }
+        },
+        {
+          "id_interno": "D11-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa en sangre.",
+          "codigos_laterales": {
+            "izquierdo": "M3B",
+            "derecho": "T6Y"
+          }
+        },
+        {
+          "id_interno": "D11-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis moviliza reservas de carbohidratos.",
+          "codigos_laterales": {
+            "izquierdo": "D8Q",
+            "derecho": "A4N"
+          }
+        },
+        {
+          "id_interno": "D11-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato y ATP a partir de glucosa o derivados.",
+          "codigos_laterales": {
+            "izquierdo": "V2L",
+            "derecho": "J7P"
+          }
+        },
+        {
+          "id_interno": "D11-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "F5W",
+            "derecho": "N9K"
+          }
+        },
+        {
+          "id_interno": "D11-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede transportarse y ser utilizado por otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "B3X",
+            "derecho": "Q6M"
+          }
+        },
+        {
+          "id_interno": "D11-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato también puede convertirse en acetil-CoA.",
+          "codigos_laterales": {
+            "izquierdo": "Y4D",
+            "derecho": "C8T"
+          }
+        },
+        {
+          "id_interno": "D11-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El acetil-CoA puede ingresar al ciclo de Krebs.",
+          "codigos_laterales": {
+            "izquierdo": "L2H",
+            "derecho": "W7A"
+          }
+        },
+        {
+          "id_interno": "D11-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+          "codigos_laterales": {
+            "izquierdo": "R5J",
+            "derecho": "M3V"
+          }
+        },
+        {
+          "id_interno": "D11-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Las coenzimas reducidas pueden aportar electrones a la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "P8N",
+            "derecho": "D4C"
+          }
+        },
+        {
+          "id_interno": "D11-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones usado para sintetizar ATP.",
+          "codigos_laterales": {
+            "izquierdo": "A6Y",
+            "derecho": "K9F"
+          }
+        },
+        {
+          "id_interno": "D11-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El oxígeno es el aceptor final de electrones en la cadena transportadora.",
+          "codigos_laterales": {
+            "izquierdo": "T2B",
+            "derecho": "H7M"
+          }
+        },
+        {
+          "id_interno": "D11-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La pendiente, la duración y la estrategia de pedaleo pueden influir en la potencia registrada.",
+          "codigos_laterales": {
+            "izquierdo": "Q5D",
+            "derecho": "V8R"
+          }
+        },
+        {
+          "id_interno": "D11-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El registro de potencia no identifica por sí solo qué sustrato contribuyó más a la energía.",
+          "codigos_laterales": {
+            "izquierdo": "N4X",
+            "derecho": "B6P"
+          }
+        },
+        {
+          "id_interno": "D11-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "Una potencia menor en el segundo ascenso demuestra que la glucólisis se detuvo.",
+          "codigos_laterales": {
+            "izquierdo": "C3K",
+            "derecho": "Y9W"
+          }
+        },
+        {
+          "id_interno": "D11-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "El almidón vegetal contiene amilosa y amilopectina.",
+          "codigos_laterales": {
+            "izquierdo": "G2A",
+            "derecho": "F7N"
+          }
+        },
+        {
+          "id_interno": "D11-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "Propón dos explicaciones para la menor potencia que no supongan automáticamente agotamiento de glucógeno.",
+          "codigos_laterales": {
+            "izquierdo": "J5C",
+            "derecho": "M8V"
+          }
+        },
+        {
+          "id_interno": "D11-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué medición o registro ayudaría a poner a prueba una explicación basada en menor disponibilidad de carbohidratos?",
+          "codigos_laterales": {
+            "izquierdo": "W4Q",
+            "derecho": "P2L"
+          }
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "titulo": "Ejercicio por la mañana después de varias horas sin comer",
+      "contexto": "Una persona realiza una sesión moderada varias horas después de su última comida. El kinesiólogo quiere explicar cómo se mantiene la actividad muscular y qué tejidos pueden contribuir a la disponibilidad de glucosa. No se conocen las reservas ni las concentraciones hormonales.",
+      "mision": "Usen las cartas para construir un mapa que explique cómo las reservas de glucógeno muscular y hepático pueden contribuir a la actividad y a la disponibilidad de glucosa en sangre durante la sesión. Conecten las rutas pertinentes y expliquen qué datos ayudarían a valorar la contribución de cada tejido o proceso.",
+      "cartas": [
+        {
+          "id_interno": "D12-C01",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno hepático es una reserva que puede contribuir a la glucosa sanguínea.",
+          "codigos_laterales": {
+            "izquierdo": "F3K",
+            "derecho": "N8Y"
+          }
+        },
+        {
+          "id_interno": "D12-C02",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucógeno muscular se utiliza principalmente en el metabolismo del propio músculo.",
+          "codigos_laterales": {
+            "izquierdo": "R5D",
+            "derecho": "J2W"
+          }
+        },
+        {
+          "id_interno": "D12-C03",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis hepática moviliza glucógeno y genera intermediarios.",
+          "codigos_laterales": {
+            "izquierdo": "M7C",
+            "derecho": "B4V"
+          }
+        },
+        {
+          "id_interno": "D12-C04",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucógeno fosforilasa libera principalmente glucosa-1-fosfato desde enlaces α(1→4).",
+          "codigos_laterales": {
+            "izquierdo": "Q9A",
+            "derecho": "T6H"
+          }
+        },
+        {
+          "id_interno": "D12-C05",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-1-fosfato puede convertirse en glucosa-6-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "V2F",
+            "derecho": "C8M"
+          }
+        },
+        {
+          "id_interno": "D12-C06",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede formar glucosa libre a partir de glucosa-6-fosfato.",
+          "codigos_laterales": {
+            "izquierdo": "A5P",
+            "derecho": "W3J"
+          }
+        },
+        {
+          "id_interno": "D12-C07",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa libre hepática puede contribuir a mantener la glucosa en sangre.",
+          "codigos_laterales": {
+            "izquierdo": "D7N",
+            "derecho": "K4Y"
+          }
+        },
+        {
+          "id_interno": "D12-C08",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucogenólisis muscular aporta intermediarios que pueden utilizarse localmente.",
+          "codigos_laterales": {
+            "izquierdo": "H6Q",
+            "derecho": "P3B"
+          }
+        },
+        {
+          "id_interno": "D12-C09",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucosa-6-fosfato puede incorporarse a la glucólisis muscular.",
+          "codigos_laterales": {
+            "izquierdo": "Y8R",
+            "derecho": "F2C"
+          }
+        },
+        {
+          "id_interno": "D12-C10",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La glucólisis produce piruvato y ATP.",
+          "codigos_laterales": {
+            "izquierdo": "N5W",
+            "derecho": "M9A"
+          }
+        },
+        {
+          "id_interno": "D12-C11",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El piruvato puede convertirse en lactato, regenerando NAD⁺.",
+          "codigos_laterales": {
+            "izquierdo": "C3V",
+            "derecho": "R7K"
+          }
+        },
+        {
+          "id_interno": "D12-C12",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El lactato puede transportarse por sangre y llegar a otros tejidos.",
+          "codigos_laterales": {
+            "izquierdo": "T4M",
+            "derecho": "J6P"
+          }
+        },
+        {
+          "id_interno": "D12-C13",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El hígado puede utilizar lactato como precursor de gluconeogénesis.",
+          "codigos_laterales": {
+            "izquierdo": "B8Q",
+            "derecho": "V5D"
+          }
+        },
+        {
+          "id_interno": "D12-C14",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "La gluconeogénesis sintetiza glucosa a partir de precursores y requiere energía.",
+          "codigos_laterales": {
+            "izquierdo": "P2Y",
+            "derecho": "A9F"
+          }
+        },
+        {
+          "id_interno": "D12-C15",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "El glucagón participa en la regulación del metabolismo hepático durante el ayuno.",
+          "codigos_laterales": {
+            "izquierdo": "W6C",
+            "derecho": "D3R"
+          }
+        },
+        {
+          "id_interno": "D12-C16",
+          "tipo_interno": "concepto",
+          "texto_estudiante": "Sin mediciones de reservas y señales hormonales no se puede cuantificar la contribución de cada ruta.",
+          "codigos_laterales": {
+            "izquierdo": "K7B",
+            "derecho": "N4T"
+          }
+        },
+        {
+          "id_interno": "D12-D01",
+          "tipo_interno": "distractor_falso",
+          "texto_estudiante": "El músculo libera glucosa libre a la sangre desde su glucógeno usando glucosa-6-fosfatasa.",
+          "codigos_laterales": {
+            "izquierdo": "M2V",
+            "derecho": "F9J"
+          }
+        },
+        {
+          "id_interno": "D12-D02",
+          "tipo_interno": "distractor_verdadero_irrelevante",
+          "texto_estudiante": "La maltosa puede hidrolizarse para producir dos moléculas de glucosa.",
+          "codigos_laterales": {
+            "izquierdo": "Q5L",
+            "derecho": "Y3C"
+          }
+        },
+        {
+          "id_interno": "D12-P01",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Por qué el hígado y el músculo no son intercambiables en su contribución a la glucosa sanguínea?",
+          "codigos_laterales": {
+            "izquierdo": "R8W",
+            "derecho": "B6N"
+          }
+        },
+        {
+          "id_interno": "D12-P02",
+          "tipo_interno": "pregunta_adicional",
+          "texto_estudiante": "¿Qué dato adicional ayudaría a valorar qué rutas contribuyeron a mantener la glucosa durante esta sesión?",
+          "codigos_laterales": {
+            "izquierdo": "T9D",
+            "derecho": "C4H"
+          }
+        }
+      ]
+    },
+      {
+        "id": "D13",
+        "titulo": "Entrenamiento de fuerza: cambios de velocidad entre series",
+        "contexto": "Durante una sesión de fuerza, una persona realiza varias series con la misma carga y descansos programados. En algunas repeticiones finales disminuye la velocidad. No se midieron glucógeno, lactato ni otras variables metabólicas.",
+        "mision": "Usen las cartas para construir un mapa que relacione la demanda de ATP durante las series de fuerza con el metabolismo de carbohidratos y la resíntesis de ATP durante los descansos. Expliquen qué podría contribuir a la disminución de velocidad y por qué esta observación no demuestra por sí sola una causa metabólica específica.",
+        "cartas": [
+          {
+            "id_interno": "D13-C01",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Las repeticiones con carga requieren ATP para el trabajo muscular.",
+            "codigos_laterales": {
+              "izquierdo": "K5R",
+              "derecho": "B8M"
+            }
+          },
+          {
+            "id_interno": "D13-C02",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El glucógeno muscular puede aportar sustrato al músculo activo.",
+            "codigos_laterales": {
+              "izquierdo": "T3V",
+              "derecho": "N7C"
+            }
+          },
+          {
+            "id_interno": "D13-C03",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucogenólisis moviliza glucógeno y aporta intermediarios metabólicos.",
+            "codigos_laterales": {
+              "izquierdo": "Q4D",
+              "derecho": "M9H"
+            }
+          },
+          {
+            "id_interno": "D13-C04",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucosa o sus derivados pueden incorporarse a la glucólisis.",
+            "codigos_laterales": {
+              "izquierdo": "W2F",
+              "derecho": "C6P"
+            }
+          },
+          {
+            "id_interno": "D13-C05",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucólisis produce piruvato y ATP.",
+            "codigos_laterales": {
+              "izquierdo": "A8K",
+              "derecho": "R5Y"
+            }
+          },
+          {
+            "id_interno": "D13-C06",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+            "codigos_laterales": {
+              "izquierdo": "F3J",
+              "derecho": "V7Q"
+            }
+          },
+          {
+            "id_interno": "D13-C07",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato también puede convertirse en acetil-CoA.",
+            "codigos_laterales": {
+              "izquierdo": "M2W",
+              "derecho": "D9C"
+            }
+          },
+          {
+            "id_interno": "D13-C08",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El acetil-CoA puede oxidarse en el ciclo de Krebs.",
+            "codigos_laterales": {
+              "izquierdo": "H6P",
+              "derecho": "X4N"
+            }
+          },
+          {
+            "id_interno": "D13-C09",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+            "codigos_laterales": {
+              "izquierdo": "R8B",
+              "derecho": "C5Y"
+            }
+          },
+          {
+            "id_interno": "D13-C10",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "NADH y FADH₂ pueden aportar electrones a la cadena transportadora.",
+            "codigos_laterales": {
+              "izquierdo": "J3M",
+              "derecho": "P7D"
+            }
+          },
+          {
+            "id_interno": "D13-C11",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El flujo de electrones por la cadena contribuye a establecer un gradiente de protones.",
+            "codigos_laterales": {
+              "izquierdo": "W9K",
+              "derecho": "B2F"
+            }
+          },
+          {
+            "id_interno": "D13-C12",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La ATP sintasa utiliza el gradiente de protones para contribuir a formar ATP.",
+            "codigos_laterales": {
+              "izquierdo": "N4V",
+              "derecho": "T6A"
+            }
+          },
+          {
+            "id_interno": "D13-C13",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Durante los descansos disminuye el trabajo mecánico, aunque continúan procesos metabólicos.",
+            "codigos_laterales": {
+              "izquierdo": "G8C",
+              "derecho": "Y5P"
+            }
+          },
+          {
+            "id_interno": "D13-C14",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El lactato puede transportarse y ser utilizado por otros tejidos.",
+            "codigos_laterales": {
+              "izquierdo": "L2R",
+              "derecho": "A7W"
+            }
+          },
+          {
+            "id_interno": "D13-C15",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La carga, la técnica, el descanso y el entrenamiento son variables que pueden influir en la velocidad de ejecución.",
+            "codigos_laterales": {
+              "izquierdo": "D5X",
+              "derecho": "M8H"
+            }
+          },
+          {
+            "id_interno": "D13-C16",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La velocidad de una repetición no mide directamente la cantidad de glucógeno muscular.",
+            "codigos_laterales": {
+              "izquierdo": "Q3B",
+              "derecho": "F9N"
+            }
+          },
+          {
+            "id_interno": "D13-D01",
+            "tipo_interno": "distractor_falso",
+            "texto_estudiante": "Una repetición más lenta demuestra que se agotó todo el glucógeno muscular.",
+            "codigos_laterales": {
+              "izquierdo": "V4J",
+              "derecho": "K8D"
+            }
+          },
+          {
+            "id_interno": "D13-D02",
+            "tipo_interno": "distractor_verdadero_irrelevante",
+            "texto_estudiante": "La glucosa puede presentarse en formas anoméricas alfa y beta.",
+            "codigos_laterales": {
+              "izquierdo": "C7M",
+              "derecho": "R2Y"
+            }
+          },
+          {
+            "id_interno": "D13-P01",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "Propón dos datos que ayudarían a evaluar si la disponibilidad de carbohidratos contribuyó a la disminución de velocidad.",
+            "codigos_laterales": {
+              "izquierdo": "H3Q",
+              "derecho": "P6V"
+            }
+          },
+          {
+            "id_interno": "D13-P02",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Cómo pueden contribuir los descansos a la resíntesis de ATP y por qué eso no demuestra una recuperación completa?",
+            "codigos_laterales": {
+              "izquierdo": "A5T",
+              "derecho": "W7B"
+            }
+          }
+        ]
+      },
+      {
+        "id": "D14",
+        "titulo": "Vuelta a la calma: cambio de lactato sanguíneo",
+        "contexto": "Después de una carrera con cambios de ritmo, una atleta camina durante diez minutos. El lactato sanguíneo medido después de la carrera es menor tras la caminata. No se midió lactato dentro del músculo ni se siguió su destino metabólico.",
+        "mision": "Usen las cartas para construir un mapa que explique la producción, el transporte y los destinos posibles del lactato durante la recuperación. Relacionen estos procesos con el cambio observado en la concentración sanguínea y expliquen por qué no se puede atribuir ese cambio a una sola ruta sin más evidencia.",
+        "cartas": [
+          {
+            "id_interno": "D14-C01",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucólisis transforma glucosa o sus derivados en piruvato.",
+            "codigos_laterales": {
+              "izquierdo": "F2M",
+              "derecho": "N7C"
+            }
+          },
+          {
+            "id_interno": "D14-C02",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La conversión de piruvato en lactato regenera NAD⁺.",
+            "codigos_laterales": {
+              "izquierdo": "B8R",
+              "derecho": "Q4T"
+            }
+          },
+          {
+            "id_interno": "D14-C03",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El lactato puede salir del músculo y transportarse por la sangre.",
+            "codigos_laterales": {
+              "izquierdo": "W5D",
+              "derecho": "C9K"
+            }
+          },
+          {
+            "id_interno": "D14-C04",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La sangre transporta lactato entre tejidos.",
+            "codigos_laterales": {
+              "izquierdo": "M3V",
+              "derecho": "H6P"
+            }
+          },
+          {
+            "id_interno": "D14-C05",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La concentración sanguínea de lactato depende de su aparición y de su utilización o eliminación.",
+            "codigos_laterales": {
+              "izquierdo": "Y2A",
+              "derecho": "R8N"
+            }
+          },
+          {
+            "id_interno": "D14-C06",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Otros tejidos pueden captar y oxidar lactato como sustrato.",
+            "codigos_laterales": {
+              "izquierdo": "D4W",
+              "derecho": "T7J"
+            }
+          },
+          {
+            "id_interno": "D14-C07",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El hígado puede captar lactato transportado por la sangre.",
+            "codigos_laterales": {
+              "izquierdo": "P5C",
+              "derecho": "V9M"
+            }
+          },
+          {
+            "id_interno": "D14-C08",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La gluconeogénesis hepática puede utilizar lactato para formar glucosa.",
+            "codigos_laterales": {
+              "izquierdo": "K2F",
+              "derecho": "A6R"
+            }
+          },
+          {
+            "id_interno": "D14-C09",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Cori relaciona lactato periférico con formación hepática de glucosa.",
+            "codigos_laterales": {
+              "izquierdo": "X8B",
+              "derecho": "M4Q"
+            }
+          },
+          {
+            "id_interno": "D14-C10",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La gluconeogénesis requiere energía para sintetizar glucosa a partir de precursores.",
+            "codigos_laterales": {
+              "izquierdo": "J3H",
+              "derecho": "C7V"
+            }
+          },
+          {
+            "id_interno": "D14-C11",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en acetil-CoA y entrar al ciclo de Krebs.",
+            "codigos_laterales": {
+              "izquierdo": "R5L",
+              "derecho": "B2Y"
+            }
+          },
+          {
+            "id_interno": "D14-C12",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+            "codigos_laterales": {
+              "izquierdo": "N9D",
+              "derecho": "W3K"
+            }
+          },
+          {
+            "id_interno": "D14-C13",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Los electrones de coenzimas reducidas pueden pasar por la cadena transportadora.",
+            "codigos_laterales": {
+              "izquierdo": "T6P",
+              "derecho": "F4M"
+            }
+          },
+          {
+            "id_interno": "D14-C14",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La cadena transportadora contribuye a formar un gradiente de protones que impulsa la ATP sintasa.",
+            "codigos_laterales": {
+              "izquierdo": "Q8C",
+              "derecho": "Y5R"
+            }
+          },
+          {
+            "id_interno": "D14-C15",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La vuelta a la calma mantiene actividad muscular a menor intensidad que la carrera.",
+            "codigos_laterales": {
+              "izquierdo": "A7N",
+              "derecho": "D3X"
+            }
+          },
+          {
+            "id_interno": "D14-C16",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Una medición sanguínea de lactato no identifica directamente cuánto lactato hay en cada tejido.",
+            "codigos_laterales": {
+              "izquierdo": "H2V",
+              "derecho": "K9B"
+            }
+          },
+          {
+            "id_interno": "D14-D01",
+            "tipo_interno": "distractor_falso",
+            "texto_estudiante": "El lactato producido por el músculo solo puede eliminarse como desecho y no puede reutilizarse como sustrato.",
+            "codigos_laterales": {
+              "izquierdo": "M6F",
+              "derecho": "P3W"
+            }
+          },
+          {
+            "id_interno": "D14-D02",
+            "tipo_interno": "distractor_verdadero_irrelevante",
+            "texto_estudiante": "La lactosa es un disacárido formado por glucosa y galactosa.",
+            "codigos_laterales": {
+              "izquierdo": "V4J",
+              "derecho": "C8N"
+            }
+          },
+          {
+            "id_interno": "D14-P01",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Por qué una disminución de lactato sanguíneo no demuestra por sí sola que todo el lactato se oxidó en el músculo?",
+            "codigos_laterales": {
+              "izquierdo": "R2D",
+              "derecho": "W7M"
+            }
+          },
+          {
+            "id_interno": "D14-P02",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "Nombra dos destinos posibles del lactato durante la recuperación e indica qué tejido podría participar en cada uno.",
+            "codigos_laterales": {
+              "izquierdo": "B5Q",
+              "derecho": "X3A"
+            }
+          }
+        ]
+      },
+      {
+        "id": "D15",
+        "titulo": "Vóleibol: entrenamientos en días consecutivos",
+        "contexto": "Un equipo de vóleibol entrena dos días seguidos. Tras la primera sesión, con desplazamientos laterales, saltos y juego, sus integrantes consumen una comida con carbohidratos. Al día siguiente algunos sostienen el entrenamiento y otros reportan mayor esfuerzo. No se midieron ingesta individual, glucógeno ni carga interna.",
+        "mision": "Usen las cartas para construir un mapa que explique cómo se relacionan el uso de carbohidratos durante el entrenamiento, la producción de ATP y la posible reposición de glucógeno entre sesiones. Expliquen por qué los integrantes podrían experimentar distinta recuperación y qué información ayudaría a interpretar esas diferencias.",
+        "cartas": [
+          {
+            "id_interno": "D15-C01",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Los desplazamientos, saltos y acciones de juego requieren ATP.",
+            "codigos_laterales": {
+              "izquierdo": "J4B",
+              "derecho": "C8M"
+            }
+          },
+          {
+            "id_interno": "D15-C02",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El glucógeno muscular puede aportar carbohidratos al músculo activo.",
+            "codigos_laterales": {
+              "izquierdo": "W6R",
+              "derecho": "N2D"
+            }
+          },
+          {
+            "id_interno": "D15-C03",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa en sangre.",
+            "codigos_laterales": {
+              "izquierdo": "P9K",
+              "derecho": "A3V"
+            }
+          },
+          {
+            "id_interno": "D15-C04",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucogenólisis moviliza las reservas de carbohidratos.",
+            "codigos_laterales": {
+              "izquierdo": "H5C",
+              "derecho": "R7N"
+            }
+          },
+          {
+            "id_interno": "D15-C05",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucólisis produce piruvato y ATP.",
+            "codigos_laterales": {
+              "izquierdo": "T2M",
+              "derecho": "B6Y"
+            }
+          },
+          {
+            "id_interno": "D15-C06",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+            "codigos_laterales": {
+              "izquierdo": "D8P",
+              "derecho": "V4A"
+            }
+          },
+          {
+            "id_interno": "D15-C07",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El lactato puede circular y ser utilizado por otros tejidos.",
+            "codigos_laterales": {
+              "izquierdo": "K3W",
+              "derecho": "M9F"
+            }
+          },
+          {
+            "id_interno": "D15-C08",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El hígado puede utilizar lactato en gluconeogénesis.",
+            "codigos_laterales": {
+              "izquierdo": "C7J",
+              "derecho": "X5Q"
+            }
+          },
+          {
+            "id_interno": "D15-C09",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en acetil-CoA y entrar al ciclo de Krebs.",
+            "codigos_laterales": {
+              "izquierdo": "N6V",
+              "derecho": "F2H"
+            }
+          },
+          {
+            "id_interno": "D15-C10",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+            "codigos_laterales": {
+              "izquierdo": "Q4C",
+              "derecho": "Y8M"
+            }
+          },
+          {
+            "id_interno": "D15-C11",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La cadena transportadora utiliza electrones de coenzimas reducidas.",
+            "codigos_laterales": {
+              "izquierdo": "A5D",
+              "derecho": "W3R"
+            }
+          },
+          {
+            "id_interno": "D15-C12",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La fosforilación oxidativa contribuye a sintetizar ATP mediante la ATP sintasa.",
+            "codigos_laterales": {
+              "izquierdo": "L7P",
+              "derecho": "D9B"
+            }
+          },
+          {
+            "id_interno": "D15-C13",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Los carbohidratos de una comida aportan glucosa que puede oxidarse o almacenarse.",
+            "codigos_laterales": {
+              "izquierdo": "M2K",
+              "derecho": "P6T"
+            }
+          },
+          {
+            "id_interno": "D15-C14",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La síntesis de glucógeno almacena glucosa para uso posterior.",
+            "codigos_laterales": {
+              "izquierdo": "V5N",
+              "derecho": "C3A"
+            }
+          },
+          {
+            "id_interno": "D15-C15",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La carga y el descanso pueden influir en el esfuerzo percibido al día siguiente.",
+            "codigos_laterales": {
+              "izquierdo": "H8W",
+              "derecho": "R4J"
+            }
+          },
+          {
+            "id_interno": "D15-C16",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Una comida compartida no demuestra que todas las personas hayan repuesto la misma cantidad de glucógeno.",
+            "codigos_laterales": {
+              "izquierdo": "B7F",
+              "derecho": "N3Q"
+            }
+          },
+          {
+            "id_interno": "D15-D01",
+            "tipo_interno": "distractor_falso",
+            "texto_estudiante": "Si todo el equipo consume una comida con carbohidratos, todas las personas recuperan necesariamente las mismas reservas y el mismo rendimiento.",
+            "codigos_laterales": {
+              "izquierdo": "X6M",
+              "derecho": "K2P"
+            }
+          },
+          {
+            "id_interno": "D15-D02",
+            "tipo_interno": "distractor_verdadero_irrelevante",
+            "texto_estudiante": "La glucosa puede existir en formas lineales y cíclicas.",
+            "codigos_laterales": {
+              "izquierdo": "R9D",
+              "derecho": "J5V"
+            }
+          },
+          {
+            "id_interno": "D15-P01",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Qué información individual necesitarías para interpretar por qué algunas personas refieren mayor esfuerzo al día siguiente?",
+            "codigos_laterales": {
+              "izquierdo": "F4Q",
+              "derecho": "M8C"
+            }
+          },
+          {
+            "id_interno": "D15-P02",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Por qué reponer glucógeno puede apoyar la siguiente sesión, pero no garantiza por sí solo el rendimiento?",
+            "codigos_laterales": {
+              "izquierdo": "T7H",
+              "derecho": "A2W"
+            }
+          }
+        ]
+      },
+      {
+        "id": "D16",
+        "titulo": "Carrera de trail: mantener la glucosa durante el esfuerzo",
+        "contexto": "Durante una carrera de trail de larga duración, una deportista presenta concentraciones de glucosa sanguínea relativamente estables en dos mediciones. Los músculos continúan trabajando y se detecta lactato en sangre. No se midieron glucógeno hepático o muscular ni producción hepática de glucosa.",
+        "mision": "Usen las cartas para construir un mapa que explique cómo el metabolismo muscular y hepático puede contribuir simultáneamente a la actividad prolongada y a mantener la glucosa sanguínea. Relacionen las rutas pertinentes y expliquen por qué una concentración estable no permite identificar cuánto aportó cada ruta.",
+        "cartas": [
+          {
+            "id_interno": "D16-C01",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La carrera de trail de larga duración requiere producción de ATP durante un período prolongado.",
+            "codigos_laterales": {
+              "izquierdo": "C4M",
+              "derecho": "V8R"
+            }
+          },
+          {
+            "id_interno": "D16-C02",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El glucógeno muscular es una reserva de carbohidratos para uso principalmente local.",
+            "codigos_laterales": {
+              "izquierdo": "N7D",
+              "derecho": "F3Q"
+            }
+          },
+          {
+            "id_interno": "D16-C03",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El glucógeno hepático puede contribuir a mantener glucosa en sangre.",
+            "codigos_laterales": {
+              "izquierdo": "A6W",
+              "derecho": "P2K"
+            }
+          },
+          {
+            "id_interno": "D16-C04",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucogenólisis hepática moviliza glucógeno y puede aportar glucosa a la circulación.",
+            "codigos_laterales": {
+              "izquierdo": "R5C",
+              "derecho": "M9V"
+            }
+          },
+          {
+            "id_interno": "D16-C05",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucogenólisis muscular aporta intermediarios para el metabolismo del músculo.",
+            "codigos_laterales": {
+              "izquierdo": "H3B",
+              "derecho": "T6N"
+            }
+          },
+          {
+            "id_interno": "D16-C06",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucosa o sus derivados pueden incorporarse a la glucólisis.",
+            "codigos_laterales": {
+              "izquierdo": "W2A",
+              "derecho": "K8P"
+            }
+          },
+          {
+            "id_interno": "D16-C07",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucólisis produce piruvato y ATP.",
+            "codigos_laterales": {
+              "izquierdo": "D4Y",
+              "derecho": "Q7F"
+            }
+          },
+          {
+            "id_interno": "D16-C08",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en lactato y regenerar NAD⁺.",
+            "codigos_laterales": {
+              "izquierdo": "M5J",
+              "derecho": "B9C"
+            }
+          },
+          {
+            "id_interno": "D16-C09",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El lactato puede transportarse por sangre entre tejidos.",
+            "codigos_laterales": {
+              "izquierdo": "F6R",
+              "derecho": "X3D"
+            }
+          },
+          {
+            "id_interno": "D16-C10",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El hígado puede utilizar lactato como precursor para gluconeogénesis.",
+            "codigos_laterales": {
+              "izquierdo": "P8M",
+              "derecho": "N2V"
+            }
+          },
+          {
+            "id_interno": "D16-C11",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La gluconeogénesis forma glucosa a partir de precursores y requiere energía.",
+            "codigos_laterales": {
+              "izquierdo": "J5A",
+              "derecho": "C7W"
+            }
+          },
+          {
+            "id_interno": "D16-C12",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en acetil-CoA y entrar al ciclo de Krebs.",
+            "codigos_laterales": {
+              "izquierdo": "V4H",
+              "derecho": "A9N"
+            }
+          },
+          {
+            "id_interno": "D16-C13",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+            "codigos_laterales": {
+              "izquierdo": "T3Q",
+              "derecho": "H6M"
+            }
+          },
+          {
+            "id_interno": "D16-C14",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La cadena transportadora y la fosforilación oxidativa contribuyen a sintetizar ATP.",
+            "codigos_laterales": {
+              "izquierdo": "B2X",
+              "derecho": "R8K"
+            }
+          },
+          {
+            "id_interno": "D16-C15",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La sangre contiene glucosa cuya concentración puede mantenerse mediante producción y utilización simultáneas.",
+            "codigos_laterales": {
+              "izquierdo": "K4D",
+              "derecho": "W7P"
+            }
+          },
+          {
+            "id_interno": "D16-C16",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La concentración sanguínea refleja un balance entre aparición y utilización de glucosa.",
+            "codigos_laterales": {
+              "izquierdo": "N5C",
+              "derecho": "F2Y"
+            }
+          },
+          {
+            "id_interno": "D16-D01",
+            "tipo_interno": "distractor_falso",
+            "texto_estudiante": "Si la glucosa sanguínea se mantiene estable, significa que el hígado no está movilizando ni produciendo glucosa.",
+            "codigos_laterales": {
+              "izquierdo": "Q9M",
+              "derecho": "D3H"
+            }
+          },
+          {
+            "id_interno": "D16-D02",
+            "tipo_interno": "distractor_verdadero_irrelevante",
+            "texto_estudiante": "La maltosa puede hidrolizarse en dos moléculas de glucosa.",
+            "codigos_laterales": {
+              "izquierdo": "A5R",
+              "derecho": "V6B"
+            }
+          },
+          {
+            "id_interno": "D16-P01",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Por qué una concentración estable de glucosa sanguínea no permite determinar cuánto glucógeno hepático queda?",
+            "codigos_laterales": {
+              "izquierdo": "M8F",
+              "derecho": "T2J"
+            }
+          },
+          {
+            "id_interno": "D16-P02",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Qué medición adicional ayudaría a estimar la contribución de la gluconeogénesis durante la carrera?",
+            "codigos_laterales": {
+              "izquierdo": "C6V",
+              "derecho": "P4W"
+            }
+          }
+        ]
+      },
+      {
+        "id": "D17",
+        "titulo": "Recuperación después de un torneo: cambios de lactato y glucosa",
+        "contexto": "Después de un torneo de tenis se toman muestras de sangre a una deportista al terminar y durante la recuperación. En mediciones posteriores disminuye el lactato sanguíneo y la glucosa aumenta ligeramente. No se usaron trazadores ni se midió directamente la actividad metabólica del hígado o del músculo.",
+        "mision": "Usen las cartas para construir un mapa que explique los destinos posibles del lactato durante la recuperación y cómo se relacionan con la producción de ATP o la gluconeogénesis hepática. Interpreten los cambios observados de lactato y glucosa, distinguiendo una asociación entre mediciones de una conversión metabólica demostrada.",
+        "cartas": [
+          {
+            "id_interno": "D17-C01",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucólisis muscular produce piruvato a partir de glucosa o sus derivados.",
+            "codigos_laterales": {
+              "izquierdo": "J6R",
+              "derecho": "C2W"
+            }
+          },
+          {
+            "id_interno": "D17-C02",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La conversión de piruvato en lactato regenera NAD⁺.",
+            "codigos_laterales": {
+              "izquierdo": "P5H",
+              "derecho": "V8C"
+            }
+          },
+          {
+            "id_interno": "D17-C03",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El lactato puede salir del músculo y transportarse por la sangre.",
+            "codigos_laterales": {
+              "izquierdo": "M3Q",
+              "derecho": "D7A"
+            }
+          },
+          {
+            "id_interno": "D17-C04",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Otros tejidos pueden captar y oxidar lactato como sustrato.",
+            "codigos_laterales": {
+              "izquierdo": "W9F",
+              "derecho": "B4N"
+            }
+          },
+          {
+            "id_interno": "D17-C05",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El hígado puede captar lactato y utilizarlo para gluconeogénesis.",
+            "codigos_laterales": {
+              "izquierdo": "T2K",
+              "derecho": "Q6V"
+            }
+          },
+          {
+            "id_interno": "D17-C06",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La gluconeogénesis forma glucosa a partir de precursores y requiere energía.",
+            "codigos_laterales": {
+              "izquierdo": "A8M",
+              "derecho": "N5D"
+            }
+          },
+          {
+            "id_interno": "D17-C07",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Cori relaciona lactato periférico con glucosa formada en el hígado.",
+            "codigos_laterales": {
+              "izquierdo": "F3Y",
+              "derecho": "R7C"
+            }
+          },
+          {
+            "id_interno": "D17-C08",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La glucosa sanguínea puede tener varios orígenes y destinos metabólicos.",
+            "codigos_laterales": {
+              "izquierdo": "K4W",
+              "derecho": "P9B"
+            }
+          },
+          {
+            "id_interno": "D17-C09",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El piruvato puede convertirse en acetil-CoA.",
+            "codigos_laterales": {
+              "izquierdo": "D6M",
+              "derecho": "H2Q"
+            }
+          },
+          {
+            "id_interno": "D17-C10",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El acetil-CoA puede entrar al ciclo de Krebs.",
+            "codigos_laterales": {
+              "izquierdo": "V5P",
+              "derecho": "C8J"
+            }
+          },
+          {
+            "id_interno": "D17-C11",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "El ciclo de Krebs produce NADH y FADH₂.",
+            "codigos_laterales": {
+              "izquierdo": "M7A",
+              "derecho": "T3R"
+            }
+          },
+          {
+            "id_interno": "D17-C12",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Los electrones de coenzimas reducidas pueden pasar por la cadena transportadora.",
+            "codigos_laterales": {
+              "izquierdo": "Q2D",
+              "derecho": "W6K"
+            }
+          },
+          {
+            "id_interno": "D17-C13",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La cadena transportadora contribuye a generar un gradiente de protones.",
+            "codigos_laterales": {
+              "izquierdo": "B9H",
+              "derecho": "F4V"
+            }
+          },
+          {
+            "id_interno": "D17-C14",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La ATP sintasa utiliza el gradiente de protones durante la fosforilación oxidativa.",
+            "codigos_laterales": {
+              "izquierdo": "N8C",
+              "derecho": "J5M"
+            }
+          },
+          {
+            "id_interno": "D17-C15",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "La concentración sanguínea de lactato depende de su aparición, transporte y utilización.",
+            "codigos_laterales": {
+              "izquierdo": "R3P",
+              "derecho": "A7Y"
+            }
+          },
+          {
+            "id_interno": "D17-C16",
+            "tipo_interno": "concepto",
+            "texto_estudiante": "Un cambio en la concentración sanguínea no identifica por sí solo el destino de cada molécula de lactato.",
+            "codigos_laterales": {
+              "izquierdo": "H6D",
+              "derecho": "K2V"
+            }
+          },
+          {
+            "id_interno": "D17-D01",
+            "tipo_interno": "distractor_falso",
+            "texto_estudiante": "Que disminuya el lactato mientras aumenta la glucosa demuestra que todo el lactato se convirtió en glucosa por el ciclo de Cori.",
+            "codigos_laterales": {
+              "izquierdo": "C5N",
+              "derecho": "M9W"
+            }
+          },
+          {
+            "id_interno": "D17-D02",
+            "tipo_interno": "distractor_verdadero_irrelevante",
+            "texto_estudiante": "La celulosa es un polisacárido estructural con enlaces β(1→4).",
+            "codigos_laterales": {
+              "izquierdo": "V4J",
+              "derecho": "T8B"
+            }
+          },
+          {
+            "id_interno": "D17-P01",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Qué conclusión permite y cuál no permite hacer el cambio simultáneo observado en lactato y glucosa sanguíneos?",
+            "codigos_laterales": {
+              "izquierdo": "Q7F",
+              "derecho": "D2M"
+            }
+          },
+          {
+            "id_interno": "D17-P02",
+            "tipo_interno": "pregunta_adicional",
+            "texto_estudiante": "¿Qué tipo de medición ayudaría a demostrar si el lactato se convirtió en glucosa durante la recuperación?",
+            "codigos_laterales": {
+              "izquierdo": "A6C",
+              "derecho": "P3X"
+            }
+          }
+        ]
+      }
+    ]
+}

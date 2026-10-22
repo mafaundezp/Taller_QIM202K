@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Taller colaborativo de mapas metabólicos para QIM202K">
+  <title>Taller 4 — Mapas metabólicos de energía y recuperación</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul2: #2d6a8a;
+      --claro: #eaf3f8;
+      --amarillo: #fff7df;
+      --texto: #1f2937;
+      --gris: #64748b;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 16px Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      padding: 36px 6vw;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.15;
+    }
+
+    header p { margin: 6px 0; }
+
+    .tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 12px;
+      border: 1px solid #ffffff70;
+      border-radius: 20px;
+      background: #ffffff1c;
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 11px 6vw;
+      background: white;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    button {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--azul);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover { filter: brightness(1.08); }
+
+    .wrap {
+      width: min(1200px, 92%);
+      margin: auto;
+      padding: 24px 0 50px;
+    }
+
+    .instructions, .warning {
+      margin-bottom: 20px;
+      padding: 17px 20px;
+      border-left: 5px solid var(--azul);
+      border-radius: 7px;
+      background: var(--claro);
+    }
+
+    .warning {
+      border-color: #d97706;
+      background: var(--amarillo);
+    }
+
+    .instructions h2, .warning h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(230px, .7fr) minmax(0, 1.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel, .content {
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: white;
+      box-shadow: 0 2px 7px #0000000f;
+    }
+
+    .panel {
+      position: sticky;
+      top: 68px;
+      padding: 16px;
+      max-height: calc(100vh - 85px);
+      overflow-y: auto;
+    }
+
+    .panel h2, .content h2 { color: var(--azul); }
+
+    .challenge-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .challenge-button {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--borde);
+      background: #f8fafc;
+      color: var(--texto);
+      text-align: left;
+      font: inherit;
+    }
+
+    .challenge-button.active,
+    .challenge-button:hover {
+      border-color: var(--azul2);
+      background: var(--claro);
+    }
+
+    .challenge-button strong {
+      display: block;
+      color: var(--azul);
+    }
+
+    .content {
+      min-width: 0;
+      padding: 22px;
+      scroll-margin-top: 75px;
+    }
+
+    .block { margin: 20px 0; }
+
+    .block h3 {
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--azul);
+      font-size: 1.1rem;
+    }
+
+    .text-box {
+      padding: 14px 16px;
+      border-left: 4px solid var(--azul2);
+      background: #f8fafc;
+    }
+
+    .mission {
+      padding: 15px 17px;
+      border: 1px solid #fcd34d;
+      border-radius: 7px;
+      background: #fffbeb;
+      font-weight: bold;
+    }
+
+    .deck-heading {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deck-heading h3 { flex: 1 1 220px; }
+
+    .card-count {
+      color: var(--gris);
+      font-size: .92rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      min-height: 120px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 2px 5px #0000000d;
+      overflow: hidden;
+    }
+
+    .side-code {
+      display: flex;
+      flex: 0 0 25px;
+      align-items: center;
+      justify-content: center;
+      background: var(--claro);
+      color: var(--azul);
+      font: bold 10px Arial, sans-serif;
+      letter-spacing: 1px;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    }
+
+    .card-text {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding: 14px 12px;
+      font-size: .96rem;
+    }
+
+    .empty, .error {
+      padding: 28px;
+      border-radius: 8px;
+      background: white;
+      text-align: center;
+    }
+
+    .error {
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    footer {
+      padding: 22px 6vw;
+      background: #0f2f49;
+      color: #dbeafe;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      nav { position: static; }
+      .grid { grid-template-columns: 1fr; }
+      .panel {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      header { padding: 20px; }
+      nav, .panel, .instructions, .warning, .shuffle-button, footer {
+        display: none !important;
+      }
+      .wrap { width: 100%; padding: 0; }
+      .grid { display: block; }
+      .content { border: 0; box-shadow: none; padding: 10px; }
+      .card { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Taller colaborativo N.° 4: Mapas metabólicos de energía y recuperación</h1>
+    <p><strong>QIM202K — Bioquímica General para estudiantes de Kinesiología</strong></p>
+    <p>Seleccionen el desafío asignado por el docente. Lean el contexto y la misión antes de trabajar con las cartas.</p>
+    <span class="tag">Metabolismo · ejercicio · ATP · recuperación</span>
+  </header>
+
+  <nav aria-label="Navegación del taller">
+    <button type="button" id="topButton">Instrucciones generales</button>
+    <button type="button" id="printButton">Imprimir desafío</button>
+  </nav>
+
+  <main class="wrap">
+    <section class="instructions">
+      <h2>¿Qué harán?</h2>
+      <p>En grupo, construyan un mapa metabólico que responda a la misión del desafío asignado. Usen las cartas para relacionar los conceptos y representar las conexiones entre tejidos, rutas y producción de ATP.</p>
+      <p>Las cartas se presentan en orden aleatorio: el orden mostrado no representa el orden correcto del mapa. Analicen qué cartas son pertinentes y cómo se relacionan entre sí.</p>
+    </section>
+
+    <section class="warning">
+      <h2>Importante sobre las cartas</h2>
+      <p>Algunas cartas plantean preguntas: respóndanlas por escrito aparte y no las peguen como nodos del mapa. Las cartas distractoras no están identificadas visualmente. Los códigos laterales sirven para reconocer las cartas impresas; no indican el orden correcto.</p>
+    </section>
+
+    <div id="loading" class="empty">Cargando los desafíos…</div>
+    <div id="error" class="error" hidden></div>
+
+    <div id="app" class="grid" hidden>
+      <aside class="panel">
+        <h2>Seleccionar desafío</h2>
+        <div id="challengeList" class="challenge-list"></div>
+      </aside>
+
+      <section id="content" class="content" aria-live="polite"></section>
+    </div>
+  </main>
+
+  <footer>QIM202K — Bioquímica General · Talleres colaborativos para estudiantes de Kinesiología</footer>
+
+  <script>
+    let challenges = [];
+    let selectedIndex = 0;
+
+    const loadingEl = document.getElementById("loading");
+    const errorEl = document.getElementById("error");
+    const appEl = document.getElementById("app");
+    const listEl = document.getElementById("challengeList");
+    const contentEl = document.getElementById("content");
+
+    function shuffled(items) {
+      const result = [...items];
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+      return result;
+    }
+
+    function makeElement(tag, className, text) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      if (text !== undefined) el.textContent = text;
+      return el;
+    }
+
+    function renderList() {
+      listEl.replaceChildren();
+
+      challenges.forEach((challenge, index) => {
+        const button = makeElement("button", "challenge-button");
+        button.type = "button";
+        button.classList.toggle("active", index === selectedIndex);
+        button.setAttribute("aria-current", index === selectedIndex ? "true" : "false");
+
+        const number = makeElement("strong", "", `Desafío ${index + 1}`);
+        const title = makeElement("span", "", challenge.titulo);
+
+        button.append(number, title);
+        button.addEventListener("click", () => {
+          selectedIndex = index;
+          renderList();
+          renderChallenge();
+        });
+
+        listEl.appendChild(button);
+      });
+    }
+
+    function renderChallenge() {
+      const challenge = challenges[selectedIndex];
+      if (!challenge) return;
+
+      contentEl.replaceChildren();
+
+      contentEl.appendChild(makeElement("h2", "", `Desafío ${selectedIndex + 1}: ${challenge.titulo}`));
+
+      const contextSection = makeElement("section", "block");
+      contextSection.appendChild(makeElement("h3", "", "Contexto"));
+      contextSection.appendChild(makeElement("div", "text-box", challenge.contexto));
+
+      const missionSection = makeElement("section", "block");
+      missionSection.appendChild(makeElement("h3", "", "Misión"));
+      missionSection.appendChild(makeElement("div", "mission", challenge.mision));
+
+      const deckSection = makeElement("section", "block");
+      const heading = makeElement("div", "deck-heading");
+      heading.appendChild(makeElement("h3", "", "Cartas del desafío"));
+
+      const count = makeElement("span", "card-count", `${challenge.cartas.length} cartas`);
+      heading.appendChild(count);
+
+      const shuffleButton = makeElement("button", "shuffle-button", "Mezclar cartas");
+      shuffleButton.type = "button";
+      shuffleButton.addEventListener("click", renderCards);
+      heading.appendChild(shuffleButton);
+
+      const cardsContainer = makeElement("div", "cards");
+      cardsContainer.id = "cards";
+
+      deckSection.append(heading, cardsContainer);
+      contentEl.append(contextSection, missionSection, deckSection);
+
+      renderCards();
+      contentEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderCards() {
+      const challenge = challenges[selectedIndex];
+      const container = document.getElementById("cards");
+      if (!container || !challenge) return;
+
+      container.replaceChildren();
+
+      shuffled(challenge.cartas).forEach((cardData) => {
+        const card = makeElement("article", "card");
+
+        const leftCode = makeElement(
+          "span",
+          "side-code",
+          cardData.codigos_laterales.izquierdo
+        );
+        leftCode.setAttribute("aria-label", "Código lateral izquierdo");
+
+        const text = makeElement("div", "card-text", cardData.texto_estudiante);
+
+        const rightCode = makeElement(
+          "span",
+          "side-code",
+          cardData.codigos_laterales.derecho
+        );
+        rightCode.setAttribute("aria-label", "Código lateral derecho");
+
+        card.append(leftCode, text, rightCode);
+        container.appendChild(card);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch("./cartas_estudiantes.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`No se pudo cargar cartas_estudiantes.json (HTTP ${response.status}).`);
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data.desafios) || data.desafios.length !== 17) {
+          throw new Error("El archivo debe contener exactamente 17 desafíos en la propiedad «desafios».");
+        }
+
+        challenges = data.desafios;
+        loadingEl.hidden = true;
+        appEl.hidden = false;
+
+        renderList();
+        renderChallenge();
+      } catch (error) {
+        loadingEl.hidden = true;
+        errorEl.hidden = false;
+        errorEl.textContent =
+          `${error.message} Comprueba que cartas_estudiantes.json esté en la misma carpeta que Taller4.html y que el JSON esté completo y válido.`;
+      }
+    }
+
+    document.getElementById("topButton").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.getElementById("printButton").addEventListener("click", () => {
+      window.print();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
