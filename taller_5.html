@@ -1,0 +1,256 @@
+<!-- Documento HTML de instrucciones generales para el debate metabólico -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Configuración básica de la página -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Instrucciones para el debate metabólico">
+<title>Instrucciones generales para el debate metabólico</title>
+<!-- Estilos visuales de la página -->
+<style>
+:root {
+  --azul: #0d1b25;
+  --azul2: #2d6a8a;
+  --verde: #16794b;
+  --naranjo: #a65300;
+  --claro: #eaf3f8;
+  --amarillo: #fff7df;
+  --texto: #34495e;
+  --borde: #cbd5e1;
+  --fondo: #f8fafc;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font: 16px Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+header {
+  padding: 36px 6vw;
+  background: linear-gradient(135deg, var(--azul), var(--azul2));
+  color: #ffffff;
+}
+header h1 {
+  max-width: 900px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+main {
+  width: min(1000px, 92%);
+  margin: 30px auto 50px;
+}
+section {
+  margin-bottom: 22px;
+  padding: 22px;
+  border: 1px solid var(--borde);
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow: 0 2px 7px #0000000f;
+  scroll-margin-top: 20px;
+}
+h2 {
+  margin-top: 0;
+  color: var(--texto);
+  font-size: 1.35rem;
+}
+h3 { color: var(--texto); }
+p { margin: 10px 0; color: var(--texto); }
+ul {
+  margin: 10px 0 0;
+  padding-left: 24px;
+}
+li { margin: 7px 0; color: var(--texto); }
+.purpose {
+  border-left: 5px solid var(--azul2);
+  background: var(--claro);
+}
+.warning {
+  border-left: 5px solid #d97706;
+  background: var(--amarillo);
+}
+.topic-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.topic-button,
+.evaluation-button,
+.registration-button {
+  display: block;
+  padding: 14px 18px;
+  border: 2px solid transparent;
+  border-radius: 7px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.topic-button { background: var(--azul); }
+.topic-button:hover,
+.topic-button:focus {
+  background: var(--azul2);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.evaluation-button {
+  border-color: var(--verde);
+  background: var(--verde);
+}
+.evaluation-button:hover,
+.evaluation-button:focus {
+  border-color: #105f3a;
+  background: #105f3a;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.registration-button {
+  border-color: var(--naranjo);
+  background: var(--naranjo);
+}
+.registration-button:hover,
+.registration-button:focus {
+  border-color: #7d3e00;
+  background: #7d3e00;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.evaluation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.evaluation-card {
+  padding: 16px;
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  background: #f8fafc;
+}
+.evaluation-card h3 { margin-top: 0; }
+footer {
+  padding: 20px 6vw;
+  background: #0f2f49;
+  color: #dbeafe;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  header { padding: 28px 5vw; }
+  main { width: 94%; margin-top: 20px; }
+  section { padding: 18px; }
+}
+@media print {
+  body { background: #ffffff; }
+  header {
+    padding: 20px;
+    background: #ffffff;
+    color: var(--texto);
+    border-bottom: 2px solid var(--azul);
+  }
+  header h1 { color: var(--texto); }
+  main { width: 100%; margin: 20px 0; }
+  section {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  .topic-buttons { display: none; }
+  footer {
+    background: #ffffff;
+    color: var(--texto);
+  }
+}
+</style>
+</head>
+<body>
+<!-- Encabezado principal de la página -->
+<header id="inicio">
+<h1>Instrucciones generales para el debate metabólico</h1>
+</header>
+<!-- Contenido principal de las instrucciones -->
+<main>
+<!-- Propósito pedagógico de la actividad -->
+<section class="purpose">
+<h2>Propósito</h2>
+<p>Analizar un caso relacionado con ejercicio o actividad física desde una perspectiva metabólica, explicar cómo se relaciona con la disponibilidad de energía y debatir qué conclusiones permite sostener la información entregada.</p>
+<p>No se espera que un grupo demuestre que su vía es la única importante ni que diagnostique o recomiende tratamientos. Se espera que explique su enfoque, lo conecte brevemente con otras rutas y reconozca los límites de sus conclusiones.</p>
+</section>
+<!-- Accesos a los casos, al registro de grupo y al formulario de evaluación -->
+<section>
+<h2>Temas de debate</h2>
+<p>Seleccionen el tema asignado, regístrense en un grupo y accedan al formulario de evaluación entre pares durante el debate.</p>
+<nav class="topic-buttons" aria-label="Casos, registro y evaluación del debate">
+<a class="topic-button" href="caso_carbohidratos.html">Carbohidratos</a>
+<a class="topic-button" href="caso_lipidos.html">Lípidos</a>
+<a class="topic-button" href="caso_mitocondria.html">Mitocondria</a>
+<a class="topic-button" href="caso_aminoacidos.html">Aminoácidos</a>
+<a class="registration-button" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=-tn1Xz_4wUqk0utI6goA0lMsAHBmti1Es53-8pG78Q1UNUJNRU45SDBLU1hPSFpKQzJDMEJBMjJPWC4u" target="_blank" rel="noopener noreferrer">📝 Registrarse en un grupo</a>
+<a class="evaluation-button" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=-tn1Xz_4wUqk0utI6goA0lMsAHBmti1Es53-8pG78Q1UNk5QNkszVzRKSjBINVBOWkc2UFNQQ09WTC4u" target="_blank" rel="noopener noreferrer">🗳️ Evaluar debate</a>
+</nav>
+</section>
+<!-- Indicaciones del trabajo previo y documento de entrega -->
+<section>
+<h2>Antes del debate</h2>
+<p>Cada grupo completará y entregará un documento de trabajo que incluya:</p>
+<ul>
+<li>Análisis detallado del caso, explicado con sus propias palabras.</li>
+<li>Respuestas a las preguntas de preparación asignadas.</li>
+<li>Esquema metabólico pertinente.</li>
+<li>Una conexión breve con otra ruta, sin desarrollar el tema asignado a otro grupo.</li>
+<li>Información faltante o que limite sus conclusiones.</li>
+<li>Dos preguntas posibles para el debate: una dirigida a cada uno de los otros dos grupos de su mismo bloque. Durante el debate, el grupo formulará solo una de esas dos preguntas.</li>
+</ul>
+<p>No se deben copiar y pegar respuestas. Se espera que el grupo seleccione, explique y aplique la información bioquímica al caso.</p>
+</section>
+<!-- Instrucciones sobre la selección de representantes -->
+<section>
+<h2>Representantes del grupo</h2>
+<p>Cada grupo elegirá <strong>dos integrantes</strong> para presentar y defender el análisis durante el debate. Estos representantes expondrán la perspectiva del grupo, formularán la pregunta que hayan seleccionado entre las dos preguntas preparadas y responderán la pregunta que reciban.</p>
+<p>El resto del grupo participa en la preparación del caso y del documento de trabajo. La participación oral durante la presentación y el debate corresponde a los dos representantes elegidos.</p>
+</section>
+<!-- Secuencia y tiempos de participación en el debate -->
+<section>
+<h2>Durante el debate</h2>
+<ul>
+<li>El profesor iniciará con la pregunta general indicada en la ficha del caso.</li>
+<li>Los dos representantes de cada grupo dispondrán de <strong>3 minutos</strong> para presentar su análisis.</li>
+<li>Cada grupo formulará <strong>una sola pregunta</strong> a uno de los otros dos grupos de su mismo bloque, seleccionada entre las dos preguntas preparadas. La pregunta podrá durar hasta <strong>30 segundos</strong>.</li>
+<li>El grupo interpelado dispondrá de hasta <strong>1 minuto</strong> para responder.</li>
+<li>El profesor moderará el debate y podrá realizar preguntas de seguimiento.</li>
+</ul>
+</section>
+<!-- Componentes y ponderaciones de la evaluación -->
+<section>
+<h2>Evaluación</h2>
+<div class="evaluation-grid">
+<div class="evaluation-card">
+<h3>Entregable grupal</h3>
+<p>Corresponde al <strong>30 %</strong> de la nota del taller y será evaluado solo por el profesor y los ayudantes.</p>
+</div>
+<div class="evaluation-card">
+<h3>Desempeño oral</h3>
+<p>Corresponde al <strong>70 %</strong> de la evaluación: el <strong>35 %</strong> será evaluado por el profesor y los ayudantes, y el <strong>35 %</strong> restante por estudiantes mediante un formulario de Microsoft.</p>
+</div>
+</div>
+<p>Los estudiantes no evaluarán entregables. En la evaluación entre pares, no podrán evaluar a su propio grupo ni a los dos grupos de su mismo bloque; evaluarán grupos de otras rutas metabólicas.</p>
+</section>
+<!-- Reglas de votación y consecuencias individuales -->
+<section class="warning">
+<h2>Votación y evaluación entre pares</h2>
+<p>La evaluación entre pares se realizará mediante un formulario de Microsoft durante el periodo de debate. Cada estudiante evaluará únicamente a grupos de otras rutas metabólicas; no podrá evaluar a su propio grupo ni a los otros dos grupos de su mismo bloque.</p>
+<p>Las respuestas deberán basarse en los criterios de la rúbrica. La hora de envío se revisará para comprobar que los votos se realizaron durante el periodo de presentación de los grupos.</p>
+<ul>
+<li><strong>No participar en la votación:</strong> descuento de <strong>0,1 puntos</strong> en la nota final individual.</li>
+<li><strong>Votar sin haber presenciado los debates asignados, o asignar el puntaje máximo a todos los grupos sin aplicar los criterios de la rúbrica:</strong> descuento de <strong>1,0 punto</strong> en la nota final individual.</li>
+</ul>
+</section>
+</main>
+<!-- Pie de página -->
+<footer>Instrucciones generales para el debate metabólico</footer>
+</body>
+</html>

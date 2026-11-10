@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso para el debate académico sobre integración mitocondrial y producción de ATP durante el ejercicio">
+  <title>Desafío de debate: Mitocondria y producción de ATP</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul2: #2d6a8a;
+      --claro: #eaf3f8;
+      --amarillo: #fff7df;
+      --texto: #1f2937;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 16px Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 34px 6vw;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: #fff;
+    }
+
+    header h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+    }
+
+    main {
+      width: min(950px, 92%);
+      margin: 28px auto 46px;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 22px;
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: #fff;
+      box-shadow: 0 2px 7px #0000000f;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--azul);
+      font-size: 1.35rem;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--azul);
+      font-size: 1.08rem;
+    }
+
+    p { margin: 10px 0; }
+
+    .case {
+      border-left: 5px solid var(--azul2);
+      background: var(--claro);
+    }
+
+    .question,
+    .note {
+      border-left: 5px solid #d97706;
+      background: var(--amarillo);
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .group-card {
+      padding: 17px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .group-number {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--azul);
+      color: white;
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 24px;
+    }
+
+    li { margin: 7px 0; }
+
+    footer {
+      padding: 18px 6vw;
+      background: #0f2f49;
+      color: #dbeafe;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 27px 5vw; }
+      main { width: 94%; margin-top: 18px; }
+      section { padding: 18px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+
+      header {
+        padding: 20px;
+        background: #fff;
+        color: var(--texto);
+        border-bottom: 2px solid var(--azul);
+      }
+
+      main { width: 100%; margin: 18px 0; }
+
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .back-link { display: none; }
+      footer {
+        background: #fff;
+        color: var(--texto);
+        border-top: 1px solid var(--borde);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Desafío de debate: Mitocondria y producción de ATP</h1>
+    <p>Integración mitocondrial durante el ejercicio</p>
+    <a class="back-link" href="taller_5.html" style="display:inline-block;margin-top:18px;padding:9px 14px;border:2px solid #ffd166;border-radius:6px;background-color:#ffd166;color:#123b5d !important;font-size:15px;font-weight:bold;text-decoration:none !important;">← Volver al Taller 5</a>
+  </header>
+
+  <main>
+    <section class="case">
+      <h2>Caso: «El mismo recorrido, otro esfuerzo»</h2>
+
+      <p>
+        Valentina tiene 24 años y practica carreras de montaña. Entrena
+        habitualmente cerca del nivel del mar y participa en una concentración
+        deportiva en una zona de altura, donde realiza recorridos de
+        entrenamiento similares a los que acostumbra hacer.
+      </p>
+
+      <p>
+        Durante los primeros días, Valentina nota que le cuesta mantener el
+        ritmo que suele llevar en esos recorridos. En algunos tramos debe bajar
+        la velocidad o hacer pausas antes de lo esperado. Su entrenador comenta
+        que la altura podría influir en el aporte de oxígeno y que eso afectaría
+        la producción de energía en las células musculares.
+      </p>
+
+      <p>
+        No se cuenta con mediciones fisiológicas o metabólicas tomadas durante
+        las sesiones que permitan determinar qué procesos explican el cambio en
+        su desempeño.
+      </p>
+
+      <p>
+        Una marca ofrece al equipo un suplemento de vitaminas del complejo B y
+        afirma que “activa las mitocondrias y aumenta la producción de ATP”.
+        Valentina quiere saber qué relación tienen esas vitaminas con las rutas
+        mitocondriales y si la afirmación permite concluir que el suplemento
+        mejoraría su rendimiento. No se ha evaluado si presenta una deficiencia
+        nutricional.
+      </p>
+    </section>
+
+    <section class="question">
+      <h2>Pregunta de inicio del profesor</h2>
+      <p>
+        <strong>
+          ¿Cómo se relacionan el ciclo de Krebs, la cadena transportadora de
+          electrones y la síntesis de ATP con la situación de Valentina en
+          altura? ¿Qué permite afirmar el caso sobre el suplemento y qué
+          información falta para sostener una conclusión?
+        </strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>Perspectivas asignadas</h2>
+      <p>
+        Los tres grupos analizarán el mismo caso, pero profundizarán en aspectos
+        distintos. Cada grupo debe centrarse en su perspectiva y puede nombrar
+        conexiones con otros procesos sin desarrollarlos en detalle.
+      </p>
+
+      <div class="groups">
+        <article class="group-card">
+          <span class="group-number">Grupo 1</span>
+          <h3>Ciclo de Krebs</h3>
+          <p>
+            ¿Qué función cumple el ciclo de Krebs en la oxidación de
+            combustibles? ¿Qué productos del ciclo se relacionan con la
+            transferencia de electrones y cómo podrían vincularse con la
+            situación de Valentina?
+          </p>
+        </article>
+
+        <article class="group-card">
+          <span class="group-number">Grupo 2</span>
+          <h3>Cadena transportadora de electrones y gradiente de protones</h3>
+          <p>
+            ¿Cómo se transfieren los electrones en la cadena transportadora?
+            ¿Qué relación tiene el oxígeno con este proceso y con la formación
+            del gradiente de protones? ¿Qué aspectos del caso podrían ser
+            pertinentes para analizarlo?
+          </p>
+        </article>
+
+        <article class="group-card">
+          <span class="group-number">Grupo 3</span>
+          <h3>Síntesis de ATP e integración mitocondrial</h3>
+          <p>
+            ¿Cómo se utiliza el gradiente de protones para sintetizar ATP?
+            ¿Cómo se integran el ciclo de Krebs, la cadena transportadora y la
+            ATP sintasa? ¿Qué se puede y qué no se puede concluir sobre la
+            afirmación del suplemento?
+          </p>
+        </article>
+      </div>
+    </section>
+
+<section>
+  <h2>Preparación y entrega grupal</h2>
+  <p>El documento de trabajo debe incluir:</p>
+  <ul>
+    <li>Un análisis detallado del caso desde la perspectiva asignada, explicado con palabras propias.</li>
+    <li>Respuestas fundamentadas a las preguntas del grupo.</li>
+    <li>Un esquema metabólico pertinente.</li>
+    <li>Una conexión breve con otro proceso mitocondrial.</li>
+    <li>Información faltante o que limite las conclusiones.</li>
+    <li>Dos preguntas posibles para el debate: una dirigida a cada uno de los otros dos grupos. Durante el debate, el grupo formulará solo una de esas preguntas.</li>
+  </ul>
+  <p><strong>Diapositiva de apoyo:</strong> cada grupo debe crear y enviar una sola diapositiva para acompañar su presentación. Debe resumir el análisis e incluir un esquema metabólico pertinente. Eviten los párrafos extensos: la diapositiva debe apoyar la explicación oral, no reemplazarla. Envíenla junto con el documento grupal.</p>
+  <p>La discusión del suplemento debe centrarse en evaluar la afirmación con argumentos bioquímicos. No se espera que el grupo recomiende su consumo.</p>
+  <div style="margin:20px 0;text-align:center;">
+    <a href="https://cursos.canvas.uc.cl/courses/108699/assignments/665113" style="display:inline-block;padding:12px 20px;border:2px solid #16794b;border-radius:7px;background-color:#16794b;color:#ffffff !important;font-weight:bold;text-decoration:none !important;">Entregar aquí documento grupal</a>
+  </div>
+</section>
+
+    <section class="note">
+      <p>
+        <strong>* Nota:</strong> Este caso es de carácter pedagógico y se presenta
+        para analizar rutas metabólicas. No constituye ni pretende constituir un
+        diagnóstico clínico, una evaluación médica ni una recomendación de
+        tratamiento, alimentación o suplementación.
+      </p>
+    </section>
+  </main>
+
+  <footer>Desafío de debate: Mitocondria y producción de ATP</footer>
+</body>
+</html>

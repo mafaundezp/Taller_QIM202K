@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso para el debate académico sobre aminoácidos y metabolismo energético durante el ejercicio">
+  <title>Desafío de debate: Aminoácidos y energía</title>
+
+  <style>
+    :root {
+      --azul: #123b5d;
+      --azul2: #2d6a8a;
+      --claro: #eaf3f8;
+      --amarillo: #fff7df;
+      --texto: #1f2937;
+      --borde: #cbd5e1;
+      --fondo: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 16px Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 34px 6vw;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: #fff;
+    }
+
+    header h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+    }
+
+    main {
+      width: min(950px, 92%);
+      margin: 28px auto 46px;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 22px;
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: #fff;
+      box-shadow: 0 2px 7px #0000000f;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--azul);
+      font-size: 1.35rem;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--azul);
+      font-size: 1.08rem;
+    }
+
+    p { margin: 10px 0; }
+
+    .case {
+      border-left: 5px solid var(--azul2);
+      background: var(--claro);
+    }
+
+    .question,
+    .note {
+      border-left: 5px solid #d97706;
+      background: var(--amarillo);
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .group-card {
+      padding: 17px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .group-number {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--azul);
+      color: #fff;
+      font-size: .9rem;
+      font-weight: bold;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 24px;
+    }
+
+    li { margin: 7px 0; }
+
+    footer {
+      padding: 18px 6vw;
+      background: #0f2f49;
+      color: #dbeafe;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 27px 5vw; }
+      main { width: 94%; margin-top: 18px; }
+      section { padding: 18px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+
+      header {
+        padding: 20px;
+        background: #fff;
+        color: var(--texto);
+        border-bottom: 2px solid var(--azul);
+      }
+
+      main { width: 100%; margin: 18px 0; }
+
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .back-link { display: none; }
+      footer {
+        background: #fff;
+        color: var(--texto);
+        border-top: 1px solid var(--borde);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Desafío de debate: Aminoácidos y energía</h1>
+    <p>Metabolismo de aminoácidos durante el ejercicio</p>
+    <a class="back-link" href="taller_5.html" style="display:inline-block;margin-top:18px;padding:9px 14px;border:2px solid #ffd166;border-radius:6px;background-color:#ffd166;color:#123b5d !important;font-size:15px;font-weight:bold;text-decoration:none !important;">← Volver al Taller 5</a>
+  </header>
+
+  <main>
+    <section class="case">
+      <h2>Caso: «Más kilómetros, más BCAA»</h2>
+
+      <p>
+        Diego tiene 22 años y está preparando su primera carrera de 21 km.
+        Durante las últimas semanas aumentó la distancia de sus entrenamientos
+        y suele correr entre 75 y 100 minutos. Para controlar su peso, ha
+        reducido algunas porciones de comida y, en ciertos días de entrenamiento,
+        sale a correr varias horas después de su última comida.
+      </p>
+
+      <p>
+        En algunos entrenamientos siente que le cuesta mantener el ritmo hacia
+        el final. No cuenta con mediciones metabólicas durante el ejercicio ni
+        con una evaluación nutricional que permita determinar la causa de esa
+        sensación o establecer qué combustibles utilizó.
+      </p>
+
+      <p>
+        Un compañero le recomienda un suplemento de aminoácidos de cadena
+        ramificada (BCAA), afirmando que “los músculos pueden convertirlos
+        directamente en energía durante la carrera y así evitar la fatiga”.
+        Diego quiere saber qué ocurre con los aminoácidos cuando se utilizan
+        en el metabolismo energético y si la información del caso permite
+        evaluar esa afirmación.
+      </p>
+    </section>
+
+    <section class="question">
+      <h2>Pregunta de inicio del profesor</h2>
+      <p>
+        <strong>
+          ¿Qué papel podrían tener los aminoácidos en el metabolismo energético
+          durante los entrenamientos de Diego, y qué permite concluir —o no
+          concluir— el caso sobre la afirmación acerca de los BCAA?
+        </strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>Perspectivas asignadas</h2>
+      <p>
+        Los tres grupos analizarán el mismo caso, pero profundizarán en aspectos
+        diferentes. Cada grupo se concentrará en su perspectiva y podrá nombrar
+        conexiones con otras rutas sin desarrollarlas en detalle.
+      </p>
+
+      <div class="groups">
+        <article class="group-card">
+          <span class="group-number">Grupo 1</span>
+          <h3>Manejo del nitrógeno</h3>
+          <p>
+            ¿Qué transformaciones experimentan los aminoácidos cuando se inicia
+            su catabolismo? ¿Qué ocurre con el grupo amino y por qué no basta
+            con seguir únicamente el destino del esqueleto carbonado?
+          </p>
+        </article>
+
+        <article class="group-card">
+          <span class="group-number">Grupo 2</span>
+          <h3>Destino de los esqueletos carbonados</h3>
+          <p>
+            ¿A qué tipos de intermediarios metabólicos pueden incorporarse los
+            esqueletos carbonados de los aminoácidos? ¿Qué conexiones con otras
+            rutas permite reconocer esto en el caso?
+          </p>
+        </article>
+
+        <article class="group-card">
+          <span class="group-number">Grupo 3</span>
+          <h3>Contribución y límites</h3>
+          <p>
+            ¿Qué permite afirmar el caso sobre la posible contribución de los
+            aminoácidos a la energía durante el ejercicio? ¿Qué información
+            faltaría para evaluar la afirmación sobre los BCAA y evitar
+            conclusiones exageradas?
+          </p>
+        </article>
+      </div>
+    </section>
+
+<section>
+  <h2>Preparación y entrega grupal</h2>
+  <p>El documento de trabajo debe incluir:</p>
+  <ul>
+    <li>Un análisis detallado del caso desde la perspectiva asignada, explicado con palabras propias.</li>
+    <li>Respuestas fundamentadas a las preguntas de preparación del grupo.</li>
+    <li>Un esquema metabólico pertinente.</li>
+    <li>Una conexión breve con otra ruta metabólica, sin desarrollar en detalle el tema asignado a otro grupo.</li>
+    <li>Información que falte o que limite las conclusiones del análisis.</li>
+    <li>El objetivo no es determinar si Diego debe consumir el suplemento, sino analizar la afirmación sobre los BCAA con argumentos bioquímicos y distinguir qué información aporta el caso de aquello que aún no puede establecerse.</li>
+    <li>Dos preguntas posibles para el debate: una dirigida a cada uno de los otros dos grupos de aminoácidos. Durante el debate, el grupo formulará solo una de esas preguntas.</li>
+  </ul>
+  <p><strong>Diapositiva de apoyo:</strong> cada grupo preparará una sola diapositiva para acompañar su presentación. Debe resumir el análisis e incluir un esquema metabólico pertinente. Eviten los párrafos extensos; la diapositiva debe apoyar la explicación oral, no reemplazarla.</p>
+  <!-- Botón para acceder a la entrega grupal -->
+  <div style="margin:20px 0;text-align:center;">
+    <a href="https://cursos.canvas.uc.cl/courses/108699/assignments/665114" style="display:inline-block;padding:12px 20px;border:2px solid #16794b;border-radius:7px;background-color:#16794b;color:#ffffff !important;font-weight:bold;text-decoration:none !important;">Entregar aquí documento grupal</a>
+  </div>
+</section>
+
+    <section class="note">
+      <p>
+        <strong>* Nota:</strong> Este caso es de carácter pedagógico y se presenta
+        para analizar rutas metabólicas. No constituye ni pretende constituir un
+        diagnóstico clínico, una evaluación médica ni una recomendación de
+        tratamiento, alimentación o suplementación.
+      </p>
+    </section>
+  </main>
+
+  <footer>Desafío de debate: Aminoácidos y energía</footer>
+</body>
+</html>
