@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Doce retos de análisis de bioenergética para QIM202K, Bioquímica General para Kinesiología">
+<title>Taller 3 — Bioenergética en el movimiento · QIM202K</title>
+<style>
+:root{
+  --azul:#123b5d;
+  --azul2:#2d6a8a;
+  --claro:#eaf3f8;
+  --amarillo:#fff7df;
+  --texto:#1f2937;
+  --gris:#64748b;
+  --borde:#cbd5e1;
+  --fondo:#f8fafc;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.55 Arial,Helvetica,sans-serif}
+header{padding:36px 5vw;background:linear-gradient(135deg,var(--azul),var(--azul2));color:white}
+header h1{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.65rem);line-height:1.15}
+header h2{margin:0 0 14px;color:#e0f2fe;font-size:1.15rem;font-weight:normal}
+header p{margin:5px 0}
+nav{position:sticky;top:0;z-index:3;display:flex;flex-wrap:wrap;gap:8px;padding:11px 4vw;background:white;border-bottom:1px solid var(--borde)}
+button,input{font:inherit}
+nav button{padding:9px 13px;border:0;border-radius:6px;background:var(--azul);color:white;font-weight:bold;cursor:pointer}
+nav button:hover,nav button:focus{background:var(--azul2)}
+main{width:min(1240px,94%);margin:22px auto 48px}
+.notice,.rules,.panel,.content{border:1px solid var(--borde);border-radius:9px;background:white;box-shadow:0 2px 7px #0000000d}
+.notice,.rules{margin:0 0 15px;padding:16px 18px}
+.notice{border-left:5px solid var(--azul2);background:var(--claro)}
+.rules{border-left:5px solid #d97706;background:var(--amarillo)}
+.notice h2,.rules h2,.panel h2,.content h2{margin-top:0;color:var(--azul)}
+.notice h2,.rules h2,.panel h2{font-size:1.15rem;margin-bottom:8px}
+.notice p,.rules p{margin:6px 0}
+.grid{display:grid;grid-template-columns:minmax(230px,.7fr) minmax(0,1.8fr);gap:16px;align-items:start}
+.panel{position:sticky;top:68px;padding:14px}
+.panel h2{margin:0 0 8px}
+#search{width:100%;padding:9px;border:1px solid var(--borde);border-radius:6px;margin:4px 0 10px}
+#items{display:grid;gap:7px;max-height:68vh;overflow:auto}
+.pick{width:100%;padding:10px;border:1px solid var(--borde);border-radius:6px;background:#f8fafc;color:var(--texto);text-align:left;cursor:pointer}
+.pick strong,.pick small{display:block}
+.pick strong{color:var(--azul)}
+.pick small{margin-top:3px;color:var(--gris)}
+.pick.active,.pick:hover{background:var(--claro);border-color:var(--azul2)}
+.content{min-width:0;min-height:420px;padding:22px}
+.content h2{margin:0 0 4px;font-size:1.55rem}
+.meta{color:var(--gris);font-size:.92rem}
+.topic{display:inline-block;margin:3px 5px 3px 0;padding:3px 9px;border-radius:18px;background:var(--claro);color:var(--azul);font-size:.82rem}
+.section{margin:20px 0}
+.section h3{margin:0 0 8px;padding-bottom:5px;border-bottom:1px solid #e2e8f0;color:var(--azul);font-size:1.08rem}
+.context{padding:12px 15px;border-left:4px solid var(--azul2);background:#f8fafc}
+.question-main{padding:14px 16px;border:1px solid #fcd34d;border-radius:7px;background:#fffbeb;font-size:1.05rem;font-weight:bold}
+.answer-note{padding:10px 13px;border-left:4px solid #6d28d9;background:#f5f3ff}
+.output{padding:13px 15px;border:1px solid var(--borde);border-radius:6px;background:#f8fafc}
+.example{padding:9px 12px;border-left:4px solid var(--azul2);background:var(--claro)}
+ul,ol{padding-left:23px}
+li{margin:6px 0}
+table{width:100%;border-collapse:collapse;margin:9px 0;font-size:.9rem}
+th,td{border:1px solid var(--borde);padding:7px;text-align:center}
+th{background:var(--claro);color:var(--azul)}
+caption{text-align:left;font-weight:bold;margin-bottom:5px}
+footer{padding:18px 5vw;background:#0f2f49;color:#dbeafe;text-align:center}
+@media(max-width:850px){
+  nav{position:static}
+  .grid{grid-template-columns:1fr}
+  .panel{position:static}
+  #items{max-height:none;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+}
+@media(max-width:600px){
+  main{width:94%;margin-top:14px}
+  .content{padding:15px}
+  table{font-size:.8rem}
+  th,td{padding:5px}
+}
+@media print{
+  body{background:#fff}
+  header{background:#fff;color:var(--texto);border-bottom:2px solid var(--azul)}
+  header h2{color:var(--texto)}
+  nav,.panel,.no-print{display:none!important}
+  main{width:100%;margin:10px auto}
+  .grid{display:block}
+  .content{box-shadow:none;border:0;padding:0}
+  .section,.context,.output{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header id="inicio">
+  <h1>Taller colaborativo N.° 3: Bioenergética en el movimiento</h1>
+  <h2>QIM202K — Bioquímica General para estudiantes de Kinesiología</h2>
+  <p><strong>Modalidad:</strong> equipos de 6–7 estudiantes.</p>
+  <p><strong>Organización:</strong> banco de 12 retos; cada equipo resuelve un caso asignado. Los casos pueden repetirse si hay más de 12 equipos.</p>
+  <p><strong>Duración:</strong> 90 minutos.</p>
+  <p><strong>Producto:</strong> mapa de resolución y respuestas grupales en papel, entregados al finalizar el taller.</p>
+</header>
+
+<nav aria-label="Navegación del taller">
+  <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">Instrucciones</button>
+  <button type="button" onclick="window.print()">Imprimir página</button>
+</nav>
+
+<main>
+  <section class="notice no-print">
+    <h2>Organización sugerida de los 90 minutos</h2>
+    <ol>
+      <li><strong>Leer y organizar (10 min):</strong> revisen contexto, datos y preguntas; distribuyan roles.</li>
+      <li><strong>Analizar (25 min):</strong> consulten apuntes y guías impresos para las rutas pertinentes.</li>
+      <li><strong>Construir e integrar (30 min):</strong> elaboren el mapa y relacionen los aportes.</li>
+      <li><strong>Revisar (15 min):</strong> distingan observaciones, condiciones e inferencias; indiquen límites.</li>
+      <li><strong>Redactar y entregar (10 min):</strong> completen las atribuciones y referencias; entreguen el documento en papel.</li>
+    </ol>
+  </section>
+
+  <section class="rules no-print">
+    <h2>Materiales, restricciones y atribución de aportes</h2>
+    <p>Se permiten únicamente apuntes y guías impresos del curso. No se permite usar celulares para obtener información ni IA o chatbots para responder.</p>
+    <p><strong>Atribución obligatoria:</strong> cada afirmación, explicación o conclusión debe llevar inmediatamente al final, entre paréntesis, el nombre del estudiante que la propone. Si se elaboró conjuntamente, indiquen los nombres de quienes participaron.</p>
+    <div class="example"><strong>Ejemplo:</strong> «El lactato puede contribuir a regenerar NAD⁺ durante la glicólisis» (Ana Pérez, Luis Soto).</div>
+    <p>La atribución de autoría identifica quién propone la idea; no reemplaza la referencia al material consultado. Indiquen el tema o apartado de los apuntes o guías que la respalda, sin inventar páginas.</p>
+  </section>
+
+  <section class="notice no-print">
+    <h2>Cómo interpretar los datos</h2>
+    <p>Todos los alimentos, condiciones y valores son <strong>simulados con fines docentes</strong>; no representan mediciones reales ni criterios clínicos. El lactato no demuestra ausencia total de oxígeno; los AGNE plasmáticos no cuantifican la oxidación de grasas; una glucosa sanguínea estable no mide directamente la producción hepática. No concluyan qué combustible predominó sin datos que lo permitan.</p>
+    <p><strong>Convenciones:</strong> T0 = reposo; T1 = término del ejercicio o tramo indicado; T2 = 30 minutos de recuperación. Glucosa, lactato, AGNE y alanina se expresan en mmol/L. Índice de glucógeno muscular: T0 = 100.</p>
+  </section>
+
+  <div class="grid">
+    <aside class="panel">
+      <h2>Seleccionar reto</h2>
+      <input id="search" type="search" placeholder="Buscar deporte, músculo o tema" aria-label="Buscar retos">
+      <div id="items"></div>
+      <p id="count" class="meta"></p>
+    </aside>
+
+    <section id="content" class="content" aria-live="polite">
+      <p>Seleccione un reto en el menú lateral.</p>
+    </section>
+  </div>
+</main>
+
+<footer>QIM202K — Bioquímica General · Taller colaborativo para Kinesiología</footer>
+
+<script>
+const RETOS = [
+{
+ id:"R01",
+ title:"Sprint: una demanda breve e intensa",
+ sport:"Atletismo, 100 m",
+ muscle:"Cuádriceps y glúteos",
+ context:"Una velocista realiza cuatro carreras simuladas de 100 m con pausas breves. Una hora antes consume pan, plátano y yogur.",
+ meal:"Composición simulada: 65 g de carbohidratos, 12 g de proteínas y 6 g de lípidos.",
+ conditions:[
+  "El músculo activo utiliza parte de su glucógeno.",
+  "Se estipula liberación de alanina desde el músculo para analizar la integración con el metabolismo hepático; no se pide cuantificar su contribución energética."
+ ],
+ columns:["Momento","Glucosa","Lactato","Glucógeno muscular","Alanina"],
+ units:["","mmol/L","mmol/L","índice","mmol/L"],
+ rows:[["T0",5.0,1.0,100,0.30],["T1",5.2,7.0,76,0.46],["T2",5.0,2.6,76,0.35]],
+ central:"¿Qué cambios metabólicos permiten que el músculo mantenga la glicólisis durante los sprints y qué puede concluirse sobre la participación de la alanina en este caso?",
+ questions:[
+  "¿Qué evidencia indica que disminuyó el glucógeno muscular y qué uso metabólico tiene ese depósito?",
+  "¿Cómo se relacionan glicólisis, piruvato y lactato con el aumento de lactato observado al terminar los sprints?",
+  "¿Qué ocurre con NADH y NAD⁺ cuando el piruvato se convierte en lactato, y por qué puede continuar la glicólisis?",
+  "Según la condición estipulada, ¿cómo se conecta la alanina con piruvato y metabolismo hepático?",
+  "¿Qué no permiten concluir los datos sobre oxígeno o sobre cuál combustible aportó más ATP?"
+ ],
+ topics:["Glucógeno","Glicólisis","Piruvato y lactato","NAD⁺","Alanina"]
+},
+{
+ id:"R02",
+ title:"Fútbol: cambios de ritmo y recuperación",
+ sport:"Fútbol",
+ muscle:"Isquiotibiales y pantorrilla",
+ context:"Una futbolista participa en un entrenamiento simulado de 40 min con carrera continua y sprints repetidos. Dos horas antes consume plátano y leche.",
+ meal:"Composición simulada: 45 g de carbohidratos, 10 g de proteínas y 5 g de lípidos.",
+ conditions:[
+  "Parte del lactato liberado por el músculo puede llegar al hígado y participar en rutas de recuperación de carbono.",
+  "La alanina es una conexión posible entre músculo e hígado; la tabla no mide directamente el flujo metabólico."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE","Alanina"],
+ units:["","mmol/L","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",4.9,1.1,0.30,0.30],["T1",5.1,5.8,0.32,0.46],["T2",5.0,2.4,0.42,0.35]],
+ central:"¿Cómo se pueden relacionar los cambios de lactato durante el entrenamiento con la glicólisis y la recuperación, y qué función podrían cumplir el hígado y la alanina?",
+ questions:[
+  "¿Qué cambia entre T0, T1 y T2 en lactato y alanina?",
+  "¿Cómo se conecta glicólisis con formación de piruvato y lactato?",
+  "¿Qué función cumple la regeneración de NAD⁺ para que continúe la glicólisis?",
+  "¿Qué rutas hepáticas pueden relacionarse con el lactato o la alanina según los apuntes?",
+  "¿Por qué los datos no demuestran que todo el lactato se convierta en glucosa?"
+ ],
+ topics:["Glicólisis","Lactato","NAD⁺","Alanina","Hígado"]
+},
+{
+ id:"R03",
+ title:"Carrera de fondo: uso de reservas",
+ sport:"Carrera de fondo",
+ muscle:"Sóleo y gastrocnemios",
+ context:"Una corredora realiza 60 min de carrera continua simulada a intensidad moderada. Dos horas antes consume avena, fruta y huevo.",
+ meal:"Composición simulada: 70 g de carbohidratos, 16 g de proteínas y 10 g de lípidos.",
+ conditions:[
+  "Se estipula utilización de glucógeno muscular.",
+  "Se estipula contribución de oxidación de ácidos grasos; los AGNE plasmáticos no cuantifican esa contribución.",
+  "No se estipula que los aminoácidos sean el combustible principal."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE","Glucógeno muscular"],
+ units:["","mmol/L","mmol/L","mmol/L","índice"],
+ rows:[["T0",5.0,1.1,0.30,100],["T1",4.8,2.0,0.58,68],["T2",4.9,1.4,0.67,68]],
+ central:"¿Qué puede inferir el equipo sobre el uso de glucógeno y la posible contribución de la oxidación de ácidos grasos durante esta carrera?",
+ questions:[
+  "¿Qué cambio muestra el índice de glucógeno muscular y qué indica en el escenario estipulado?",
+  "¿Cómo se conecta β-oxidación con acetil-CoA y el ciclo cítrico?",
+  "¿Cómo se relacionan NADH y FADH₂ con la cadena de transporte de electrones y la producción de ATP?",
+  "¿Por qué el aumento de AGNE no permite calcular el ATP que provino de las grasas?",
+  "¿Qué relación puede establecerse entre la comida previa y los sustratos disponibles sin atribuirle un efecto cuantitativo no medido?"
+ ],
+ topics:["Glucógeno","β-oxidación","Acetil-CoA","Ciclo cítrico","Fosforilación oxidativa"]
+},
+{
+ id:"R04",
+ title:"Ciclismo en ayuno: mantener la glucosa sanguínea",
+ sport:"Ciclismo de ruta",
+ muscle:"Cuádriceps",
+ context:"Un ciclista realiza 75 min de pedaleo moderado simulado tras varias horas sin ingerir alimentos. No hay alimento reciente declarado en el caso.",
+ meal:"Sin alimento reciente; la composición de la última comida no se especifica.",
+ conditions:[
+  "El hígado puede contribuir a mantener la glucosa sanguínea mediante glucogenólisis y gluconeogénesis.",
+  "Se estipula llegada de alanina desde el músculo y liberación de glicerol desde tejido adiposo.",
+  "No se cuantifica producción hepática ni uso relativo de combustibles."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE","Alanina"],
+ units:["","mmol/L","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",4.8,1.0,0.40,0.35],["T1",4.6,1.7,0.72,0.50],["T2",4.7,1.3,0.78,0.42]],
+ central:"¿Qué conexiones metabólicas pueden ayudar a mantener la glucosa sanguínea durante este ejercicio, y cuáles de ellas están estipuladas en el caso?",
+ questions:[
+  "¿En qué se diferencian el destino del glucógeno muscular y el del glucógeno hepático?",
+  "¿Qué rutas podrían conectar lactato, alanina o glicerol con gluconeogénesis según los apuntes?",
+  "¿Qué relación puede plantearse entre ácidos grasos, β-oxidación y metabolismo mitocondrial?",
+  "¿Qué dato del caso es observación y cuál es una condición estipulada?",
+  "¿Por qué una glucosa sanguínea relativamente estable no informa directamente cuánto produjo el hígado?"
+ ],
+ topics:["Ayuno","Glucogenólisis","Gluconeogénesis","Alanina","Glicerol","β-oxidación"]
+},
+{
+ id:"R05",
+ title:"Natación: intervalos y metabolismo oxidativo",
+ sport:"Natación",
+ muscle:"Hombros y espalda",
+ context:"Una nadadora realiza series simuladas de 200 m alternadas con pausas durante una sesión de 45 min. Dos horas antes consume un sándwich de pan, palta y pollo.",
+ meal:"Composición simulada: 58 g de carbohidratos, 22 g de proteínas y 14 g de lípidos.",
+ conditions:[
+  "El músculo utiliza glucógeno.",
+  "Parte del piruvato puede ingresar a la mitocondria durante las pausas.",
+  "La presencia de lactato no se interpreta como ausencia total de oxígeno."
+ ],
+ columns:["Momento","Glucosa","Lactato","Glucógeno muscular"],
+ units:["","mmol/L","mmol/L","índice"],
+ rows:[["T0",5.0,1.0,100],["T1",4.9,4.7,78],["T2",5.0,1.8,78]],
+ central:"¿Cómo pueden coexistir la formación de lactato durante los intervalos y el metabolismo oxidativo durante la sesión?",
+ questions:[
+  "¿Qué relación hay entre glicólisis, piruvato, lactato y regeneración de NAD⁺?",
+  "¿Qué destino mitocondrial puede tener el piruvato según los contenidos del curso?",
+  "¿Cómo se conectan ciclo cítrico, NADH/FADH₂, cadena respiratoria y ATP?",
+  "¿Qué muestra el cambio simulado del glucógeno muscular?",
+  "¿Qué no permite concluir el lactato medido acerca del oxígeno en el músculo?"
+ ],
+ topics:["Piruvato","Lactato","Ciclo cítrico","NADH/FADH₂","ATP"]
+},
+{
+ id:"R06",
+ title:"Remo: integrar la producción de ATP",
+ sport:"Remo",
+ muscle:"Piernas y musculatura dorsal",
+ context:"Una remera completa 20 min de trabajo simulado en ergómetro con intervalos de intensidad elevada. Dos horas antes consume cereal, leche y fruta.",
+ meal:"Composición simulada: 72 g de carbohidratos, 16 g de proteínas y 8 g de lípidos.",
+ conditions:[
+  "El músculo dispone de piruvato procedente de glicólisis y puede oxidar ácidos grasos.",
+  "No se especifica la contribución relativa de cada combustible.",
+  "Los aminoácidos dietarios son sustratos potenciales tras digestión y absorción; no se estipulan como combustible predominante."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE"],
+ units:["","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",5.0,1.0,0.30],["T1",4.8,4.5,0.48],["T2",4.9,1.9,0.56]],
+ central:"¿Cómo pueden conectarse los productos del metabolismo de carbohidratos y lípidos con la síntesis de ATP durante este ejercicio?",
+ questions:[
+  "¿Qué ruta conecta glucosa con piruvato y qué destino puede seguir este último?",
+  "¿Cómo se conecta β-oxidación con acetil-CoA?",
+  "¿Qué función tienen ciclo cítrico y fosforilación oxidativa en la producción de ATP?",
+  "¿Qué interpretación razonable permiten los datos de glucosa y lactato?",
+  "¿Qué mediciones adicionales harían falta para comparar cuantitativamente el aporte de carbohidratos y grasas?"
+ ],
+ topics:["Glicólisis","β-oxidación","Acetil-CoA","Ciclo cítrico","Cadena respiratoria"]
+},
+{
+ id:"R07",
+ title:"Danza: esfuerzo sostenido con ráfagas",
+ sport:"Danza contemporánea",
+ muscle:"Piernas y tronco",
+ context:"Una bailarina participa en un ensayo simulado de 50 min con secuencias sostenidas y ráfagas intensas. Antes consume yogur, fruta y frutos secos.",
+ meal:"Composición simulada: 42 g de carbohidratos, 15 g de proteínas y 12 g de lípidos.",
+ conditions:[
+  "Se estipula liberación de alanina desde el músculo y llegada al hígado.",
+  "No se cuantifica cuánto carbono de alanina se convierte en glucosa."
+ ],
+ columns:["Momento","Glucosa","Lactato","Alanina"],
+ units:["","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",5.0,1.0,0.32],["T1",4.8,4.0,0.48],["T2",4.9,1.8,0.39]],
+ central:"¿Cómo se relacionan el metabolismo de alanina, la glicólisis y la recuperación en esta situación?",
+ questions:[
+  "¿Qué reacción general representa una transaminación y qué papel puede cumplir el glutamato?",
+  "¿Cómo puede conectarse el carbono de alanina con piruvato y, en el hígado, con otras rutas?",
+  "¿Qué ocurre con el nitrógeno que se transfiere durante el catabolismo de aminoácidos?",
+  "¿Cómo se relacionan los cambios de lactato con glicólisis y regeneración de NAD⁺?",
+  "¿Qué no cuantifican los datos de alanina plasmática?"
+ ],
+ topics:["Transaminación","Alanina","Glutamato","Gluconeogénesis","Nitrógeno"]
+},
+{
+ id:"R08",
+ title:"Lucha: aminoácidos y nitrógeno",
+ sport:"Lucha olímpica",
+ muscle:"Tronco y extremidades",
+ context:"Un luchador completa cuatro combates simulados de 3 min con pausas. Dos horas antes consume arroz, huevo y fruta.",
+ meal:"Composición simulada: 62 g de carbohidratos, 20 g de proteínas y 8 g de lípidos.",
+ conditions:[
+  "Para analizar el manejo del nitrógeno, se estipula que parte del nitrógeno del catabolismo de aminoácidos llega al hígado y entra al ciclo de la urea.",
+  "No se cuantifica la oxidación de aminoácidos para producir ATP."
+ ],
+ columns:["Momento","Glucosa","Lactato","Alanina"],
+ units:["","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",5.0,1.0,0.30],["T1",4.9,5.6,0.47],["T2",5.0,2.5,0.40]],
+ central:"¿Cómo se separan y conectan el destino del nitrógeno y el del esqueleto carbonado de los aminoácidos?",
+ questions:[
+  "¿Qué diferencia hay entre transaminación y desaminación?",
+  "¿Cómo se vincula el nitrógeno que llega al hígado con el ciclo de la urea?",
+  "¿Qué destinos pueden tener los esqueletos carbonados según los apuntes?",
+  "¿Qué relación se observa entre ejercicio, lactato y glicólisis en la tabla?",
+  "¿Por qué la tabla no permite calcular cuánto ATP provino de aminoácidos?"
+ ],
+ topics:["Catabolismo de aminoácidos","Esqueleto carbonado","Ciclo de la urea","Glicólisis"]
+},
+{
+ id:"R09",
+ title:"Excursionismo: alimento, absorción y esfuerzo prolongado",
+ sport:"Excursionismo en subida",
+ muscle:"Cuádriceps y pantorrilla",
+ context:"Una excursionista realiza una caminata simulada de 90 min a intensidad moderada. Dos horas antes consume papa, pescado y aceite.",
+ meal:"Composición simulada: 64 g de carbohidratos, 23 g de proteínas y 11 g de lípidos.",
+ conditions:[
+  "La digestión y absorción de la comida ocurrieron antes del ejercicio.",
+  "No se midieron quilomicrones ni absorción intestinal durante la sesión."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE"],
+ units:["","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",5.0,1.0,0.29],["T1",4.7,1.7,0.61],["T2",4.9,1.3,0.69]],
+ central:"¿Cómo se relacionan los componentes de la comida con la disponibilidad de sustratos y el metabolismo durante el esfuerzo prolongado?",
+ questions:[
+  "¿Qué productos generales se obtienen de la digestión de carbohidratos, proteínas y triacilgliceroles según las guías?",
+  "¿Cómo se transportan los lípidos dietarios que se reesterifican en el enterocito?",
+  "¿Qué relación puede haber entre glucógeno muscular, glicólisis y demanda de ejercicio?",
+  "¿Por qué los AGNE plasmáticos no bastan para estimar la oxidación de grasas?",
+  "¿Qué información sobre digestión o absorción no fue medida en este caso?"
+ ],
+ topics:["Digestión","Absorción","Quilomicrones","Glucógeno","β-oxidación"]
+},
+{
+ id:"R10",
+ title:"Baloncesto: producción y recuperación de lactato",
+ sport:"Baloncesto",
+ muscle:"Cuádriceps y glúteos",
+ context:"Una jugadora participa en un partido simulado con aceleraciones y saltos repetidos. Antes consume pan, fruta y queso.",
+ meal:"Composición simulada: 56 g de carbohidratos, 18 g de proteínas y 10 g de lípidos.",
+ conditions:[
+  "Durante la recuperación, parte del lactato puede utilizarse por otros tejidos o por el hígado.",
+  "No se especifica cuánto lactato sigue cada destino."
+ ],
+ columns:["Momento","Glucosa","Lactato","Glucógeno muscular"],
+ units:["","mmol/L","mmol/L","índice"],
+ rows:[["T0",5.0,1.0,100],["T1",5.1,5.4,73],["T2",5.0,2.1,73]],
+ central:"¿Qué explican los cambios simulados de glucógeno y lactato, y qué destinos posibles puede tener el lactato durante la recuperación?",
+ questions:[
+  "¿Qué evidencia indica utilización de glucógeno muscular?",
+  "¿Cómo conecta glicólisis, piruvato y lactato la demanda de ATP del músculo?",
+  "¿Cómo ayuda la conversión de piruvato en lactato a regenerar NAD⁺?",
+  "¿Qué destinos posibles puede seguir el lactato durante recuperación?",
+  "¿Por qué la glucosa plasmática no informa directamente cuánto glucógeno hepático se degradó?"
+ ],
+ topics:["Glucógeno","Glicólisis","Lactato","NAD⁺","Hígado"]
+},
+{
+ id:"R11",
+ title:"Esquí de fondo: sustratos en esfuerzo continuo",
+ sport:"Esquí de fondo",
+ muscle:"Piernas y espalda",
+ context:"Una esquiadora realiza 60 min de esfuerzo continuo simulado a intensidad moderada. Dos horas antes consume pan, miel y yogur.",
+ meal:"Composición simulada: 74 g de carbohidratos, 14 g de proteínas y 7 g de lípidos.",
+ conditions:[
+  "Se estipula uso de glucógeno muscular.",
+  "Se estipula contribución de oxidación de ácidos grasos, sin especificar proporción energética."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE","Glucógeno muscular"],
+ units:["","mmol/L","mmol/L","mmol/L","índice"],
+ rows:[["T0",5.0,1.0,0.30,100],["T1",4.7,2.0,0.65,70],["T2",4.9,1.4,0.73,70]],
+ central:"¿Cómo pueden contribuir los carbohidratos y lípidos a sostener el esfuerzo, y qué diferencia existe entre el glucógeno muscular y el hepático?",
+ questions:[
+  "¿Qué evidencia muestra el cambio del glucógeno muscular?",
+  "¿Cómo se conectan los ácidos grasos con β-oxidación, acetil-CoA y ciclo cítrico?",
+  "¿Qué papel tiene el hígado en el mantenimiento de la glucosa sanguínea?",
+  "¿Cómo se relaciona la comida con sustratos posibles, sin inferir un aporte energético cuantitativo?",
+  "¿Qué medición adicional se necesitaría para comparar el uso relativo de combustibles?"
+ ],
+ topics:["Glucógeno","β-oxidación","Acetil-CoA","Ciclo cítrico","Alimentación"]
+},
+{
+ id:"R12",
+ title:"Baloncesto en silla de ruedas: integrar rutas",
+ sport:"Baloncesto en silla de ruedas",
+ muscle:"Hombros, brazos y tronco",
+ context:"Una jugadora participa en un partido simulado de cuatro cuartos con esfuerzos intermitentes. Dos horas antes consume cereal, leche y plátano.",
+ meal:"Composición simulada: 61 g de carbohidratos, 16 g de proteínas y 8 g de lípidos.",
+ conditions:[
+  "Se utiliza parte del glucógeno del músculo activo.",
+  "Se estipula liberación de alanina desde músculo y disponibilidad de ácidos grasos.",
+  "No se especifican los aportes energéticos relativos."
+ ],
+ columns:["Momento","Glucosa","Lactato","AGNE","Alanina"],
+ units:["","mmol/L","mmol/L","mmol/L","mmol/L"],
+ rows:[["T0",5.0,1.0,0.31,0.31],["T1",4.9,4.8,0.45,0.46],["T2",5.0,2.0,0.58,0.38]],
+ central:"¿Cómo se conectan carbohidratos, lípidos y aminoácidos con el metabolismo energético y la recuperación en este caso?",
+ questions:[
+  "¿Qué cambios de glucosa, lactato, AGNE y alanina se observan entre los momentos?",
+  "¿Cómo se conectan glucógeno, glicólisis, piruvato y lactato?",
+  "¿Qué relación hay entre alanina, piruvato, hígado y nitrógeno?",
+  "¿Cómo puede la β-oxidación conectarse con acetil-CoA y ciclo cítrico?",
+  "¿Qué afirmación no puede sostenerse sin más datos y qué medición adicional sería útil?"
+ ],
+ topics:["Integración metabólica","Lactato","β-oxidación","Alanina","Recuperación"]
+}
+];
+
+function escapeHTML(value){
+ return String(value ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+const itemsEl=document.getElementById("items");
+const contentEl=document.getElementById("content");
+const searchEl=document.getElementById("search");
+const countEl=document.getElementById("count");
+let activeId="R01";
+
+function renderList(){
+ const q=(searchEl.value||"").trim().toLowerCase();
+ const filtered=RETOS.filter(r=>
+  (r.id+" "+r.title+" "+r.sport+" "+r.muscle+" "+r.topics.join(" "))
+  .toLowerCase().includes(q)
+ );
+ itemsEl.innerHTML="";
+ filtered.forEach(r=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="pick"+(r.id===activeId?" active":"");
+  button.innerHTML="<strong>"+escapeHTML(r.id)+". "+escapeHTML(r.title)+"</strong><small>"+
+   escapeHTML(r.sport)+" · "+escapeHTML(r.muscle)+"</small>";
+  button.addEventListener("click",()=>showRetos(r.id));
+  itemsEl.appendChild(button);
+ });
+ countEl.textContent=filtered.length+" de "+RETOS.length+" retos";
+}
+
+function showRetos(id){
+ const r=RETOS.find(item=>item.id===id);
+ if(!r)return;
+ activeId=id;
+ renderList();
+
+ const headers=r.columns.map((column,index)=>
+  "<th>"+escapeHTML(column)+(r.units[index]?"<br><small>"+escapeHTML(r.units[index])+"</small>":"")+"</th>"
+ ).join("");
+
+ const dataRows=r.rows.map(row=>
+  "<tr>"+row.map((value,index)=>
+   "<td>"+(index===0?escapeHTML(value):(value===null?"—":escapeHTML(value)))+"</td>"
+  ).join("")+"</tr>"
+ ).join("");
+
+ contentEl.innerHTML=
+  "<h2>"+escapeHTML(r.id)+". "+escapeHTML(r.title)+"</h2>"+
+  '<p class="meta"><strong>Disciplina:</strong> '+escapeHTML(r.sport)+
+  ' · <strong>Grupo muscular destacado:</strong> '+escapeHTML(r.muscle)+"</p>"+
+  "<div>"+r.topics.map(topic=>'<span class="topic">'+escapeHTML(topic)+"</span>").join("")+"</div>"+
+  '<section class="section"><h3>1. Contexto</h3><div class="context"><p>'+escapeHTML(r.context)+"</p></div></section>"+
+  '<section class="section"><h3>2. Alimento previo simulado</h3><p>'+escapeHTML(r.meal)+"</p></section>"+
+  '<section class="section"><h3>3. Condiciones estipuladas</h3><ul>'+
+  r.conditions.map(condition=>"<li>"+escapeHTML(condition)+"</li>").join("")+"</ul></section>"+
+  '<section class="section"><h3>4. Datos simulados</h3>'+
+  '<p class="meta">Datos didácticos; no son mediciones reales. T0 = reposo; T1 = término del ejercicio o tramo indicado; T2 = 30 min de recuperación.</p>'+
+  '<div style="overflow-x:auto"><table><caption>Observaciones del caso</caption><thead><tr>'+
+  headers+"</tr></thead><tbody>"+dataRows+"</tbody></table></div></section>"+
+  '<section class="section"><h3>5. Pregunta central</h3><div class="question-main">'+escapeHTML(r.central)+"</div></section>"+
+  '<section class="section"><h3>6. Preguntas que debe responder el equipo</h3><ol>'+
+  r.questions.map(question=>"<li>"+escapeHTML(question)+"</li>").join("")+"</ol></section>"+
+  '<section class="section"><h3>7. Producto y atribución de aportes</h3><div class="output">'+
+  "<p>Entreguen en papel un mapa de resolución y una explicación organizada que responda la pregunta central y las preguntas específicas.</p>"+
+  "<p><strong>Cada afirmación, explicación o conclusión debe llevar inmediatamente al final, entre paréntesis, el nombre del estudiante que la propone.</strong> Si la idea se elaboró conjuntamente, indiquen los nombres de quienes participaron.</p>"+
+  "<p>Incluyan aparte el tema o apartado de apuntes o guías consultado. La atribución de autoría no reemplaza la referencia al material.</p>"+
+  '<div class="example"><strong>Ejemplo:</strong> «El lactato puede contribuir a regenerar NAD⁺ durante la glicólisis» (Nombre Apellido, Nombre Apellido).</div>'+
+  "</div></section>";
+
+ contentEl.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+searchEl.addEventListener("input",renderList);
+renderList();
+showRetos("R01");
+</script>
+</body>
+</html>
